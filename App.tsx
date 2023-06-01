@@ -6,10 +6,12 @@
  */
 
 import React from 'react';
+//import {Test} from './src/components/Share';
 
 import {HomeScreen} from './src/screens/HomeScreen';
 
 function App(): JSX.Element {
+  //return <Test />;
   return <HomeScreen />;
 }
 
