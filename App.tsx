@@ -6,13 +6,10 @@
  */
 
 import React from 'react';
-//import {Test} from './src/components/Share';
-
-import {HomeScreen} from './src/screens/HomeScreen';
+import AppNavigator from './src/navigator';
 
 function App(): JSX.Element {
-  //return <Test />;
-  return <HomeScreen />;
+  return <AppNavigator />;
 }
 
 export default App;

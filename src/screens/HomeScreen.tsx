@@ -2,6 +2,7 @@ import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
+  Share,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,6 +12,22 @@ import {
 
 export const HomeScreen = () => {
   const resultLabel = true ? 'Summary' : 'Rewritten';
+
+  const shareText = async (text: string) => {
+    try {
+      const result = await Share.share({
+        message: text,
+      });
+      if (result.action === Share.sharedAction) {
+        console.log('Text shared successfully');
+      } else if (result.action === Share.dismissedAction) {
+        console.log('Sharing dismissed');
+      }
+    } catch (error) {
+      console.error('Error sharing text:', error);
+    }
+  };
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
       <Text
@@ -103,7 +120,8 @@ export const HomeScreen = () => {
                   width: '25%',
                   borderColor: 'white',
                   borderWidth: 2,
-                }}>
+                }}
+                onPress={() => shareText('test')}>
                 <Text
                   style={{
                     color: 'white',
