@@ -10,10 +10,16 @@ import {
   View,
 } from 'react-native';
 
-export const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const resultLabel = true ? 'Summary' : 'Rewritten';
 
-  const shareText = async (text: string) => {
+  const inputText =
+    'React Native combines the best parts of native development with React, a best-in-class JavaScript library for building user interfaces.';
+
+  const resultText =
+    'React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces.';
+
+  const shareResult = async (text: string) => {
     try {
       const result = await Share.share({
         message: text,
@@ -59,9 +65,7 @@ export const HomeScreen = () => {
               fontSize: 18,
             }}
             numberOfLines={4}>
-            React Native combines the best parts of native development with
-            React, a best-in-class JavaScript library for building user
-            interfaces.
+            {inputText}
           </Text>
           <View
             style={{
@@ -83,7 +87,10 @@ export const HomeScreen = () => {
               {resultLabel}
             </Text>
             <ScrollView>
-              <TouchableWithoutFeedback onLongPress={() => {}}>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  navigation.navigate('Read');
+                }}>
                 <Text
                   style={{
                     color: 'white',
@@ -92,24 +99,7 @@ export const HomeScreen = () => {
                     fontSize: 18,
                   }}
                   numberOfLines={12}>
-                  React Native blends the finest elements of native app
-                  development with React, an exceptional JavaScript library
-                  utilized for constructing user interfaces. React Native blends
-                  the finest elements of native app development with React, an
-                  exceptional JavaScript library utilized for constructing user
-                  interfaces. React Native blends the finest elements of native
-                  app development with React, an exceptional JavaScript library
-                  utilized for constructing user interfaces. React Native blends
-                  the finest elements of native app development with React, an
-                  exceptional JavaScript library utilized for constructing user
-                  interfaces. React Native blends the finest elements of native
-                  app development with React, an exceptional JavaScript library
-                  utilized for constructing user interfaces. React Native blends
-                  the finest elements of native app development with React, an
-                  exceptional JavaScript library utilized for constructing user
-                  interfaces. React Native blends the finest elements of native
-                  app development with React, an exceptional JavaScript library
-                  utilized for constructing user interfaces.
+                  {resultText}
                 </Text>
               </TouchableWithoutFeedback>
             </ScrollView>
@@ -121,7 +111,7 @@ export const HomeScreen = () => {
                   borderColor: 'white',
                   borderWidth: 2,
                 }}
-                onPress={() => shareText('test')}>
+                onPress={() => shareResult(resultText)}>
                 <Text
                   style={{
                     color: 'white',
@@ -177,20 +167,12 @@ export const HomeScreen = () => {
             Rewrite
           </Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity
-          style={{
-            borderRadius: 25,
-            width: '20%',
-            backgroundColor: 'white',
-          }}>
-          <Text style={{color: '#0336FF', padding: 10, alignSelf: 'center'}}>
-            More
-          </Text>
-        </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );
 };
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {},
