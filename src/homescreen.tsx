@@ -21,7 +21,6 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.appTitle}>{homeScreenLabels.appTitle}</Text>
       <View style={styles.contentContainer}>
         <View>
           <Text style={styles.inputTextTitle}>{homeScreenLabels.input}</Text>

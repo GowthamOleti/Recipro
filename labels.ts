@@ -1,6 +1,5 @@
 export const appLabels = {
   homeScreenLabels: {
-    appTitle: 'GPT Tools',
     input: 'Input',
     resultType: {
       summary: 'Summary',

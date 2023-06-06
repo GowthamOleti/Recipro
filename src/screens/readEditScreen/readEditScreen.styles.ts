@@ -10,11 +10,9 @@ export const readEditStyles = StyleSheet.create({
   blackBackground: {
     backgroundColor: 'black',
   },
-  buttonText: {
+  resultText: {
     color: 'white',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    alignSelf: 'center',
+    padding: 15,
     fontSize: 18,
   },
   editableText: {

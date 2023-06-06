@@ -12,11 +12,31 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          options={{headerShown: false}}
+          options={{
+            title: 'GPT Tools',
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTintColor: '#fff',
+            headerTitleAlign: 'center',
+          }}
           name={Screens.HOME}
           component={HomeScreen}
         />
-        <Stack.Screen name={Screens.READ_EDIT} component={ReadEditScreen} />
+        <Stack.Screen
+          options={{
+            title: 'Result',
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          name={Screens.READ_EDIT}
+          component={ReadEditScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

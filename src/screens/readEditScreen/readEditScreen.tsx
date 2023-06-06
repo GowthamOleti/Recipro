@@ -28,7 +28,7 @@ const ReadEditScreen = ({route}) => {
             autoFocus
           />
         ) : (
-          <Text style={styles.buttonText}>{resultText}</Text>
+          <Text style={styles.resultText}>{resultText}</Text>
         )}
       </ScrollView>
       {type === ReadEditScreenType.READ && (
