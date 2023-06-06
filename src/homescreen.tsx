@@ -10,12 +10,13 @@ import {
 import {appLabels} from '../labels';
 import {homeScreenStyles} from './homescreen.styles';
 import {share} from './util/helpers';
+import {useFetchSharedItem} from './util/useFetchSharedItem';
 
 const HomeScreen = ({navigation}) => {
   const {homeScreenLabels, commonLabels, mocks} = appLabels;
   const styles = homeScreenStyles;
 
-  const inputText = mocks.input;
+  const inputText = useFetchSharedItem() || mocks.input;
   const resultText = mocks.output;
 
   return (
