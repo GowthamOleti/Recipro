@@ -1,7 +1,7 @@
 import {Linking, Share} from 'react-native';
 
 // Share Result
-export const share = async (text: string) => {
+export const shareResult = async (text: string) => {
   try {
     const result = await Share.share({
       message: text,
@@ -31,3 +31,8 @@ export const shareAsEmail = (text: string) => {
     console.error('An error occurred', err),
   );
 };
+
+// export const copyToClipboard = (text: string) => {
+//   Clipboard.setString(text);
+//   console.log(Clipboard.getString());
+// };

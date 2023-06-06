@@ -1,6 +1,6 @@
 export enum ReadEditScreenType {
-  INPUT,
-  RESULT,
+  READ,
+  EDIT,
 }
 
 export const Screens = {

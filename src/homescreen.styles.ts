@@ -35,10 +35,6 @@ export const homeScreenStyles = StyleSheet.create({
     alignSelf: 'center',
     fontWeight: '800',
   },
-  resultActionsContainer: {
-    flexDirection: 'row',
-    padding: '5%',
-  },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -70,17 +66,5 @@ export const homeScreenStyles = StyleSheet.create({
     color: 'white',
     padding: 10,
     alignSelf: 'center',
-  },
-  resultActionButtonText: {
-    color: 'white',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    alignSelf: 'center',
-  },
-  resultActionButtonContainer: {
-    borderRadius: 25,
-    width: '25%',
-    borderColor: 'white',
-    borderWidth: 2,
   },
 });

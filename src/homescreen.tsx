@@ -7,13 +7,13 @@ import {
   View,
 } from 'react-native';
 import {appLabels} from '../labels';
+import {ResultActions} from './components/resultActions/resultActions';
 import {homeScreenStyles} from './homescreen.styles';
 import {ReadEditScreenType, Screens} from './util/constants';
-import {share} from './util/helpers';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
 const HomeScreen = ({navigation}) => {
-  const {homeScreenLabels, commonLabels, mocks} = appLabels;
+  const {homeScreenLabels, mocks} = appLabels;
   const styles = homeScreenStyles;
 
   const inputText = useFetchSharedItem() || mocks.input;
@@ -30,7 +30,7 @@ const HomeScreen = ({navigation}) => {
             numberOfLines={4}
             onPress={() => {
               navigation.navigate(Screens.READ_EDIT, {
-                type: ReadEditScreenType.INPUT,
+                type: ReadEditScreenType.EDIT,
                 displayText: inputText,
               });
             }}>
@@ -46,27 +46,14 @@ const HomeScreen = ({navigation}) => {
                 numberOfLines={12}
                 onPress={() => {
                   navigation.navigate(Screens.READ_EDIT, {
-                    type: ReadEditScreenType.RESULT,
+                    type: ReadEditScreenType.READ,
                     displayText: resultText,
                   });
                 }}>
                 {resultText}
               </Text>
             </ScrollView>
-            <View style={styles.resultActionsContainer}>
-              <TouchableOpacity
-                style={styles.resultActionButtonContainer}
-                onPress={() => share(resultText)}>
-                <Text style={styles.resultActionButtonText}>
-                  {commonLabels.resultAction.share}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.resultActionButtonContainer}>
-                <Text style={styles.resultActionButtonText}>
-                  {commonLabels.resultAction.copy}
-                </Text>
-              </TouchableOpacity>
-            </View>
+            <ResultActions result={resultText} />
           </View>
         </View>
       </View>
