@@ -7,44 +7,50 @@ import {
   View,
 } from 'react-native';
 import {appLabels} from '../../../labels';
+import {ReadEditScreenType} from '../../util/constants';
 import {share, shareAsEmail, shareAsTweet} from '../../util/helpers';
 import {readEditStyles} from './readEditScreen.styles';
 
-const ReadEditScreen = () => {
-  const {commonLabels, mocks} = appLabels;
+const ReadEditScreen = ({route}) => {
+  const {commonLabels} = appLabels;
+  const styles = readEditStyles;
+  const resultText = route.params.displayText;
+  const type = route.params.type;
 
-  const resultText = mocks.output;
+  const backgroundStyle =
+    type === ReadEditScreenType.INPUT
+      ? styles.blackBackground
+      : styles.greyBackground;
+
   return (
-    <SafeAreaView style={readEditStyles.container}>
+    <SafeAreaView style={[readEditStyles.container, backgroundStyle]}>
       <ScrollView>
-        <Text style={readEditStyles.buttonText}>{resultText}</Text>
+        <Text style={styles.buttonText}>{resultText}</Text>
       </ScrollView>
-      <View style={readEditStyles.actionsContainer}>
+      <View style={styles.actionsContainer}>
         <TouchableOpacity
-          style={readEditStyles.buttonContainer}
+          style={styles.buttonContainer}
           onPress={() => share(resultText)}>
-          <Text style={readEditStyles.buttonContainer}>
+          <Text style={styles.buttonContainer}>
             {commonLabels.resultAction.share}
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {}}
-          style={readEditStyles.buttonContainer}>
-          <Text style={readEditStyles.buttonText}>
+        <TouchableOpacity onPress={() => {}} style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>
             {commonLabels.resultAction.copy}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => shareAsTweet(resultText)}
-          style={readEditStyles.buttonContainer}>
-          <Text style={readEditStyles.buttonText}>
+          style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>
             {commonLabels.resultAction.tweet}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => shareAsEmail(resultText)}
-          style={readEditStyles.buttonContainer}>
-          <Text style={readEditStyles.buttonText}>
+          style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>
             {commonLabels.resultAction.email}
           </Text>
         </TouchableOpacity>

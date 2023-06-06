@@ -3,7 +3,12 @@ import {StyleSheet} from 'react-native';
 export const readEditStyles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  greyBackground: {
     backgroundColor: '#252924',
+  },
+  blackBackground: {
+    backgroundColor: 'black',
   },
   actionsContainer: {
     flexDirection: 'row',

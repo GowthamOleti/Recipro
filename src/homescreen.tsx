@@ -4,11 +4,11 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import {appLabels} from '../labels';
 import {homeScreenStyles} from './homescreen.styles';
+import {ReadEditScreenType, Screens} from './util/constants';
 import {share} from './util/helpers';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
@@ -25,7 +25,15 @@ const HomeScreen = ({navigation}) => {
       <View style={styles.contentContainer}>
         <View>
           <Text style={styles.inputTextTitle}>{homeScreenLabels.input}</Text>
-          <Text style={styles.inputText} numberOfLines={4}>
+          <Text
+            style={styles.inputText}
+            numberOfLines={4}
+            onPress={() => {
+              navigation.navigate(Screens.READ_EDIT, {
+                type: ReadEditScreenType.INPUT,
+                displayText: inputText,
+              });
+            }}>
             {inputText}
           </Text>
           <View style={styles.resultTitleContainer}>
@@ -33,14 +41,17 @@ const HomeScreen = ({navigation}) => {
               {homeScreenLabels.resultType.summary}
             </Text>
             <ScrollView>
-              <TouchableWithoutFeedback
+              <Text
+                style={styles.resultText}
+                numberOfLines={12}
                 onPress={() => {
-                  navigation.navigate('Read');
+                  navigation.navigate(Screens.READ_EDIT, {
+                    type: ReadEditScreenType.RESULT,
+                    displayText: resultText,
+                  });
                 }}>
-                <Text style={styles.resultText} numberOfLines={12}>
-                  {resultText}
-                </Text>
-              </TouchableWithoutFeedback>
+                {resultText}
+              </Text>
             </ScrollView>
             <View style={styles.resultActionsContainer}>
               <TouchableOpacity
