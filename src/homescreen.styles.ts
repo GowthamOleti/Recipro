@@ -19,7 +19,11 @@ export const homeScreenStyles = StyleSheet.create({
     marginTop: '10%',
     backgroundColor: '#252924',
     borderRadius: 27,
-    maxHeight: '73%',
+    height: '68%',
+  },
+  resultActions: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
   resultTitleText: {
     color: '#FFFFFF99',
