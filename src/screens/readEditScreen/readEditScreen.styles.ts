@@ -20,4 +20,23 @@ export const readEditStyles = StyleSheet.create({
     fontSize: 20,
     padding: 20,
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: '10%',
+    position: 'absolute',
+    bottom: 35,
+    alignSelf: 'center',
+  },
+  actionButtonContainer: {
+    borderRadius: 25,
+    width: '45%',
+    borderColor: 'white',
+    borderWidth: 2,
+  },
+  actionButtonText: {
+    color: 'white',
+    padding: 10,
+    alignSelf: 'center',
+  },
 });

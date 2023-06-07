@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ReadEditScreen from '../screens/readEditScreen/readEditScreen';
 import HomeScreen from '../homescreen';
-import {Screens} from '../util/constants';
+import {ReadEditScreenType, Screens} from '../util/constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,16 +24,22 @@ export default function AppNavigator() {
           component={HomeScreen}
         />
         <Stack.Screen
-          options={{
-            title: 'Result',
+          options={({route}) => ({
+            title:
+              route?.params?.type === ReadEditScreenType.EDIT
+                ? 'Input'
+                : 'Result',
             headerStyle: {
-              backgroundColor: 'black',
+              backgroundColor:
+                route?.params?.type === ReadEditScreenType.EDIT
+                  ? 'black'
+                  : '#252924',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
             },
-          }}
+          })}
           name={Screens.READ_EDIT}
           component={ReadEditScreen}
         />

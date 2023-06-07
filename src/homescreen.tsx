@@ -12,11 +12,15 @@ import {homeScreenStyles} from './homescreen.styles';
 import {ReadEditScreenType, Screens} from './util/constants';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({navigation, route}) => {
   const {homeScreenLabels, mocks} = appLabels;
   const styles = homeScreenStyles;
 
-  const inputText = useFetchSharedItem() || mocks.input;
+  const updatedInputText = route?.params?.updatedInputText;
+  const sharedText = useFetchSharedItem();
+
+  const inputText = updatedInputText ?? sharedText ?? mocks.input;
+
   const resultText = mocks.output;
 
   return (
