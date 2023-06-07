@@ -3,19 +3,16 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    padding: '5%',
     justifyContent: 'flex-start',
+    padding: 20,
   },
-  resultActionButtonText: {
-    color: 'white',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    alignSelf: 'center',
+  copy: {
+    marginLeft: 10,
   },
-  resultActionButtonContainer: {
-    borderRadius: 25,
-    borderColor: 'white',
-    borderWidth: 2,
-    marginRight: 10,
+  tweet: {
+    marginLeft: 20,
+  },
+  email: {
+    marginLeft: 20,
   },
 });

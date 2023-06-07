@@ -2,13 +2,12 @@ import React from 'react';
 import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../labels';
 import {ResultActions} from './components/resultActions/resultActions';
-import {homeScreenStyles} from './homescreen.styles';
+import {styles} from './homescreen.styles';
 import {ReadEditScreenType, Screens} from './util/constants';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
 const HomeScreen = ({navigation, route}) => {
   const {homeScreenLabels, mocks} = appLabels;
-  const styles = homeScreenStyles;
 
   const updatedInputText = route?.params?.updatedInputText;
   const sharedText = useFetchSharedItem();
@@ -55,7 +54,7 @@ const HomeScreen = ({navigation, route}) => {
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={homeScreenStyles.actionButtonContainer}>
+        <TouchableOpacity style={styles.actionButtonContainer}>
           <Text style={styles.actionButtonText}>
             {homeScreenLabels.action.summarize}
           </Text>

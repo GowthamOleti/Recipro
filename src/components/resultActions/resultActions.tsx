@@ -1,6 +1,9 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
-import {appLabels} from '../../../labels';
+import {TouchableOpacity, View} from 'react-native';
+import Share from './../../../assets/icons/share.svg';
+import Copy from './../../../assets/icons/copy.svg';
+import Tweet from './../../../assets/icons/twitter.svg';
+import Email from './../../../assets/icons/email.svg';
 import {
   copyToClipboard,
   shareAsEmail,
@@ -14,38 +17,25 @@ export interface Props {
 }
 
 export const ResultActions = ({result}: Props) => {
-  const {commonLabels} = appLabels;
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.resultActionButtonContainer}
-        onPress={() => shareResult(result)}>
-        <Text style={styles.resultActionButtonText}>
-          {commonLabels.resultAction.share}
-        </Text>
+      <TouchableOpacity onPress={() => shareResult(result)}>
+        <Share height={25} width={25} />
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.resultActionButtonContainer}
-        onPress={() => {
-          copyToClipboard(result);
-        }}>
-        <Text style={styles.resultActionButtonText}>
-          {commonLabels.resultAction.copy}
-        </Text>
+        onPress={() => copyToClipboard(result)}
+        style={styles.copy}>
+        <Copy height={25} width={25} />
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.resultActionButtonContainer}
-        onPress={() => shareAsTweet(result)}>
-        <Text style={styles.resultActionButtonText}>
-          {commonLabels.resultAction.tweet}
-        </Text>
+        onPress={() => shareAsTweet(result)}
+        style={styles.tweet}>
+        <Tweet height={23} width={23} />
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.resultActionButtonContainer}
-        onPress={() => shareAsEmail(result)}>
-        <Text style={styles.resultActionButtonText}>
-          {commonLabels.resultAction.email}
-        </Text>
+        onPress={() => shareAsEmail(result)}
+        style={styles.email}>
+        <Email height={25} width={25} />
       </TouchableOpacity>
     </View>
   );
