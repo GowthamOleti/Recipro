@@ -14,7 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-gpt_tools-gpt_toolsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-gpt_tools-gpt_toolsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		4BB2AC0BB3F042E99EBBBC09 /* Avenir.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36CFF11329A145979261A82F /* Avenir.otf */; };
+		44C3C5FE9E884BF7BA3A69D5 /* Avenir.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A2C276F88224BE2A79BCEB9 /* Avenir.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = gpt_tools/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-gpt_tools-gpt_toolsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gpt_tools-gpt_toolsTests.release.xcconfig"; path = "Target Support Files/Pods-gpt_tools-gpt_toolsTests/Pods-gpt_tools-gpt_toolsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		36CFF11329A145979261A82F /* Avenir.otf */ = {isa = PBXFileReference; name = "Avenir.otf"; path = "../assets/fonts/Avenir.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9A2C276F88224BE2A79BCEB9 /* Avenir.ttf */ = {isa = PBXFileReference; name = "Avenir.ttf"; path = "../assets/fonts/Avenir.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 		FEC3B925DC964F1B8CE4C92D /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				36CFF11329A145979261A82F /* Avenir.otf */,
+				9A2C276F88224BE2A79BCEB9 /* Avenir.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				4BB2AC0BB3F042E99EBBBC09 /* Avenir.otf in Resources */,
+				44C3C5FE9E884BF7BA3A69D5 /* Avenir.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

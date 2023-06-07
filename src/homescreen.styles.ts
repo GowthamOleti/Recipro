@@ -13,16 +13,16 @@ export const styles = StyleSheet.create({
     fontFamily: 'Avenir',
     fontSize: 18,
     lineHeight: 22,
+    fontWeight: '700',
   },
   resultContainer: {
     borderColor: 'white',
     marginTop: '10%',
     backgroundColor: '#252924',
     borderRadius: 27,
-    height: '68%',
+    paddingVertical: 10,
   },
   resultActions: {
-    flex: 1,
     justifyContent: 'flex-end',
   },
   resultTitleText: {
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     marginTop: '2%',
     alignSelf: 'center',
-    fontWeight: '800',
+    fontWeight: 'bold',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -47,12 +47,13 @@ export const styles = StyleSheet.create({
     padding: 15,
     fontSize: 18,
     lineHeight: 23,
+    fontWeight: '600',
   },
   inputTextTitle: {
     color: '#FFFFFF99',
     fontFamily: 'Avenir',
     fontSize: 20,
-    marginTop: '5%',
+    marginVertical: '2%',
     fontWeight: '800',
   },
   actionButtonContainer: {

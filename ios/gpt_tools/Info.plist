@@ -53,7 +53,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Avenir.otf</string>
+		<string>Avenir.ttf</string>
 	</array>
 </dict>
 </plist>

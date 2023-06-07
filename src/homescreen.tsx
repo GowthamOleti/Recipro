@@ -47,9 +47,9 @@ const HomeScreen = ({navigation, route}) => {
               }}>
               {resultText}
             </Text>
-            <View style={styles.resultActions}>
-              <ResultActions result={resultText} />
-            </View>
+          </View>
+          <View style={styles.resultActions}>
+            <ResultActions result={resultText} />
           </View>
         </View>
       </View>
