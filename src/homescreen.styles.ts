@@ -10,8 +10,9 @@ export const homeScreenStyles = StyleSheet.create({
   },
   inputText: {
     color: 'white',
-    fontFamily: 'Roboto',
+    fontFamily: 'Avenir',
     fontSize: 18,
+    lineHeight: 22,
   },
   resultContainer: {
     borderColor: 'white',
@@ -22,7 +23,7 @@ export const homeScreenStyles = StyleSheet.create({
   },
   resultTitleText: {
     color: '#FFFFFF99',
-    fontFamily: 'Roboto',
+    fontFamily: 'Avenir',
     fontSize: 20,
     marginTop: '2%',
     alignSelf: 'center',
@@ -41,10 +42,11 @@ export const homeScreenStyles = StyleSheet.create({
     fontFamily: 'Avenir',
     padding: 15,
     fontSize: 18,
+    lineHeight: 23,
   },
   inputTextTitle: {
     color: '#FFFFFF99',
-    fontFamily: 'Roboto',
+    fontFamily: 'Avenir',
     fontSize: 20,
     marginTop: '5%',
     fontWeight: '800',

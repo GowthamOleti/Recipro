@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     padding: '5%',
+    justifyContent: 'flex-start',
   },
   resultActionButtonText: {
     color: 'white',

@@ -14,11 +14,15 @@ export const readEditStyles = StyleSheet.create({
     color: 'white',
     padding: 15,
     fontSize: 18,
+    lineHeight: 25,
+    fontFamily: 'Avenir',
   },
   editableText: {
     color: 'white',
     fontSize: 20,
     padding: 20,
+    fontFamily: 'Avenir',
+    lineHeight: 25,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -38,5 +42,6 @@ export const readEditStyles = StyleSheet.create({
     color: 'white',
     padding: 10,
     alignSelf: 'center',
+    fontFamily: 'Avenir',
   },
 });
