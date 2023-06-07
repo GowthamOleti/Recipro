@@ -8,19 +8,12 @@ export const homeScreenStyles = StyleSheet.create({
   contentContainer: {
     paddingHorizontal: '10%',
   },
-  appTitle: {
-    color: 'white',
-    paddingTop: 15,
-    fontSize: 20,
-    alignSelf: 'center',
-    fontFamily: 'Roboto Mono',
-  },
   inputText: {
     color: 'white',
     fontFamily: 'Roboto',
     fontSize: 18,
   },
-  resultTitleContainer: {
+  resultContainer: {
     borderColor: 'white',
     marginTop: '10%',
     backgroundColor: '#252924',

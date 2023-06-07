@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../labels';
 import {ResultActions} from './components/resultActions/resultActions';
 import {homeScreenStyles} from './homescreen.styles';
@@ -39,23 +33,21 @@ const HomeScreen = ({navigation, route}) => {
             }}>
             {inputText}
           </Text>
-          <View style={styles.resultTitleContainer}>
+          <View style={styles.resultContainer}>
             <Text style={styles.resultTitleText}>
               {homeScreenLabels.resultType.summary}
             </Text>
-            <ScrollView>
-              <Text
-                style={styles.resultText}
-                numberOfLines={12}
-                onPress={() => {
-                  navigation.navigate(Screens.READ_EDIT, {
-                    type: ReadEditScreenType.READ,
-                    displayText: resultText,
-                  });
-                }}>
-                {resultText}
-              </Text>
-            </ScrollView>
+            <Text
+              style={styles.resultText}
+              numberOfLines={12}
+              onPress={() => {
+                navigation.navigate(Screens.READ_EDIT, {
+                  type: ReadEditScreenType.READ,
+                  displayText: resultText,
+                });
+              }}>
+              {resultText}
+            </Text>
             <ResultActions result={resultText} />
           </View>
         </View>

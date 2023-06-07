@@ -1,7 +1,12 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../../../labels';
-import {shareAsEmail, shareAsTweet, shareResult} from '../../util/helpers';
+import {
+  copyToClipboard,
+  shareAsEmail,
+  shareAsTweet,
+  shareResult,
+} from '../../util/helpers';
 import {styles} from './resultActions.styles';
 
 export interface Props {
@@ -21,7 +26,9 @@ export const ResultActions = ({result}: Props) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.resultActionButtonContainer}
-        onPress={() => {}}>
+        onPress={() => {
+          copyToClipboard(result);
+        }}>
         <Text style={styles.resultActionButtonText}>
           {commonLabels.resultAction.copy}
         </Text>

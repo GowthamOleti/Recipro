@@ -1,4 +1,5 @@
-import {Linking, Share} from 'react-native';
+import {Linking, Share, ToastAndroid} from 'react-native';
+import Clipboard from '@react-native-community/clipboard';
 
 // Share Result
 export const shareResult = async (text: string) => {
@@ -32,7 +33,7 @@ export const shareAsEmail = (text: string) => {
   );
 };
 
-// export const copyToClipboard = (text: string) => {
-//   Clipboard.setString(text);
-//   console.log(Clipboard.getString());
-// };
+export const copyToClipboard = (text: string) => {
+  Clipboard.setString(text);
+  ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
+};
