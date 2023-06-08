@@ -22,22 +22,18 @@ export const EditActions = ({navigation, displayText}: Props) => {
     );
   };
 
-  const {readEditScreenLabels} = appLabels;
+  const {editActions} = appLabels;
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.actionButtonContainer}
         onPress={() => navigation.goBack()}>
-        <Text style={styles.actionButtonText}>
-          {readEditScreenLabels.closeButton}
-        </Text>
+        <Text style={styles.actionButtonText}>{editActions.closeButton}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.actionButtonContainer}
         onPress={onDonePressed}>
-        <Text style={styles.actionButtonText}>
-          {readEditScreenLabels.doneButton}
-        </Text>
+        <Text style={styles.actionButtonText}>{editActions.doneButton}</Text>
       </TouchableOpacity>
     </View>
   );

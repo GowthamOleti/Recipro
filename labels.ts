@@ -1,18 +1,14 @@
 import {InputActionType} from './src/util/constants';
 
 export const appLabels = {
-  homeScreenLabels: {
-    input: 'Input',
-    resultType: {
-      summary: 'Summary',
-      rewritten: 'Rewritten',
-    },
-    action: {
-      summarize: 'Summarize',
-      rewrite: 'Rewrite',
-    },
+  inputSection: {
+    title: 'Input',
   },
-  readEditScreenLabels: {
+  inputActions: {
+    summarize: 'Summarize',
+    rewrite: 'Rewrite',
+  },
+  editActions: {
     closeButton: 'Close',
     doneButton: 'Done',
   },

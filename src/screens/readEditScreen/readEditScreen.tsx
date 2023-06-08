@@ -9,7 +9,7 @@ const ReadEditScreen = ({navigation, route}) => {
   const resultText = route.params?.displayText;
   const type = route.params?.type;
 
-  const backgroundStyle =
+  const backgroundColor =
     type === ReadEditScreenType.READ
       ? styles.greyBackground
       : styles.blackBackground;
@@ -17,26 +17,29 @@ const ReadEditScreen = ({navigation, route}) => {
   const [displayText, setDisplayText] = useState(route.params.displayText);
 
   return (
-    <SafeAreaView style={[styles.container, backgroundStyle]}>
-      <ScrollView>
-        {type === ReadEditScreenType.EDIT ? (
-          <TextInput
-            multiline
-            style={styles.editableText}
-            value={displayText}
-            onChangeText={text => setDisplayText(text)}
-            autoFocus
-          />
-        ) : (
-          <Text selectable style={styles.resultText}>
-            {resultText}
-          </Text>
-        )}
-      </ScrollView>
+    <SafeAreaView style={[styles.container, backgroundColor]}>
       {type === ReadEditScreenType.READ ? (
-        <ResultActions result={resultText} />
+        <>
+          <ScrollView>
+            <Text selectable style={styles.resultText}>
+              {resultText}
+            </Text>
+          </ScrollView>
+          <ResultActions result={resultText} />
+        </>
       ) : (
-        <EditActions navigation={navigation} displayText={displayText} />
+        <>
+          <ScrollView>
+            <TextInput
+              multiline
+              style={styles.editableText}
+              value={displayText}
+              onChangeText={text => setDisplayText(text)}
+              autoFocus
+            />
+          </ScrollView>
+          <EditActions navigation={navigation} displayText={displayText} />
+        </>
       )}
     </SafeAreaView>
   );

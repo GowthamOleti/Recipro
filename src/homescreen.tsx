@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {appLabels, fetchInputActionTitle} from '../labels';
 import {InputActions} from './components/inputActions/inputActions';
+import {InputSection} from './components/inputSection/inputSection';
 import {ResultActions} from './components/resultActions/resultActions';
-import {styles} from './homescreen.styles';
-import {InputActionType, ReadEditScreenType, Screens} from './util/constants';
+import {ResultSection} from './components/resultSection/resultSection';
+import {InputActionType} from './util/constants';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
 const HomeScreen = ({navigation, route}) => {
-  const {homeScreenLabels, mocks} = appLabels;
+  const {mocks} = appLabels;
 
   const updatedInputText = route?.params?.updatedInputText;
   const sharedText = useFetchSharedItem();
@@ -24,43 +25,24 @@ const HomeScreen = ({navigation, route}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.contentContainer}>
-        <View>
-          <Text style={styles.inputTextTitle}>{homeScreenLabels.input}</Text>
-          <Text
-            style={styles.inputText}
-            numberOfLines={4}
-            onPress={() => {
-              navigation.navigate(Screens.READ_EDIT, {
-                type: ReadEditScreenType.EDIT,
-                displayText: inputText,
-              });
-            }}>
-            {inputText}
-          </Text>
-          <View style={styles.resultContainer}>
-            <Text style={styles.resultTitleText}>{resultTitle}</Text>
-            <Text
-              style={styles.resultText}
-              numberOfLines={12}
-              onPress={() => {
-                navigation.navigate(Screens.READ_EDIT, {
-                  type: ReadEditScreenType.READ,
-                  displayText: resultText,
-                  title: resultTitle,
-                });
-              }}>
-              {resultText}
-            </Text>
-          </View>
-          <View style={styles.resultActions}>
-            <ResultActions result={resultText} />
-          </View>
-        </View>
-      </View>
+      <InputSection navigation={navigation} inputText={inputText} />
+      <ResultSection
+        navigation={navigation}
+        resultText={resultText}
+        resultTitle={resultTitle}
+      />
+      <ResultActions result={resultText} />
       <InputActions setSelectedInputActionType={setSelectedActionType} />
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+    paddingHorizontal: '7%',
+  },
+});

@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const InputActions = ({setSelectedInputActionType}: Props) => {
-  const {homeScreenLabels} = appLabels;
+  const {inputActions} = appLabels;
 
   const onSummarizePress = () => {
     setSelectedInputActionType(InputActionType.Summarize);
@@ -24,16 +24,12 @@ export const InputActions = ({setSelectedInputActionType}: Props) => {
       <TouchableOpacity
         style={styles.actionButtonContainer}
         onPress={onSummarizePress}>
-        <Text style={styles.actionButtonText}>
-          {homeScreenLabels.action.summarize}
-        </Text>
+        <Text style={styles.actionButtonText}>{inputActions.summarize}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.actionButtonContainer}
         onPress={onRewritePress}>
-        <Text style={styles.actionButtonText}>
-          {homeScreenLabels.action.rewrite}
-        </Text>
+        <Text style={styles.actionButtonText}>{inputActions.rewrite}</Text>
       </TouchableOpacity>
     </View>
   );
