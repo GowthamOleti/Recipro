@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     position: 'absolute',
-    bottom: 35,
+    bottom: '5%',
     alignSelf: 'center',
   },
   actionButtonContainer: {
@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
   },
   actionButtonText: {
     color: 'white',
-    padding: 10,
+    padding: '7%',
     alignSelf: 'center',
   },
 });

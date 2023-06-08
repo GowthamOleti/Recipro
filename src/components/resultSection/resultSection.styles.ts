@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     marginTop: '10%',
     backgroundColor: color.grey,
     borderRadius: 27,
-    paddingVertical: 10,
+    paddingVertical: '3%',
   },
   resultTitleText: {
     color: color.sectionTitle,
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   resultText: {
     color: 'white',
     fontFamily: font.Avenir,
-    padding: 15,
+    padding: '5%',
     fontSize: 18,
     lineHeight: 23,
     fontWeight: '600',

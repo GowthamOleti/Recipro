@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   },
   resultText: {
     color: color.white,
-    padding: 15,
+    padding: '5%',
     fontSize: 18,
     lineHeight: 25,
     fontFamily: font.Avenir,
@@ -21,28 +21,8 @@ export const styles = StyleSheet.create({
   editableText: {
     color: color.white,
     fontSize: 20,
-    padding: 20,
+    padding: '5%',
     fontFamily: font.Avenir,
     lineHeight: 25,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: '10%',
-    position: 'absolute',
-    bottom: 35,
-    alignSelf: 'center',
-  },
-  actionButtonContainer: {
-    borderRadius: 25,
-    width: '45%',
-    borderColor: color.white,
-    borderWidth: 2,
-  },
-  actionButtonText: {
-    color: color.white,
-    padding: 10,
-    alignSelf: 'center',
-    fontFamily: font.Avenir,
   },
 });

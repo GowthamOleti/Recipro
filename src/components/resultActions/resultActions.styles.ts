@@ -4,15 +4,15 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    padding: 20,
+    padding: '6%',
   },
   copy: {
-    marginLeft: 10,
+    marginLeft: '3%',
   },
   tweet: {
-    marginLeft: 20,
+    marginLeft: '6%',
   },
   email: {
-    marginLeft: 20,
+    marginLeft: '6%',
   },
 });
