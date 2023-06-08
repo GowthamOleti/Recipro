@@ -54,6 +54,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Avenir.ttf</string>
+		<string>Roboto-Mono.ttf</string>
 	</array>
 </dict>
 </plist>

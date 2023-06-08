@@ -19,6 +19,9 @@ export default function AppNavigator() {
             },
             headerTintColor: '#fff',
             headerTitleAlign: 'center',
+            headerTitleStyle: {
+              fontFamily: 'Roboto-Mono',
+            },
           }}
           name={Screens.HOME}
           component={HomeScreen}

@@ -4,6 +4,10 @@
     {
       "path": "assets/fonts/Avenir.ttf",
       "sha1": "ea4f74d433612d9d044576534d3a3d8709412ed6"
+    },
+    {
+      "path": "assets/fonts/Roboto-Mono.ttf",
+      "sha1": "4c4b222617ecdda163e01a88c191ab0a50c336cf"
     }
   ]
 }
