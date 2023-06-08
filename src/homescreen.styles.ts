@@ -32,14 +32,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     fontWeight: 'bold',
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: '5%',
-    position: 'absolute',
-    bottom: 35,
-    alignSelf: 'center',
-  },
+
   resultText: {
     color: 'white',
     fontFamily: 'Avenir',
@@ -54,17 +47,6 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     marginVertical: '2%',
     fontWeight: '800',
-  },
-  actionButtonContainer: {
-    borderRadius: 25,
-    width: '45%',
-    borderColor: 'white',
-    borderWidth: 2,
-  },
-  actionButtonText: {
-    color: 'white',
-    padding: 10,
-    alignSelf: 'center',
   },
   copyIcon: {
     bottom: -30,

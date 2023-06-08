@@ -30,8 +30,8 @@ export default function AppNavigator() {
           options={({route}) => ({
             title:
               route?.params?.type === ReadEditScreenType.EDIT
-                ? 'Input'
-                : 'Result',
+                ? 'Edit Input'
+                : route.params?.title,
             headerStyle: {
               backgroundColor:
                 route?.params?.type === ReadEditScreenType.EDIT

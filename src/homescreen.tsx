@@ -1,9 +1,10 @@
-import React from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
-import {appLabels} from '../labels';
+import React, {useState} from 'react';
+import {SafeAreaView, Text, View} from 'react-native';
+import {appLabels, fetchInputActionTitle} from '../labels';
+import {InputActions} from './components/inputActions/inputActions';
 import {ResultActions} from './components/resultActions/resultActions';
 import {styles} from './homescreen.styles';
-import {ReadEditScreenType, Screens} from './util/constants';
+import {InputActionType, ReadEditScreenType, Screens} from './util/constants';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
 const HomeScreen = ({navigation, route}) => {
@@ -12,9 +13,14 @@ const HomeScreen = ({navigation, route}) => {
   const updatedInputText = route?.params?.updatedInputText;
   const sharedText = useFetchSharedItem();
 
+  const [selectedActionType, setSelectedActionType] =
+    useState<InputActionType>();
+
   const inputText = updatedInputText ?? sharedText ?? mocks.input;
 
   const resultText = mocks.output;
+  const resultTitle =
+    fetchInputActionTitle[selectedActionType ?? InputActionType.Default];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,9 +39,7 @@ const HomeScreen = ({navigation, route}) => {
             {inputText}
           </Text>
           <View style={styles.resultContainer}>
-            <Text style={styles.resultTitleText}>
-              {homeScreenLabels.resultType.summary}
-            </Text>
+            <Text style={styles.resultTitleText}>{resultTitle}</Text>
             <Text
               style={styles.resultText}
               numberOfLines={12}
@@ -43,6 +47,7 @@ const HomeScreen = ({navigation, route}) => {
                 navigation.navigate(Screens.READ_EDIT, {
                   type: ReadEditScreenType.READ,
                   displayText: resultText,
+                  title: resultTitle,
                 });
               }}>
               {resultText}
@@ -53,18 +58,7 @@ const HomeScreen = ({navigation, route}) => {
           </View>
         </View>
       </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.actionButtonContainer}>
-          <Text style={styles.actionButtonText}>
-            {homeScreenLabels.action.summarize}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButtonContainer}>
-          <Text style={styles.actionButtonText}>
-            {homeScreenLabels.action.rewrite}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <InputActions setSelectedInputActionType={setSelectedActionType} />
     </SafeAreaView>
   );
 };

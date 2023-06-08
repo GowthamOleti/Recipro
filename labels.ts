@@ -1,3 +1,5 @@
+import {InputActionType} from './src/util/constants';
+
 export const appLabels = {
   homeScreenLabels: {
     input: 'Input',
@@ -11,19 +13,8 @@ export const appLabels = {
     },
   },
   readEditScreenLabels: {
-    headerTitle: {
-      input: 'Input',
-      summary: 'Summary',
-      rewrite: 'Rewritten Result',
-    },
-  },
-  commonLabels: {
-    resultAction: {
-      share: 'Share',
-      copy: 'Copy',
-      tweet: 'Tweet',
-      email: 'Email',
-    },
+    closeButton: 'Close',
+    doneButton: 'Done',
   },
   mocks: {
     input:
@@ -31,4 +22,10 @@ export const appLabels = {
     output:
       'React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces. React Native blends the finest elements of native app development with React, an exceptional JavaScript library utilized for constructing user interfaces.',
   },
+};
+
+export const fetchInputActionTitle: Record<InputActionType, string> = {
+  SUMMARIZE: 'Summary',
+  REWRITE: 'Rewritten',
+  DEFAULT: 'Result',
 };
