@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
     color: '#FFFFFF99',
     fontFamily: 'Avenir',
     fontSize: 20,
-    marginTop: '2%',
     alignSelf: 'center',
     fontWeight: 'bold',
   },
