@@ -1,7 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {styles} from './resultSection.styles';
-import {ReadEditScreenType, Screens} from '../../util/constants';
+import {ReadEditScreenType} from '../../util/constants';
+import {Screen} from '../../navigator/navigator';
 
 export interface Props {
   navigation: any;
@@ -17,7 +18,7 @@ export const ResultSection = ({navigation, resultTitle, resultText}: Props) => {
         style={styles.resultText}
         numberOfLines={12}
         onPress={() => {
-          navigation.navigate(Screens.READ_EDIT, {
+          navigation.navigate(Screen.READ_EDIT, {
             type: ReadEditScreenType.READ,
             displayText: resultText,
             title: resultTitle,

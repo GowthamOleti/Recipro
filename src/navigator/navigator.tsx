@@ -3,11 +3,32 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ReadEditScreen from '../screens/readEditScreen/readEditScreen';
 import HomeScreen from '../homescreen';
-import {ReadEditScreenType, Screens} from '../util/constants';
+import {ReadEditScreenType} from '../util/constants';
 import {appLabels} from '../../labels';
 import {color, font} from '../util/theme';
+import {StackScreenProps} from '@react-navigation/stack';
 
-const Stack = createNativeStackNavigator();
+export enum Screen {
+  HOME = 'HOME',
+  READ_EDIT = 'READ_EDIT',
+}
+
+type NavStackParams = {
+  [Screen.HOME]: {updatedInputText?: string};
+  [Screen.READ_EDIT]: {
+    type: ReadEditScreenType;
+    displayText: string;
+    title: string;
+  };
+};
+
+export type HomeScreenProps = StackScreenProps<NavStackParams, Screen.HOME>;
+export type ReadEditScreenProps = StackScreenProps<
+  NavStackParams,
+  Screen.READ_EDIT
+>;
+
+const Stack = createNativeStackNavigator<NavStackParams>();
 
 export default function AppNavigator() {
   return (
@@ -25,7 +46,7 @@ export default function AppNavigator() {
               fontFamily: font.RobotoMono,
             },
           }}
-          name={Screens.HOME}
+          name={Screen.HOME}
           component={HomeScreen}
         />
         <Stack.Screen
@@ -45,7 +66,7 @@ export default function AppNavigator() {
               fontWeight: 'bold',
             },
           })}
-          name={Screens.READ_EDIT}
+          name={Screen.READ_EDIT}
           component={ReadEditScreen}
         />
       </Stack.Navigator>

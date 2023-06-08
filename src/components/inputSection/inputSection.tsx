@@ -1,8 +1,9 @@
 import React from 'react';
 import {Text} from 'react-native';
 import {styles} from './inputSection.styles';
-import {ReadEditScreenType, Screens} from '../../util/constants';
+import {ReadEditScreenType} from '../../util/constants';
 import {appLabels} from '../../../labels';
+import {Screen} from '../../navigator/navigator';
 
 export interface Props {
   navigation: any;
@@ -19,7 +20,7 @@ export const InputSection = ({navigation, inputText}: Props) => {
         style={styles.inputText}
         numberOfLines={4}
         onPress={() => {
-          navigation.navigate(Screens.READ_EDIT, {
+          navigation.navigate(Screen.READ_EDIT, {
             type: ReadEditScreenType.EDIT,
             displayText: inputText,
           });

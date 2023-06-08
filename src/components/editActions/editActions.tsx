@@ -2,7 +2,7 @@ import {CommonActions} from '@react-navigation/native';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../../../labels';
-import {Screens} from '../../util/constants';
+import {Screen} from '../../navigator/navigator';
 import {styles} from './editActions.styles';
 
 interface Props {
@@ -12,12 +12,10 @@ interface Props {
 
 export const EditActions = ({navigation, displayText}: Props) => {
   const onDonePressed = () => {
-    navigation.replace(Screens.HOME, {updatedInputText: displayText});
-
     navigation.dispatch(
       CommonActions.reset({
         index: 0,
-        routes: [{name: Screens.HOME, params: {updatedInputText: displayText}}],
+        routes: [{name: Screen.HOME, params: {updatedInputText: displayText}}],
       }),
     );
   };

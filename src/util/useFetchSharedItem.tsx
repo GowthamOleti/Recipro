@@ -38,7 +38,7 @@ export const useFetchSharedItem = () => {
 
   if (sharedMimeType && sharedData && sharedMimeType === 'text/plain') {
     // The user shared text
-    return sharedData;
+    return String(sharedData);
   }
 
   return null;
