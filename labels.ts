@@ -1,6 +1,7 @@
 import {InputActionType} from './src/util/constants';
 
 export const appLabels = {
+  appName: 'GPT Tools',
   inputSection: {
     title: 'Input',
   },
@@ -11,6 +12,9 @@ export const appLabels = {
   editActions: {
     closeButton: 'Close',
     doneButton: 'Done',
+  },
+  readEditScreen: {
+    editHeaderTitle: 'Edit Input',
   },
   mocks: {
     input:

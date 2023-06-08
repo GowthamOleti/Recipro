@@ -4,6 +4,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ReadEditScreen from '../screens/readEditScreen/readEditScreen';
 import HomeScreen from '../homescreen';
 import {ReadEditScreenType, Screens} from '../util/constants';
+import {appLabels} from '../../labels';
+import {color, font} from '../util/theme';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,14 +15,14 @@ export default function AppNavigator() {
       <Stack.Navigator>
         <Stack.Screen
           options={{
-            title: 'GPT Tools',
+            title: appLabels.appName,
             headerStyle: {
-              backgroundColor: 'black',
+              backgroundColor: color.black,
             },
-            headerTintColor: '#fff',
+            headerTintColor: color.white,
             headerTitleAlign: 'center',
             headerTitleStyle: {
-              fontFamily: 'Roboto-Mono',
+              fontFamily: font.RobotoMono,
             },
           }}
           name={Screens.HOME}
@@ -29,16 +31,16 @@ export default function AppNavigator() {
         <Stack.Screen
           options={({route}) => ({
             title:
-              route?.params?.type === ReadEditScreenType.EDIT
-                ? 'Edit Input'
-                : route.params?.title,
+              route?.params?.type === ReadEditScreenType.READ
+                ? route.params?.title
+                : appLabels.readEditScreen.editHeaderTitle,
             headerStyle: {
               backgroundColor:
-                route?.params?.type === ReadEditScreenType.EDIT
-                  ? 'black'
-                  : '#252924',
+                route?.params?.type === ReadEditScreenType.READ
+                  ? color.grey
+                  : color.black,
             },
-            headerTintColor: '#fff',
+            headerTintColor: color.white,
             headerTitleStyle: {
               fontWeight: 'bold',
             },
