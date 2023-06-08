@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   contentContainer: {
-    paddingHorizontal: '10%',
+    paddingHorizontal: '7%',
   },
   inputText: {
     color: 'white',
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: '10%',
+    paddingHorizontal: '5%',
     position: 'absolute',
     bottom: 35,
     alignSelf: 'center',
