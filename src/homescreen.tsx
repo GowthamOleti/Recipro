@@ -5,7 +5,7 @@ import {InputActions} from './components/inputActions/inputActions';
 import {InputSection} from './components/inputSection/inputSection';
 import {ResultActions} from './components/resultActions/resultActions';
 import {ResultSection} from './components/resultSection/resultSection';
-import {HomeScreenProps} from './navigator/navigator';
+import {HomeScreenProps} from './navigation/navigationTypes';
 import {InputActionType} from './util/constants';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 

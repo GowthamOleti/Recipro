@@ -6,27 +6,7 @@ import HomeScreen from '../homescreen';
 import {ReadEditScreenType} from '../util/constants';
 import {appLabels} from '../../labels';
 import {color, font} from '../util/theme';
-import {StackScreenProps} from '@react-navigation/stack';
-
-export enum Screen {
-  HOME = 'HOME',
-  READ_EDIT = 'READ_EDIT',
-}
-
-type NavStackParams = {
-  [Screen.HOME]: {updatedInputText?: string};
-  [Screen.READ_EDIT]: {
-    type: ReadEditScreenType;
-    displayText: string;
-    title: string;
-  };
-};
-
-export type HomeScreenProps = StackScreenProps<NavStackParams, Screen.HOME>;
-export type ReadEditScreenProps = StackScreenProps<
-  NavStackParams,
-  Screen.READ_EDIT
->;
+import {NavStackParams, Screen} from './navigationTypes';
 
 const Stack = createNativeStackNavigator<NavStackParams>();
 

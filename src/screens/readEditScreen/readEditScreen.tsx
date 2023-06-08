@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, TextInput} from 'react-native';
 import {EditActions} from '../../components/editActions/editActions';
 import {ResultActions} from '../../components/resultActions/resultActions';
-import {ReadEditScreenProps} from '../../navigator/navigator';
+import {ReadEditScreenProps} from '../../navigation/navigationTypes';
 import {ReadEditScreenType} from '../../util/constants';
 import {styles} from './readEditScreen.styles';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {styles} from './resultSection.styles';
 import {ReadEditScreenType} from '../../util/constants';
-import {Screen} from '../../navigator/navigator';
+import {Screen} from '../../navigation/navigationTypes';
 
 export interface Props {
   navigation: any;

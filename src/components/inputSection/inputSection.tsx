@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import {styles} from './inputSection.styles';
 import {ReadEditScreenType} from '../../util/constants';
 import {appLabels} from '../../../labels';
-import {Screen} from '../../navigator/navigator';
+import {Screen} from '../../navigation/navigationTypes';
 
 export interface Props {
   navigation: any;

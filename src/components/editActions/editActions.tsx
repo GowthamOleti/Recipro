@@ -2,7 +2,7 @@ import {CommonActions} from '@react-navigation/native';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../../../labels';
-import {Screen} from '../../navigator/navigator';
+import {Screen} from '../../navigation/navigationTypes';
 import {styles} from './editActions.styles';
 
 interface Props {
