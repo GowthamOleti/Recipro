@@ -47,19 +47,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: '7%',
   },
 });
-
-const testOpenAI = async (input: string) => {
-  console.log('inside test block');
-  const {Configuration, OpenAIApi} = require('openai');
-
-  const configuration = new Configuration({
-    apiKey: '',
-  });
-  const openai = new OpenAIApi(configuration);
-
-  const completion = await openai.createCompletion({
-    model: 'text-davinci-003',
-    prompt: `Rewrite - ${input}`,
-  });
-  console.log(JSON.stringify(completion.data.choices[0].text));
-};
