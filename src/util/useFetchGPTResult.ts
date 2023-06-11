@@ -1,9 +1,6 @@
-import {InputActionType} from './constants';
+import globalState from '../../global';
 
-export const useFetchGPTResult = async (
-  input: string,
-  actionType: InputActionType,
-) => {
+export const fetchGPTResult = async () => {
   const {Configuration, OpenAIApi} = require('openai');
 
   const configuration = new Configuration({
@@ -11,16 +8,13 @@ export const useFetchGPTResult = async (
   });
   const openai = new OpenAIApi(configuration);
 
-  console.log(actionType);
-
   try {
     const completion = await openai.createCompletion({
       model: 'text-davinci-003',
-      prompt: `Rewrite - ${input}`,
+      prompt: `Rewrite - ${globalState.input}`,
     });
-    return String(completion.data.choices[0].text);
+    globalState.output = String(completion.data.choices[0].text);
   } catch (e) {
     console.log(e);
   }
-  return null;
 };

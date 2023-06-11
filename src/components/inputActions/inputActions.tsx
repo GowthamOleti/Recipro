@@ -1,22 +1,21 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import globalState from '../../../global';
 import {appLabels} from '../../../labels';
 import {InputActionType} from '../../util/constants';
+import {fetchGPTResult} from '../../util/useFetchGPTResult';
 import {styles} from './inputActions.styles';
 
-interface Props {
-  setSelectedInputActionType: (inputActionType?: InputActionType) => void;
-}
-
-export const InputActions = ({setSelectedInputActionType}: Props) => {
+export const InputActions = () => {
   const {inputActions} = appLabels;
 
   const onSummarizePress = () => {
-    setSelectedInputActionType(InputActionType.Summarize);
+    globalState.actionType = InputActionType.Summarize;
   };
 
   const onRewritePress = () => {
-    setSelectedInputActionType(InputActionType.Rewrite);
+    globalState.actionType = InputActionType.Rewrite;
+    fetchGPTResult();
   };
 
   return (

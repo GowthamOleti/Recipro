@@ -11,29 +11,26 @@ import {
   shareResult,
 } from '../../util/helpers';
 import {styles} from './resultActions.styles';
+import globalState from '../../../global';
 
-export interface Props {
-  result: string;
-}
-
-export const ResultActions = ({result}: Props) => {
+export const ResultActions = () => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => shareResult(result)}>
+      <TouchableOpacity onPress={() => shareResult(globalState.output)}>
         <Share height={25} width={25} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => copyToClipboard(result)}
+        onPress={() => copyToClipboard(globalState.output)}
         style={styles.copy}>
         <Copy height={25} width={25} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => shareAsTweet(result)}
+        onPress={() => shareAsTweet(globalState.output)}
         style={styles.tweet}>
         <Tweet height={23} width={23} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => shareAsEmail(result)}
+        onPress={() => shareAsEmail(globalState.output)}
         style={styles.email}>
         <Email height={25} width={25} />
       </TouchableOpacity>

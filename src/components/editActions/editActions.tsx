@@ -1,21 +1,23 @@
 import {CommonActions} from '@react-navigation/native';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import globalState from '../../../global';
 import {appLabels} from '../../../labels';
 import {Screen} from '../../navigation/navigationTypes';
 import {styles} from './editActions.styles';
 
 interface Props {
   navigation: any;
-  displayText: string;
+  inputText: string;
 }
 
-export const EditActions = ({navigation, displayText}: Props) => {
+export const EditActions = ({navigation, inputText}: Props) => {
   const onDonePressed = () => {
+    globalState.input = inputText;
     navigation.dispatch(
       CommonActions.reset({
         index: 0,
-        routes: [{name: Screen.HOME, params: {updatedInputText: displayText}}],
+        routes: [{name: Screen.HOME}],
       }),
     );
   };

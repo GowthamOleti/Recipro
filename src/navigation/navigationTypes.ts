@@ -7,10 +7,9 @@ export enum Screen {
 }
 
 export type NavStackParams = {
-  [Screen.HOME]: {updatedInputText?: string};
+  [Screen.HOME]: undefined;
   [Screen.READ_EDIT]: {
     type: ReadEditScreenType;
-    displayText: string;
     title: string;
   };
 };

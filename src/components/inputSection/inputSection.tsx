@@ -4,13 +4,13 @@ import {styles} from './inputSection.styles';
 import {ReadEditScreenType} from '../../util/constants';
 import {appLabels} from '../../../labels';
 import {Screen} from '../../navigation/navigationTypes';
+import globalState from '../../../global';
 
 export interface Props {
   navigation: any;
-  inputText: string;
 }
 
-export const InputSection = ({navigation, inputText}: Props) => {
+export const InputSection = ({navigation}: Props) => {
   const {inputSection} = appLabels;
 
   return (
@@ -22,10 +22,10 @@ export const InputSection = ({navigation, inputText}: Props) => {
         onPress={() => {
           navigation.navigate(Screen.READ_EDIT, {
             type: ReadEditScreenType.EDIT,
-            displayText: inputText,
+            displayText: globalState.input,
           });
         }}>
-        {inputText}
+        {globalState.input}
       </Text>
     </>
   );

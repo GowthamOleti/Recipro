@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, TextInput} from 'react-native';
+import globalState from '../../../global';
 import {EditActions} from '../../components/editActions/editActions';
 import {ResultActions} from '../../components/resultActions/resultActions';
 import {ReadEditScreenProps} from '../../navigation/navigationTypes';
@@ -7,7 +8,6 @@ import {ReadEditScreenType} from '../../util/constants';
 import {styles} from './readEditScreen.styles';
 
 const ReadEditScreen = ({navigation, route}: ReadEditScreenProps) => {
-  const resultText = route.params?.displayText;
   const type = route.params?.type;
 
   const backgroundColor =
@@ -15,7 +15,7 @@ const ReadEditScreen = ({navigation, route}: ReadEditScreenProps) => {
       ? styles.greyBackground
       : styles.blackBackground;
 
-  const [displayText, setDisplayText] = useState(route.params.displayText);
+  const [inputText, setInputText] = useState(globalState.input);
 
   return (
     <SafeAreaView style={[styles.container, backgroundColor]}>
@@ -23,10 +23,10 @@ const ReadEditScreen = ({navigation, route}: ReadEditScreenProps) => {
         <>
           <ScrollView>
             <Text selectable style={styles.resultText}>
-              {resultText}
+              {globalState.output}
             </Text>
           </ScrollView>
-          <ResultActions result={resultText} />
+          <ResultActions />
         </>
       ) : (
         <>
@@ -34,12 +34,12 @@ const ReadEditScreen = ({navigation, route}: ReadEditScreenProps) => {
             <TextInput
               multiline
               style={styles.editableText}
-              value={displayText}
-              onChangeText={text => setDisplayText(text)}
+              value={inputText}
+              onChangeText={text => setInputText(text)}
               autoFocus
             />
           </ScrollView>
-          <EditActions navigation={navigation} displayText={displayText} />
+          <EditActions navigation={navigation} inputText={inputText} />
         </>
       )}
     </SafeAreaView>

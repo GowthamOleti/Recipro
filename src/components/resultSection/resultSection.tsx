@@ -3,14 +3,14 @@ import {Text, View} from 'react-native';
 import {styles} from './resultSection.styles';
 import {ReadEditScreenType} from '../../util/constants';
 import {Screen} from '../../navigation/navigationTypes';
+import globalState from '../../../global';
 
 export interface Props {
   navigation: any;
   resultTitle: string;
-  resultText: string;
 }
 
-export const ResultSection = ({navigation, resultTitle, resultText}: Props) => {
+export const ResultSection = ({navigation, resultTitle}: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.resultTitleText}>{resultTitle}</Text>
@@ -20,11 +20,11 @@ export const ResultSection = ({navigation, resultTitle, resultText}: Props) => {
         onPress={() => {
           navigation.navigate(Screen.READ_EDIT, {
             type: ReadEditScreenType.READ,
-            displayText: resultText,
+            displayText: globalState.output,
             title: resultTitle,
           });
         }}>
-        {resultText}
+        {globalState.output}
       </Text>
     </View>
   );
