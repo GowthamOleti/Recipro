@@ -7,6 +7,7 @@ export type GlobalContextType = {
   output: string;
   actionType: InputActionType;
   isOpenAIApiKeyPresent: boolean;
+  isLoading: boolean;
 };
 
 // export const defaultContextData = {
@@ -21,6 +22,7 @@ export const defaultContextData = {
   output: '',
   actionType: InputActionType.Default,
   isOpenAIApiKeyPresent: true,
+  isLoading: false,
 };
 
 export const GlobalContext = createContext({

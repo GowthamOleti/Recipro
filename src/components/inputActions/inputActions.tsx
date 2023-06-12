@@ -11,21 +11,41 @@ export const InputActions = () => {
 
   const {contextData, setContextData} = useContext(GlobalContext);
 
-  const onSummarizePress = async () => {
-    const output = await fetchGPTResult(contextData);
+  // TODO: Make this more simpler
+
+  const onSummarizePress = () => {
     setContextData({
       ...contextData,
-      output,
+      isLoading: true,
+    });
+    fetchGPTResult({
+      input: contextData.input,
       actionType: InputActionType.Summarize,
+    }).then(output => {
+      setContextData({
+        ...contextData,
+        output,
+        actionType: InputActionType.Summarize,
+        isLoading: false,
+      });
     });
   };
 
   const onRewritePress = async () => {
-    const output = await fetchGPTResult(contextData);
     setContextData({
       ...contextData,
-      output,
+      isLoading: true,
+    });
+    fetchGPTResult({
+      input: contextData.input,
       actionType: InputActionType.Rewrite,
+    }).then(output => {
+      setContextData({
+        ...contextData,
+        output,
+        actionType: InputActionType.Rewrite,
+        isLoading: false,
+      });
     });
   };
 

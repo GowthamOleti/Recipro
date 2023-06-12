@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {ActivityIndicator, SafeAreaView, StyleSheet} from 'react-native';
 import {GlobalContext} from '../globalContext';
 import {InputActions} from './components/inputActions/inputActions';
 import {InputSection} from './components/inputSection/inputSection';
@@ -34,13 +34,23 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
       {contextData.isOpenAIApiKeyPresent ? (
         <>
           <InputSection navigation={navigation} />
-          {contextData.output.length > 0 && (
+          {contextData.isLoading ? (
+            <ActivityIndicator
+              style={styles.loading}
+              size="large"
+              color="white"
+            />
+          ) : (
             <>
-              <ResultSection navigation={navigation} />
-              <ResultActions />
+              {contextData.output.length > 0 && (
+                <>
+                  <ResultSection navigation={navigation} />
+                  <ResultActions />
+                </>
+              )}
+              <InputActions />
             </>
           )}
-          <InputActions />
         </>
       ) : (
         <AskAPIKey />
@@ -56,5 +66,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: color.black,
     paddingHorizontal: '7%',
+  },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
