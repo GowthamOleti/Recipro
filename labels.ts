@@ -8,7 +8,7 @@ export const appLabels = {
   },
   inputSection: {
     title: 'Input',
-    hint: 'Tap to enter input text...',
+    hint: 'Share any Text / article link to this app (or) Tap to Enter the Input',
   },
   inputActions: {
     summarize: 'Summarize',

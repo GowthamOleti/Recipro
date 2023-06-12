@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     bottom: '5%',
     alignSelf: 'center',
   },
+  // TODO: Fix Truncated Text
   actionButtonContainer: {
     borderRadius: 25,
     width: '45%',
