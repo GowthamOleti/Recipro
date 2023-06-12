@@ -1,15 +1,20 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * GPT Tools
  *
- * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
+import {defaultContextData, GlobalContext} from './globalContext';
 import AppNavigator from './src/navigation/navigator';
 
 function App(): JSX.Element {
-  return <AppNavigator />;
+  const [contextData, setContextData] = useState(defaultContextData);
+
+  return (
+    <GlobalContext.Provider value={{contextData, setContextData}}>
+      <AppNavigator />
+    </GlobalContext.Provider>
+  );
 }
 
 export default App;

@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Text, View} from 'react-native';
 import {styles} from './resultSection.styles';
 import {ReadEditScreenType} from '../../util/constants';
 import {Screen} from '../../navigation/navigationTypes';
-import globalState from '../../../global';
+import {GlobalContext} from '../../../globalContext';
+import {fetchInputActionTitle} from '../../../labels';
 
+// TODO: Find a way to remove this prop
 export interface Props {
   navigation: any;
-  resultTitle: string;
 }
 
-export const ResultSection = ({navigation, resultTitle}: Props) => {
+export const ResultSection = ({navigation}: Props) => {
+  const {contextData} = useContext(GlobalContext);
+
+  const resultTitle = fetchInputActionTitle[contextData.actionType];
+
   return (
     <View style={styles.container}>
       <Text style={styles.resultTitleText}>{resultTitle}</Text>
@@ -20,11 +25,11 @@ export const ResultSection = ({navigation, resultTitle}: Props) => {
         onPress={() => {
           navigation.navigate(Screen.READ_EDIT, {
             type: ReadEditScreenType.READ,
-            displayText: globalState.output,
+            displayText: contextData.output,
             title: resultTitle,
           });
         }}>
-        {globalState.output}
+        {contextData.output}
       </Text>
     </View>
   );

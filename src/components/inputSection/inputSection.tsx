@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Text} from 'react-native';
 import {styles} from './inputSection.styles';
 import {ReadEditScreenType} from '../../util/constants';
 import {appLabels} from '../../../labels';
 import {Screen} from '../../navigation/navigationTypes';
-import globalState from '../../../global';
+import {GlobalContext} from '../../../globalContext';
 
+// TODO: Find a way to remove this prop
 export interface Props {
   navigation: any;
 }
 
 export const InputSection = ({navigation}: Props) => {
   const {inputSection} = appLabels;
+
+  const {contextData} = useContext(GlobalContext);
 
   return (
     <>
@@ -22,10 +25,10 @@ export const InputSection = ({navigation}: Props) => {
         onPress={() => {
           navigation.navigate(Screen.READ_EDIT, {
             type: ReadEditScreenType.EDIT,
-            displayText: globalState.input,
+            displayText: contextData.input,
           });
         }}>
-        {globalState.input}
+        {contextData.input}
       </Text>
     </>
   );

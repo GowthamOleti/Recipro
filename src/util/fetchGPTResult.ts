@@ -1,6 +1,6 @@
-import globalState from '../../global';
+import {GlobalContextType} from '../../globalContext';
 
-export const fetchGPTResult = async () => {
+export const fetchGPTResult = async (contextData: GlobalContextType) => {
   const {Configuration, OpenAIApi} = require('openai');
 
   const configuration = new Configuration({
@@ -11,10 +11,11 @@ export const fetchGPTResult = async () => {
   try {
     const completion = await openai.createCompletion({
       model: 'text-davinci-003',
-      prompt: `Rewrite - ${globalState.input}`,
+      prompt: `Rewrite - ${contextData.input}`,
     });
-    globalState.output = String(completion.data.choices[0].text);
+    return String(completion.data.choices[0].text);
   } catch (e) {
     console.log(e);
   }
+  return '';
 };

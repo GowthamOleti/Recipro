@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import globalState from '../global';
-import {fetchInputActionTitle} from '../labels';
+import {GlobalContext} from '../globalContext';
 import {InputActions} from './components/inputActions/inputActions';
 import {InputSection} from './components/inputSection/inputSection';
 import {ResultActions} from './components/resultActions/resultActions';
@@ -12,16 +11,17 @@ import {useFetchSharedItem} from './util/useFetchSharedItem';
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();
 
-  if (globalState.input.length === 0 && sharedText) {
-    globalState.input = sharedText;
-  }
+  const {contextData, setContextData} = useContext(GlobalContext);
 
-  const resultTitle = fetchInputActionTitle[globalState.actionType];
+  // TODO: How to handle sharedData when app is minimized?
+  if (contextData.input.length === 0 && sharedText) {
+    setContextData({...contextData, input: sharedText});
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <InputSection navigation={navigation} />
-      <ResultSection navigation={navigation} resultTitle={resultTitle} />
+      <ResultSection navigation={navigation} />
       <ResultActions />
       <InputActions />
     </SafeAreaView>

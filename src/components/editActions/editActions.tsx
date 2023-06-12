@@ -1,7 +1,7 @@
 import {CommonActions} from '@react-navigation/native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import globalState from '../../../global';
+import {GlobalContext} from '../../../globalContext';
 import {appLabels} from '../../../labels';
 import {Screen} from '../../navigation/navigationTypes';
 import {styles} from './editActions.styles';
@@ -12,8 +12,10 @@ interface Props {
 }
 
 export const EditActions = ({navigation, inputText}: Props) => {
+  const {contextData, setContextData} = useContext(GlobalContext);
+
   const onDonePressed = () => {
-    globalState.input = inputText;
+    setContextData({...contextData, input: inputText});
     navigation.dispatch(
       CommonActions.reset({
         index: 0,

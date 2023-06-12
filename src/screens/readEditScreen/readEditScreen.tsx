@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {SafeAreaView, ScrollView, Text, TextInput} from 'react-native';
-import globalState from '../../../global';
+import {GlobalContext} from '../../../globalContext';
 import {EditActions} from '../../components/editActions/editActions';
 import {ResultActions} from '../../components/resultActions/resultActions';
 import {ReadEditScreenProps} from '../../navigation/navigationTypes';
@@ -10,12 +10,14 @@ import {styles} from './readEditScreen.styles';
 const ReadEditScreen = ({navigation, route}: ReadEditScreenProps) => {
   const type = route.params?.type;
 
+  const {contextData} = useContext(GlobalContext);
+
   const backgroundColor =
     type === ReadEditScreenType.READ
       ? styles.greyBackground
       : styles.blackBackground;
 
-  const [inputText, setInputText] = useState(globalState.input);
+  const [inputText, setInputText] = useState(contextData.input);
 
   return (
     <SafeAreaView style={[styles.container, backgroundColor]}>
@@ -23,7 +25,7 @@ const ReadEditScreen = ({navigation, route}: ReadEditScreenProps) => {
         <>
           <ScrollView>
             <Text selectable style={styles.resultText}>
-              {globalState.output}
+              {contextData.output}
             </Text>
           </ScrollView>
           <ResultActions />
