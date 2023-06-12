@@ -11,6 +11,8 @@ import {IsOpenAIApiKeyPresent} from './util/handleApiKeys';
 import {color} from './util/theme';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
+// TODO: Summarize directly when link is detected
+
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();
 

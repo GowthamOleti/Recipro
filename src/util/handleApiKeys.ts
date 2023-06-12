@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // TODO: Give an option to update/remove API Key
+// Make it more secure
 
 export const saveOpenAIApiKey = async (apiKey: string) => {
   try {

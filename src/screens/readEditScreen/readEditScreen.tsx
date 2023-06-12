@@ -7,6 +7,8 @@ import {ReadEditScreenProps} from '../../navigation/navigationTypes';
 import {ReadEditScreenType} from '../../util/constants';
 import {styles} from './readEditScreen.styles';
 
+// TODO: Move input editing to homescreen
+
 const ReadEditScreen = ({navigation, route}: ReadEditScreenProps) => {
   const type = route.params?.type;
 
