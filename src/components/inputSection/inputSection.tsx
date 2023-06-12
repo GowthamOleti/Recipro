@@ -30,6 +30,18 @@ export const InputSection = ({navigation}: Props) => {
         }}>
         {contextData.input}
       </Text>
+      {contextData.input.length === 0 && (
+        <Text
+          style={[styles.inputText]}
+          onPress={() => {
+            navigation.navigate(Screen.READ_EDIT, {
+              type: ReadEditScreenType.EDIT,
+              displayText: contextData.input,
+            });
+          }}>
+          {'Tap to enter input text...'}
+        </Text>
+      )}
     </>
   );
 };

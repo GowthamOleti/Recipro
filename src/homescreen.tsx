@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {GlobalContext} from '../globalContext';
 import {InputActions} from './components/inputActions/inputActions';
 import {InputSection} from './components/inputSection/inputSection';
@@ -21,8 +21,12 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   return (
     <SafeAreaView style={styles.container}>
       <InputSection navigation={navigation} />
-      <ResultSection navigation={navigation} />
-      <ResultActions />
+      {contextData.output.length > 0 && (
+        <View>
+          <ResultSection navigation={navigation} />
+          <ResultActions />
+        </View>
+      )}
       <InputActions />
     </SafeAreaView>
   );

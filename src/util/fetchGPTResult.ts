@@ -12,8 +12,10 @@ export const fetchGPTResult = async (contextData: GlobalContextType) => {
     const completion = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt: `Rewrite - ${contextData.input}`,
+      max_tokens: 100,
     });
-    return String(completion.data.choices[0].text);
+    console.log(completion.data);
+    return String(completion.data.choices[0].text).trim();
   } catch (e) {
     console.log(e);
   }
