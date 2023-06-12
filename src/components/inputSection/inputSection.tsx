@@ -39,7 +39,7 @@ export const InputSection = ({navigation}: Props) => {
               displayText: contextData.input,
             });
           }}>
-          {'Tap to enter input text...'}
+          {inputSection.hint}
         </Text>
       )}
     </>

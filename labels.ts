@@ -2,8 +2,13 @@ import {InputActionType} from './src/util/constants';
 
 export const appLabels = {
   appName: 'GPT Tools',
+  askAPIKey: {
+    title: 'Enter your OpenAI API Key',
+    doneButton: 'Done',
+  },
   inputSection: {
     title: 'Input',
+    hint: 'Tap to enter input text...',
   },
   inputActions: {
     summarize: 'Summarize',

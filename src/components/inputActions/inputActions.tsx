@@ -11,8 +11,13 @@ export const InputActions = () => {
 
   const {contextData, setContextData} = useContext(GlobalContext);
 
-  const onSummarizePress = () => {
-    setContextData({...contextData, actionType: InputActionType.Summarize});
+  const onSummarizePress = async () => {
+    const output = await fetchGPTResult(contextData);
+    setContextData({
+      ...contextData,
+      output,
+      actionType: InputActionType.Summarize,
+    });
   };
 
   const onRewritePress = async () => {

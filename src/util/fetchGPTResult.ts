@@ -1,17 +1,22 @@
 import {GlobalContextType} from '../../globalContext';
+import {fetchPromptPrefix} from './constants';
+import {getOpenAIApiKey} from './handleApiKeys';
 
 export const fetchGPTResult = async (contextData: GlobalContextType) => {
   const {Configuration, OpenAIApi} = require('openai');
 
+  const apiKey = await getOpenAIApiKey();
+
   const configuration = new Configuration({
-    apiKey: '',
+    apiKey,
   });
   const openai = new OpenAIApi(configuration);
+  const promptPrefix = fetchPromptPrefix[contextData.actionType];
 
   try {
     const completion = await openai.createCompletion({
       model: 'text-davinci-003',
-      prompt: `Rewrite - ${contextData.input}`,
+      prompt: `${promptPrefix}${contextData.input}`,
       max_tokens: 100,
     });
     console.log(completion.data);
