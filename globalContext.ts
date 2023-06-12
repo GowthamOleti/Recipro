@@ -17,8 +17,7 @@ export type GlobalContextType = {
 // };
 
 export const defaultContextData = {
-  input:
-    'https://www.theverge.com/2023/6/5/23749188/reddit-subreddit-private-protest-api-changes-apollo-charges',
+  input: '',
   output: '',
   actionType: InputActionType.Default,
   isOpenAIApiKeyPresent: true,
