@@ -21,7 +21,7 @@ export const AskAPIKey = ({setAskAPIKey}: Props) => {
 
   const onDonePress = () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
-      ToastAndroid.show(askAPIKey.errorMessage, ToastAndroid.LONG);
+      ToastAndroid.show(askAPIKey.errorMessage, ToastAndroid.LONG); // TODO: Change position.
     } else {
       saveOpenAIApiKey(key).finally(() => {
         setAskAPIKey(false);

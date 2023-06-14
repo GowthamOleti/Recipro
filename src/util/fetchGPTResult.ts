@@ -6,6 +6,8 @@ interface Props {
   actionType: InputActionType;
 }
 
+// TODO: Handle Invalid api key
+
 export const fetchGPTResult = async ({input, actionType}: Props) => {
   const {Configuration, OpenAIApi} = require('openai');
 

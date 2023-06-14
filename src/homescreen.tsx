@@ -10,6 +10,8 @@ import {useFetchSharedItem} from './util/useFetchSharedItem';
 
 // TODO: Add option to Summarize directly when link is detected
 
+// TODO: Add paste from clipboard button
+
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();
 
