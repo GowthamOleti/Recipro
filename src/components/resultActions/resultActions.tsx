@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import Share from './../../../assets/icons/share.svg';
 import Copy from './../../../assets/icons/copy.svg';
@@ -11,28 +11,29 @@ import {
   shareResult,
 } from '../../util/helpers';
 import {styles} from './resultActions.styles';
-import {GlobalContext} from '../../../globalContext';
 
-export const ResultActions = () => {
-  const {contextData} = useContext(GlobalContext);
+interface Props {
+  output: string;
+}
 
+export const ResultActions = ({output}: Props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => shareResult(contextData.output)}>
+      <TouchableOpacity onPress={() => shareResult(output)}>
         <Share height={25} width={25} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => copyToClipboard(contextData.output)}
+        onPress={() => copyToClipboard(output)}
         style={styles.copy}>
         <Copy height={25} width={25} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => shareAsTweet(contextData.output)}
+        onPress={() => shareAsTweet(output)}
         style={styles.tweet}>
         <Tweet height={23} width={23} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => shareAsEmail(contextData.output)}
+        onPress={() => shareAsEmail(output)}
         style={styles.email}>
         <Email height={25} width={25} />
       </TouchableOpacity>

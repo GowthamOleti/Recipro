@@ -1,23 +1,34 @@
-import React, {useContext, useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import React, {useState} from 'react';
+import {
+  Text,
+  TextInput,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {styles} from './askAPIKey.styles';
 import {appLabels} from '../../../labels';
 import {saveOpenAIApiKey} from '../../util/handleApiKeys';
-import {GlobalContext} from '../../../globalContext';
 
-// TODO: key validation
+interface Props {
+  setAskAPIKey: (value: boolean) => void;
+}
 
-export const AskAPIKey = () => {
+export const AskAPIKey = ({setAskAPIKey}: Props) => {
   const {askAPIKey} = appLabels;
 
-  const [key, setKey] = useState('');
-
-  const {contextData, setContextData} = useContext(GlobalContext);
+  const [key, setKey] = useState(
+    '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',
+  );
 
   const onDonePress = () => {
-    saveOpenAIApiKey(key).finally(() => {
-      setContextData({...contextData, isOpenAIApiKeyPresent: true});
-    });
+    if (key.length !== 51 || !key.startsWith('sk-')) {
+      ToastAndroid.show(askAPIKey.errorMessage, ToastAndroid.LONG);
+    } else {
+      saveOpenAIApiKey(key).finally(() => {
+        setAskAPIKey(false);
+      });
+    }
   };
 
   return (

@@ -1,61 +1,53 @@
-import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator, SafeAreaView, StyleSheet} from 'react-native';
-import {GlobalContext} from '../globalContext';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
+import {appLabels} from '../labels';
 import {InputActions} from './components/inputActions/inputActions';
-import {InputSection} from './components/inputSection/inputSection';
-import {ResultActions} from './components/resultActions/resultActions';
-import {ResultSection} from './components/resultSection/resultSection';
 import {HomeScreenProps} from './navigation/navigationTypes';
 import AskAPIKey from './screens/askAPIKey/askAPIKey';
 import {IsOpenAIApiKeyPresent} from './util/handleApiKeys';
 import {color} from './util/theme';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
-// TODO: Summarize directly when link is detected
+// TODO: Add option to Summarize directly when link is detected
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();
 
-  const {contextData, setContextData} = useContext(GlobalContext);
+  const [askApiKey, setAskApiKey] = useState(false);
+  const [inputText, setInputText] = useState('');
 
   useEffect(() => {
     IsOpenAIApiKeyPresent().then(isOpenAIApiKeyPresent => {
       if (!isOpenAIApiKeyPresent) {
-        setContextData({...contextData, isOpenAIApiKeyPresent: false});
+        setAskApiKey(true);
       }
     });
-  }, [contextData, navigation, setContextData]);
+  }, []);
 
-  // TODO: How to handle sharedData when app is minimized?
-  if (contextData.input.length === 0 && sharedText) {
-    setContextData({...contextData, input: sharedText});
-  }
+  useEffect(() => {
+    if (sharedText) {
+      setInputText(sharedText);
+    }
+  }, [sharedText]);
 
   return (
     <SafeAreaView style={styles.container}>
-      {contextData.isOpenAIApiKeyPresent ? (
-        <>
-          <InputSection navigation={navigation} />
-          {contextData.isLoading ? (
-            <ActivityIndicator
-              style={styles.loading}
-              size="large"
-              color="white"
-            />
-          ) : (
-            <>
-              {contextData.output.length > 0 && (
-                <>
-                  <ResultSection navigation={navigation} />
-                  <ResultActions />
-                </>
-              )}
-              <InputActions />
-            </>
-          )}
-        </>
+      {askApiKey ? (
+        <AskAPIKey setAskAPIKey={setAskApiKey} />
       ) : (
-        <AskAPIKey />
+        <>
+          <View style={styles.inputContainer}>
+            <TextInput
+              multiline
+              autoFocus
+              placeholder={appLabels.inputHint}
+              style={styles.inputText}
+              onChangeText={text => setInputText(text)}
+              value={inputText}
+            />
+          </View>
+          <InputActions input={inputText} navigation={navigation} />
+        </>
       )}
     </SafeAreaView>
   );
@@ -69,8 +61,16 @@ const styles = StyleSheet.create({
     backgroundColor: color.black,
     paddingHorizontal: '7%',
   },
-  loading: {
-    flex: 1,
-    justifyContent: 'center',
+  inputText: {
+    textAlignVertical: 'top',
+    fontSize: 19,
+  },
+  inputContainer: {
+    borderRadius: 20,
+    padding: '5%',
+    maxHeight: '70%',
+    minHeight: '50%',
+    marginTop: '10%',
+    backgroundColor: color.grey,
   },
 });

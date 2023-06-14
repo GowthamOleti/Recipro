@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {color, font} from '../../util/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -12,12 +13,13 @@ export const styles = StyleSheet.create({
   actionButtonContainer: {
     borderRadius: 25,
     width: '45%',
-    borderColor: 'white',
-    borderWidth: 2,
+    backgroundColor: color.buttonBackground,
   },
   actionButtonText: {
-    color: 'white',
+    color: color.black,
     padding: '7%',
     alignSelf: 'center',
+    fontFamily: font.Avenir,
+    fontSize: 17,
   },
 });

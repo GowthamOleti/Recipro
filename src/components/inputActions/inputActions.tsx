@@ -1,64 +1,37 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {GlobalContext} from '../../../globalContext';
 import {appLabels} from '../../../labels';
+import {Screen} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../util/constants';
-import {fetchGPTResult} from '../../util/fetchGPTResult';
 import {styles} from './inputActions.styles';
 
-export const InputActions = () => {
+interface Props {
+  input: string;
+  navigation: any;
+}
+
+export const InputActions = ({input, navigation}: Props) => {
   const {inputActions} = appLabels;
 
-  const {contextData, setContextData} = useContext(GlobalContext);
-
-  // TODO: Make this more simpler
-
-  const onSummarizePress = () => {
-    setContextData({
-      ...contextData,
-      isLoading: true,
-    });
-    fetchGPTResult({
-      input: contextData.input,
-      actionType: InputActionType.Summarize,
-    }).then(output => {
-      setContextData({
-        ...contextData,
-        output,
-        actionType: InputActionType.Summarize,
-        isLoading: false,
-      });
-    });
-  };
-
-  const onRewritePress = async () => {
-    setContextData({
-      ...contextData,
-      isLoading: true,
-    });
-    fetchGPTResult({
-      input: contextData.input,
-      actionType: InputActionType.Rewrite,
-    }).then(output => {
-      setContextData({
-        ...contextData,
-        output,
-        actionType: InputActionType.Rewrite,
-        isLoading: false,
-      });
+  const onActionButtonPress = async (actionType: InputActionType) => {
+    navigation.navigate(Screen.RESULT, {
+      actionType,
+      input,
     });
   };
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        disabled={input.length === 0}
         style={styles.actionButtonContainer}
-        onPress={onSummarizePress}>
+        onPress={() => onActionButtonPress(InputActionType.Summarize)}>
         <Text style={styles.actionButtonText}>{inputActions.summarize}</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        disabled={input.length === 0}
         style={styles.actionButtonContainer}
-        onPress={onRewritePress}>
+        onPress={() => onActionButtonPress(InputActionType.Rewrite)}>
         <Text style={styles.actionButtonText}>{inputActions.rewrite}</Text>
       </TouchableOpacity>
     </View>

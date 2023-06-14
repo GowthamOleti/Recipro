@@ -1,12 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import ReadEditScreen from '../screens/readEditScreen/readEditScreen';
 import HomeScreen from '../homescreen';
-import {ReadEditScreenType} from '../util/constants';
-import {appLabels} from '../../labels';
+import {appLabels, fetchInputActionTitle} from '../../labels';
 import {color, font} from '../util/theme';
 import {NavStackParams, Screen} from './navigationTypes';
+import ResultScreen from '../screens/resultScreen/resultScreen';
 
 const Stack = createNativeStackNavigator<NavStackParams>();
 
@@ -31,23 +30,17 @@ export default function AppNavigator() {
         />
         <Stack.Screen
           options={({route}) => ({
-            title:
-              route?.params?.type === ReadEditScreenType.READ
-                ? route.params?.title
-                : appLabels.readEditScreen.editHeaderTitle,
-            headerStyle: {
-              backgroundColor:
-                route?.params?.type === ReadEditScreenType.READ
-                  ? color.grey
-                  : color.black,
-            },
+            title: fetchInputActionTitle[route?.params?.actionType],
             headerTintColor: color.white,
+            headerStyle: {
+              backgroundColor: color.black,
+            },
             headerTitleStyle: {
               fontWeight: 'bold',
             },
           })}
-          name={Screen.READ_EDIT}
-          component={ReadEditScreen}
+          name={Screen.RESULT}
+          component={ResultScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

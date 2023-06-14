@@ -5,11 +5,10 @@ export const appLabels = {
   askAPIKey: {
     title: 'Enter your OpenAI API Key',
     doneButton: 'Done',
+    errorMessage: 'Invalid API Key',
   },
-  inputSection: {
-    title: 'Input',
-    hint: 'Share any Text / article link to this app (or) Tap to Enter the Input',
-  },
+  inputHint:
+    'Share any text / link to this app using the android share menu or type it here...',
   inputActions: {
     summarize: 'Summarize',
     rewrite: 'Rewrite',
