@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {appLabels} from '../../../labels';
+import {appLabels} from '../../../appLabels';
 import {Screen} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../util/constants';
 import {styles} from './inputActions.styles';

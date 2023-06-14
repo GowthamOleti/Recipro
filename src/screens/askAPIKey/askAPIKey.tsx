@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import {styles} from './askAPIKey.styles';
-import {appLabels} from '../../../labels';
+import {appLabels} from '../../../appLabels';
 import {saveOpenAIApiKey} from '../../util/handleApiKeys';
 
 interface Props {

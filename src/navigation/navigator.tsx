@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../homescreen';
-import {appLabels, fetchInputActionTitle} from '../../labels';
+import {appLabels, fetchInputActionTitle} from '../../appLabels';
 import {color, font} from '../util/theme';
 import {NavStackParams, Screen} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';

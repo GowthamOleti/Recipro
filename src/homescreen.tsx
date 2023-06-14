@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import {appLabels} from '../labels';
+import {appLabels} from '../appLabels';
 import {InputActions} from './components/inputActions/inputActions';
 import {HomeScreenProps} from './navigation/navigationTypes';
 import AskAPIKey from './screens/askAPIKey/askAPIKey';

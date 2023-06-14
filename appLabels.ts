@@ -33,3 +33,9 @@ export const fetchInputActionTitle: Record<InputActionType, string> = {
   REWRITE: 'Rewritten',
   DEFAULT: 'Result',
 };
+
+export const fetchLoadingText: Record<InputActionType, string> = {
+  SUMMARIZE: 'Summarizing...',
+  REWRITE: 'Rewriting...',
+  DEFAULT: '',
+};
