@@ -17,9 +17,7 @@ interface Props {
 export const AskAPIKey = ({setAskAPIKey}: Props) => {
   const {askAPIKey} = appLabels;
 
-  const [key, setKey] = useState(
-    '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',
-  );
+  const [key, setKey] = useState('');
 
   const onDonePress = () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
