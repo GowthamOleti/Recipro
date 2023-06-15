@@ -7,6 +7,8 @@ import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {fetchGPTResult} from '../../util/fetchGPTResult';
 import {styles} from './resultScreen.styles';
 
+// TODO: Add option to edit on long press
+
 const ResultScreen = ({route}: ResultScreenProps) => {
   const {actionType, input} = route.params;
 

@@ -37,6 +37,7 @@ export const AskAPIKey = ({setAskAPIKey}: Props) => {
         value={key}
         onChangeText={text => setKey(text)}
         autoFocus
+        multiline
       />
       <TouchableOpacity
         style={styles.doneButtonContainer}
