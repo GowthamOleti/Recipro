@@ -18,7 +18,9 @@ import {isLink} from './util/helpers';
 import {color} from './util/theme';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
+// TODO:
 // Move logic to a hook
+// Add animations
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();

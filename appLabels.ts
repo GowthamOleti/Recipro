@@ -8,7 +8,7 @@ export const appLabels = {
     errorMessage: 'Invalid API Key',
   },
   inputHint:
-    'Share any text / link to this app using the android share menu or type it here...',
+    'You can either share any text or link to this app by using the Android share menu, or you can simply type it here....',
   inputActions: {
     summarize: 'Summarize',
     rewrite: 'Rewrite',
