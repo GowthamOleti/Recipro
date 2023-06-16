@@ -1,3 +1,4 @@
+import {useClipboard} from '@react-native-community/clipboard';
 import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
@@ -13,7 +14,7 @@ import {HomeScreenProps, Screen} from './navigation/navigationTypes';
 import AskAPIKey from './screens/askAPIKey/askAPIKey';
 import {InputActionType} from './util/constants';
 import {IsOpenAIApiKeyPresent} from './util/handleApiKeys';
-import {getFromClipboard, isLink} from './util/helpers';
+import {isLink} from './util/helpers';
 import {color} from './util/theme';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
@@ -23,8 +24,12 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();
 
   const [askApiKey, setAskApiKey] = useState(false);
-  const [clipboardText, setClipboardText] = useState('');
   const [inputText, setInputText] = useState('');
+
+  const [clipboardText] = useClipboard();
+  const [showInlineButton, setShowInlineButton] = useState(
+    clipboardText.length > 0 ? true : false,
+  );
 
   useEffect(() => {
     IsOpenAIApiKeyPresent().then(isOpenAIApiKeyPresent => {
@@ -33,14 +38,6 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
       }
     });
   }, []);
-
-  useEffect(() => {
-    getFromClipboard().then(result => {
-      if (result.length > 0) {
-        setClipboardText(clipboardText);
-      }
-    });
-  }, [clipboardText]);
 
   useEffect(() => {
     if (sharedText) {
@@ -69,11 +66,12 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
               onChangeText={text => setInputText(text)}
               value={inputText}
             />
-            {clipboardText.length > 0 && (
+            {true && (
               <TouchableOpacity
                 style={styles.inlineButtonContainer}
                 onPress={() => {
                   setInputText(clipboardText);
+                  setShowInlineButton(false);
                 }}>
                 <Text style={styles.inlineButtonText}>
                   {appLabels.pasteFromClipboard}
@@ -105,7 +103,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: '5%',
     maxHeight: '70%',
-    minHeight: '61%',
+    minHeight: '66%',
     marginTop: '10%',
     backgroundColor: color.grey,
   },

@@ -10,14 +10,15 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   actionButtonContainer: {
-    borderRadius: 25,
+    borderRadius: 35,
     backgroundColor: color.buttonBackground,
     alignSelf: 'flex-start',
     minWidth: '45%',
   },
   actionButtonText: {
     color: color.black,
-    padding: '7%',
+    paddingHorizontal: '5%',
+    paddingVertical: '4%',
     alignSelf: 'center',
     fontFamily: font.AvenirBold,
     fontSize: 17,
