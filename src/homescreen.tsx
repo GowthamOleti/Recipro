@@ -27,9 +27,15 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   const [inputText, setInputText] = useState('');
 
   const [clipboardText] = useClipboard();
-  const [showInlineButton, setShowInlineButton] = useState(
-    clipboardText.length > 0 ? true : false,
-  );
+  const [showInlineButton, setShowInlineButton] = useState(false);
+
+  useEffect(() => {
+    if (clipboardText.length > 0 && inputText.length === 0) {
+      setShowInlineButton(true);
+    } else {
+      setShowInlineButton(false);
+    }
+  }, [clipboardText, inputText]);
 
   useEffect(() => {
     IsOpenAIApiKeyPresent().then(isOpenAIApiKeyPresent => {
@@ -66,7 +72,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
               onChangeText={text => setInputText(text)}
               value={inputText}
             />
-            {true && (
+            {showInlineButton && (
               <TouchableOpacity
                 style={styles.inlineButtonContainer}
                 onPress={() => {
@@ -103,7 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: '5%',
     maxHeight: '70%',
-    minHeight: '66%',
+    minHeight: '68%',
     marginTop: '10%',
     backgroundColor: color.grey,
   },
@@ -116,5 +122,6 @@ const styles = StyleSheet.create({
   inlineButtonText: {
     alignSelf: 'center',
     padding: '3%',
+    fontSize: 12,
   },
 });
