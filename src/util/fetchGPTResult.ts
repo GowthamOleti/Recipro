@@ -16,17 +16,17 @@ export const fetchGPTResult = async ({input, actionType}: Props) => {
   const configuration = new Configuration({
     apiKey,
   });
-  const openai = new OpenAIApi(configuration);
+  const openAI = new OpenAIApi(configuration);
   const promptPrefix = fetchPromptPrefix[actionType];
 
   try {
-    const completion = await openai.createCompletion({
-      model: 'text-davinci-003',
-      prompt: `${promptPrefix}${input}`,
-      max_tokens: 100,
+    const response = await openAI.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages: [{role: 'user', content: `${promptPrefix}${input}`}],
     });
-    console.log(completion.data);
-    return String(completion.data.choices[0].text).trim();
+
+    console.log(response.data);
+    return String(response.data.choices[0].message.content).trim();
   } catch (e) {
     console.log(e);
   }

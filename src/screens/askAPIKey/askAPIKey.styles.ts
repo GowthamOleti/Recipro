@@ -22,14 +22,16 @@ export const styles = StyleSheet.create({
   },
   doneButtonContainer: {
     borderRadius: 25,
-    width: '20%',
+    alignSelf: 'flex-start',
     backgroundColor: color.buttonBackground,
     marginTop: '5%',
   },
   doneButtonText: {
     color: color.black,
-    padding: '5%',
+    paddingVertical: '2%',
+    paddingHorizontal: '5%',
     alignSelf: 'center',
     fontFamily: font.AvenirBold,
+    fontSize: 16,
   },
 });

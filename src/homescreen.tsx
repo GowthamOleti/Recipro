@@ -66,7 +66,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
           <View style={styles.inputContainer}>
             <TextInput
               multiline
-              autoFocus
+              autoFocus={!showInlineButton}
               placeholder={appLabels.inputHint}
               style={styles.inputText}
               onChangeText={text => setInputText(text)}
