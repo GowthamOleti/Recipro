@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../homescreen';
-import {appLabels, fetchInputActionTitle} from '../../appLabels';
+import {appLabels} from '../../appLabels';
 import {color, font} from '../util/theme';
 import {NavStackParams, Screen} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';
@@ -29,16 +29,16 @@ export default function AppNavigator() {
           component={HomeScreen}
         />
         <Stack.Screen
-          options={({route}) => ({
-            title: fetchInputActionTitle[route?.params?.actionType],
+          options={{
+            title: appLabels.resultScreenHeader,
             headerTintColor: color.white,
             headerStyle: {
               backgroundColor: color.black,
             },
             headerTitleStyle: {
-              fontWeight: 'bold',
+              fontFamily: font.AvenirBold,
             },
-          })}
+          }}
           name={Screen.RESULT}
           component={ResultScreen}
         />

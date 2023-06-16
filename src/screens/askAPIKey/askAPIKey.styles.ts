@@ -30,6 +30,6 @@ export const styles = StyleSheet.create({
     color: color.black,
     padding: '5%',
     alignSelf: 'center',
-    fontFamily: font.Avenir,
+    fontFamily: font.AvenirBold,
   },
 });

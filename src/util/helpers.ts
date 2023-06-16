@@ -36,3 +36,14 @@ export const shareAsEmail = (text: string) => {
 export const copyToClipboard = (text: string) => {
   Clipboard.setString(text);
 };
+
+export const getFromClipboard = async () => {
+  const clipboardText = await Clipboard.getString();
+  return clipboardText ?? '';
+};
+
+// Is this a link
+export const isLink = (text: string): boolean => {
+  const linkRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+  return linkRegex.test(text);
+};

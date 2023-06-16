@@ -2,8 +2,6 @@ import React from 'react';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {color, font} from '../util/theme';
 
-// TODO: Add text under loading indicator
-
 interface Props {
   loadingText?: string;
 }
@@ -16,7 +14,7 @@ export const Loading = ({loadingText}: Props) => {
         style={{transform: [{scaleX: 1.7}, {scaleY: 1.7}]}}
         color={color.white}
       />
-      {loadingText?.length && (
+      {loadingText && loadingText.length > 0 && (
         <Text style={styles.loadingText}>{loadingText}</Text>
       )}
     </View>

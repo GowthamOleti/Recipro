@@ -9,17 +9,17 @@ export const styles = StyleSheet.create({
     bottom: '5%',
     alignSelf: 'center',
   },
-  // TODO: Fix Truncated Text
   actionButtonContainer: {
     borderRadius: 25,
-    width: '45%',
     backgroundColor: color.buttonBackground,
+    alignSelf: 'flex-start',
+    minWidth: '45%',
   },
   actionButtonText: {
     color: color.black,
     padding: '7%',
     alignSelf: 'center',
-    fontFamily: font.Avenir,
+    fontFamily: font.AvenirBold,
     fontSize: 17,
   },
 });

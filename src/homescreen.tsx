@@ -1,21 +1,29 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {appLabels} from '../appLabels';
 import {InputActions} from './components/inputActions/inputActions';
-import {HomeScreenProps} from './navigation/navigationTypes';
+import {HomeScreenProps, Screen} from './navigation/navigationTypes';
 import AskAPIKey from './screens/askAPIKey/askAPIKey';
+import {InputActionType} from './util/constants';
 import {IsOpenAIApiKeyPresent} from './util/handleApiKeys';
+import {getFromClipboard, isLink} from './util/helpers';
 import {color} from './util/theme';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 
-// TODO: Add option to Summarize directly when link is detected
-
-// TODO: Add paste from clipboard button
+// Move logic to a hook
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();
 
   const [askApiKey, setAskApiKey] = useState(false);
+  const [clipboardText, setClipboardText] = useState('');
   const [inputText, setInputText] = useState('');
 
   useEffect(() => {
@@ -27,10 +35,24 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   }, []);
 
   useEffect(() => {
+    getFromClipboard().then(result => {
+      if (result.length > 0) {
+        setClipboardText(clipboardText);
+      }
+    });
+  }, [clipboardText]);
+
+  useEffect(() => {
     if (sharedText) {
+      if (isLink(sharedText)) {
+        navigation.navigate(Screen.RESULT, {
+          actionType: InputActionType.Summarize,
+          input: sharedText,
+        });
+      }
       setInputText(sharedText);
     }
-  }, [sharedText]);
+  }, [navigation, sharedText]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,6 +69,17 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
               onChangeText={text => setInputText(text)}
               value={inputText}
             />
+            {clipboardText.length > 0 && (
+              <TouchableOpacity
+                style={styles.inlineButtonContainer}
+                onPress={() => {
+                  setInputText(clipboardText);
+                }}>
+                <Text style={styles.inlineButtonText}>
+                  {appLabels.pasteFromClipboard}
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
           <InputActions input={inputText} navigation={navigation} />
         </>
@@ -66,13 +99,24 @@ const styles = StyleSheet.create({
   inputText: {
     textAlignVertical: 'top',
     fontSize: 19,
+    minHeight: '50%',
   },
   inputContainer: {
     borderRadius: 20,
     padding: '5%',
     maxHeight: '70%',
-    minHeight: '50%',
+    minHeight: '61%',
     marginTop: '10%',
     backgroundColor: color.grey,
+  },
+  inlineButtonContainer: {
+    borderColor: color.white,
+    borderWidth: 1,
+    borderRadius: 10,
+    alignSelf: 'center',
+  },
+  inlineButtonText: {
+    alignSelf: 'center',
+    padding: '3%',
   },
 });

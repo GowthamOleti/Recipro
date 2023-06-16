@@ -1,5 +1,6 @@
 export const font = {
   Avenir: 'Avenir',
+  AvenirBold: 'Avenir-Bold',
   RobotoMono: 'Roboto-Mono',
 };
 

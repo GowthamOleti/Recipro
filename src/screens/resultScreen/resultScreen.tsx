@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, TextInput} from 'react-native';
 import {fetchLoadingText} from '../../../appLabels';
 import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {fetchGPTResult} from '../../util/fetchGPTResult';
 import {styles} from './resultScreen.styles';
-
-// TODO: Add option to edit on long press
 
 const ResultScreen = ({route}: ResultScreenProps) => {
   const {actionType, input} = route.params;
@@ -32,9 +30,12 @@ const ResultScreen = ({route}: ResultScreenProps) => {
       ) : (
         <>
           <ScrollView>
-            <Text selectable style={styles.resultText}>
-              {outputText}
-            </Text>
+            <TextInput
+              style={styles.resultText}
+              onChangeText={text => setOutputText(text)}
+              value={outputText}
+              multiline
+            />
           </ScrollView>
           <ResultActions output={outputText} />
         </>

@@ -5,7 +5,7 @@ export enum InputActionType {
 }
 
 export const fetchPromptPrefix: Record<InputActionType, string> = {
-  SUMMARIZE: 'Summarize this in points - ',
+  SUMMARIZE: 'Summarize this in bullet points - ',
   REWRITE: 'Rewrite - ',
   DEFAULT: '',
 };

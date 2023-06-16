@@ -1,9 +1,7 @@
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import Share from './../../../assets/icons/share.svg';
 import Copy from './../../../assets/icons/copy.svg';
-import Tweet from './../../../assets/icons/twitter.svg';
-import Email from './../../../assets/icons/email.svg';
 import {
   copyToClipboard,
   shareAsEmail,
@@ -19,23 +17,27 @@ interface Props {
 export const ResultActions = ({output}: Props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => shareResult(output)}>
-        <Share height={25} width={25} />
+      <TouchableOpacity
+        style={styles.margin}
+        onPress={() => shareResult(output)}>
+        <Share height={30} width={30} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => shareAsTweet(output)}
+        style={styles.buttonContainer}>
+        {/* <Tweet height={23} width={23} /> */}
+        <Text style={styles.buttonText}>{'Tweet'}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => shareAsEmail(output)}
+        style={styles.buttonContainer}>
+        {/* <Email height={25} width={25} /> */}
+        <Text style={styles.buttonText}>{'Email'}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => copyToClipboard(output)}
         style={styles.copy}>
-        <Copy height={25} width={25} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => shareAsTweet(output)}
-        style={styles.tweet}>
-        <Tweet height={23} width={23} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => shareAsEmail(output)}
-        style={styles.email}>
-        <Email height={25} width={25} />
+        <Copy height={35} width={35} />
       </TouchableOpacity>
     </View>
   );
