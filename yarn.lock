@@ -6224,6 +6224,11 @@ react-is@^17.0.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-animated-bottom-drawer@^0.0.22:
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/react-native-animated-bottom-drawer/-/react-native-animated-bottom-drawer-0.0.22.tgz#0dad2b11654189dca363ebdcfdc2b633c463f968"
+  integrity sha512-xAePUYoMcEXbwOdrFPwOU2+XpMdg69yjAE38itmXB2iK5DIKUZhVahzjmyBXIIBqL4OhUekprSFsK8UCbuJdiA==
+
 react-native-codegen@^0.71.5:
   version "0.71.5"
   resolved "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.71.5.tgz"

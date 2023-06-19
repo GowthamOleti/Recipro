@@ -1,5 +1,5 @@
 import {useClipboard} from '@react-native-community/clipboard';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,6 +8,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import BottomDrawer, {
+  BottomDrawerMethods,
+} from 'react-native-animated-bottom-drawer';
 import {appLabels} from '../appLabels';
 import {InputActions} from './components/inputActions/inputActions';
 import {HomeScreenProps, Screen} from './navigation/navigationTypes';
@@ -30,6 +33,9 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
 
   const [clipboardText] = useClipboard();
   const [showInlineButton, setShowInlineButton] = useState(false);
+
+  const bottomDrawerRef = useRef<BottomDrawerMethods>(null);
+  //bottomDrawerRef.current?.open();
 
   useEffect(() => {
     if (clipboardText.length > 0 && inputText.length === 0) {
@@ -90,6 +96,9 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
           <InputActions input={inputText} navigation={navigation} />
         </>
       )}
+      <BottomDrawer ref={bottomDrawerRef}>
+        <View />
+      </BottomDrawer>
     </SafeAreaView>
   );
 };
