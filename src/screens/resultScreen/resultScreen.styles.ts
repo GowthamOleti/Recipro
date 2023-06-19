@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   resultText: {
     color: color.white,
     padding: '5%',
-    fontSize: 18,
+    fontSize: 20,
     lineHeight: 25,
     fontFamily: font.Avenir,
   },
