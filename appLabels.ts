@@ -7,6 +7,10 @@ export const appLabels = {
     doneButton: 'Done',
     errorMessage: 'Invalid API Key',
   },
+  errors: {
+    noInternet: 'No internet connection',
+    noInput: 'Please enter input',
+  },
   inputHint:
     'You can either share any text or link to this app by using the Android share menu, or you can simply type it here....',
   inputActions: {
