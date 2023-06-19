@@ -4,6 +4,7 @@ export const appLabels = {
     title: 'Enter your OpenAI API Key',
     doneButton: 'Done',
     errorMessage: 'Invalid API Key',
+    instructions: 'Instructions',
   },
   errors: {
     noInternet: 'No internet connection',

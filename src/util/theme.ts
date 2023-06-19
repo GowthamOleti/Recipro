@@ -10,4 +10,5 @@ export const color = {
   grey: '#111111',
   buttonBackground: '#E0E7C3',
   sectionTitle: '#FFFFFF99',
+  blue: '#1E88E5',
 };

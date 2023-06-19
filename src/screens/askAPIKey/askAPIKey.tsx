@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  Linking,
   Text,
   TextInput,
   ToastAndroid,
@@ -29,9 +30,18 @@ export const AskAPIKey = ({setAskAPIKey}: Props) => {
     }
   };
 
+  const onInstructionsPress = () => {
+    Linking.openURL(
+      'https://medium.com/@teja2495/how-to-find-the-openai-api-key-a625aa096e9a',
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.askApiKeyTitle}>{askAPIKey.title}</Text>
+      <Text style={styles.instructions} onPress={onInstructionsPress}>
+        {askAPIKey.instructions}
+      </Text>
       <TextInput
         style={styles.key}
         value={key}

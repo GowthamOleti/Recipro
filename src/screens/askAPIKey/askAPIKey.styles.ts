@@ -10,8 +10,13 @@ export const styles = StyleSheet.create({
   askApiKeyTitle: {
     fontFamily: font.Avenir,
     fontSize: 20,
-    marginBottom: '5%',
     color: color.white,
+  },
+  instructions: {
+    fontFamily: font.Avenir,
+    fontSize: 20,
+    marginBottom: '5%',
+    color: color.blue,
   },
   key: {
     backgroundColor: color.grey,
