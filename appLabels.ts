@@ -1,5 +1,3 @@
-import {InputActionType} from './src/util/constants';
-
 export const appLabels = {
   appName: 'GPT Tools',
   askAPIKey: {
@@ -32,10 +30,4 @@ export const appLabels = {
   },
   resultScreenHeader: 'Result',
   pasteFromClipboard: 'paste from clipboard',
-};
-
-export const fetchLoadingText: Record<InputActionType, string> = {
-  SUMMARIZE: 'Summarizing...',
-  REWRITE: 'Rewriting...',
-  DEFAULT: '',
 };

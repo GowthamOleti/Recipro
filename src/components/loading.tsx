@@ -1,22 +1,17 @@
 import React from 'react';
-import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
-import {color, font} from '../util/theme';
+import {StyleSheet, View} from 'react-native';
+import {font} from '../util/theme';
+import Lottie from 'lottie-react-native';
 
-interface Props {
-  loadingText?: string;
-}
-
-export const Loading = ({loadingText}: Props) => {
+export const Loading = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator
-        size="large"
-        style={{transform: [{scaleX: 1.7}, {scaleY: 1.7}]}}
-        color={color.white}
+      <Lottie
+        style={{transform: [{scaleX: 0.8}, {scaleY: 0.8}]}}
+        source={require('../../assets/animations/loading.json')}
+        autoPlay
+        loop
       />
-      {loadingText && loadingText.length > 0 && (
-        <Text style={styles.loadingText}>{loadingText}</Text>
-      )}
     </View>
   );
 };

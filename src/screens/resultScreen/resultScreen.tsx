@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView, TextInput} from 'react-native';
-import {fetchLoadingText} from '../../../appLabels';
 import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
@@ -26,7 +25,7 @@ const ResultScreen = ({route}: ResultScreenProps) => {
   return (
     <SafeAreaView style={styles.container}>
       {isLoading ? (
-        <Loading loadingText={fetchLoadingText[actionType]} />
+        <Loading />
       ) : (
         <>
           <ScrollView>
