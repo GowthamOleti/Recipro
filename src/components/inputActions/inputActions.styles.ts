@@ -3,11 +3,17 @@ import {color, font} from '../../util/theme';
 
 export const styles = StyleSheet.create({
   container: {
+    bottom: '5%',
+    position: 'absolute',
+    alignSelf: 'center',
+  },
+  upArrow: {
+    alignSelf: 'center',
+    bottom: '25%',
+  },
+  buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    position: 'absolute',
-    bottom: '5%',
-    alignSelf: 'center',
   },
   actionButtonContainer: {
     borderRadius: 35,

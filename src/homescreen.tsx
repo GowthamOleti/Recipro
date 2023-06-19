@@ -93,7 +93,11 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
               </TouchableOpacity>
             )}
           </View>
-          <InputActions input={inputText} navigation={navigation} />
+          <InputActions
+            input={inputText}
+            navigation={navigation}
+            bottomDrawerRef={bottomDrawerRef}
+          />
         </>
       )}
       <BottomDrawer ref={bottomDrawerRef}>
