@@ -14,7 +14,7 @@ import AskAPIKey from './screens/askAPIKey/askAPIKey';
 import {InputActionType} from './util/constants';
 import {IsOpenAIApiKeyPresent} from './util/handleApiKeys';
 import {isLink} from './util/helpers';
-import {color} from './util/theme';
+import {color, font} from './util/theme';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
 import Clear from './../assets/icons/clear.svg';
 import Paste from './../assets/icons/paste.svg';
@@ -74,15 +74,15 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
             <TouchableOpacity style={styles.clearAndPaste}>
               {inputText.length > 0 && (
                 <Clear
-                  height={30}
-                  width={30}
+                  height={35}
+                  width={35}
                   onPress={() => setInputText('')}
                 />
               )}
               {showPasteButton && (
                 <Paste
-                  height={30}
-                  width={30}
+                  height={27}
+                  width={27}
                   onPress={() => {
                     setInputText(clipboardText);
                     setShowPasteButton(false);
@@ -103,26 +103,32 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: color.grey,
+    backgroundColor: color.darkGrey,
     paddingHorizontal: '5%',
   },
   inputContainer: {
-    borderRadius: 20,
-    padding: '5%',
+    borderRadius: 10,
+    padding: '3%',
     maxHeight: '70%',
     minHeight: '65%',
     marginTop: '5%',
     backgroundColor: color.black,
     justifyContent: 'space-between',
-    borderColor: color.lightGrey,
     borderWidth: 1,
+    borderColor: color.yellow,
+    shadowColor: color.yellow,
+    elevation: 15,
   },
   inputText: {
     textAlignVertical: 'top',
     fontSize: 19,
     minHeight: '50%',
+    maxHeight: '85%',
+    fontFamily: font.Sans,
   },
   clearAndPaste: {
     alignSelf: 'flex-end',
+    paddingRight: '2%',
+    paddingBottom: '2%',
   },
 });

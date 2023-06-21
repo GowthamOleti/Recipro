@@ -1,3 +1,5 @@
+import {InputActionType} from './src/util/constants';
+
 export const appLabels = {
   appName: 'GPT Tools',
   askAPIKey: {
@@ -11,7 +13,7 @@ export const appLabels = {
     noInput: 'Please enter input',
   },
   inputHint:
-    'You can either share any text or link to this app by using the Android share menu, or you can simply type it here....',
+    'You can either share any text or link to this app by using the Android share menu, or you can simply type it here.',
   inputActions: {
     summarize: 'Summarize',
     rewrite: 'Rewrite',
@@ -31,4 +33,10 @@ export const appLabels = {
   },
   resultScreenHeader: 'Result',
   pasteFromClipboard: 'paste from clipboard',
+};
+
+export const fetchResultScreenTitle: Record<InputActionType, string> = {
+  SUMMARIZE: 'Summary',
+  REWRITE: 'Rewritten Result',
+  DEFAULT: '',
 };

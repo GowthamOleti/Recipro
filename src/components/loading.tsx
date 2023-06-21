@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   loadingText: {
-    fontFamily: font.Avenir,
+    fontFamily: font.Sans,
     alignSelf: 'center',
     marginTop: '10%',
     fontSize: 17,

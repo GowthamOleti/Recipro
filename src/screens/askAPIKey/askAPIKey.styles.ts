@@ -8,12 +8,12 @@ export const styles = StyleSheet.create({
     marginBottom: '10%',
   },
   askApiKeyTitle: {
-    fontFamily: font.Avenir,
+    fontFamily: font.Sans,
     fontSize: 20,
     color: color.white,
   },
   instructions: {
-    fontFamily: font.Avenir,
+    fontFamily: font.Sans,
     fontSize: 20,
     marginBottom: '5%',
     color: color.blue,
@@ -24,13 +24,13 @@ export const styles = StyleSheet.create({
     borderColor: color.white,
     borderWidth: 1,
     color: color.white,
-    fontFamily: font.Avenir,
+    fontFamily: font.Sans,
     fontSize: 18,
   },
   doneButtonContainer: {
     borderRadius: 25,
     alignSelf: 'flex-start',
-    backgroundColor: color.buttonBackground,
+    backgroundColor: color.yellow,
     marginTop: '5%',
   },
   doneButtonText: {
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     paddingVertical: '2%',
     paddingHorizontal: '5%',
     alignSelf: 'center',
-    fontFamily: font.AvenirBold,
+    fontFamily: font.Sans,
     fontSize: 16,
   },
 });

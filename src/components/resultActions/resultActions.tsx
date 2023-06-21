@@ -38,7 +38,7 @@ export const ResultActions = ({output}: Props) => {
       <TouchableOpacity
         onPress={() => shareAsEmail(output)}
         style={styles.buttonContainer}>
-        <Email height={31} width={31} />
+        <Email height={32} width={32} />
       </TouchableOpacity>
     </View>
   );

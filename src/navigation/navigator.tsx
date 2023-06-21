@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../homescreen';
-import {appLabels} from '../../appLabels';
+import {appLabels, fetchResultScreenTitle} from '../../appLabels';
 import {color, font} from '../util/theme';
 import {NavStackParams, Screen} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';
@@ -17,7 +17,7 @@ export default function AppNavigator() {
           options={{
             title: appLabels.appName,
             headerStyle: {
-              backgroundColor: color.grey,
+              backgroundColor: color.darkGrey,
             },
             headerTintColor: color.white,
             headerTitleAlign: 'center',
@@ -29,16 +29,16 @@ export default function AppNavigator() {
           component={HomeScreen}
         />
         <Stack.Screen
-          options={{
-            title: appLabels.resultScreenHeader,
+          options={({route}) => ({
+            title: fetchResultScreenTitle[route.params.actionType],
             headerTintColor: color.white,
             headerStyle: {
-              backgroundColor: color.grey,
+              backgroundColor: color.darkGrey,
             },
             headerTitleStyle: {
-              fontFamily: font.AvenirBold,
+              fontFamily: font.SansBold,
             },
-          }}
+          })}
           name={Screen.RESULT}
           component={ResultScreen}
         />

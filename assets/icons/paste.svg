@@ -1,9 +1,7 @@
-<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<path d="M0 0H22V22H0V0Z" fill="url(#pattern0)"/>
-<defs>
-<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_45_1449" transform="scale(0.0104167)"/>
-</pattern>
-<image id="image0_45_1449" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC30lEQVR4nO3dz0qUURyH8VnpyhbaP6VttNDuJIkQ6QqCLqAuQ6mwol20DGnVsroJCyJbTbtI0rSIMJ449C4qcqY87znPvDO/DwxEZH2f9wwzb5uZXi+EEELoAGABuAk8BfrA5+bRb37vBjBv7xw7wDzwCPjGcOnPPATO2rvHAnAZ2OX/fQSW7f2dBlwHvnN86Wev2R2dBCwDh+RLf8clu6dTgJPAe9rzAThtd3UG8ID23be7OgE4BXwpcABfgTO9cQNcBG4DL4ED6ugDK8BM87gCvK70bx80rbeAJfPCTwP3Mu9SjnvxZ/+yZxZ4R12p/S4wZVz8FzhWBuxalTY9r3oI6Q0Nz8yAXSfEXRs1X/Nrv+z8am7I7asl/X9jscYBpDcf0+qAbVflbes1DuCVHPkmPdOPuH3dlrdt1TiAT/i2m2f7QvNIv35rj0rXpsYBDJT787bS/dlKB9hK92crHWAr3Z+tdICtdH+2FgJG4U38KLul+7PlDgCeMLo2S/dnyx0AXAB2GD07wPnS/dnaGACcAx4De/jShs1/ufht9WfRB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO/XB8j0fn2ATO8H9oeNmGB7k/DRxaNsaxI+vHuUrdU4gKWWvl5q3NT5+PrmENLXdoTf3aly8ZsDmGq+tiP89Mz4Hpl0CBsT/nJ0mJ751S/+HwexmL45It0BTMgt6n7Tul7tNT+EEEIIIYQQQggh9MbBD7Bn3i2u+lRzAAAAAElFTkSuQmCC"/>
-</defs>
-</svg>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier"> <g fill="#BDBDBD"> <path fill-rule="evenodd" d="M3.25 2.5H4v.25C4 3.44 4.56 4 5.25 4h5.5C11.44 4 12 3.44 12 2.75V2.5h.75a.75.75 0 01.75.75v3a.75.75 0 001.5 0v-3A2.25 2.25 0 0012.75 1h-.775c-.116-.57-.62-1-1.225-1h-5.5c-.605 0-1.11.43-1.225 1H3.25A2.25 2.25 0 001 3.25v10.5A2.25 2.25 0 003.25 16h9.5A2.25 2.25 0 0015 13.75v-1a.75.75 0 00-1.5 0v1a.75.75 0 01-.75.75h-9.5a.75.75 0 01-.75-.75V3.25a.75.75 0 01.75-.75zm2.25-1v1h5v-1h-5z" clip-rule="evenodd"/> <path d="M4.75 5.5a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3zM4 12.25a.75.75 0 01.75-.75h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM4.75 8.5a.75.75 0 000 1.5h2a.75.75 0 000-1.5h-2zM16 9.25a.75.75 0 01-.75.75h-4.19l1.22 1.22a.75.75 0 11-1.06 1.06l-2.5-2.5a.752.752 0 010-1.06l2.5-2.5a.75.75 0 111.06 1.06L11.06 8.5h4.19a.75.75 0 01.75.75z"/> </g> </g>
+</svg>
