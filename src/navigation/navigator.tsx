@@ -17,7 +17,7 @@ export default function AppNavigator() {
           options={{
             title: appLabels.appName,
             headerStyle: {
-              backgroundColor: color.black,
+              backgroundColor: color.grey,
             },
             headerTintColor: color.white,
             headerTitleAlign: 'center',
@@ -33,7 +33,7 @@ export default function AppNavigator() {
             title: appLabels.resultScreenHeader,
             headerTintColor: color.white,
             headerStyle: {
-              backgroundColor: color.black,
+              backgroundColor: color.grey,
             },
             headerTitleStyle: {
               fontFamily: font.AvenirBold,

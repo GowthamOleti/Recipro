@@ -19,8 +19,10 @@ export const styles = StyleSheet.create({
     color: color.blue,
   },
   key: {
-    backgroundColor: color.grey,
-    borderRadius: 5,
+    backgroundColor: color.black,
+    borderRadius: 10,
+    borderColor: color.white,
+    borderWidth: 1,
     color: color.white,
     fontFamily: font.Avenir,
     fontSize: 18,

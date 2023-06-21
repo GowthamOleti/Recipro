@@ -1,16 +1,12 @@
 import {useClipboard} from '@react-native-community/clipboard';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import BottomDrawer, {
-  BottomDrawerMethods,
-} from 'react-native-animated-bottom-drawer';
 import {appLabels} from '../appLabels';
 import {InputActions} from './components/inputActions/inputActions';
 import {HomeScreenProps, Screen} from './navigation/navigationTypes';
@@ -20,10 +16,8 @@ import {IsOpenAIApiKeyPresent} from './util/handleApiKeys';
 import {isLink} from './util/helpers';
 import {color} from './util/theme';
 import {useFetchSharedItem} from './util/useFetchSharedItem';
-
-// TODO:
-// Move logic to a hook
-// Add animations
+import Clear from './../assets/icons/clear.svg';
+import Paste from './../assets/icons/paste.svg';
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const sharedText = useFetchSharedItem();
@@ -32,16 +26,13 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
   const [inputText, setInputText] = useState('');
 
   const [clipboardText] = useClipboard();
-  const [showInlineButton, setShowInlineButton] = useState(false);
-
-  const bottomDrawerRef = useRef<BottomDrawerMethods>(null);
-  //bottomDrawerRef.current?.open();
+  const [showPasteButton, setShowPasteButton] = useState(false);
 
   useEffect(() => {
     if (clipboardText.length > 0 && inputText.length === 0) {
-      setShowInlineButton(true);
+      setShowPasteButton(true);
     } else {
-      setShowInlineButton(false);
+      setShowPasteButton(false);
     }
   }, [clipboardText, inputText]);
 
@@ -74,35 +65,35 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
           <View style={styles.inputContainer}>
             <TextInput
               multiline
-              autoFocus={!showInlineButton}
+              autoFocus
               placeholder={appLabels.inputHint}
               style={styles.inputText}
               onChangeText={text => setInputText(text)}
               value={inputText}
             />
-            {showInlineButton && (
-              <TouchableOpacity
-                style={styles.inlineButtonContainer}
-                onPress={() => {
-                  setInputText(clipboardText);
-                  setShowInlineButton(false);
-                }}>
-                <Text style={styles.inlineButtonText}>
-                  {appLabels.pasteFromClipboard}
-                </Text>
-              </TouchableOpacity>
-            )}
+            <TouchableOpacity style={styles.clearAndPaste}>
+              {inputText.length > 0 && (
+                <Clear
+                  height={30}
+                  width={30}
+                  onPress={() => setInputText('')}
+                />
+              )}
+              {showPasteButton && (
+                <Paste
+                  height={30}
+                  width={30}
+                  onPress={() => {
+                    setInputText(clipboardText);
+                    setShowPasteButton(false);
+                  }}
+                />
+              )}
+            </TouchableOpacity>
           </View>
-          <InputActions
-            input={inputText}
-            navigation={navigation}
-            bottomDrawerRef={bottomDrawerRef}
-          />
+          <InputActions input={inputText} navigation={navigation} />
         </>
       )}
-      <BottomDrawer ref={bottomDrawerRef}>
-        <View />
-      </BottomDrawer>
     </SafeAreaView>
   );
 };
@@ -112,31 +103,26 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: color.grey,
+    paddingHorizontal: '5%',
+  },
+  inputContainer: {
+    borderRadius: 20,
+    padding: '5%',
+    maxHeight: '70%',
+    minHeight: '65%',
+    marginTop: '5%',
     backgroundColor: color.black,
-    paddingHorizontal: '7%',
+    justifyContent: 'space-between',
+    borderColor: color.lightGrey,
+    borderWidth: 1,
   },
   inputText: {
     textAlignVertical: 'top',
     fontSize: 19,
     minHeight: '50%',
   },
-  inputContainer: {
-    borderRadius: 20,
-    padding: '5%',
-    maxHeight: '70%',
-    minHeight: '68%',
-    marginTop: '10%',
-    backgroundColor: color.grey,
-  },
-  inlineButtonContainer: {
-    borderColor: color.white,
-    borderWidth: 1,
-    borderRadius: 10,
-    alignSelf: 'center',
-  },
-  inlineButtonText: {
-    alignSelf: 'center',
-    padding: '3%',
-    fontSize: 12,
+  clearAndPaste: {
+    alignSelf: 'flex-end',
   },
 });

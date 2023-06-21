@@ -1,5 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView, TextInput} from 'react-native';
+import React, {useCallback, useEffect, useState} from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import Retry from './../../../assets/icons/retry.svg';
+
 import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
@@ -12,22 +20,26 @@ const ResultScreen = ({route}: ResultScreenProps) => {
   const [outputText, setOutputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const fetchResult = useCallback(() => {
+    setIsLoading(true);
+    fetchGPTResult({input, actionType}).then(output => {
+      setOutputText(output);
+      setIsLoading(false);
+    });
+  }, [actionType, input]);
+
   useEffect(() => {
     if (input && actionType) {
-      setIsLoading(true);
-      fetchGPTResult({input, actionType}).then(output => {
-        setOutputText(output);
-        setIsLoading(false);
-      });
+      fetchResult();
     }
-  }, [input, actionType]);
+  }, [input, actionType, fetchResult]);
 
   return (
     <SafeAreaView style={styles.container}>
       {isLoading ? (
         <Loading />
       ) : (
-        <>
+        <View style={styles.resultContainer}>
           <ScrollView>
             <TextInput
               style={styles.resultText}
@@ -36,8 +48,13 @@ const ResultScreen = ({route}: ResultScreenProps) => {
               multiline
             />
           </ScrollView>
-          <ResultActions output={outputText} />
-        </>
+          <View style={styles.resultActions}>
+            <ResultActions output={outputText} />
+            <TouchableOpacity onPress={fetchResult} style={styles.retryButton}>
+              <Retry height={30} width={30} />
+            </TouchableOpacity>
+          </View>
+        </View>
       )}
     </SafeAreaView>
   );
