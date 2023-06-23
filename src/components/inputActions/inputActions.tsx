@@ -32,12 +32,12 @@ export const InputActions = ({input, navigation}: Props) => {
     <View style={styles.container}>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
-          style={styles.actionButtonContainer}
+          style={[styles.actionButtonContainer, styles.summaryButtonColor]}
           onPress={() => onActionButtonPress(InputActionType.Summarize)}>
           <Text style={styles.actionButtonText}>{inputActions.summarize}</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.actionButtonContainer}
+          style={[styles.actionButtonContainer, styles.rewriteButtonColor]}
           onPress={() => onActionButtonPress(InputActionType.Rewrite)}>
           <Text style={styles.actionButtonText}>{inputActions.rewrite}</Text>
         </TouchableOpacity>

@@ -2,20 +2,16 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "assets/fonts/Avenir-Bold.ttf",
-      "sha1": "b6c17b6e0ed5a6cfe0ccc640c0bfbd9bc663c62a"
-    },
-    {
-      "path": "assets/fonts/Avenir.ttf",
-      "sha1": "ea4f74d433612d9d044576534d3a3d8709412ed6"
-    },
-    {
       "path": "assets/fonts/Product-Sans.ttf",
       "sha1": "49bdf6c2dc3ca0c772da5bc3d10ff5da23badee3"
     },
     {
       "path": "assets/fonts/Roboto-Mono.ttf",
       "sha1": "4c4b222617ecdda163e01a88c191ab0a50c336cf"
+    },
+    {
+      "path": "assets/fonts/Roboto-Regular.ttf",
+      "sha1": "56c5c0d38bde4c1f1549dda43db37b09c608aad3"
     }
   ]
 }

@@ -1,12 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import Retry from './../../../assets/icons/retry.svg';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 
 import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
@@ -39,20 +32,14 @@ const ResultScreen = ({route}: ResultScreenProps) => {
       {isLoading ? (
         <Loading />
       ) : (
-        <View style={styles.resultContainer}>
-          <ScrollView>
-            <TextInput
-              style={styles.resultText}
-              onChangeText={text => setOutputText(text)}
-              value={outputText}
-              multiline
-            />
+        <View>
+          <ScrollView style={styles.resultContainer}>
+            <Text style={styles.resultText} selectable>
+              {outputText}
+            </Text>
           </ScrollView>
           <View style={styles.resultActions}>
             <ResultActions output={outputText} />
-            <TouchableOpacity onPress={fetchResult} style={styles.retryButton}>
-              <Retry height={30} width={30} />
-            </TouchableOpacity>
           </View>
         </View>
       )}

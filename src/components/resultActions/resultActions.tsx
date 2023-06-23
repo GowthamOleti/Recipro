@@ -21,24 +21,34 @@ export const ResultActions = ({output}: Props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={styles.buttonContainer}
+        style={styles.shareCopyContainer}
         onPress={() => shareResult(output)}>
-        <Share height={26} width={26} fill={color.lightGrey} />
+        <Share
+          style={styles.shareCopy}
+          height={20}
+          width={20}
+          fill={color.lightMode.svg}
+        />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => copyToClipboard(output)}
-        style={styles.buttonContainer}>
-        <Copy height={30} width={30} />
+        style={styles.shareCopyContainer}>
+        <Copy
+          style={styles.shareCopy}
+          height={27}
+          width={27}
+          fill={color.lightMode.svg}
+        />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => shareAsTweet(output)}
-        style={styles.buttonContainer}>
-        <Tweet height={30} width={30} />
+        style={styles.tweetContainer}>
+        <Tweet style={styles.tweetEmail} height={20} width={20} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => shareAsEmail(output)}
-        style={styles.buttonContainer}>
-        <Email height={32} width={32} />
+        style={styles.emailContainer}>
+        <Email style={styles.tweetEmail} height={22} width={22} />
       </TouchableOpacity>
     </View>
   );

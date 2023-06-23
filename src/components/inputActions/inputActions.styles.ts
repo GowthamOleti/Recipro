@@ -17,16 +17,24 @@ export const styles = StyleSheet.create({
   },
   actionButtonContainer: {
     borderRadius: 35,
-    backgroundColor: color.yellow,
     alignSelf: 'flex-start',
     minWidth: '47%',
+    borderWidth: 1,
+    borderColor: color.lightMode.buttonBorder,
+    elevation: 3,
   },
   actionButtonText: {
-    color: color.black,
+    color: color.lightMode.buttonText,
     paddingHorizontal: '5%',
     paddingVertical: '4%',
     alignSelf: 'center',
-    fontFamily: font.Sans,
+    fontFamily: font.RobotoRegular,
     fontSize: 19,
+  },
+  summaryButtonColor: {
+    backgroundColor: color.lightMode.summarizeButton,
+  },
+  rewriteButtonColor: {
+    backgroundColor: color.lightMode.rewriteButton,
   },
 });

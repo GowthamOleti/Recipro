@@ -17,10 +17,11 @@ export default function AppNavigator() {
           options={{
             title: appLabels.appName,
             headerStyle: {
-              backgroundColor: color.darkGrey,
+              backgroundColor: color.lightMode.headerBackground,
             },
-            headerTintColor: color.white,
+            headerTintColor: color.lightMode.text,
             headerTitleAlign: 'center',
+            headerShadowVisible: false,
             headerTitleStyle: {
               fontFamily: font.RobotoMono,
             },
@@ -31,12 +32,13 @@ export default function AppNavigator() {
         <Stack.Screen
           options={({route}) => ({
             title: fetchResultScreenTitle[route.params.actionType],
-            headerTintColor: color.white,
+            headerTintColor: color.lightMode.text,
             headerStyle: {
-              backgroundColor: color.darkGrey,
+              backgroundColor: color.lightMode.headerBackground,
             },
+            headerTitleAlign: 'center',
             headerTitleStyle: {
-              fontFamily: font.SansBold,
+              fontFamily: font.Sans,
             },
           })}
           name={Screen.RESULT}

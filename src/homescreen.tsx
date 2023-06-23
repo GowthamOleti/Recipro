@@ -67,6 +67,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
               multiline
               autoFocus
               placeholder={appLabels.inputHint}
+              placeholderTextColor={color.lightMode.hintText}
               style={styles.inputText}
               onChangeText={text => setInputText(text)}
               value={inputText}
@@ -87,6 +88,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
                     setInputText(clipboardText);
                     setShowPasteButton(false);
                   }}
+                  fill={color.lightMode.svg}
                 />
               )}
             </TouchableOpacity>
@@ -103,21 +105,19 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: color.darkGrey,
+    backgroundColor: color.lightMode.homeBackground,
     paddingHorizontal: '5%',
   },
   inputContainer: {
-    borderRadius: 10,
+    borderRadius: 20,
     padding: '3%',
     maxHeight: '70%',
     minHeight: '65%',
-    marginTop: '5%',
-    backgroundColor: color.black,
+    marginTop: '3%',
+    backgroundColor: color.lightMode.textBackground,
     justifyContent: 'space-between',
-    borderWidth: 1,
-    borderColor: color.yellow,
-    shadowColor: color.yellow,
-    elevation: 15,
+    shadowColor: color.lightMode.shadow,
+    elevation: 10,
   },
   inputText: {
     textAlignVertical: 'top',
@@ -125,10 +125,9 @@ const styles = StyleSheet.create({
     minHeight: '50%',
     maxHeight: '85%',
     fontFamily: font.Sans,
+    color: color.lightMode.text,
   },
   clearAndPaste: {
     alignSelf: 'flex-end',
-    paddingRight: '2%',
-    paddingBottom: '2%',
   },
 });
