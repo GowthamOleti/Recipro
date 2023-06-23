@@ -1,5 +1,6 @@
 import {useClipboard} from '@react-native-community/clipboard';
 import React, {useEffect, useState} from 'react';
+import Lottie from 'lottie-react-native';
 import {
   SafeAreaView,
   StyleSheet,
@@ -72,23 +73,31 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
               onChangeText={text => setInputText(text)}
               value={inputText}
             />
+            {inputText.length === 0 && (
+              <Lottie
+                style={styles.inputAnimation}
+                source={require('../assets/animations/input.json')} // TODO: Create Index file
+                autoPlay
+                loop
+              />
+            )}
             <TouchableOpacity style={styles.clearAndPaste}>
               {inputText.length > 0 && (
                 <Clear
-                  height={35}
-                  width={35}
+                  height={25}
+                  width={25}
                   onPress={() => setInputText('')}
                 />
               )}
               {showPasteButton && (
                 <Paste
-                  height={27}
-                  width={27}
+                  height={26}
+                  width={26}
                   onPress={() => {
                     setInputText(clipboardText);
                     setShowPasteButton(false);
                   }}
-                  fill={color.lightMode.svg}
+                  fill={color.lightMode.homeSvg}
                 />
               )}
             </TouchableOpacity>
@@ -127,7 +136,13 @@ const styles = StyleSheet.create({
     fontFamily: font.Sans,
     color: color.lightMode.text,
   },
+  inputAnimation: {
+    transform: [{scaleX: 0.9}, {scaleY: 0.9}],
+    marginTop: '9%',
+  },
   clearAndPaste: {
     alignSelf: 'flex-end',
+    paddingRight: '2%',
+    paddingBottom: '2%',
   },
 });

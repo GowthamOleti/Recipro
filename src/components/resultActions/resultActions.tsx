@@ -27,7 +27,7 @@ export const ResultActions = ({output}: Props) => {
           style={styles.shareCopy}
           height={20}
           width={20}
-          fill={color.lightMode.svg}
+          fill={color.lightMode.resultSvg}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -35,20 +35,20 @@ export const ResultActions = ({output}: Props) => {
         style={styles.shareCopyContainer}>
         <Copy
           style={styles.shareCopy}
-          height={27}
-          width={27}
-          fill={color.lightMode.svg}
+          height={23}
+          width={23}
+          fill={color.lightMode.resultSvg}
         />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => shareAsTweet(output)}
         style={styles.tweetContainer}>
-        <Tweet style={styles.tweetEmail} height={20} width={20} />
+        <Tweet style={styles.tweetEmail} height={25} width={25} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => shareAsEmail(output)}
         style={styles.emailContainer}>
-        <Email style={styles.tweetEmail} height={22} width={22} />
+        <Email style={styles.tweetEmail} height={25} width={25} />
       </TouchableOpacity>
     </View>
   );
