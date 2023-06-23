@@ -34,6 +34,5 @@ export const styles = StyleSheet.create({
   tweetEmail: {
     alignSelf: 'center',
     paddingHorizontal: '6%',
-    color: '#B0B2B3',
   },
 });

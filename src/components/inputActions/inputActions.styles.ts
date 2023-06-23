@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     minWidth: '47%',
     borderWidth: 1,
     borderColor: color.lightMode.buttonBorder,
-    elevation: 3,
   },
   actionButtonText: {
     color: color.lightMode.buttonText,

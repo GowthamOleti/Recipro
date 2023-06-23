@@ -21,5 +21,8 @@ export const styles = StyleSheet.create({
     backgroundColor: color.lightMode.resultFooter,
     height: '15%',
     justifyContent: 'center',
+    elevation: 10,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
 });

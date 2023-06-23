@@ -43,7 +43,7 @@ export const ResultActions = ({output}: Props) => {
       <TouchableOpacity
         onPress={() => shareAsTweet(output)}
         style={styles.tweetContainer}>
-        <Tweet style={styles.tweetEmail} height={25} width={25} />
+        <Tweet style={styles.tweetEmail} height={23} width={23} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => shareAsEmail(output)}

@@ -78,7 +78,6 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
                 style={styles.inputAnimation}
                 source={require('../assets/animations/input.json')} // TODO: Create Index file
                 autoPlay
-                loop
               />
             )}
             <TouchableOpacity style={styles.clearAndPaste}>
@@ -131,8 +130,7 @@ const styles = StyleSheet.create({
   inputText: {
     textAlignVertical: 'top',
     fontSize: 19,
-    minHeight: '50%',
-    maxHeight: '85%',
+    maxHeight: '90%',
     fontFamily: font.Sans,
     color: color.lightMode.text,
   },
