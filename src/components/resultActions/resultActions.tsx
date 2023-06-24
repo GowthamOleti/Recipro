@@ -1,9 +1,5 @@
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
-import Share from './../../../assets/icons/share.svg';
-import Copy from './../../../assets/icons/copy.svg';
-import Tweet from './../../../assets/icons/twitter.svg';
-import Email from './../../../assets/icons/email.svg';
 import {
   copyToClipboard,
   shareAsEmail,
@@ -12,6 +8,7 @@ import {
 } from '../../util/helpers';
 import {styles} from './resultActions.styles';
 import {color} from '../../util/theme';
+import {Copy, Email, Share, Twitter} from '../../../assets/icons';
 
 interface Props {
   output: string;
@@ -43,7 +40,7 @@ export const ResultActions = ({output}: Props) => {
       <TouchableOpacity
         onPress={() => shareAsTweet(output)}
         style={styles.tweetContainer}>
-        <Tweet style={styles.tweetEmail} height={23} width={23} />
+        <Twitter style={styles.tweetEmail} height={23} width={23} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => shareAsEmail(output)}

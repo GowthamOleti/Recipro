@@ -1,42 +1,13 @@
-import React, {useState} from 'react';
-import {
-  Text,
-  TextInput,
-  ToastAndroid,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import React from 'react';
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {styles} from './askAPIKey.styles';
-import {appLabels} from '../../../appLabels';
-import {saveOpenAIApiKey} from '../../util/handleApiKeys';
+import {useAskAPIKey} from './useAskAPIKey';
 
-interface Props {
+export interface AskAPIKeyProps {
   setAskAPIKey: (value: boolean) => void;
 }
 
-const useAskAPIKey = ({setAskAPIKey}: Props) => {
-  const {askAPIKey} = appLabels;
-  const [key, setKey] = useState('');
-
-  const onDonePress = () => {
-    if (key.length !== 51 || !key.startsWith('sk-')) {
-      ToastAndroid.show(askAPIKey.errorMessage, ToastAndroid.LONG); // TODO: Change position.
-    } else {
-      saveOpenAIApiKey(key).finally(() => {
-        setAskAPIKey(false);
-      });
-    }
-  };
-
-  return {
-    askAPIKey,
-    key,
-    onDonePress,
-    setKey,
-  };
-};
-
-export const AskAPIKey = ({setAskAPIKey}: Props) => {
+export const AskAPIKey = ({setAskAPIKey}: AskAPIKeyProps) => {
   const {askAPIKey, key, onDonePress, setKey} = useAskAPIKey({setAskAPIKey});
   return (
     <View style={styles.container}>

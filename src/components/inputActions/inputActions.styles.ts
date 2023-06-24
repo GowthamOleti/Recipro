@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     borderColor: color.lightMode.buttonBorder,
   },
   actionButtonText: {
-    color: color.lightMode.buttonText,
+    color: color.common.buttonText,
     paddingHorizontal: '5%',
     paddingVertical: '4%',
     alignSelf: 'center',

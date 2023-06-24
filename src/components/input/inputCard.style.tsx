@@ -1,13 +1,8 @@
 import {StyleSheet} from 'react-native';
-import {color, font} from './util/theme';
+import {color, font} from '../../util/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: color.lightMode.homeBackground,
-    paddingHorizontal: '5%',
-  },
-  inputContainer: {
     borderRadius: 20,
     padding: '3%',
     maxHeight: '70%',
