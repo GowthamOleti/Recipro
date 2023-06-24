@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {styles} from './askAPIKey.styles';
+import {useTheme} from '../../util/useTheme';
+import {getStyles} from './askAPIKey.styles';
 import {useAskAPIKey} from './useAskAPIKey';
 
 export interface AskAPIKeyProps {
@@ -9,6 +10,8 @@ export interface AskAPIKeyProps {
 
 export const AskAPIKey = ({setAskAPIKey}: AskAPIKeyProps) => {
   const {askAPIKey, key, onDonePress, setKey} = useAskAPIKey({setAskAPIKey});
+  const theme = useTheme();
+  const styles = getStyles(theme);
   return (
     <View style={styles.container}>
       <Text style={styles.askApiKeyTitle}>{askAPIKey.title}</Text>

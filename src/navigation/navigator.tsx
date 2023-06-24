@@ -3,13 +3,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../homescreen';
 import {appLabels, fetchResultScreenTitle} from '../../appLabels';
-import {color, font} from '../util/theme';
 import {NavStackParams, Screen} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';
+import {useTheme} from '../util/useTheme';
 
 const Stack = createNativeStackNavigator<NavStackParams>();
 
 export default function AppNavigator() {
+  const {colors, fonts} = useTheme();
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -17,13 +18,13 @@ export default function AppNavigator() {
           options={{
             title: appLabels.appName,
             headerStyle: {
-              backgroundColor: color.lightMode.headerBackground,
+              backgroundColor: colors.headerBackground,
             },
-            headerTintColor: color.lightMode.text,
+            headerTintColor: colors.text,
             headerTitleAlign: 'center',
             headerShadowVisible: false,
             headerTitleStyle: {
-              fontFamily: font.RobotoMono,
+              fontFamily: fonts.RobotoMono,
             },
           }}
           name={Screen.HOME}
@@ -32,13 +33,13 @@ export default function AppNavigator() {
         <Stack.Screen
           options={({route}) => ({
             title: fetchResultScreenTitle[route.params.actionType],
-            headerTintColor: color.lightMode.text,
+            headerTintColor: colors.text,
             headerStyle: {
-              backgroundColor: color.lightMode.headerBackground,
+              backgroundColor: colors.headerBackground,
             },
             headerTitleAlign: 'center',
             headerTitleStyle: {
-              fontFamily: font.Sans,
+              fontFamily: fonts.Sans,
             },
           })}
           name={Screen.RESULT}

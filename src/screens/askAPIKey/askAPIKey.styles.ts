@@ -1,40 +1,41 @@
 import {StyleSheet} from 'react-native';
-import {color, font} from '../../util/theme';
+import {ThemeProps} from '../../util/useTheme';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: '10%',
-  },
-  askApiKeyTitle: {
-    fontFamily: font.Sans,
-    fontSize: 20,
-    color: color.lightMode.text,
-    paddingBottom: '5%',
-  },
-  key: {
-    borderRadius: 10,
-    borderColor: color.lightMode.buttonBorder,
-    borderWidth: 1,
-    color: color.lightMode.text,
-    fontFamily: font.Sans,
-    fontSize: 18,
-  },
-  doneButtonContainer: {
-    borderRadius: 25,
-    alignSelf: 'flex-start',
-    backgroundColor: color.lightMode.summarizeButton,
-    marginTop: '5%',
-    borderWidth: 1,
-    borderColor: color.lightMode.buttonBorder,
-  },
-  doneButtonText: {
-    color: color.lightMode.text,
-    paddingVertical: '2%',
-    paddingHorizontal: '5%',
-    alignSelf: 'center',
-    fontFamily: font.RobotoRegular,
-    fontSize: 16,
-  },
-});
+export const getStyles = ({colors, fonts}: ThemeProps) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      marginBottom: '10%',
+    },
+    askApiKeyTitle: {
+      fontFamily: fonts.Sans,
+      fontSize: 20,
+      color: colors.text,
+      paddingBottom: '5%',
+    },
+    key: {
+      borderRadius: 10,
+      borderColor: colors.buttonBorder,
+      borderWidth: 1,
+      color: colors.text,
+      fontFamily: fonts.Sans,
+      fontSize: 18,
+    },
+    doneButtonContainer: {
+      borderRadius: 25,
+      alignSelf: 'flex-start',
+      backgroundColor: colors.summarizeButton,
+      marginTop: '5%',
+      borderWidth: 1,
+      borderColor: colors.buttonBorder,
+    },
+    doneButtonText: {
+      color: colors.text,
+      paddingVertical: '2%',
+      paddingHorizontal: '5%',
+      alignSelf: 'center',
+      fontFamily: fonts.RobotoRegular,
+      fontSize: 16,
+    },
+  });

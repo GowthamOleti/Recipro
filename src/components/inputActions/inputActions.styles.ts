@@ -1,35 +1,36 @@
 import {StyleSheet} from 'react-native';
-import {color, font} from '../../util/theme';
+import {ThemeProps} from '../../util/useTheme';
 
-export const styles = StyleSheet.create({
-  container: {
-    bottom: '5%',
-    position: 'absolute',
-    alignSelf: 'center',
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  actionButtonContainer: {
-    borderRadius: 35,
-    alignSelf: 'flex-start',
-    minWidth: '47%',
-    borderWidth: 1,
-    borderColor: color.lightMode.buttonBorder,
-  },
-  actionButtonText: {
-    color: color.common.buttonText,
-    paddingHorizontal: '5%',
-    paddingVertical: '4%',
-    alignSelf: 'center',
-    fontFamily: font.RobotoRegular,
-    fontSize: 19,
-  },
-  summaryButtonColor: {
-    backgroundColor: color.lightMode.summarizeButton,
-  },
-  rewriteButtonColor: {
-    backgroundColor: color.lightMode.rewriteButton,
-  },
-});
+export const getStyles = ({colors, fonts}: ThemeProps) =>
+  StyleSheet.create({
+    container: {
+      bottom: '5%',
+      position: 'absolute',
+      alignSelf: 'center',
+    },
+    buttonsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    actionButtonContainer: {
+      borderRadius: 35,
+      alignSelf: 'flex-start',
+      minWidth: '47%',
+      borderWidth: 1,
+      borderColor: colors.buttonBorder,
+    },
+    actionButtonText: {
+      color: colors.common.buttonText,
+      paddingHorizontal: '5%',
+      paddingVertical: '4%',
+      alignSelf: 'center',
+      fontFamily: fonts.RobotoRegular,
+      fontSize: 19,
+    },
+    summaryButtonColor: {
+      backgroundColor: colors.summarizeButton,
+    },
+    rewriteButtonColor: {
+      backgroundColor: colors.rewriteButton,
+    },
+  });

@@ -6,15 +6,17 @@ import {
   shareAsTweet,
   shareResult,
 } from '../../util/helpers';
-import {styles} from './resultActions.styles';
-import {color} from '../../util/theme';
+import {getStyles} from './resultActions.styles';
 import {Copy, Email, Share, Twitter} from '../../../assets/icons';
+import {useTheme} from '../../util/useTheme';
 
 interface Props {
   output: string;
 }
 
 export const ResultActions = ({output}: Props) => {
+  const theme = useTheme();
+  const styles = getStyles(theme);
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -24,7 +26,7 @@ export const ResultActions = ({output}: Props) => {
           style={styles.shareCopy}
           height={20}
           width={20}
-          fill={color.lightMode.resultSvg}
+          fill={theme.colors.resultSvg}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -34,7 +36,7 @@ export const ResultActions = ({output}: Props) => {
           style={styles.shareCopy}
           height={23}
           width={23}
-          fill={color.lightMode.resultSvg}
+          fill={theme.colors.resultSvg}
         />
       </TouchableOpacity>
       <TouchableOpacity

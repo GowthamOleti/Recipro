@@ -5,7 +5,8 @@ import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../util/constants';
-import {styles} from './resultScreen.styles';
+import {useTheme} from '../../util/useTheme';
+import {getStyles} from './resultScreen.styles';
 import {useResultScreen} from './useResultScreen';
 
 export interface Props {
@@ -16,6 +17,8 @@ export interface Props {
 const ResultScreen = ({route}: ResultScreenProps) => {
   const {actionType, input} = route.params;
   const {isLoading, outputText} = useResultScreen({input, actionType});
+  const theme = useTheme();
+  const styles = getStyles(theme);
 
   return (
     <SafeAreaView style={styles.container}>

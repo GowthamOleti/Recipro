@@ -2,7 +2,8 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../../../appLabels';
 import {InputActionType} from '../../util/constants';
-import {styles} from './inputActions.styles';
+import {useTheme} from '../../util/useTheme';
+import {getStyles} from './inputActions.styles';
 import {useInputActions} from './useInputActions';
 
 export interface InputActionsProps {
@@ -12,6 +13,8 @@ export interface InputActionsProps {
 export const InputActions = ({input}: InputActionsProps) => {
   const {onActionButtonPress} = useInputActions({input});
   const {inputActions} = appLabels;
+  const theme = useTheme();
+  const styles = getStyles(theme);
 
   return (
     <View style={styles.container}>

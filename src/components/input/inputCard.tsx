@@ -3,9 +3,9 @@ import {TextInput, View} from 'react-native';
 import {appLabels} from '../../../appLabels';
 import {HomeIllustration} from '../homeIllustration';
 import {Clear, Paste} from '../../../assets/icons';
-import {color} from '../../util/theme';
-import {styles} from './inputCard.style';
 import {useInputCard} from './useInputCard';
+import {getStyles} from './inputCard.style';
+import {useTheme} from '../../util/useTheme';
 
 export interface InputCardProps {
   inputText: string;
@@ -17,6 +17,8 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
     inputText,
     setInputText,
   });
+  const theme = useTheme();
+  const styles = getStyles(theme);
 
   return (
     <View style={styles.container}>
@@ -24,7 +26,7 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
         multiline
         autoFocus
         placeholder={appLabels.inputHint}
-        placeholderTextColor={color.common.placeHolderText}
+        placeholderTextColor={theme.colors.common.placeHolderText}
         style={styles.inputText}
         onChangeText={text => setInputText(text)}
         value={inputText}
@@ -42,7 +44,7 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
               setInputText(clipboardText);
               setShowPasteButton(false);
             }}
-            fill={color.common.homeSvg}
+            fill={theme.colors.common.homeSvg}
           />
         )}
       </View>

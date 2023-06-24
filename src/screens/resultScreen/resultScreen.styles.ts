@@ -1,28 +1,29 @@
 import {StyleSheet} from 'react-native';
-import {color, font} from '../../util/theme';
+import {ThemeProps} from '../../util/useTheme';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: color.lightMode.resultBackground,
-  },
-  resultContainer: {
-    backgroundColor: color.lightMode.textBackground,
-    height: '85%',
-  },
-  resultText: {
-    color: color.lightMode.text,
-    padding: '5%',
-    fontSize: 19,
-    lineHeight: 25,
-    fontFamily: font.Sans,
-  },
-  resultActions: {
-    backgroundColor: color.lightMode.resultFooter,
-    height: '15%',
-    justifyContent: 'center',
-    elevation: 10,
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-  },
-});
+export const getStyles = ({colors, fonts}: ThemeProps) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.resultBackground,
+    },
+    resultContainer: {
+      backgroundColor: colors.textBackground,
+      height: '85%',
+    },
+    resultText: {
+      color: colors.text,
+      padding: '5%',
+      fontSize: 19,
+      lineHeight: 25,
+      fontFamily: fonts.Sans,
+    },
+    resultActions: {
+      backgroundColor: colors.resultFooter,
+      height: '15%',
+      justifyContent: 'center',
+      elevation: 10,
+      borderTopLeftRadius: 25,
+      borderTopRightRadius: 25,
+    },
+  });
