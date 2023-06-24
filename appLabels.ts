@@ -26,5 +26,4 @@ export const appLabels = {
 export const fetchResultScreenTitle: Record<InputActionType, string> = {
   SUMMARIZE: 'Summary',
   REWRITE: 'Rewritten Text',
-  DEFAULT: '',
 };

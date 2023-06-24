@@ -8,12 +8,12 @@ import {useNetInfo, NetInfoState} from '@react-native-community/netinfo';
 
 interface Props {
   input: string;
-  navigation: any;
+  navigation: any; // TODO: Can I remove this?
 }
 
-export const InputActions = ({input, navigation}: Props) => {
-  const {inputActions, errors} = appLabels;
+const useInputActions = ({input, navigation}: Props) => {
   const internetState: NetInfoState = useNetInfo();
+  const {errors} = appLabels;
 
   const onActionButtonPress = async (actionType: InputActionType) => {
     if (input.length === 0) {
@@ -27,6 +27,14 @@ export const InputActions = ({input, navigation}: Props) => {
       });
     }
   };
+  return {
+    onActionButtonPress,
+  };
+};
+
+export const InputActions = ({input, navigation}: Props) => {
+  const {onActionButtonPress} = useInputActions({input, navigation});
+  const {inputActions} = appLabels;
 
   return (
     <View style={styles.container}>

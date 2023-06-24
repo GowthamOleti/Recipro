@@ -4,6 +4,8 @@ export const font = {
   RobotoRegular: 'Roboto-Regular',
 };
 
+// TODO: Clean this up
+
 export const color = {
   lightMode: {
     buttonBorder: 'black',

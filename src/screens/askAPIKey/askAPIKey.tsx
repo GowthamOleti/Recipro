@@ -14,9 +14,8 @@ interface Props {
   setAskAPIKey: (value: boolean) => void;
 }
 
-export const AskAPIKey = ({setAskAPIKey}: Props) => {
+const useAskAPIKey = ({setAskAPIKey}: Props) => {
   const {askAPIKey} = appLabels;
-
   const [key, setKey] = useState('');
 
   const onDonePress = () => {
@@ -29,6 +28,16 @@ export const AskAPIKey = ({setAskAPIKey}: Props) => {
     }
   };
 
+  return {
+    askAPIKey,
+    key,
+    onDonePress,
+    setKey,
+  };
+};
+
+export const AskAPIKey = ({setAskAPIKey}: Props) => {
+  const {askAPIKey, key, onDonePress, setKey} = useAskAPIKey({setAskAPIKey});
   return (
     <View style={styles.container}>
       <Text style={styles.askApiKeyTitle}>{askAPIKey.title}</Text>

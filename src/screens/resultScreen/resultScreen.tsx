@@ -4,12 +4,16 @@ import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
+import {InputActionType} from '../../util/constants';
 import {fetchGPTResult} from '../../util/fetchGPTResult';
 import {styles} from './resultScreen.styles';
 
-const ResultScreen = ({route}: ResultScreenProps) => {
-  const {actionType, input} = route.params;
+interface Props {
+  input: string;
+  actionType: InputActionType;
+}
 
+const useResultScreen = ({input, actionType}: Props) => {
   const [outputText, setOutputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,6 +30,16 @@ const ResultScreen = ({route}: ResultScreenProps) => {
       fetchResult();
     }
   }, [input, actionType, fetchResult]);
+
+  return {
+    isLoading,
+    outputText,
+  };
+};
+
+const ResultScreen = ({route}: ResultScreenProps) => {
+  const {actionType, input} = route.params;
+  const {isLoading, outputText} = useResultScreen({input, actionType});
 
   return (
     <SafeAreaView style={styles.container}>

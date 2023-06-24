@@ -7,10 +7,6 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
   },
-  upArrow: {
-    alignSelf: 'center',
-    bottom: '25%',
-  },
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
