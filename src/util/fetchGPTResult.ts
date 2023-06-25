@@ -28,5 +28,5 @@ export const fetchGPTResult = async ({input, actionType}: Props) => {
   } catch (e) {
     console.log(e);
   }
-  return ''; // TODO: Return error when api failed.
+  return ''; // TODO: Return error when api fails.
 };
