@@ -1,10 +1,11 @@
-//import {useColorScheme} from 'react-native';
+import {useColorScheme} from 'react-native';
 
 export const useTheme = () => {
-  //const isDarkTheme = useColorScheme() === 'dark';
-  const isDarkTheme = false;
+  const isDarkTheme = useColorScheme() === 'dark';
+  //const isDarkTheme = false;
 
   const colors = {
+    border: isDarkTheme ? 'white' : 'black',
     buttonBorder: isDarkTheme ? '' : 'black',
     headerBackground: isDarkTheme ? '#212121' : '#FAF4F2',
     homeBackground: isDarkTheme ? '#212121' : '#FAF4F2',
@@ -32,11 +33,12 @@ export const useTheme = () => {
     Sans: 'Product-Sans',
     RobotoRegular: 'Roboto-Regular',
   };
-  return {colors, fonts};
+  return {colors, fonts, isDarkTheme};
 };
 
 export interface ThemeProps {
   colors: {
+    border: string;
     buttonBorder: string;
     headerBackground: string;
     homeBackground: string;
@@ -64,4 +66,5 @@ export interface ThemeProps {
     Sans: string;
     RobotoRegular: string;
   };
+  isDarkTheme: boolean;
 }

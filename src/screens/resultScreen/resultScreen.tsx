@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
 
 import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
@@ -22,6 +22,10 @@ const ResultScreen = ({route}: ResultScreenProps) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        backgroundColor={theme.colors.headerBackground}
+        barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
+      />
       {isLoading ? (
         <Loading />
       ) : (

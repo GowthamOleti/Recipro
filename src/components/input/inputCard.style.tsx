@@ -4,7 +4,7 @@ import {ThemeProps} from '../../util/useTheme';
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
-      borderRadius: 20,
+      borderRadius: 30,
       padding: '3%',
       maxHeight: '70%',
       minHeight: '65%',

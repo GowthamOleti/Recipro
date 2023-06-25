@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import {InputActions} from './components/inputActions/inputActions';
 import AskAPIKey from './screens/askAPIKey/askAPIKey';
 import {useHomeScreen} from './useHomescreen';
@@ -14,6 +14,10 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        backgroundColor={theme.colors.headerBackground}
+        barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
+      />
       {askApiKey ? (
         <AskAPIKey setAskAPIKey={setAskApiKey} />
       ) : (

@@ -16,7 +16,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     key: {
       borderRadius: 10,
-      borderColor: colors.buttonBorder,
+      borderColor: colors.border,
       borderWidth: 1,
       color: colors.text,
       fontFamily: fonts.Sans,
@@ -31,7 +31,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       borderColor: colors.buttonBorder,
     },
     doneButtonText: {
-      color: colors.text,
+      color: colors.common.buttonText,
       paddingVertical: '2%',
       paddingHorizontal: '5%',
       alignSelf: 'center',
