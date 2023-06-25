@@ -16,8 +16,6 @@ export const shareResult = async (text: string) => {
   }
 };
 
-// TODO: Handle twitter not installed scenario
-
 export const shareAsTweet = (text: string) => {
   Linking.openURL(`twitter://post?text=${encodeURIComponent(text)}`);
 };

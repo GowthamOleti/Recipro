@@ -6,8 +6,6 @@ interface Props {
   actionType: InputActionType;
 }
 
-// TODO: Handle Invalid api key
-
 export const fetchGPTResult = async ({input, actionType}: Props) => {
   const {Configuration, OpenAIApi} = require('openai');
 
@@ -30,5 +28,5 @@ export const fetchGPTResult = async ({input, actionType}: Props) => {
   } catch (e) {
     console.log(e);
   }
-  return '';
+  return ''; // TODO: Return error when api failed.
 };

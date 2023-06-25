@@ -1,7 +1,5 @@
 import EncryptedStorage from 'react-native-encrypted-storage';
 
-// TODO: Give an option to update/remove API Key
-
 const OPENAI_API_KEY = 'OPENAI_API_KEY';
 
 export const saveOpenAIApiKey = async (apiKey: string) => {
@@ -28,5 +26,14 @@ export const IsOpenAIApiKeyPresent = async () => {
   } catch (error) {
     console.log(error);
     return false;
+  }
+};
+
+// TODO: After removing, user should navigate to ask openAI key screen
+export const removeOpenAIApiKey = async () => {
+  try {
+    await EncryptedStorage.removeItem(OPENAI_API_KEY);
+  } catch (error) {
+    console.log(error);
   }
 };

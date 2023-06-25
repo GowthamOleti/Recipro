@@ -9,12 +9,14 @@ import {
 import {getStyles} from './resultActions.styles';
 import {Copy, Email, Share, Twitter} from '../../../assets/icons';
 import {useTheme} from '../../util/useTheme';
+import {useResultActions} from './useResultActions';
 
 interface Props {
   output: string;
 }
 
 export const ResultActions = ({output}: Props) => {
+  const {showTwitter} = useResultActions();
   const theme = useTheme();
   const styles = getStyles(theme);
   return (
@@ -39,11 +41,13 @@ export const ResultActions = ({output}: Props) => {
           fill={theme.colors.resultSvg}
         />
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => shareAsTweet(output)}
-        style={styles.tweetContainer}>
-        <Twitter style={styles.tweetEmail} height={23} width={23} />
-      </TouchableOpacity>
+      {showTwitter && (
+        <TouchableOpacity
+          onPress={() => shareAsTweet(output)}
+          style={styles.tweetContainer}>
+          <Twitter style={styles.tweetEmail} height={23} width={23} />
+        </TouchableOpacity>
+      )}
       <TouchableOpacity
         onPress={() => shareAsEmail(output)}
         style={styles.emailContainer}>
