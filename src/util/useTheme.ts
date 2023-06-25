@@ -1,8 +1,8 @@
-import {useColorScheme} from 'react-native';
+//import {useColorScheme} from 'react-native';
 
 export const useTheme = () => {
-  const isDarkTheme = useColorScheme() === 'dark';
-  //const isDarkTheme = false;
+  //const isDarkTheme = useColorScheme() === 'dark';
+  const isDarkTheme = false;
 
   const colors = {
     border: isDarkTheme ? 'white' : 'black',

@@ -22,7 +22,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     actionButtonText: {
       color: colors.common.buttonText,
       paddingHorizontal: '5%',
-      paddingVertical: '4%',
+      paddingVertical: '3%',
       alignSelf: 'center',
       fontFamily: fonts.RobotoRegular,
       fontSize: 19,
