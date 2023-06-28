@@ -9,7 +9,7 @@ export const HomeIllustration = () => {
       style={styles.container}
       source={Animations.Home}
       autoPlay
-      loop
+      loop={false}
     />
   );
 };

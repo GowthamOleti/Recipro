@@ -4,6 +4,7 @@ import {InputActionType} from '../util/constants';
 export enum Screen {
   HOME = 'HOME',
   RESULT = 'RESULT',
+  ASK_API_KEY = 'ASK_API_KEY',
 }
 
 export type NavStackParams = {
@@ -11,6 +12,9 @@ export type NavStackParams = {
   [Screen.RESULT]: {
     actionType: InputActionType;
     input: string;
+  };
+  [Screen.ASK_API_KEY]: {
+    reset?: boolean;
   };
 };
 

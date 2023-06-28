@@ -6,7 +6,9 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     container: {
       flex: 1,
       justifyContent: 'flex-end',
-      marginBottom: '10%',
+      paddingBottom: '10%',
+      backgroundColor: colors.homeBackground,
+      paddingHorizontal: '5%',
     },
     askApiKeyTitle: {
       fontFamily: fonts.Sans,

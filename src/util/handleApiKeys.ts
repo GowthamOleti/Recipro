@@ -17,6 +17,7 @@ export const getOpenAIApiKey = async () => {
   } catch (error) {
     console.log(error);
   }
+  return;
 };
 
 export const IsOpenAIApiKeyPresent = async () => {

@@ -1,19 +1,16 @@
 import React from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Text, TextInput, TouchableOpacity} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTheme} from '../../util/useTheme';
-import {getStyles} from './askAPIKey.styles';
-import {useAskAPIKey} from './useAskAPIKey';
+import {getStyles} from './askAPIKeyScreen.styles';
+import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 
-export interface AskAPIKeyProps {
-  setAskAPIKey: (value: boolean) => void;
-}
-
-export const AskAPIKey = ({setAskAPIKey}: AskAPIKeyProps) => {
-  const {askAPIKey, key, onDonePress, setKey} = useAskAPIKey({setAskAPIKey});
+const AskAPIKeyScreen = () => {
+  const {askAPIKey, key, onDonePress, setKey} = useAskAPIKeyScreen();
   const theme = useTheme();
   const styles = getStyles(theme);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.askApiKeyTitle}>{askAPIKey.title}</Text>
       <TextInput
         style={styles.key}
@@ -27,8 +24,8 @@ export const AskAPIKey = ({setAskAPIKey}: AskAPIKeyProps) => {
         onPress={onDonePress}>
         <Text style={styles.doneButtonText}>{askAPIKey.doneButton}</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
-export default AskAPIKey;
+export default AskAPIKeyScreen;
