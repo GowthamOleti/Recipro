@@ -30,9 +30,8 @@ const ResultScreen = ({route}: ResultScreenProps) => {
         backgroundColor={theme.colors.headerBackground}
         barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
       />
-      {errorType ? (
-        <ResultError errorType={errorType} fetchResult={fetchResult} />
-      ) : (
+      {isLoading && <Loading />}
+      {outputText.length > 0 && (
         <View>
           <ScrollView style={styles.resultContainer}>
             <Text style={styles.resultText} selectable>
@@ -44,7 +43,9 @@ const ResultScreen = ({route}: ResultScreenProps) => {
           </View>
         </View>
       )}
-      {isLoading && <Loading />}
+      {errorType && (
+        <ResultError errorType={errorType} fetchResult={fetchResult} />
+      )}
     </SafeAreaView>
   );
 };

@@ -1,12 +1,12 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import AnimatedLottieView from 'lottie-react-native';
+import Lottie from 'lottie-react-native';
 import {Animations} from '../../assets/animations';
 
 export const Loading = () => {
   return (
     <View style={styles.container}>
-      <AnimatedLottieView
+      <Lottie
         style={{transform: [{scaleX: 0.8}, {scaleY: 0.8}]}}
         source={Animations.Loading}
         autoPlay

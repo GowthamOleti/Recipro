@@ -1,4 +1,4 @@
-import AnimatedLottieView from 'lottie-react-native';
+import Lottie from 'lottie-react-native';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {fetchResultScreenErrorDetails} from '../../../appLabels';
@@ -28,7 +28,7 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
 
   return (
     <View style={styles.container}>
-      <AnimatedLottieView
+      <Lottie
         style={styles.errorAnimation}
         source={Animations.Error}
         autoPlay

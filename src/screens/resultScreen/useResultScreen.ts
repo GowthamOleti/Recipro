@@ -10,8 +10,11 @@ export const useResultScreen = ({input, actionType}: Props) => {
 
   const fetchResult = useCallback(() => {
     setErrorType(undefined);
+    setOutputText('');
     setIsLoading(true);
+
     fetchGPTResult({input, actionType}).then(output => {
+      setIsLoading(false);
       if (output === '401') {
         setErrorType(ResultErrorType.INVALID_KEY);
       } else if (output === '') {
@@ -19,7 +22,6 @@ export const useResultScreen = ({input, actionType}: Props) => {
       } else {
         setOutputText(output);
       }
-      setIsLoading(false);
     });
   }, [actionType, input]);
 
