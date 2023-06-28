@@ -23,10 +23,10 @@ export const fetchGPTResult = async ({input, actionType}: Props) => {
       messages: [{role: 'user', content: `${promptPrefix}${input}`}],
     });
 
-    console.log(response.data);
+    console.log(JSON.stringify(response.data));
     return String(response.data.choices[0].message.content).trim();
   } catch (e) {
     console.log(e);
+    return String(e).includes('401') ? '401' : '';
   }
-  return ''; // TODO: Return error when api fails.
 };

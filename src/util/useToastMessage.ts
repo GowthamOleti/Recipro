@@ -8,7 +8,7 @@ export const useToastMessage = () => {
   const showHomeScreenToast = (message: string) => {
     toast.show(message, {
       type: 'danger',
-      dangerColor: '#f2615f',
+      dangerColor: theme.colors.common.errorToast,
       placement: 'top',
       duration: 3000,
       animationType: 'slide-in',

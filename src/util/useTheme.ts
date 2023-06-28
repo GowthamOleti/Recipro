@@ -26,6 +26,7 @@ export const useTheme = () => {
       placeHolderText: '#757575',
       tweetBackground: '#03A9F41A',
       tweetBorder: '#03A9F4',
+      errorToast: '#CD4848',
     },
   };
   const fonts = {
@@ -59,6 +60,7 @@ export interface ThemeProps {
       placeHolderText: string;
       tweetBackground: string;
       tweetBorder: string;
+      errorToast: string;
     };
   };
   fonts: {

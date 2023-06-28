@@ -3,6 +3,7 @@ import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
 
 import {Loading} from '../../components/loading';
 import {ResultActions} from '../../components/resultActions/resultActions';
+import {ResultError} from '../../components/resultError/resultError';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../util/constants';
 import {useTheme} from '../../util/useTheme';
@@ -16,7 +17,10 @@ export interface Props {
 
 const ResultScreen = ({route}: ResultScreenProps) => {
   const {actionType, input} = route.params;
-  const {isLoading, outputText} = useResultScreen({input, actionType});
+  const {isLoading, fetchResult, errorType, outputText} = useResultScreen({
+    input,
+    actionType,
+  });
   const theme = useTheme();
   const styles = getStyles(theme);
 
@@ -26,8 +30,8 @@ const ResultScreen = ({route}: ResultScreenProps) => {
         backgroundColor={theme.colors.headerBackground}
         barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
       />
-      {isLoading ? (
-        <Loading />
+      {errorType ? (
+        <ResultError errorType={errorType} fetchResult={fetchResult} />
       ) : (
         <View>
           <ScrollView style={styles.resultContainer}>
@@ -40,6 +44,7 @@ const ResultScreen = ({route}: ResultScreenProps) => {
           </View>
         </View>
       )}
+      {isLoading && <Loading />}
     </SafeAreaView>
   );
 };

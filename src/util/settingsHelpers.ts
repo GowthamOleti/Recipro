@@ -9,6 +9,8 @@ export enum Settings {
   THEME,
 }
 
+// TODO: Add context for settings.
+
 export const saveSetting = async ({key, value}: AsyncStorageProps) => {
   try {
     await AsyncStorage.setItem(key, value);

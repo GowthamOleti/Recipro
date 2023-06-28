@@ -1,4 +1,4 @@
-import {InputActionType} from './src/util/constants';
+import {InputActionType, ResultErrorType} from './src/util/constants';
 
 export const appLabels = {
   appName: 'GPT Tools',
@@ -26,4 +26,18 @@ export const appLabels = {
 export const fetchResultScreenTitle: Record<InputActionType, string> = {
   SUMMARIZE: 'Summary',
   REWRITE: 'Rewritten Text',
+};
+
+export const fetchResultScreenErrorDetails: Record<
+  ResultErrorType,
+  {
+    errorTitle: string;
+    buttonText: string;
+  }
+> = {
+  GENERIC: {errorTitle: 'Oops! Something went wrong...', buttonText: 'Retry'},
+  INVALID_KEY: {
+    errorTitle: 'Oops! Something is wrong with your API Key...',
+    buttonText: 'Reset API Key',
+  },
 };
