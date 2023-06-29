@@ -8,6 +8,11 @@ export enum ResultErrorType {
   GENERIC = 'GENERIC',
 }
 
+export enum ExplainerScreenType {
+  API_KEY = 'API_KEY',
+  GENERAL = 'GENERAL',
+}
+
 export const fetchPromptPrefix: Record<InputActionType, string> = {
   SUMMARIZE:
     'Summarize the text concisely while covering all key points and main ideas. Use relevant details and examples, avoid repetition, and ensure the length is appropriate for the complexity while conveying all important information. - ',

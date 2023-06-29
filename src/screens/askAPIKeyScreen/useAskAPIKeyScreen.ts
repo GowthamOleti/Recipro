@@ -12,7 +12,7 @@ export const useAskAPIKeyScreen = () => {
   const {showHomeScreenToast} = useToastMessage();
   const navigation = useNavigation<any>();
 
-  const onDonePress = () => {
+  const onSaveButtonPress = () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
       // TODO: Update toast UI
       showHomeScreenToast(askAPIKey.errorMessage);
@@ -27,7 +27,7 @@ export const useAskAPIKeyScreen = () => {
   return {
     askAPIKey,
     key,
-    onDonePress,
+    onSaveButtonPress,
     setKey,
   };
 };

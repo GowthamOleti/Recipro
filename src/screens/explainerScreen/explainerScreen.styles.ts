@@ -5,35 +5,17 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'flex-start',
-      paddingTop: '5%',
+      paddingVertical: '2%',
       backgroundColor: colors.homeBackground,
       paddingHorizontal: '5%',
     },
-    keyContainer: {
+    instructionsSliderContainer: {
       borderRadius: 30,
-      backgroundColor: colors.resultBackground,
+      padding: '3%',
+      height: '75%',
+      backgroundColor: colors.textBackground,
+      justifyContent: 'center',
       elevation: 5,
-    },
-    key: {
-      color: colors.text,
-      fontFamily: fonts.Sans,
-      fontSize: 18,
-      paddingHorizontal: '5%',
-    },
-    getInstructionsContainer: {
-      alignSelf: 'center',
-      maxWidth: '90%',
-      marginTop: '20%',
-    },
-    getInstructionsText: {
-      color: colors.common.placeHolderText,
-      fontFamily: fonts.Sans,
-      fontSize: 20,
-      alignSelf: 'center',
-    },
-    rightArrow: {
-      marginTop: '5%',
       alignSelf: 'center',
     },
     saveButtonContainer: {
@@ -42,7 +24,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       borderWidth: 1,
       borderColor: colors.buttonBorder,
       width: '50%',
-      bottom: '20%',
+      bottom: '10%',
       position: 'absolute',
       alignSelf: 'center',
     },

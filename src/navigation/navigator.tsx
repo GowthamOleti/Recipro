@@ -8,6 +8,7 @@ import ResultScreen from '../screens/resultScreen/resultScreen';
 import {useTheme} from '../util/useTheme';
 import {IsOpenAIApiKeyPresent} from '../util/handleApiKeys';
 import AskAPIKeyScreen from '../screens/askAPIKeyScreen/askAPIKeyScreen';
+import ExplainerScreen from '../screens/explainerScreen/explainerScreen';
 
 const Stack = createNativeStackNavigator<NavStackParams>();
 
@@ -28,6 +29,8 @@ export default function AppNavigator() {
       });
   }, []);
 
+  // TODO: Add Splash screen?
+
   return (
     <NavigationContainer>
       {!loading && (
@@ -38,15 +41,29 @@ export default function AppNavigator() {
               headerStyle: {
                 backgroundColor: colors.headerBackground,
               },
-              headerTintColor: colors.text,
-              headerTitleAlign: 'center',
-              headerShadowVisible: false,
               headerTitleStyle: {
                 fontFamily: fonts.RobotoMono,
               },
+              headerShadowVisible: false,
+              headerTitleAlign: 'center',
             }}
             name={Screen.ASK_API_KEY}
             component={AskAPIKeyScreen}
+          />
+          <Stack.Screen
+            options={{
+              title: 'Instructions',
+              headerStyle: {
+                backgroundColor: colors.headerBackground,
+              },
+              headerShadowVisible: false,
+              headerTitleStyle: {
+                fontFamily: fonts.Sans,
+              },
+              headerTitleAlign: 'center',
+            }}
+            name={Screen.EXPLAINER}
+            component={ExplainerScreen}
           />
           <Stack.Screen
             options={{

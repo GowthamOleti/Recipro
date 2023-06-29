@@ -4,9 +4,10 @@ export const appLabels = {
   appName: 'GPT Tools',
   askAPIKey: {
     title: 'Enter your OpenAI API Key',
-    doneButton: 'Done',
+    saveButton: 'Save API Key',
     errorMessage: 'Invalid API Key',
-    instructions: 'Instructions',
+    getInstructions:
+      "Don't know how to get your Open AI API Key? Tap here for instructions.",
   },
   errors: {
     noInternet: 'No internet connection',
