@@ -8,6 +8,7 @@ export enum Screen {
   RESULT = 'RESULT',
   ASK_API_KEY = 'ASK_API_KEY',
   EXPLAINER = 'EXPLAINER',
+  SETTINGS = 'SETTINGS',
 }
 
 export type NavStackParams = {
@@ -22,6 +23,7 @@ export type NavStackParams = {
   [Screen.EXPLAINER]: {
     type: ExplainerScreenType;
   };
+  [Screen.SETTINGS]: undefined;
 };
 
 export const Stack = createNativeStackNavigator<NavStackParams>();
@@ -37,4 +39,8 @@ export type AskApiScreenProps = StackScreenProps<
 export type ExplainerScreenProps = StackScreenProps<
   NavStackParams,
   Screen.EXPLAINER
+>;
+export type SettingsScreenProps = StackScreenProps<
+  NavStackParams,
+  Screen.SETTINGS
 >;

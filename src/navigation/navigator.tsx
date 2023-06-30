@@ -8,19 +8,21 @@ import {useAppTheme} from '../util/useAppTheme';
 import AskAPIKeyScreen from '../screens/askAPIKeyScreen/askAPIKeyScreen';
 import ExplainerScreen from '../screens/explainerScreen/explainerScreen';
 import {useNavigator} from './useNavigator';
+import {SettingsIcon} from '../../assets/icons';
+import SettingsScreen from '../screens/settings/settingsScreen';
 
 export default function AppNavigator() {
   const {colors, fonts} = useAppTheme();
   const {loading, initRoute} = useNavigator();
 
-  // TODO: Organize options
+  // TODO: Clean this up
 
   return (
     <NavigationContainer>
       {!loading && (
         <Stack.Navigator initialRouteName={initRoute}>
           <Stack.Screen
-            options={{
+            options={({navigation}) => ({
               title: appLabels.appName,
               headerStyle: {
                 backgroundColor: colors.headerBackground,
@@ -30,7 +32,18 @@ export default function AppNavigator() {
               },
               headerShadowVisible: false,
               headerTitleAlign: 'center',
-            }}
+              headerRight: () => (
+                <SettingsIcon
+                  height={25}
+                  width={25}
+                  onPress={() => {
+                    navigation.navigate(Screen.SETTINGS);
+                  }}
+                  title="Settings"
+                  color="#fff"
+                />
+              ),
+            })}
             name={Screen.ASK_API_KEY}
             component={AskAPIKeyScreen}
           />
@@ -48,6 +61,21 @@ export default function AppNavigator() {
             }}
             name={Screen.EXPLAINER}
             component={ExplainerScreen}
+          />
+          <Stack.Screen
+            options={{
+              title: 'Settings',
+              headerStyle: {
+                backgroundColor: colors.headerBackground,
+              },
+              headerShadowVisible: false,
+              headerTitleStyle: {
+                fontFamily: fonts.Sans,
+              },
+              headerTitleAlign: 'center',
+            }}
+            name={Screen.SETTINGS}
+            component={SettingsScreen}
           />
           <Stack.Screen
             options={{
