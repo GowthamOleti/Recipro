@@ -10,7 +10,7 @@ import {
 import {appLabels} from '../../../appLabels';
 import InstructionsCarousel from './components/instructionsCarousel/InstructionsCarousel';
 import {StackNavigation} from '../../navigation/navigationTypes';
-import {useAppTheme} from '../../util/useAppTheme';
+import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './explainerScreen.styles';
 
 const ExplainerScreen = () => {

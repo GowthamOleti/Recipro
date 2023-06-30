@@ -3,7 +3,7 @@ import {SafeAreaView, StatusBar} from 'react-native';
 import {InputActions} from './components/inputActions/inputActions';
 import {getStyles} from './homescreen.styles';
 import {InputCard} from './components/inputCard/inputCard';
-import {useAppTheme} from '../../util/useAppTheme';
+import {useAppTheme} from '../../common/useAppTheme';
 
 const HomeScreen = () => {
   const theme = useAppTheme();

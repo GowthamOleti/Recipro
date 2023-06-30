@@ -4,7 +4,7 @@ import HomeScreen from '../screens/homeScreen/homescreen';
 import {appLabels, fetchResultScreenTitle} from '../../appLabels';
 import {Screen, Stack} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';
-import {useAppTheme} from '../util/useAppTheme';
+import {useAppTheme} from '../common/useAppTheme';
 import AskAPIKeyScreen from '../screens/askAPIKeyScreen/askAPIKeyScreen';
 import ExplainerScreen from '../screens/explainerScreen/explainerScreen';
 import {useNavigator} from './useNavigator';

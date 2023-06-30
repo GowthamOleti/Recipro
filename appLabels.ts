@@ -1,4 +1,4 @@
-import {InputActionType, ResultErrorType} from './src/util/constants';
+import {InputActionType, ResultErrorType} from './src/common/constants';
 
 export const appLabels = {
   appName: 'GPT Tools',

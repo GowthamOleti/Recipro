@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../../../../../appLabels';
-import {InputActionType} from '../../../../util/constants';
-import {useAppTheme} from '../../../../util/useAppTheme';
+import {InputActionType} from '../../../../common/constants';
+import {useAppTheme} from '../../../../common/useAppTheme';
 import {getStyles} from './inputActions.styles';
 import {useInputActions} from './useInputActions';
 

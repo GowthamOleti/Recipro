@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {useAppTheme} from '../../../../util/useAppTheme';
+import {useAppTheme} from '../../../../common/useAppTheme';
 import {getStyles} from './settingsItem.styles';
 
 interface SettingsItemProps {

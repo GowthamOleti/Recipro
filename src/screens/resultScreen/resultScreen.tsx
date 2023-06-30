@@ -5,8 +5,8 @@ import {Loading} from './components/loading';
 import {ResultActions} from './components/resultActions/resultActions';
 import {ResultError} from './components/resultError/resultError';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
-import {InputActionType} from '../../util/constants';
-import {useAppTheme} from '../../util/useAppTheme';
+import {InputActionType} from '../../common/constants';
+import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './resultScreen.styles';
 import {useResultScreen} from './useResultScreen';
 

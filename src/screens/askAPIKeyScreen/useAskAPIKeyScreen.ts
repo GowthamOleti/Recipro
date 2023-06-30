@@ -2,9 +2,9 @@ import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {appLabels} from '../../../appLabels';
 import {Screen} from '../../navigation/navigationTypes';
-import {ExplainerScreenType} from '../../util/constants';
+import {ExplainerScreenType} from '../../common/constants';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
-import {useToastMessage} from '../../util/useToastMessage';
+import {useToastMessage} from '../../common/useToastMessage';
 
 export const useAskAPIKeyScreen = () => {
   const {askAPIKey} = appLabels;

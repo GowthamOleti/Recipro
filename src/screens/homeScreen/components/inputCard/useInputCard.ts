@@ -1,7 +1,7 @@
 import {useClipboard} from '@react-native-community/clipboard';
 import {useFetchSharedItem} from '../../../../util/useFetchSharedItem';
 import {isLink} from '../../../../util/helpers';
-import {InputActionType} from '../../../../util/constants';
+import {InputActionType} from '../../../../common/constants';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
 import {useEffect, useState} from 'react';
 import {InputCardProps} from './inputCard';

@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {RoundedRight} from '../../../assets/icons';
-import {useAppTheme} from '../../util/useAppTheme';
+import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './askAPIKeyScreen.styles';
 import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 

@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useState} from 'react';
-import {ResultErrorType} from '../../util/constants';
+import {ResultErrorType} from '../../common/constants';
 import {fetchGPTResult} from '../../util/fetchGPTResult';
 import {Props} from './resultScreen';
 

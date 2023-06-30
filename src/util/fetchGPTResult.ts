@@ -1,4 +1,4 @@
-import {fetchPromptPrefix, InputActionType} from './constants';
+import {fetchPromptPrefix, InputActionType} from '../common/constants';
 import {getOpenAIApiKey} from './handleApiKey';
 
 interface Props {

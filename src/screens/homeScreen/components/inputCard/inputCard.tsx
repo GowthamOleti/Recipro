@@ -5,7 +5,7 @@ import {HomeIllustration} from '../homeIllustration';
 import {Clear, Paste} from '../../../../../assets/icons';
 import {useInputCard} from './useInputCard';
 import {getStyles} from './inputCard.style';
-import {useAppTheme} from '../../../../util/useAppTheme';
+import {useAppTheme} from '../../../../common/useAppTheme';
 
 export interface InputCardProps {
   inputText: string;

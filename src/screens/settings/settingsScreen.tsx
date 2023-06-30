@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList, ScrollView, View} from 'react-native';
 import {settings} from '../../../appLabels';
 import {SettingsItem} from './components/settingsItem/settingsItem';
-import {useAppTheme} from '../../util/useAppTheme';
+import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './settingsScreen.styles';
 
 const SettingsScreen = () => {
