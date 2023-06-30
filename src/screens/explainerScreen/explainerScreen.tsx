@@ -8,10 +8,10 @@ import {
   View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
-import InstructionsCarousel from './components/instructionsCarousel/InstructionsCarousel';
 import {StackNavigation} from '../../navigation/navigationTypes';
 import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './explainerScreen.styles';
+import InstructionsCarousel from './components/instructionsCarousel/instructionsCarousel';
 
 const ExplainerScreen = () => {
   const theme = useAppTheme();

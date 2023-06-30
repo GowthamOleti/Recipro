@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, Linking} from 'react-native';
 import React from 'react';
-import {ThemeProps, useAppTheme} from '../../../../../common/useAppTheme';
-import {screenDimensions} from '../../../../../util/helpers';
+import {ThemeProps, useAppTheme} from '../../../common/useAppTheme';
+import {screenDimensions} from '../../../util/helpers';
 
 interface CarouselPageProps {
   item: {
