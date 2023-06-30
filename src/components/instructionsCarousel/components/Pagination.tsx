@@ -4,7 +4,7 @@ import {screenDimensions} from '../../../util/helpers';
 import {useAppTheme} from '../../../util/useAppTheme';
 import {apiKeyInstructions} from '../../../../appLabels';
 
-const Pagination = () => {
+export const Pagination = () => {
   const width = screenDimensions.width;
   const colors = useAppTheme().colors;
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -44,8 +44,6 @@ const Pagination = () => {
     </View>
   );
 };
-
-export default Pagination;
 
 const styles = StyleSheet.create({
   container: {

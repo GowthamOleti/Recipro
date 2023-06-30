@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {RightArrow} from '../../../assets/icons';
+import {RoundedRight} from '../../../assets/icons';
 import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './askAPIKeyScreen.styles';
 import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
@@ -41,7 +41,7 @@ const AskAPIKeyScreen = () => {
         <Text style={styles.getInstructionsText}>
           {askAPIKey.getInstructions}
         </Text>
-        <RightArrow
+        <RoundedRight
           style={styles.rightArrow}
           height={50}
           width={50}

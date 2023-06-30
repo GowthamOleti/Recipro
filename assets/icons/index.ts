@@ -4,5 +4,7 @@ export {default as Email} from './email.svg';
 export {default as Paste} from './paste.svg';
 export {default as Share} from './share.svg';
 export {default as Twitter} from './twitter.svg';
-export {default as RightArrow} from './right-arrow.svg';
+export {default as RoundedRight} from './rounded-right.svg';
 export {default as SettingsIcon} from './settings.svg';
+export {default as Right} from './right-arrow.svg';
+export {default as Left} from './left-arrow.svg';
