@@ -1,23 +1,17 @@
 import {StyleSheet, Animated, View} from 'react-native';
-import React from 'react';
+import React, {useRef} from 'react';
 import {screenDimensions} from '../../../util/helpers';
 import {useAppTheme} from '../../../util/useAppTheme';
+import {apiKeyInstructions} from '../../../../appLabels';
 
-interface PaginationProps {
-  data: {
-    title: string;
-    body: string;
-    link?: string;
-  }[];
-  scrollX: Animated.Value;
-}
-
-const Pagination = ({data, scrollX}: PaginationProps) => {
+const Pagination = () => {
   const width = screenDimensions.width;
   const colors = useAppTheme().colors;
+  const scrollX = useRef(new Animated.Value(0)).current;
+
   return (
     <View style={styles.container}>
-      {data.map((_, index) => {
+      {apiKeyInstructions.map((_, index) => {
         const inputRange = [
           (index - 1) * width,
           index * width,
