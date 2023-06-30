@@ -1,9 +1,9 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
 
-import {Loading} from '../../components/loading';
-import {ResultActions} from '../../components/resultActions/resultActions';
-import {ResultError} from '../../components/resultError/resultError';
+import {Loading} from './components/loading';
+import {ResultActions} from './components/resultActions/resultActions';
+import {ResultError} from './components/resultError/resultError';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../util/constants';
 import {useAppTheme} from '../../util/useAppTheme';

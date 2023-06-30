@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from '../homescreen';
+import HomeScreen from '../screens/homeScreen/homescreen';
 import {appLabels, fetchResultScreenTitle} from '../../appLabels';
 import {Screen, Stack} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';

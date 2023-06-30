@@ -1,10 +1,10 @@
 import {useNetInfo, NetInfoState} from '@react-native-community/netinfo';
 import {useNavigation} from '@react-navigation/native';
-import {appLabels} from '../../../appLabels';
-import {Screen, StackNavigation} from '../../navigation/navigationTypes';
-import {InputActionType} from '../../util/constants';
+import {appLabels} from '../../../../../appLabels';
+import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
+import {InputActionType} from '../../../../util/constants';
 import {InputActionsProps} from './inputActions';
-import {useToastMessage} from '../../util/useToastMessage';
+import {useToastMessage} from '../../../../util/useToastMessage';
 
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();

@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
-import InstructionsCarousel from '../../components/instructionsCarousel/InstructionsCarousel';
+import InstructionsCarousel from './components/instructionsCarousel/InstructionsCarousel';
 import {StackNavigation} from '../../navigation/navigationTypes';
 import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './explainerScreen.styles';

@@ -3,7 +3,7 @@ import React, {useRef} from 'react';
 import CarouselPage from './components/carouselPage';
 import {useInstructionsCarousel} from './useInstructionsCarousel';
 import Pagination from './components/Pagination';
-import {Left, Right} from '../../../assets/icons';
+import {Left, Right} from '../../../../../assets/icons';
 
 const InstructionsCarousel = () => {
   const {

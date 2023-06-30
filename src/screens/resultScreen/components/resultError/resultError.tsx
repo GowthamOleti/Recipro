@@ -1,10 +1,10 @@
 import Lottie from 'lottie-react-native';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {fetchResultScreenErrorDetails} from '../../../appLabels';
-import {Animations} from '../../../assets/animations';
-import {ResultErrorType} from '../../util/constants';
-import {useAppTheme} from '../../util/useAppTheme';
+import {fetchResultScreenErrorDetails} from '../../../../../appLabels';
+import {Animations} from '../../../../../assets/animations';
+import {ResultErrorType} from '../../../../util/constants';
+import {useAppTheme} from '../../../../util/useAppTheme';
 import {getStyles} from './resultError.styles';
 
 export interface ResultErrorProps {

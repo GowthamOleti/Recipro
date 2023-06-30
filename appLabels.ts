@@ -66,3 +66,35 @@ export const apiKeyInstructions = [
     body: 'You can set your usage limit. You can set it to as low as $1 per month. $1 usage is almost 250 requests per month!',
   },
 ];
+
+export const settings = {
+  toggleSettings: [
+    {
+      id: 'QUICK_SUMMARIZE',
+      title: 'Instant Summarizing',
+      subtext: 'Summarize links quickly',
+    },
+    {
+      id: 'TWEET_MAIL',
+      title: 'Show Twitter & Mail',
+      subtext: 'Show Twitter & Mail in Result screen',
+    },
+  ],
+  other: [
+    {
+      id: 'RESET_KEY',
+      title: 'Reset OpenAI API Key',
+      subtext: '',
+    },
+    {
+      id: 'HOW_TO_USE',
+      title: 'How to Use',
+      subtext: '',
+    },
+    {
+      id: 'FEEDBACK',
+      title: 'Feedback',
+      subtext: '',
+    },
+  ],
+};

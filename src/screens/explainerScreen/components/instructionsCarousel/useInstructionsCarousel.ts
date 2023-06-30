@@ -6,7 +6,7 @@ import {
   NativeSyntheticEvent,
   ViewToken,
 } from 'react-native';
-import {apiKeyInstructions} from '../../../appLabels';
+import {apiKeyInstructions} from '../../../../../appLabels';
 
 export const useInstructionsCarousel = () => {
   const scrollX = useRef(new Animated.Value(0)).current;

@@ -1,11 +1,11 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
-import {appLabels} from '../../../appLabels';
+import {appLabels} from '../../../../../appLabels';
 import {HomeIllustration} from '../homeIllustration';
-import {Clear, Paste} from '../../../assets/icons';
+import {Clear, Paste} from '../../../../../assets/icons';
 import {useInputCard} from './useInputCard';
 import {getStyles} from './inputCard.style';
-import {useAppTheme} from '../../util/useAppTheme';
+import {useAppTheme} from '../../../../util/useAppTheme';
 
 export interface InputCardProps {
   inputText: string;

@@ -5,10 +5,10 @@ import {
   shareAsEmail,
   shareAsTweet,
   shareResult,
-} from '../../util/helpers';
+} from '../../../../util/helpers';
 import {getStyles} from './resultActions.styles';
-import {Copy, Email, Share, Twitter} from '../../../assets/icons';
-import {useAppTheme} from '../../util/useAppTheme';
+import {Copy, Email, Share, Twitter} from '../../../../../assets/icons';
+import {useAppTheme} from '../../../../util/useAppTheme';
 import {useResultActions} from './useResultActions';
 
 interface Props {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Lottie from 'lottie-react-native';
-import {Animations} from '../../assets/animations';
+import {Animations} from '../../../../assets/animations';
 
 export const Loading = () => {
   return (

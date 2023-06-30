@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import AnimatedLottieView from 'lottie-react-native';
-import {Animations} from '../../assets/animations';
+import {Animations} from '../../../../assets/animations';
 
 export const HomeIllustration = () => {
   return (
