@@ -1,23 +1,21 @@
-import {FlatList, StyleSheet, View, ViewToken} from 'react-native';
-import React, {useCallback, useRef, useState} from 'react';
+import {FlatList, StyleSheet, View} from 'react-native';
+import React, {useRef} from 'react';
 import CarouselPage from './components/carouselPage';
-import {apiKeyInstructions} from '../../../appLabels';
+import {useInstructionsCarousel} from './useInstructionsCarousel';
+import Pagination from './components/Pagination';
 import {Left, Right} from '../../../assets/icons';
-import {Pagination} from './components/pagination';
 
 const InstructionsCarousel = () => {
+  const {
+    handleOnScroll,
+    scrollX,
+    data,
+    handleViewableItemsChanged,
+    flatListIndex,
+  } = useInstructionsCarousel();
+
   const flatListRef = useRef<FlatList>(null);
   const viewConfigRef = React.useRef({viewAreaCoveragePercentThreshold: 50});
-
-  const [flatListIndex, setFlatListIndex] = useState(0);
-  const data = apiKeyInstructions;
-
-  const handleViewableItemsChanged = useCallback(
-    ({viewableItems}: {viewableItems: ViewToken[]}) => {
-      setFlatListIndex(viewableItems[0].index ?? 0);
-    },
-    [],
-  );
 
   return (
     <>
@@ -29,8 +27,9 @@ const InstructionsCarousel = () => {
         pagingEnabled
         snapToAlignment="start"
         showsHorizontalScrollIndicator={false}
-        onViewableItemsChanged={handleViewableItemsChanged}
+        onScroll={handleOnScroll}
         viewabilityConfig={viewConfigRef.current}
+        onViewableItemsChanged={handleViewableItemsChanged}
       />
       <View style={styles.bottomContainer}>
         <Left
@@ -40,7 +39,7 @@ const InstructionsCarousel = () => {
             })
           }
         />
-        <Pagination />
+        <Pagination data={data} scrollX={scrollX} />
         <Right
           onPress={() =>
             flatListRef?.current?.scrollToIndex({
