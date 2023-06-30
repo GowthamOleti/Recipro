@@ -1,5 +1,5 @@
 import {fetchPromptPrefix, InputActionType} from './constants';
-import {getOpenAIApiKey} from './handleApiKeys';
+import {getOpenAIApiKey} from './handleApiKey';
 
 interface Props {
   input: string;

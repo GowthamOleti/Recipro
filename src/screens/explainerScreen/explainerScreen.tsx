@@ -7,15 +7,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import InstructionsSlider from '../../components/instructionSlider/InstructionsSlider';
-import {useTheme} from '../../util/useTheme';
+import {appLabels} from '../../../appLabels';
+import InstructionsSlider from '../../components/instructionsSlider/InstructionsSlider';
+import {StackNavigation} from '../../navigation/navigationTypes';
+import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './explainerScreen.styles';
 
 const ExplainerScreen = () => {
-  const theme = useTheme();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
+  const navigation = useNavigation<StackNavigation>();
 
-  const navigation = useNavigation<any>();
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -28,7 +30,7 @@ const ExplainerScreen = () => {
       <TouchableOpacity
         style={styles.saveButtonContainer}
         onPress={() => navigation.goBack()}>
-        <Text style={styles.saveButtonText}>{'Go Back'}</Text>
+        <Text style={styles.saveButtonText}>{appLabels.explainer.button}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

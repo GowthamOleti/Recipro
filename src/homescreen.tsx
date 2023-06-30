@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {InputActions} from './components/inputActions/inputActions';
 import {getStyles} from './homescreen.styles';
-import {InputCard} from './components/input/inputCard';
-import {useTheme} from './util/useTheme';
+import {InputCard} from './components/inputCard/inputCard';
+import {useAppTheme} from './util/useAppTheme';
 
 const HomeScreen = () => {
-  const theme = useTheme();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
 
   const [inputText, setInputText] = useState('');

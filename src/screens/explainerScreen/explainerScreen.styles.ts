@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
-import {ThemeProps} from '../../util/useTheme';
+import {ThemeProps} from '../../util/useAppTheme';
 
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
       flex: 1,
       paddingVertical: '2%',
-      backgroundColor: colors.homeBackground,
+      backgroundColor: colors.background,
       paddingHorizontal: '5%',
     },
     instructionsSliderContainer: {
@@ -20,7 +20,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     saveButtonContainer: {
       borderRadius: 25,
-      backgroundColor: colors.summarizeButton,
+      backgroundColor: colors.greenButton,
       borderWidth: 1,
       borderColor: colors.buttonBorder,
       width: '50%',

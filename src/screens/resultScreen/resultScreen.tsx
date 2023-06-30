@@ -6,7 +6,7 @@ import {ResultActions} from '../../components/resultActions/resultActions';
 import {ResultError} from '../../components/resultError/resultError';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../util/constants';
-import {useTheme} from '../../util/useTheme';
+import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './resultScreen.styles';
 import {useResultScreen} from './useResultScreen';
 
@@ -21,7 +21,7 @@ const ResultScreen = ({route}: ResultScreenProps) => {
     input,
     actionType,
   });
-  const theme = useTheme();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
 
   return (

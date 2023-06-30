@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
-import {ThemeProps} from './util/useTheme';
+import {ThemeProps} from './util/useAppTheme';
 
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: colors.homeBackground,
+      backgroundColor: colors.background,
       paddingHorizontal: '5%',
     },
     inputContainer: {

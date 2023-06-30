@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {ThemeProps} from '../../util/useTheme';
+import {ThemeProps} from '../../util/useAppTheme';
 
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
@@ -7,7 +7,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       flex: 1,
       justifyContent: 'flex-start',
       paddingTop: '5%',
-      backgroundColor: colors.homeBackground,
+      backgroundColor: colors.background,
       paddingHorizontal: '5%',
     },
     keyContainer: {
@@ -24,7 +24,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     getInstructionsContainer: {
       alignSelf: 'center',
       maxWidth: '90%',
-      marginTop: '20%',
+      marginTop: '10%',
     },
     getInstructionsText: {
       color: colors.common.placeHolderText,
@@ -38,11 +38,11 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     saveButtonContainer: {
       borderRadius: 25,
-      backgroundColor: colors.summarizeButton,
+      backgroundColor: colors.greenButton,
       borderWidth: 1,
       borderColor: colors.buttonBorder,
       width: '50%',
-      bottom: '20%',
+      bottom: '10%',
       position: 'absolute',
       alignSelf: 'center',
     },

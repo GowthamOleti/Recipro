@@ -1,22 +1,33 @@
 import {StyleSheet, Text, View, Dimensions, Linking} from 'react-native';
 import React from 'react';
-import {ThemeProps, useTheme} from '../../util/useTheme';
+import {ThemeProps, useAppTheme} from '../../util/useAppTheme';
+import {isLink} from '../../util/helpers';
 
 const {width, height} = Dimensions.get('screen');
 
-const SlideItem = ({item}) => {
-  const theme = useTheme();
+interface SlideItemProps {
+  item: {
+    title: string;
+    body: string;
+    link?: string;
+  };
+}
+
+const SlideItem = ({item}: SlideItemProps) => {
+  const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const onLinkPress = (link: string) => {
-    Linking.openURL(link);
+  const onLinkPress = (link?: string) => {
+    if (link && isLink(link ?? '')) {
+      Linking.openURL(link);
+    }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.description}>{item.body}</Text>
-      {item?.link && (
+      {item.link && (
         <Text onPress={() => onLinkPress(item.link)} style={styles.link}>
           {item.link}
         </Text>
@@ -27,12 +38,11 @@ const SlideItem = ({item}) => {
 
 export default SlideItem;
 
-const getStyles = ({colors, fonts}: ThemeProps) =>
+const getStyles = ({fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
       width,
       height,
-      //paddingRight: '15%',
       paddingLeft: '2%',
       paddingTop: '2%',
     },

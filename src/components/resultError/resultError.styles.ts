@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {ThemeProps} from '../../util/useTheme';
+import {ThemeProps} from '../../util/useAppTheme';
 
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
@@ -22,7 +22,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     errorButtonContainer: {
       borderRadius: 25,
-      backgroundColor: colors.summarizeButton,
+      backgroundColor: colors.greenButton,
       marginTop: '5%',
       borderWidth: 1,
       borderColor: colors.buttonBorder,

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../../../appLabels';
 import {InputActionType} from '../../util/constants';
-import {useTheme} from '../../util/useTheme';
+import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './inputActions.styles';
 import {useInputActions} from './useInputActions';
 
@@ -13,7 +13,7 @@ export interface InputActionsProps {
 export const InputActions = ({input}: InputActionsProps) => {
   const {onActionButtonPress} = useInputActions({input});
   const {inputActions} = appLabels;
-  const theme = useTheme();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
 
   return (

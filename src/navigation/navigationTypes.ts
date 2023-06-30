@@ -1,3 +1,5 @@
+import {NavigationProp} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {StackScreenProps} from '@react-navigation/stack';
 import {ExplainerScreenType, InputActionType} from '../util/constants';
 
@@ -21,6 +23,10 @@ export type NavStackParams = {
     type: ExplainerScreenType;
   };
 };
+
+export const Stack = createNativeStackNavigator<NavStackParams>();
+
+export type StackNavigation = NavigationProp<NavStackParams>;
 
 export type HomeScreenProps = StackScreenProps<NavStackParams, Screen.HOME>;
 export type ResultScreenProps = StackScreenProps<NavStackParams, Screen.RESULT>;

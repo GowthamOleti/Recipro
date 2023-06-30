@@ -1,9 +1,9 @@
-import {useTheme} from './useTheme';
+import {useAppTheme} from './useAppTheme';
 import {useToast} from 'react-native-toast-notifications';
 
 export const useToastMessage = () => {
   const toast = useToast();
-  const theme = useTheme();
+  const theme = useAppTheme();
 
   const showHomeScreenToast = (message: string) => {
     toast.show(message, {

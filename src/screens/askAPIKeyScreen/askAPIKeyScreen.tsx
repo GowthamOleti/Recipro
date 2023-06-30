@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   SafeAreaView,
@@ -9,22 +8,15 @@ import {
   View,
 } from 'react-native';
 import {RightArrow} from '../../../assets/icons';
-import {Screen} from '../../navigation/navigationTypes';
-import {ExplainerScreenType} from '../../util/constants';
-import {useTheme} from '../../util/useTheme';
+import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './askAPIKeyScreen.styles';
 import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 
 const AskAPIKeyScreen = () => {
-  const {askAPIKey, key, onSaveButtonPress, setKey} = useAskAPIKeyScreen();
-  const theme = useTheme();
+  const {askAPIKey, key, onGetInstructionsPress, onSaveButtonPress, setKey} =
+    useAskAPIKeyScreen();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
-
-  const navigation = useNavigation<any>();
-
-  const onGetInstructionsPress = () => {
-    navigation.navigate(Screen.EXPLAINER, {type: ExplainerScreenType.API_KEY});
-  };
 
   return (
     <SafeAreaView style={styles.container}>

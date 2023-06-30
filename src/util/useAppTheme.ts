@@ -1,6 +1,6 @@
 //import {useColorScheme} from 'react-native';
 
-export const useTheme = () => {
+export const useAppTheme = () => {
   //const isDarkTheme = useColorScheme() === 'dark';
   const isDarkTheme = false;
 
@@ -8,14 +8,14 @@ export const useTheme = () => {
     border: isDarkTheme ? 'white' : 'black',
     buttonBorder: isDarkTheme ? '' : 'black',
     headerBackground: isDarkTheme ? '#212121' : '#FAF4F2',
-    homeBackground: isDarkTheme ? '#212121' : '#FAF4F2',
+    background: isDarkTheme ? '#212121' : '#FAF4F2',
     resultBackground: isDarkTheme ? '#212121' : 'white',
     resultButtonBorder: isDarkTheme ? '#BDBDBD' : 'black',
     resultFooter: isDarkTheme ? '#212121' : '#FAF4F2',
     resultSvg: isDarkTheme ? '#BDBDBD' : '#666666',
-    rewriteButton: isDarkTheme ? '#FFE7AB' : '#FFE7AB',
+    yellowButton: isDarkTheme ? '#FFE7AB' : '#FFE7AB',
     shadow: isDarkTheme ? 'black' : 'black',
-    summarizeButton: isDarkTheme ? '#D1EDBF' : '#D1EDBF',
+    greenButton: isDarkTheme ? '#D1EDBF' : '#D1EDBF',
     text: isDarkTheme ? 'white' : 'black',
     textBackground: isDarkTheme ? 'black' : 'white',
     common: {
@@ -42,14 +42,14 @@ export interface ThemeProps {
     border: string;
     buttonBorder: string;
     headerBackground: string;
-    homeBackground: string;
+    background: string;
     resultBackground: string;
     resultButtonBorder: string;
     resultFooter: string;
     resultSvg: string;
-    rewriteButton: string;
+    yellowButton: string;
     shadow: string;
-    summarizeButton: string;
+    greenButton: string;
     text: string;
     textBackground: string;
     common: {

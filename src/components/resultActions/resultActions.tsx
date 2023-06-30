@@ -8,7 +8,7 @@ import {
 } from '../../util/helpers';
 import {getStyles} from './resultActions.styles';
 import {Copy, Email, Share, Twitter} from '../../../assets/icons';
-import {useTheme} from '../../util/useTheme';
+import {useAppTheme} from '../../util/useAppTheme';
 import {useResultActions} from './useResultActions';
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
 
 export const ResultActions = ({output}: Props) => {
   const {showTwitter} = useResultActions();
-  const theme = useTheme();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
   return (
     <View style={styles.container}>

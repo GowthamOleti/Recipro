@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {ThemeProps} from '../../util/useTheme';
+import {ThemeProps} from '../../util/useAppTheme';
 
 export const getStyles = ({colors}: ThemeProps) =>
   StyleSheet.create({

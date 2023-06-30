@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {ThemeProps} from '../../util/useTheme';
+import {ThemeProps} from '../../util/useAppTheme';
 
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
@@ -28,9 +28,9 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontSize: 19,
     },
     summaryButtonColor: {
-      backgroundColor: colors.summarizeButton,
+      backgroundColor: colors.greenButton,
     },
     rewriteButtonColor: {
-      backgroundColor: colors.rewriteButton,
+      backgroundColor: colors.yellowButton,
     },
   });

@@ -1,35 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../homescreen';
 import {appLabels, fetchResultScreenTitle} from '../../appLabels';
-import {NavStackParams, Screen} from './navigationTypes';
+import {Screen, Stack} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';
-import {useTheme} from '../util/useTheme';
-import {IsOpenAIApiKeyPresent} from '../util/handleApiKeys';
+import {useAppTheme} from '../util/useAppTheme';
 import AskAPIKeyScreen from '../screens/askAPIKeyScreen/askAPIKeyScreen';
 import ExplainerScreen from '../screens/explainerScreen/explainerScreen';
-
-const Stack = createNativeStackNavigator<NavStackParams>();
+import {useNavigator} from './useNavigator';
 
 export default function AppNavigator() {
-  const {colors, fonts} = useTheme();
-  const [loading, setLoading] = useState(true);
-  const [initRoute, setInitRoute] = useState(Screen.HOME);
+  const {colors, fonts} = useAppTheme();
+  const {loading, initRoute} = useNavigator();
 
-  useEffect(() => {
-    IsOpenAIApiKeyPresent()
-      .then(isOpenAIApiKeyPresent => {
-        if (!isOpenAIApiKeyPresent) {
-          setInitRoute(Screen.ASK_API_KEY);
-        }
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
-
-  // TODO: Add Splash screen?
+  // TODO: Organize options
 
   return (
     <NavigationContainer>

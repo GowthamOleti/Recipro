@@ -4,7 +4,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {fetchResultScreenErrorDetails} from '../../../appLabels';
 import {Animations} from '../../../assets/animations';
 import {ResultErrorType} from '../../util/constants';
-import {useTheme} from '../../util/useTheme';
+import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './resultError.styles';
 
 export interface ResultErrorProps {
@@ -13,7 +13,7 @@ export interface ResultErrorProps {
 }
 
 export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
-  const theme = useTheme();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
 
   const errorDetails = fetchResultScreenErrorDetails[errorType];

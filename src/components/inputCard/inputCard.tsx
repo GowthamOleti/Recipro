@@ -5,7 +5,7 @@ import {HomeIllustration} from '../homeIllustration';
 import {Clear, Paste} from '../../../assets/icons';
 import {useInputCard} from './useInputCard';
 import {getStyles} from './inputCard.style';
-import {useTheme} from '../../util/useTheme';
+import {useAppTheme} from '../../util/useAppTheme';
 
 export interface InputCardProps {
   inputText: string;
@@ -17,7 +17,7 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
     inputText,
     setInputText,
   });
-  const theme = useTheme();
+  const theme = useAppTheme();
   const styles = getStyles(theme);
 
   return (

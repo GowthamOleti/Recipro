@@ -9,6 +9,9 @@ export const appLabels = {
     getInstructions:
       "Don't know how to get your Open AI API Key? Tap here for instructions.",
   },
+  explainer: {
+    button: 'Go Back',
+  },
   errors: {
     noInternet: 'No internet connection',
     noInput: 'Please enter input',
@@ -42,3 +45,24 @@ export const fetchResultScreenErrorDetails: Record<
     buttonText: 'Reset API Key',
   },
 };
+
+export const apiKeyInstructions = [
+  {
+    title: 'Step 1',
+    body: 'Click on the link below and generate a new API secret key for yourself. Make sure you are logged in to your Open AI account',
+    link: 'https://platform.openai.com/account/api-keys',
+  },
+  {
+    title: 'Step 2',
+    body: 'Add your credit/debit card details here',
+    link: 'https://platform.openai.com/account/billing/payment-methods',
+  },
+  {
+    title: 'Note',
+    body: 'It is cheap, very cheap. Upon our testing, if you put 40 requests per day (20 rewrites and 20 summarizing) it costs you 3 paise. Which mean it will cost you just over 9/- per month',
+  },
+  {
+    title: 'Pro Tip',
+    body: 'You can set your usage limit. You can set it to as low as $1 per month. $1 usage is almost 250 requests per month!',
+  },
+];

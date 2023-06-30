@@ -2,15 +2,20 @@ import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {appLabels} from '../../../appLabels';
 import {Screen} from '../../navigation/navigationTypes';
-import {saveOpenAIApiKey} from '../../util/handleApiKeys';
+import {ExplainerScreenType} from '../../util/constants';
+import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import {useToastMessage} from '../../util/useToastMessage';
 
 export const useAskAPIKeyScreen = () => {
   const {askAPIKey} = appLabels;
   const [key, setKey] = useState('');
-
   const {showHomeScreenToast} = useToastMessage();
+
   const navigation = useNavigation<any>();
+
+  const onGetInstructionsPress = () => {
+    navigation.navigate(Screen.EXPLAINER, {type: ExplainerScreenType.API_KEY});
+  };
 
   const onSaveButtonPress = () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
@@ -18,7 +23,6 @@ export const useAskAPIKeyScreen = () => {
       showHomeScreenToast(askAPIKey.errorMessage);
     } else {
       saveOpenAIApiKey(key).finally(() => {
-        // TODO: Navigate to Home
         navigation.replace(Screen.HOME);
       });
     }
@@ -27,6 +31,7 @@ export const useAskAPIKeyScreen = () => {
   return {
     askAPIKey,
     key,
+    onGetInstructionsPress,
     onSaveButtonPress,
     setKey,
   };
