@@ -9,7 +9,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       backgroundColor: colors.background,
       paddingHorizontal: '5%',
     },
-    instructionsSliderContainer: {
+    instructionsCarouselContainer: {
       borderRadius: 30,
       padding: '3%',
       height: '75%',

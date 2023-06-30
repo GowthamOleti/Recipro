@@ -1,4 +1,4 @@
-import {Linking, Share} from 'react-native';
+import {Dimensions, Linking, Share} from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 
 export const shareResult = async (text: string) => {
@@ -38,3 +38,5 @@ export const isLink = (text: string): boolean => {
   const linkRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
   return linkRegex.test(text);
 };
+
+export const screenDimensions = Dimensions.get('screen');

@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
-import InstructionsSlider from '../../components/instructionsSlider/InstructionsSlider';
+import InstructionsCarousel from '../../components/instructionsCarousel/InstructionsCarousel';
 import {StackNavigation} from '../../navigation/navigationTypes';
 import {useAppTheme} from '../../util/useAppTheme';
 import {getStyles} from './explainerScreen.styles';
@@ -24,8 +24,8 @@ const ExplainerScreen = () => {
         backgroundColor={theme.colors.headerBackground}
         barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
       />
-      <View style={styles.instructionsSliderContainer}>
-        <InstructionsSlider />
+      <View style={styles.instructionsCarouselContainer}>
+        <InstructionsCarousel />
       </View>
       <TouchableOpacity
         style={styles.saveButtonContainer}

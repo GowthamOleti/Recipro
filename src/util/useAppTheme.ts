@@ -18,6 +18,8 @@ export const useAppTheme = () => {
     greenButton: isDarkTheme ? '#D1EDBF' : '#D1EDBF',
     text: isDarkTheme ? 'white' : 'black',
     textBackground: isDarkTheme ? 'black' : 'white',
+    paginationInFocus: isDarkTheme ? '' : '#787171',
+    paginationNotInFocus: isDarkTheme ? '' : '#CCCCCC',
     common: {
       buttonText: 'black',
       emailBackground: '#FB1C1C1A',
@@ -27,6 +29,7 @@ export const useAppTheme = () => {
       tweetBackground: '#03A9F41A',
       tweetBorder: '#03A9F4',
       errorToast: '#CD4848',
+      link: '#1976D2',
     },
   };
   const fonts = {
@@ -52,6 +55,8 @@ export interface ThemeProps {
     greenButton: string;
     text: string;
     textBackground: string;
+    paginationInFocus: string;
+    paginationNotInFocus: string;
     common: {
       buttonText: string;
       emailBackground: string;
@@ -61,6 +66,7 @@ export interface ThemeProps {
       tweetBackground: string;
       tweetBorder: string;
       errorToast: string;
+      link: string;
     };
   };
   fonts: {
