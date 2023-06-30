@@ -1,4 +1,10 @@
-import {Animated, FlatList, View} from 'react-native';
+import {
+  Animated,
+  FlatList,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  View,
+} from 'react-native';
 import React, {useRef} from 'react';
 import SlideItem from './SlideItem';
 import Pagination from './Pagination';
@@ -7,7 +13,7 @@ import {apiKeyInstructions} from '../../../appLabels';
 const InstructionsSlider = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
 
-  const handleOnScroll = event => {
+  const handleOnScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     Animated.event(
       [
         {

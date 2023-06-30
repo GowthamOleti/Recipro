@@ -3,7 +3,16 @@ import React from 'react';
 
 const {width} = Dimensions.get('screen');
 
-const Pagination = ({data, scrollX}) => {
+interface PaginationProps {
+  data: {
+    title: string;
+    body: string;
+    link?: string;
+  }[];
+  scrollX: Animated.Value;
+}
+
+const Pagination = ({data, scrollX}: PaginationProps) => {
   return (
     <View style={styles.container}>
       {data.map((_, idx) => {
