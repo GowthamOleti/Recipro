@@ -22,7 +22,7 @@ export default function AppNavigator() {
       {!loading && (
         <Stack.Navigator initialRouteName={initRoute}>
           <Stack.Screen
-            options={({navigation}) => ({
+            options={{
               title: appLabels.appName,
               headerStyle: {
                 backgroundColor: colors.headerBackground,
@@ -32,18 +32,7 @@ export default function AppNavigator() {
               },
               headerShadowVisible: false,
               headerTitleAlign: 'center',
-              headerRight: () => (
-                <SettingsIcon
-                  height={25}
-                  width={25}
-                  onPress={() => {
-                    navigation.navigate(Screen.SETTINGS);
-                  }}
-                  title="Settings"
-                  color="#fff"
-                />
-              ),
-            })}
+            }}
             name={Screen.ASK_API_KEY}
             component={AskAPIKeyScreen}
           />
@@ -78,7 +67,7 @@ export default function AppNavigator() {
             component={SettingsScreen}
           />
           <Stack.Screen
-            options={{
+            options={({navigation}) => ({
               title: appLabels.appName,
               headerStyle: {
                 backgroundColor: colors.headerBackground,
@@ -89,12 +78,23 @@ export default function AppNavigator() {
               headerTitleStyle: {
                 fontFamily: fonts.RobotoMono,
               },
-            }}
+              headerRight: () => (
+                <SettingsIcon
+                  height={25}
+                  width={25}
+                  onPress={() => {
+                    navigation.navigate(Screen.SETTINGS);
+                  }}
+                  title="Settings"
+                  color="#fff"
+                />
+              ),
+            })}
             name={Screen.HOME}
             component={HomeScreen}
           />
           <Stack.Screen
-            options={({route}) => ({
+            options={({navigation, route}) => ({
               title: fetchResultScreenTitle[route.params.actionType],
               headerTintColor: colors.text,
               headerStyle: {
@@ -104,6 +104,17 @@ export default function AppNavigator() {
               headerTitleStyle: {
                 fontFamily: fonts.Sans,
               },
+              headerRight: () => (
+                <SettingsIcon
+                  height={25}
+                  width={25}
+                  onPress={() => {
+                    navigation.navigate(Screen.SETTINGS);
+                  }}
+                  title="Settings"
+                  color="#fff"
+                />
+              ),
             })}
             name={Screen.RESULT}
             component={ResultScreen}
