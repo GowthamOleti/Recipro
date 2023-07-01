@@ -9,4 +9,9 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
+    title: {
+      color: colors.text,
+      fontSize: 20,
+      fontFamily: fonts.Sans,
+    },
   });

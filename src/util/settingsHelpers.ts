@@ -5,10 +5,6 @@ interface AsyncStorageProps {
   value: string;
 }
 
-export enum Settings {
-  THEME,
-}
-
 // TODO: Add context for settings.
 
 export const saveSetting = async ({key, value}: AsyncStorageProps) => {

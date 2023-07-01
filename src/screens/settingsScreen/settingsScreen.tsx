@@ -9,6 +9,8 @@ const SettingsScreen = () => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
+  const renderSeparator = () => <View style={styles.divider} />;
+
   return (
     <ScrollView style={styles.container}>
       <FlatList
@@ -16,28 +18,14 @@ const SettingsScreen = () => {
         style={styles.firstSection}
         renderItem={SettingsItem}
         scrollEnabled={false}
-        ItemSeparatorComponent={
-          <View
-            style={{
-              backgroundColor: theme.colors.common.placeHolderText,
-              height: 0.5,
-            }}
-          />
-        }
+        ItemSeparatorComponent={renderSeparator}
       />
       <FlatList
-        data={settings.other}
+        data={settings.more}
         style={styles.secondSection}
         renderItem={SettingsItem}
         scrollEnabled={false}
-        ItemSeparatorComponent={
-          <View
-            style={{
-              backgroundColor: theme.colors.common.placeHolderText,
-              height: 0.5,
-            }}
-          />
-        }
+        ItemSeparatorComponent={renderSeparator}
       />
     </ScrollView>
   );
