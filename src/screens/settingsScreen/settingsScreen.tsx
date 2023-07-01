@@ -20,9 +20,7 @@ const SettingsScreen = () => {
           <View
             style={{
               backgroundColor: theme.colors.common.placeHolderText,
-              height: '1%',
-              width: '100%',
-              marginTop: '5%',
+              height: 0.5,
             }}
           />
         }
@@ -36,9 +34,7 @@ const SettingsScreen = () => {
           <View
             style={{
               backgroundColor: theme.colors.common.placeHolderText,
-              height: '1%',
-              width: '100%',
-              marginTop: '5%',
+              height: 0.5,
             }}
           />
         }

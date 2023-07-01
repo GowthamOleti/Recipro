@@ -4,9 +4,9 @@ import {ThemeProps} from '../../common/useAppTheme';
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
+      flex: 1,
       backgroundColor: colors.background,
       paddingHorizontal: '5%',
-      flex: 1,
     },
     firstSection: {
       backgroundColor: colors.textBackground,
