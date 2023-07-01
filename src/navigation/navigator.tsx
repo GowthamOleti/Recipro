@@ -9,7 +9,7 @@ import AskAPIKeyScreen from '../screens/askAPIKeyScreen/askAPIKeyScreen';
 import ExplainerScreen from '../screens/explainerScreen/explainerScreen';
 import {useNavigator} from './useNavigator';
 import {SettingsIcon} from '../../assets/icons';
-import SettingsScreen from '../screens/settings/settingsScreen';
+import SettingsScreen from '../screens/settingsScreen/settingsScreen';
 
 export default function AppNavigator() {
   const {colors, fonts} = useAppTheme();

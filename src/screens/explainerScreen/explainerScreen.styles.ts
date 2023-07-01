@@ -18,7 +18,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       elevation: 5,
       alignSelf: 'center',
     },
-    saveButtonContainer: {
+    buttonContainer: {
       borderRadius: 25,
       backgroundColor: colors.greenButton,
       borderWidth: 1,
@@ -28,7 +28,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       position: 'absolute',
       alignSelf: 'center',
     },
-    saveButtonText: {
+    buttonText: {
       color: colors.common.buttonText,
       padding: '5%',
       alignSelf: 'center',

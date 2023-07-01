@@ -34,6 +34,7 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
       setShowPasteButton(false);
     }
   }, [clipboardText, inputText.length]);
+
   return {
     clipboardText,
     showPasteButton,

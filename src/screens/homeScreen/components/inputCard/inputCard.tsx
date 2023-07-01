@@ -4,7 +4,7 @@ import {appLabels} from '../../../../../appLabels';
 import {HomeIllustration} from '../homeIllustration';
 import {Clear, Paste} from '../../../../../assets/icons';
 import {useInputCard} from './useInputCard';
-import {getStyles} from './inputCard.style';
+import {getStyles} from './inputCard.styles';
 import {useAppTheme} from '../../../../common/useAppTheme';
 
 export interface InputCardProps {

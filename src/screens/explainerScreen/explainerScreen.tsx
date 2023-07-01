@@ -28,9 +28,9 @@ const ExplainerScreen = () => {
         <InstructionsCarousel />
       </View>
       <TouchableOpacity
-        style={styles.saveButtonContainer}
+        style={styles.buttonContainer}
         onPress={() => navigation.goBack()}>
-        <Text style={styles.saveButtonText}>{appLabels.explainer.button}</Text>
+        <Text style={styles.buttonText}>{appLabels.explainer.button}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

@@ -30,7 +30,6 @@ export const IsOpenAIApiKeyPresent = async () => {
   }
 };
 
-// TODO: After removing, user should navigate to ask openAI key screen
 export const removeOpenAIApiKey = async () => {
   try {
     await EncryptedStorage.removeItem(OPENAI_API_KEY);
