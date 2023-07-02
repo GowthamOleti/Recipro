@@ -38,7 +38,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     saveButtonContainer: {
       borderRadius: 25,
-      backgroundColor: colors.greenButton,
+      backgroundColor: colors.green,
       borderWidth: 1,
       borderColor: colors.buttonBorder,
       width: '50%',

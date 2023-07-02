@@ -13,13 +13,15 @@ export const useAppTheme = () => {
     resultButtonBorder: isDarkTheme ? '#BDBDBD' : 'black',
     resultFooter: isDarkTheme ? '#212121' : '#FAF4F2',
     resultSvg: isDarkTheme ? '#BDBDBD' : '#666666',
-    yellowButton: isDarkTheme ? '#FFE7AB' : '#FFE7AB',
+    yellow: isDarkTheme ? '#FFE7AB' : '#FFE7AB',
     shadow: isDarkTheme ? 'black' : 'black',
-    greenButton: isDarkTheme ? '#D1EDBF' : '#D1EDBF',
+    green: isDarkTheme ? '#D1EDBF' : '#D1EDBF',
     text: isDarkTheme ? 'white' : 'black',
     textBackground: isDarkTheme ? 'black' : 'white',
     paginationInFocus: isDarkTheme ? '' : '#787171',
     paginationNotInFocus: isDarkTheme ? '' : '#CCCCCC',
+    toggleTrack: isDarkTheme ? '' : '#767577',
+    toggleThumb: isDarkTheme ? '' : '#f4f3f4',
     common: {
       buttonText: 'black',
       emailBackground: '#FB1C1C1A',
@@ -50,13 +52,15 @@ export interface ThemeProps {
     resultButtonBorder: string;
     resultFooter: string;
     resultSvg: string;
-    yellowButton: string;
+    yellow: string;
     shadow: string;
-    greenButton: string;
+    green: string;
     text: string;
     textBackground: string;
     paginationInFocus: string;
     paginationNotInFocus: string;
+    toggleTrack: string;
+    toggleThumb: string;
     common: {
       buttonText: string;
       emailBackground: string;

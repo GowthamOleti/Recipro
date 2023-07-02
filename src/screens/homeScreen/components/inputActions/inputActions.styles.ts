@@ -29,9 +29,9 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontSize: 19,
     },
     summaryButtonColor: {
-      backgroundColor: colors.greenButton,
+      backgroundColor: colors.green,
     },
     rewriteButtonColor: {
-      backgroundColor: colors.yellowButton,
+      backgroundColor: colors.yellow,
     },
   });

@@ -22,7 +22,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     errorButtonContainer: {
       borderRadius: 25,
-      backgroundColor: colors.greenButton,
+      backgroundColor: colors.green,
       marginTop: '5%',
       borderWidth: 1,
       borderColor: colors.buttonBorder,

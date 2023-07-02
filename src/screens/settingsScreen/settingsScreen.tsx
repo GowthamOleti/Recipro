@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, ScrollView, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {settings} from '../../../appLabels';
 import {SettingsItem} from './components/settingsItem/settingsItem';
 import {useAppTheme} from '../../common/useAppTheme';
@@ -9,24 +9,28 @@ const SettingsScreen = () => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const renderSeparator = () => <View style={styles.divider} />;
-
   return (
     <ScrollView style={styles.container}>
-      <FlatList
-        data={settings.toggleSettings}
-        style={styles.firstSection}
-        renderItem={SettingsItem}
-        scrollEnabled={false}
-        ItemSeparatorComponent={renderSeparator}
-      />
-      <FlatList
-        data={settings.more}
-        style={styles.secondSection}
-        renderItem={SettingsItem}
-        scrollEnabled={false}
-        ItemSeparatorComponent={renderSeparator}
-      />
+      <View style={styles.firstSection}>
+        {settings.toggleSettings.map((item, index) => (
+          <>
+            <SettingsItem item={item} />
+            {index !== settings.toggleSettings.length - 1 && (
+              <View style={styles.divider} />
+            )}
+          </>
+        ))}
+      </View>
+      <View style={styles.secondSection}>
+        {settings.more.map((item, index) => (
+          <>
+            <SettingsItem item={item} />
+            {index !== settings.more.length - 1 && (
+              <View style={styles.divider} />
+            )}
+          </>
+        ))}
+      </View>
     </ScrollView>
   );
 };

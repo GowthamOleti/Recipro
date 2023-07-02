@@ -11,11 +11,11 @@ export const getStyles = ({colors}: ThemeProps) =>
     firstSection: {
       backgroundColor: colors.textBackground,
       borderRadius: 30,
+      marginBottom: '10%',
     },
     secondSection: {
       backgroundColor: colors.textBackground,
       borderRadius: 30,
-      marginTop: '10%',
     },
     divider: {
       backgroundColor: colors.common.placeHolderText,

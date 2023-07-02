@@ -82,6 +82,7 @@ export default function AppNavigator() {
                 <SettingsIcon
                   height={25}
                   width={25}
+                  style={{marginRight: '3%'}}
                   onPress={() => {
                     navigation.navigate(Screen.SETTINGS);
                   }}
@@ -108,6 +109,7 @@ export default function AppNavigator() {
                 <SettingsIcon
                   height={25}
                   width={25}
+                  style={{marginRight: '3%'}}
                   onPress={() => {
                     navigation.navigate(Screen.SETTINGS);
                   }}
