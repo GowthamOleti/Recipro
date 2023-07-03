@@ -80,9 +80,14 @@ export const settings = {
       hasToggle: true,
     },
     {
-      id: AppSetting.SHOW_TWITTER_MAIL,
+      id: AppSetting.SHOW_TWEET_MAIL,
       title: 'Show Twitter & Mail',
       subtext: 'Show Twitter & Mail in Result screen',
+      hasToggle: true,
+    },
+    {
+      id: AppSetting.IS_DARK_THEME,
+      title: 'Dark Theme',
       hasToggle: true,
     },
   ],

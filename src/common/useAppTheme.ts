@@ -1,7 +1,14 @@
 //import {useColorScheme} from 'react-native';
 
+import {useContext} from 'react';
+import {AppSetting} from './constants';
+import {SettingsContext} from './settingsContext';
+
 export const useAppTheme = () => {
   //const isDarkTheme = useColorScheme() === 'dark';
+  const {appSettings} = useContext(SettingsContext);
+
+  //const isDarkTheme = appSettings.get(AppSetting.IS_DARK_THEME);
   const isDarkTheme = false;
 
   const colors = {

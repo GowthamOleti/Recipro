@@ -19,13 +19,11 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
   const styles = getStyles(theme);
 
   const {isEnabled, onSettingsItemPress, toggleSwitch} = useSettingsItem({
-    id: item.id,
+    setting: item.id,
   });
 
   return (
-    <Pressable
-      style={styles.container}
-      onPress={() => onSettingsItemPress(item.id)}>
+    <Pressable style={styles.container} onPress={onSettingsItemPress}>
       <View>
         <Text style={styles.title}>{item.title}</Text>
         {item.subtext && (

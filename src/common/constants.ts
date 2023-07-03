@@ -20,10 +20,12 @@ export const fetchPromptPrefix: Record<InputActionType, string> = {
 };
 
 export enum AppSetting {
+  // Toggle settings
+  QUICK_SUMMARIZE = 'QUICK_SUMMARIZE',
+  SHOW_TWEET_MAIL = 'SHOW_TWITTER_MAIL',
   IS_DARK_THEME = 'IS_DARK_THEME',
+  // Non-Toggle settings
   RESET_API_KEY = 'RESET_API_KEY',
   FEEDBACK = 'FEEDBACK',
   HOW_TO_USE = 'HOW_TO_USE',
-  QUICK_SUMMARIZE = 'QUICK_SUMMARIZE',
-  SHOW_TWITTER_MAIL = 'SHOW_TWITTER_MAIL',
 }
