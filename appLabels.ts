@@ -1,4 +1,8 @@
-import {InputActionType, ResultErrorType} from './src/common/constants';
+import {
+  AppSetting,
+  InputActionType,
+  ResultErrorType,
+} from './src/common/constants';
 
 export const appLabels = {
   appName: 'GPT Tools',
@@ -70,13 +74,13 @@ export const apiKeyInstructions = [
 export const settings = {
   toggleSettings: [
     {
-      id: 'QUICK_SUMMARIZE',
+      id: AppSetting.QUICK_SUMMARIZE,
       title: 'Instant Summarizing',
       subtext: 'Summarize links quickly',
       hasToggle: true,
     },
     {
-      id: 'TWEET_MAIL',
+      id: AppSetting.SHOW_TWITTER_MAIL,
       title: 'Show Twitter & Mail',
       subtext: 'Show Twitter & Mail in Result screen',
       hasToggle: true,
@@ -84,19 +88,16 @@ export const settings = {
   ],
   more: [
     {
-      id: 'RESET_KEY',
+      id: AppSetting.RESET_API_KEY,
       title: 'Reset OpenAI API Key',
-      subtext: '',
     },
     {
-      id: 'HOW_TO_USE',
+      id: AppSetting.HOW_TO_USE,
       title: 'How to Use',
-      subtext: '',
     },
     {
-      id: 'FEEDBACK',
+      id: AppSetting.FEEDBACK,
       title: 'Feedback',
-      subtext: '',
     },
   ],
 };

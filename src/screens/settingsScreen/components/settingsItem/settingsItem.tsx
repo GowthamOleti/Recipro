@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Pressable, Switch, Text, View} from 'react-native';
+import {AppSetting} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {getStyles} from './settingsItem.styles';
+import {useSettingsItem} from './useSettingsItem';
 
 interface SettingsItemProps {
   item: {
-    id: string;
+    id: AppSetting;
     title: string;
     subtext?: string;
     hasToggle?: boolean;
@@ -16,14 +18,17 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const {isEnabled, onSettingsItemPress, toggleSwitch} = useSettingsItem({
+    id: item.id,
+  });
 
   return (
-    <Pressable style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => onSettingsItemPress(item.id)}>
       <View>
         <Text style={styles.title}>{item.title}</Text>
-        {item.subtext?.length && (
+        {item.subtext && (
           <Text style={{color: theme.colors.common.placeHolderText}}>
             {item.subtext}
           </Text>
