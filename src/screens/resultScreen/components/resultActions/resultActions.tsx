@@ -3,7 +3,6 @@ import {TouchableOpacity, View} from 'react-native';
 import {
   copyToClipboard,
   shareAsEmail,
-  shareAsTweet,
   shareResult,
 } from '../../../../util/helpers';
 import {getStyles} from './resultActions.styles';
@@ -16,7 +15,7 @@ interface Props {
 }
 
 export const ResultActions = ({output}: Props) => {
-  const {appSettings} = useResultActions();
+  const {appSettings, onTweetPress} = useResultActions();
   const theme = useAppTheme();
   const styles = getStyles(theme);
   return (
@@ -43,7 +42,7 @@ export const ResultActions = ({output}: Props) => {
       </TouchableOpacity>
       {appSettings.showTweetMail && (
         <TouchableOpacity
-          onPress={() => shareAsTweet(output)}
+          onPress={() => onTweetPress(output)}
           style={styles.tweetContainer}>
           <Twitter style={styles.tweetEmail} height={23} width={23} />
         </TouchableOpacity>
