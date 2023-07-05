@@ -8,17 +8,25 @@ import {
   View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
-import {StackNavigation} from '../../navigation/navigationTypes';
+import {
+  ExplainerScreenProps,
+  StackNavigation,
+} from '../../navigation/navigationTypes';
 import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './explainerScreen.styles';
 import InstructionsCarousel from './components/instructionsCarousel/instructionsCarousel';
+import {ExplainerScreenType} from '../../common/constants';
 
-const ExplainerScreen = () => {
+// TODO: How to use guide UI
+const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
   const navigation = useNavigation<StackNavigation>();
 
-  return (
+  const showApiKeyInstructions =
+    route.params.type === ExplainerScreenType.API_KEY ? true : false;
+
+  return showApiKeyInstructions ? (
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
@@ -32,6 +40,13 @@ const ExplainerScreen = () => {
         onPress={() => navigation.goBack()}>
         <Text style={styles.buttonText}>{appLabels.explainer.button}</Text>
       </TouchableOpacity>
+    </SafeAreaView>
+  ) : (
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        backgroundColor={theme.colors.headerBackground}
+        barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
+      />
     </SafeAreaView>
   );
 };

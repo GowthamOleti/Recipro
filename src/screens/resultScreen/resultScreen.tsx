@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
+import {SafeAreaView, StatusBar, Text, View} from 'react-native';
 
 import {Loading} from './components/loading';
 import {ResultActions} from './components/resultActions/resultActions';
@@ -9,6 +9,7 @@ import {InputActionType} from '../../common/constants';
 import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './resultScreen.styles';
 import {useResultScreen} from './useResultScreen';
+import Animated, {FadeIn} from 'react-native-reanimated';
 
 export interface Props {
   input: string;
@@ -33,11 +34,13 @@ const ResultScreen = ({route}: ResultScreenProps) => {
       {isLoading && <Loading />}
       {outputText.length > 0 && (
         <View>
-          <ScrollView style={styles.resultContainer}>
+          <Animated.ScrollView
+            style={styles.resultContainer}
+            entering={FadeIn.duration(1000)}>
             <Text style={styles.resultText} selectable>
               {outputText}
             </Text>
-          </ScrollView>
+          </Animated.ScrollView>
           <View style={styles.resultActions}>
             <ResultActions output={outputText} />
           </View>

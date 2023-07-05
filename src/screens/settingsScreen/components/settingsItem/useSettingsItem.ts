@@ -1,25 +1,28 @@
 import {useNavigation} from '@react-navigation/native';
 import {useContext, useEffect, useState} from 'react';
+import {Linking} from 'react-native';
 import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
 import {SettingsContext} from '../../../../common/settingsContext';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
 import {getSetting, saveSetting} from '../../../../util/settingsHelpers';
+import {SettingsItemProps} from './settingsItem';
 
-export const useSettingsItem = ({setting}: {setting: AppSetting}) => {
+export const useSettingsItem = ({item}: SettingsItemProps) => {
   const {appSettings, setAppSettings} = useContext(SettingsContext);
 
-  // TODO: Avoid updating state for non-toggle settings
   const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
-    getSetting(setting).then(result => {
-      setIsEnabled(result);
-    });
-  }, [setting]);
+    if (item.hasToggle) {
+      getSetting(item.id).then(result => {
+        setIsEnabled(result);
+      });
+    }
+  }, [item]);
 
   // Handling Toggle Settings
   const toggleSwitch = () => {
-    switch (setting) {
+    switch (item.id) {
       case AppSetting.QUICK_SUMMARIZE:
         setAppSettings({...appSettings, quickSummarize: !isEnabled});
         break;
@@ -30,7 +33,7 @@ export const useSettingsItem = ({setting}: {setting: AppSetting}) => {
         setAppSettings({...appSettings, isDarkMode: !isEnabled});
         break;
     }
-    saveSetting({key: setting, value: !isEnabled});
+    saveSetting({key: item.id, value: !isEnabled});
     setIsEnabled(!isEnabled);
   };
 
@@ -38,7 +41,7 @@ export const useSettingsItem = ({setting}: {setting: AppSetting}) => {
 
   // Handling Non-Toggle Settings
   const onSettingsItemPress = () => {
-    switch (setting) {
+    switch (item.id) {
       case AppSetting.RESET_API_KEY:
         navigation.navigate(Screen.ASK_API_KEY, {reset: true});
         break;
@@ -48,7 +51,7 @@ export const useSettingsItem = ({setting}: {setting: AppSetting}) => {
         });
         break;
       case AppSetting.FEEDBACK:
-        // TODO
+        Linking.openURL('mailto:teja2495@gmail.com');
         break;
     }
   };

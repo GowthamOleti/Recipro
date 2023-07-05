@@ -12,6 +12,7 @@ import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './askAPIKeyScreen.styles';
 import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 
+// TODO: Handle Reset Scenario
 const AskAPIKeyScreen = () => {
   const {askAPIKey, key, onGetInstructionsPress, onSaveButtonPress, setKey} =
     useAskAPIKeyScreen();

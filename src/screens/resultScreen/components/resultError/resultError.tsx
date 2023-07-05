@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import Lottie from 'lottie-react-native';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
@@ -5,6 +6,7 @@ import {fetchResultScreenErrorDetails} from '../../../../../appLabels';
 import {Animations} from '../../../../../assets/animations';
 import {ResultErrorType} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
+import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
 import {getStyles} from './resultError.styles';
 
 export interface ResultErrorProps {
@@ -17,10 +19,11 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
   const styles = getStyles(theme);
 
   const errorDetails = fetchResultScreenErrorDetails[errorType];
+  const navigation = useNavigation<StackNavigation>();
 
   const onErrorButtonPress = () => {
     if (errorType === ResultErrorType.INVALID_KEY) {
-      // TODO: Navigate to reset api key screen
+      navigation.navigate(Screen.ASK_API_KEY, {reset: true});
     } else {
       fetchResult();
     }

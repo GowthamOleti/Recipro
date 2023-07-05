@@ -29,11 +29,3 @@ export const IsOpenAIApiKeyPresent = async () => {
     return false;
   }
 };
-
-export const removeOpenAIApiKey = async () => {
-  try {
-    await EncryptedStorage.removeItem(OPENAI_API_KEY);
-  } catch (error) {
-    console.log(error);
-  }
-};

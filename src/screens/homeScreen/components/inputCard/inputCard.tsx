@@ -6,6 +6,7 @@ import {Clear, Paste} from '../../../../../assets/icons';
 import {useInputCard} from './useInputCard';
 import {getStyles} from './inputCard.styles';
 import {useAppTheme} from '../../../../common/useAppTheme';
+import Animated, {ZoomIn} from 'react-native-reanimated';
 
 export interface InputCardProps {
   inputText: string;
@@ -34,18 +35,22 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
       {inputText.length === 0 && <HomeIllustration />}
       <View style={styles.clearAndPaste}>
         {inputText.length > 0 && (
-          <Clear height={25} width={25} onPress={() => setInputText('')} />
+          <Animated.View entering={ZoomIn.duration(500)}>
+            <Clear height={25} width={25} onPress={() => setInputText('')} />
+          </Animated.View>
         )}
         {showPasteButton && (
-          <Paste
-            height={26}
-            width={26}
-            onPress={() => {
-              setInputText(clipboardText);
-              setShowPasteButton(false);
-            }}
-            fill={theme.colors.common.homeSvg}
-          />
+          <Animated.View entering={ZoomIn.duration(500)}>
+            <Paste
+              height={26}
+              width={26}
+              onPress={() => {
+                setInputText(clipboardText);
+                setShowPasteButton(false);
+              }}
+              fill={theme.colors.common.homeSvg}
+            />
+          </Animated.View>
         )}
       </View>
     </View>

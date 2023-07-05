@@ -8,8 +8,6 @@ interface AsyncStorageProps {
 }
 
 export const saveSetting = async ({key, value}: AsyncStorageProps) => {
-  console.log('teja_saveSetting', value ? 'true' : 'false');
-
   try {
     await AsyncStorage.setItem(key, value ? 'true' : 'false');
   } catch (error) {
@@ -43,10 +41,7 @@ export const fetchAllSettings = async () => {
     );
     const result: SettingsContextType = {
       quickSummarize: quickSummarizeItem === 'true' ? true : false,
-      showTweetMail:
-        showTweetMailItem === null || showTweetMailItem === 'true'
-          ? true
-          : false,
+      showTweetMail: showTweetMailItem === 'false' ? false : true,
       isDarkMode: isDarkModeItem === 'true' ? true : false,
     };
     return result;

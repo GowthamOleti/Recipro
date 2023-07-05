@@ -5,7 +5,7 @@ import {useAppTheme} from '../../../../common/useAppTheme';
 import {getStyles} from './settingsItem.styles';
 import {useSettingsItem} from './useSettingsItem';
 
-interface SettingsItemProps {
+export interface SettingsItemProps {
   item: {
     id: AppSetting;
     title: string;
@@ -19,7 +19,7 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
   const styles = getStyles(theme);
 
   const {isEnabled, onSettingsItemPress, toggleSwitch} = useSettingsItem({
-    setting: item.id,
+    item,
   });
 
   return (
