@@ -1,12 +1,12 @@
 //import {useColorScheme} from 'react-native';
 
-import {useContext} from 'react';
-import {AppSetting} from './constants';
-import {SettingsContext} from './settingsContext';
+// import {useContext} from 'react';
+// import {AppSetting} from './constants';
+// import {SettingsContext} from './settingsContext';
 
 export const useAppTheme = () => {
   //const isDarkTheme = useColorScheme() === 'dark';
-  const {appSettings} = useContext(SettingsContext);
+  //const {appSettings} = useContext(SettingsContext);
 
   //const isDarkTheme = appSettings.get(AppSetting.IS_DARK_THEME);
   const isDarkTheme = false;
@@ -44,6 +44,7 @@ export const useAppTheme = () => {
   const fonts = {
     RobotoMono: 'Roboto-Mono',
     Sans: 'Product-Sans',
+    SansBold: 'Product-Sans-Bold',
     RobotoRegular: 'Roboto-Regular',
   };
   return {colors, fonts, isDarkTheme};
@@ -83,6 +84,7 @@ export interface ThemeProps {
   fonts: {
     RobotoMono: string;
     Sans: string;
+    SansBold: string;
     RobotoRegular: string;
   };
   isDarkTheme: boolean;

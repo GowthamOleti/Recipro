@@ -26,11 +26,7 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
     <Pressable style={styles.container} onPress={onSettingsItemPress}>
       <View>
         <Text style={styles.title}>{item.title}</Text>
-        {item.subtext && (
-          <Text style={{color: theme.colors.common.placeHolderText}}>
-            {item.subtext}
-          </Text>
-        )}
+        {item.subtext && <Text style={styles.subtext}>{item.subtext}</Text>}
       </View>
       {item.hasToggle && (
         <Switch
