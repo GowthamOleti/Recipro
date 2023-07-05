@@ -42,18 +42,18 @@ export const ResultActions = ({output}: Props) => {
         />
       </TouchableOpacity>
       {appSettings.showTweetMail && (
-        <View>
-          <TouchableOpacity
-            onPress={() => shareAsTweet(output)}
-            style={styles.tweetContainer}>
-            <Twitter style={styles.tweetEmail} height={23} width={23} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => shareAsEmail(output)}
-            style={styles.emailContainer}>
-            <Email style={styles.tweetEmail} height={25} width={25} />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          onPress={() => shareAsTweet(output)}
+          style={styles.tweetContainer}>
+          <Twitter style={styles.tweetEmail} height={23} width={23} />
+        </TouchableOpacity>
+      )}
+      {appSettings.showTweetMail && (
+        <TouchableOpacity
+          onPress={() => shareAsEmail(output)}
+          style={styles.emailContainer}>
+          <Email style={styles.tweetEmail} height={25} width={25} />
+        </TouchableOpacity>
       )}
     </View>
   );
