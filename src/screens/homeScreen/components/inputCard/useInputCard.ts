@@ -3,12 +3,14 @@ import {useFetchSharedItem} from '../../../../util/useFetchSharedItem';
 import {isLink} from '../../../../util/helpers';
 import {InputActionType} from '../../../../common/constants';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {InputCardProps} from './inputCard';
 import {useNavigation} from '@react-navigation/native';
+import {SettingsContext} from '../../../../common/settingsContext';
 
 export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
   const [showPasteButton, setShowPasteButton] = useState(false);
+  const {appSettings} = useContext(SettingsContext);
 
   const [clipboardText] = useClipboard();
   const sharedText = useFetchSharedItem();
@@ -17,7 +19,7 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
 
   useEffect(() => {
     if (sharedText) {
-      if (isLink(sharedText)) {
+      if (appSettings.quickSummarize && isLink(sharedText)) {
         navigation.navigate(Screen.RESULT, {
           actionType: InputActionType.Summarize,
           input: sharedText,
@@ -25,7 +27,7 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
       }
       setInputText(sharedText);
     }
-  }, [navigation, setInputText, sharedText]);
+  }, [appSettings.quickSummarize, navigation, setInputText, sharedText]);
 
   useEffect(() => {
     if (clipboardText.length > 0 && inputText.length === 0) {

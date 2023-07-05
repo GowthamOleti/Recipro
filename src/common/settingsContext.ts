@@ -1,8 +1,19 @@
 import {createContext} from 'react';
-import {AppSetting} from './constants';
+
+export interface SettingsContextType {
+  quickSummarize: boolean;
+  showTweetMail: boolean;
+  isDarkMode: boolean;
+}
+
+export const defaultSettings = {
+  quickSummarize: false,
+  showTweetMail: true,
+  isDarkMode: false,
+};
 
 export const SettingsContext = createContext({
-  appSettings: new Map<AppSetting, boolean>(),
+  appSettings: defaultSettings,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setAppSettings: (appSettings: Map<AppSetting, boolean>) => {},
+  setAppSettings: (appSettings: SettingsContextType) => {},
 });

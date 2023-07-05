@@ -6,13 +6,10 @@
 import React, {useState} from 'react';
 import AppNavigator from './src/navigation/navigator';
 import {ToastProvider} from 'react-native-toast-notifications';
-import {SettingsContext} from './src/common/settingsContext';
-import {AppSetting} from './src/common/constants';
+import {defaultSettings, SettingsContext} from './src/common/settingsContext';
 
 function App(): JSX.Element {
-  const [appSettings, setAppSettings] = useState(
-    new Map<AppSetting, boolean>(),
-  );
+  const [appSettings, setAppSettings] = useState(defaultSettings);
 
   return (
     <SettingsContext.Provider value={{appSettings, setAppSettings}}>
