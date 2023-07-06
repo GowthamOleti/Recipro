@@ -21,6 +21,7 @@ export const appLabels = {
   errors: {
     noInternet: 'No Internet Connection',
     noInput: 'Please Enter the Input',
+    pdfNotSupported: 'PDFs are not supported',
     invalidApiKey: 'Invalid API Key',
     twitterNotInstalled: 'Twitter App is Not Installed!',
   },
@@ -96,11 +97,11 @@ export const settings = {
       subtext: 'Show These Result Sharing Options',
       hasToggle: true,
     },
-    {
-      id: AppSetting.IS_DARK_MODE,
-      title: 'Dark Mode',
-      hasToggle: true,
-    },
+    // {
+    //   id: AppSetting.IS_DARK_MODE,
+    //   title: 'Dark Mode',
+    //   hasToggle: true,
+    // },
   ],
   more: [
     {

@@ -40,3 +40,7 @@ export const isLink = (text: string): boolean => {
 };
 
 export const screenDimensions = Dimensions.get('screen');
+
+export const isPDFLink = (text: string): boolean => {
+  return text.endsWith('.pdf') || text.endsWith('.PDF') ? true : false;
+};
