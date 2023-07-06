@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react';
 import {SettingsContext} from '../common/settingsContext';
 import {IsOpenAIApiKeyPresent} from '../util/handleApiKey';
-import {fetchAllSettings} from '../util/settingsHelpers';
+import {fetchAllSettings} from '../util/handleSettings';
 import {Screen} from './navigationTypes';
 
 export const useNavigator = () => {

@@ -17,7 +17,7 @@ import {getStyles} from './explainerScreen.styles';
 import InstructionsCarousel from './components/instructionsCarousel/instructionsCarousel';
 import {ExplainerScreenType} from '../../common/constants';
 
-// TODO: How to use guide UI
+// TODO: How to use - content & UI
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);

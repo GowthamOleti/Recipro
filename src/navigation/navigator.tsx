@@ -15,7 +15,7 @@ export default function AppNavigator() {
   const {colors, fonts} = useAppTheme();
   const {loading, initRoute} = useNavigator();
 
-  // TODO: Clean this up
+  // TODO: Clean up
 
   return (
     <NavigationContainer>

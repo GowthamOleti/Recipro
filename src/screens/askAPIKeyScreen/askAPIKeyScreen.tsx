@@ -9,11 +9,11 @@ import {
 } from 'react-native';
 import {RoundedRight} from '../../../assets/icons';
 import {useAppTheme} from '../../common/useAppTheme';
+import {AskApiScreenProps} from '../../navigation/navigationTypes';
 import {getStyles} from './askAPIKeyScreen.styles';
 import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 
-// TODO: Handle Reset Scenario
-const AskAPIKeyScreen = () => {
+const AskAPIKeyScreen = ({route}: AskApiScreenProps) => {
   const {askAPIKey, key, onGetInstructionsPress, onSaveButtonPress, setKey} =
     useAskAPIKeyScreen();
   const theme = useAppTheme();
@@ -29,7 +29,9 @@ const AskAPIKeyScreen = () => {
         <TextInput
           style={styles.key}
           value={key}
-          placeholder={askAPIKey.title}
+          placeholder={
+            route?.params?.reset ? askAPIKey.resetKeyTitle : askAPIKey.title
+          }
           placeholderTextColor={theme.colors.common.placeHolderText}
           onChangeText={text => setKey(text)}
           autoFocus

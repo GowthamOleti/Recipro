@@ -7,9 +7,9 @@ import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import {useToastMessage} from '../../common/useToastMessage';
 
 export const useAskAPIKeyScreen = () => {
-  const {askAPIKey} = appLabels;
+  const {askAPIKey, errors} = appLabels;
   const [key, setKey] = useState('');
-  const {showAskApiKeyScreenToast} = useToastMessage();
+  const {showErrorToast} = useToastMessage();
 
   const navigation = useNavigation<any>();
 
@@ -19,7 +19,7 @@ export const useAskAPIKeyScreen = () => {
 
   const onSaveButtonPress = () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
-      showAskApiKeyScreenToast();
+      showErrorToast(errors.invalidApiKey);
     } else {
       saveOpenAIApiKey(key).finally(() => {
         navigation.replace(Screen.HOME);

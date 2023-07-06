@@ -9,15 +9,15 @@ import {useToastMessage} from '../../../../common/useToastMessage';
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();
   const navigation = useNavigation<StackNavigation>();
-  const {showHomeScreenToast} = useToastMessage();
+  const {showErrorToast} = useToastMessage();
 
   const {errors} = appLabels;
 
   const onActionButtonPress = async (actionType: InputActionType) => {
     if (input.length === 0) {
-      showHomeScreenToast(errors.noInput);
+      showErrorToast(errors.noInput);
     } else if (internetState.isConnected === false) {
-      showHomeScreenToast(errors.noInternet);
+      showErrorToast(errors.noInternet);
     } else {
       navigation.navigate(Screen.RESULT, {
         actionType,

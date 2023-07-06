@@ -3,8 +3,9 @@ import {useContext, useEffect, useState} from 'react';
 import {Linking} from 'react-native';
 import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
 import {SettingsContext} from '../../../../common/settingsContext';
-import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
-import {getSetting, saveSetting} from '../../../../util/settingsHelpers';
+import {Screen} from '../../../../navigation/navigationTypes';
+import {removeApiKey} from '../../../../util/handleApiKey';
+import {getSetting, saveSetting} from '../../../../util/handleSettings';
 import {SettingsItemProps} from './settingsItem';
 
 export const useSettingsItem = ({item}: SettingsItemProps) => {
@@ -37,13 +38,15 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
     setIsEnabled(!isEnabled);
   };
 
-  const navigation = useNavigation<StackNavigation>();
+  const navigation = useNavigation<any>();
 
   // Handling Non-Toggle Settings
   const onSettingsItemPress = () => {
     switch (item.id) {
       case AppSetting.RESET_API_KEY:
-        navigation.navigate(Screen.ASK_API_KEY, {reset: true});
+        removeApiKey().finally(() => {
+          navigation.replace(Screen.ASK_API_KEY, {reset: true});
+        });
         break;
       case AppSetting.HOW_TO_USE:
         navigation.navigate(Screen.EXPLAINER, {

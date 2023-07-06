@@ -7,7 +7,8 @@ import {
 export const appLabels = {
   appName: 'GPT Tools',
   askAPIKey: {
-    title: 'Enter your OpenAI API Key',
+    title: 'Enter your OpenAI API key',
+    resetKeyTitle: 'Enter your new OpenAI API key',
     saveButton: 'Save API Key',
     errorMessage: 'Invalid API Key',
     getInstructions:
@@ -17,8 +18,10 @@ export const appLabels = {
     button: 'Go Back',
   },
   errors: {
-    noInternet: 'No internet connection',
-    noInput: 'Please enter input',
+    noInternet: 'No Internet Connection',
+    noInput: 'Please Enter the Input',
+    invalidApiKey: 'Invalid API Key',
+    twitterNotInstalled: 'Twitter App is Not Installed!',
   },
   inputHint:
     'You can either share any text or link to this app or you can simply type it here...',
