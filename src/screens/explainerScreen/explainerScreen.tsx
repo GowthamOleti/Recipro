@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useContext} from 'react';
 import {
   SafeAreaView,
+  ScrollView,
   StatusBar,
   Text,
   TouchableOpacity,
@@ -10,6 +11,7 @@ import {
 import {appLabels} from '../../../appLabels';
 import {
   ExplainerScreenProps,
+  Screen,
   StackNavigation,
 } from '../../navigation/navigationTypes';
 import {useAppTheme} from '../../common/useAppTheme';
@@ -18,7 +20,6 @@ import InstructionsCarousel from './components/instructionsCarousel/instructions
 import {ExplainerScreenType} from '../../common/constants';
 import {SettingsContext} from '../../common/settingsContext';
 
-// TODO: How to use - content & UI
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
@@ -34,20 +35,51 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
         backgroundColor={theme.colors.headerBackground}
         barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
-      {showApiKeyInstructions ? (
-        <>
+      <>
+        {showApiKeyInstructions ? (
           <View style={styles.instructionsCarouselContainer}>
             <InstructionsCarousel />
           </View>
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={() => navigation.goBack()}>
-            <Text style={styles.buttonText}>{appLabels.explainer.button}</Text>
-          </TouchableOpacity>
-        </>
-      ) : (
-        <View />
-      )}
+        ) : (
+          <ScrollView
+            style={styles.aboutContainer}
+            showsVerticalScrollIndicator={false}>
+            <Text style={styles.aboutText}>
+              {appLabels.explainer.about.intro}
+            </Text>
+            <Text style={styles.aboutText}>
+              <Text
+                style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
+                {appLabels.explainer.about.summarizePrefix}
+              </Text>
+              {appLabels.explainer.about.summarizeDescription}
+            </Text>
+            <Text style={styles.aboutText}>
+              <Text
+                style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
+                {appLabels.explainer.about.rewritePrefix}
+              </Text>
+              {appLabels.explainer.about.rewriteDescription}
+            </Text>
+            <Text style={styles.aboutText}>
+              {appLabels.explainer.about.conclusion}
+            </Text>
+          </ScrollView>
+        )}
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => {
+            showApiKeyInstructions
+              ? navigation.goBack()
+              : navigation.navigate(Screen.HOME);
+          }}>
+          <Text style={styles.buttonText}>
+            {showApiKeyInstructions
+              ? appLabels.explainer.button.goBack
+              : appLabels.explainer.button.done}
+          </Text>
+        </TouchableOpacity>
+      </>
     </SafeAreaView>
   );
 };

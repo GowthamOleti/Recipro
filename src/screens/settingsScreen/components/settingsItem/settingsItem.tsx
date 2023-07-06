@@ -18,15 +18,22 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const {isEnabled, onSettingsItemPress, toggleSwitch} = useSettingsItem({
-    item,
-  });
+  const {isEnabled, onSettingsItemPress, toggleSwitch, truncatedApiKey} =
+    useSettingsItem({
+      item,
+    });
 
   return (
     <Pressable style={styles.container} onPress={onSettingsItemPress}>
       <View>
         <Text style={styles.title}>{item.title}</Text>
-        {item.subtext && <Text style={styles.subtext}>{item.subtext}</Text>}
+        {item.subtext && (
+          <Text style={styles.subtext}>
+            {truncatedApiKey
+              ? item.subtext.replace('{key}', truncatedApiKey)
+              : item.subtext}
+          </Text>
+        )}
       </View>
       {item.hasToggle && (
         <Switch

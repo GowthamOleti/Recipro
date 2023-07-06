@@ -17,5 +17,6 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       color: colors.common.placeHolderText,
       fontSize: 13,
       fontFamily: fonts.Sans,
+      marginTop: '2%',
     },
   });

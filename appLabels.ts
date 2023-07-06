@@ -16,7 +16,22 @@ export const appLabels = {
       "Not sure how to get your OpenAI API Key? Don't worry! Tap here for instructions.",
   },
   explainer: {
-    button: 'Go Back',
+    about: {
+      intro:
+        'GPT Tools simplifies basic reading and writing tasks. The app currently offers two main features at launch - Summarize and Rewrite.',
+      summarizePrefix: '\nSummarize: ',
+      summarizeDescription:
+        'One of the most practical applications of GPT algorithms is content summarization, which can be used in everyday scenarios. By simply inputting any text into the app, the algorithm can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links without even instantly. No button taps needed.',
+      rewritePrefix: '\nRewrite: ',
+      rewriteDescription:
+        "This app is also great for writing. If you're not confident about your English skills or how you've framed your message for work or social media, you can ask the app to rewrite it for you. It will give you a well-written output while preserving the meaning, tone, and essence of the original message. Additionally, you can use this app to organize your thoughts by jotting down rough ideas and having the app organize them into clear paragraphs by rewriting.",
+      conclusion:
+        "\nThe free version of ChatGPT doesn't include the option to summarize article links, which is a free feature on our app. Even though you can summarize & rewrite text using ChatGPT, our app aims to simplify the process by minimizing the number of steps required to complete these tasks.\n\nTo keep the app free for everyone, we've provided the option to use your own OpenAI Key. In the future, we plan to introduce more features to the app. But for now, we invite you to use the current features and provide us with your valuable feedback. Thank you!",
+    },
+    button: {
+      goBack: 'Go Back',
+      done: 'Done',
+    },
   },
   errors: {
     noInternet: 'No Internet Connection',
@@ -57,7 +72,7 @@ export const fetchExplainerScreenErrorDetails: Record<
   ExplainerScreenType,
   string
 > = {
-  GENERAL: 'GPT Tools Guide',
+  GENERAL: 'About GPT Tools',
   API_KEY: 'Instructions',
 };
 
@@ -88,7 +103,7 @@ export const settings = {
     {
       id: AppSetting.QUICK_SUMMARIZE,
       title: 'Auto-Summarize Links',
-      subtext: 'Instantly Summarize Shared Article links',
+      subtext: 'Quickly Summarize Shared Article links',
       hasToggle: true,
     },
     {
@@ -107,6 +122,7 @@ export const settings = {
     {
       id: AppSetting.RESET_API_KEY,
       title: 'Reset OpenAI API Key',
+      subtext: 'Current key ends with "{key}"',
     },
     {
       id: AppSetting.HOW_TO_USE,

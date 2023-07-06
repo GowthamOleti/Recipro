@@ -4,7 +4,7 @@ import {Linking} from 'react-native';
 import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
 import {SettingsContext} from '../../../../common/settingsContext';
 import {Screen} from '../../../../navigation/navigationTypes';
-import {removeApiKey} from '../../../../util/handleApiKey';
+import {getOpenAIApiKey, removeApiKey} from '../../../../util/handleApiKey';
 import {getSetting, saveSetting} from '../../../../util/handleSettings';
 import {SettingsItemProps} from './settingsItem';
 
@@ -12,11 +12,17 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   const {appSettings, setAppSettings} = useContext(SettingsContext);
 
   const [isEnabled, setIsEnabled] = useState(false);
+  const [truncatedApiKey, setTruncatedApiKey] = useState<string>();
 
   useEffect(() => {
     if (item.hasToggle) {
       getSetting(item.id).then(result => {
         setIsEnabled(result);
+      });
+    }
+    if (item.id === AppSetting.RESET_API_KEY) {
+      getOpenAIApiKey().then(key => {
+        setTruncatedApiKey(key?.slice(-4));
       });
     }
   }, [item]);
@@ -66,5 +72,6 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
     isEnabled,
     onSettingsItemPress,
     toggleSwitch,
+    truncatedApiKey,
   };
 };

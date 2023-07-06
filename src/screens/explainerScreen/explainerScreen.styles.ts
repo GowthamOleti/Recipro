@@ -12,7 +12,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     instructionsCarouselContainer: {
       borderRadius: 30,
       padding: '3%',
-      height: '75%',
+      height: '80%',
       backgroundColor: colors.textBackground,
       justifyContent: 'center',
       elevation: 5,
@@ -24,7 +24,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       borderWidth: 1,
       borderColor: colors.buttonBorder,
       width: '50%',
-      bottom: '10%',
+      bottom: '5%',
       position: 'absolute',
       alignSelf: 'center',
     },
@@ -34,5 +34,14 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       alignSelf: 'center',
       fontFamily: fonts.RobotoRegular,
       fontSize: 18,
+    },
+    aboutContainer: {
+      marginBottom: '30%',
+    },
+    aboutText: {
+      fontFamily: fonts.Sans,
+      fontSize: 18,
+      color: colors.text,
+      flexDirection: 'row',
     },
   });

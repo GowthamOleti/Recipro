@@ -5,6 +5,7 @@ import {Screen} from '../../navigation/navigationTypes';
 import {ExplainerScreenType} from '../../common/constants';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import {useToastMessage} from '../../common/useToastMessage';
+import {isFirstTime} from '../../util/handleSettings';
 
 export const useAskAPIKeyScreen = () => {
   const {askAPIKey, errors} = appLabels;
@@ -21,9 +22,19 @@ export const useAskAPIKeyScreen = () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
       showErrorToast(errors.invalidApiKey);
     } else {
-      saveOpenAIApiKey(key).finally(() => {
-        navigation.replace(Screen.HOME);
-      });
+      Promise.all([saveOpenAIApiKey(key), isFirstTime()])
+        .then(([_, firstTime]) => {
+          if (firstTime) {
+            navigation.replace(Screen.EXPLAINER, {
+              type: ExplainerScreenType.GENERAL,
+            });
+          } else {
+            navigation.replace(Screen.HOME);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   };
 
