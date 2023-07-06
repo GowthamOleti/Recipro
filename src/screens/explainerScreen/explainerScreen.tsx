@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -16,12 +16,14 @@ import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './explainerScreen.styles';
 import InstructionsCarousel from './components/instructionsCarousel/instructionsCarousel';
 import {ExplainerScreenType} from '../../common/constants';
+import {SettingsContext} from '../../common/settingsContext';
 
 // TODO: How to use - content & UI
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
   const navigation = useNavigation<StackNavigation>();
+  const {appSettings} = useContext(SettingsContext);
 
   const showApiKeyInstructions =
     route.params.type === ExplainerScreenType.API_KEY ? true : false;
@@ -30,7 +32,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
-        barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
+        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
       <View style={styles.instructionsCarouselContainer}>
         <InstructionsCarousel />
@@ -45,7 +47,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
-        barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
+        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
     </SafeAreaView>
   );

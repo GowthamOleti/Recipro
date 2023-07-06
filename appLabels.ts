@@ -1,5 +1,6 @@
 import {
   AppSetting,
+  ExplainerScreenType,
   InputActionType,
   ResultErrorType,
 } from './src/common/constants';
@@ -29,9 +30,7 @@ export const appLabels = {
     summarize: 'Summarize',
     rewrite: 'Rewrite',
   },
-  readEditScreen: {
-    editHeaderTitle: 'Edit Input',
-  },
+  settingsScreenTitle: 'Settings',
 };
 
 export const fetchResultScreenTitle: Record<InputActionType, string> = {
@@ -51,6 +50,14 @@ export const fetchResultScreenErrorDetails: Record<
     errorTitle: 'Oops! Something is wrong with your API Key...',
     buttonText: 'Reset API Key',
   },
+};
+
+export const fetchExplainerScreenErrorDetails: Record<
+  ExplainerScreenType,
+  string
+> = {
+  GENERAL: 'GPT Tools Guide',
+  API_KEY: 'Instructions',
 };
 
 export const apiKeyInstructions = [

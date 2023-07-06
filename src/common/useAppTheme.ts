@@ -4,26 +4,26 @@ import {SettingsContext} from './settingsContext';
 export const useAppTheme = () => {
   const {appSettings} = useContext(SettingsContext);
 
-  const isDarkTheme = appSettings.isDarkMode;
+  const isDarkMode = appSettings.isDarkMode;
 
   const colors = {
-    border: isDarkTheme ? 'white' : 'black',
-    buttonBorder: isDarkTheme ? '' : 'black',
-    headerBackground: isDarkTheme ? '#212121' : '#FAF4F2',
-    background: isDarkTheme ? '#212121' : '#FAF4F2',
-    resultBackground: isDarkTheme ? '#212121' : 'white',
-    resultButtonBorder: isDarkTheme ? '#BDBDBD' : 'black',
-    resultFooter: isDarkTheme ? '#212121' : '#FAF4F2',
-    resultSvg: isDarkTheme ? '#BDBDBD' : '#666666',
-    yellow: isDarkTheme ? '#FFE7AB' : '#FFE7AB',
-    shadow: isDarkTheme ? 'black' : 'black',
-    green: isDarkTheme ? '#D1EDBF' : '#D1EDBF',
-    text: isDarkTheme ? 'white' : 'black',
-    textBackground: isDarkTheme ? 'black' : 'white',
-    paginationInFocus: isDarkTheme ? '' : '#787171',
-    paginationNotInFocus: isDarkTheme ? '' : '#CCCCCC',
-    toggleTrack: isDarkTheme ? '' : '#767577',
-    toggleThumb: isDarkTheme ? '' : '#f4f3f4',
+    border: isDarkMode ? 'white' : 'black',
+    buttonBorder: isDarkMode ? '' : 'black',
+    headerBackground: isDarkMode ? '#212121' : '#FAF4F2',
+    background: isDarkMode ? '#212121' : '#FAF4F2',
+    resultBackground: isDarkMode ? '#212121' : 'white',
+    resultButtonBorder: isDarkMode ? '#BDBDBD' : 'black',
+    resultFooter: isDarkMode ? '#212121' : '#FAF4F2',
+    resultSvg: isDarkMode ? '#BDBDBD' : '#666666',
+    yellow: isDarkMode ? '#FFE7AB' : '#FFE7AB',
+    shadow: isDarkMode ? 'black' : 'black',
+    green: isDarkMode ? '#D1EDBF' : '#D1EDBF',
+    text: isDarkMode ? 'white' : 'black',
+    textBackground: isDarkMode ? 'black' : 'white',
+    paginationInFocus: isDarkMode ? '' : '#787171',
+    paginationNotInFocus: isDarkMode ? '' : '#CCCCCC',
+    toggleTrack: isDarkMode ? '' : '#767577',
+    toggleThumb: isDarkMode ? '' : '#f4f3f4',
     common: {
       buttonText: 'black',
       emailBackground: '#FB1C1C1A',
@@ -42,7 +42,7 @@ export const useAppTheme = () => {
     SansBold: 'Product-Sans-Bold',
     RobotoRegular: 'Roboto-Regular',
   };
-  return {colors, fonts, isDarkTheme};
+  return {colors, fonts};
 };
 
 export interface ThemeProps {
@@ -82,5 +82,4 @@ export interface ThemeProps {
     SansBold: string;
     RobotoRegular: string;
   };
-  isDarkTheme: boolean;
 }

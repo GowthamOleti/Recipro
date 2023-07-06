@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {SafeAreaView, StatusBar, Text, View} from 'react-native';
 
 import {Loading} from './components/loading';
@@ -10,6 +10,7 @@ import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './resultScreen.styles';
 import {useResultScreen} from './useResultScreen';
 import Animated, {FadeIn} from 'react-native-reanimated';
+import {SettingsContext} from '../../common/settingsContext';
 
 export interface Props {
   input: string;
@@ -22,6 +23,8 @@ const ResultScreen = ({route}: ResultScreenProps) => {
     input,
     actionType,
   });
+  const {appSettings} = useContext(SettingsContext);
+
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
@@ -29,7 +32,7 @@ const ResultScreen = ({route}: ResultScreenProps) => {
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
-        barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
+        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
       {isLoading && <Loading />}
       {outputText.length > 0 && (

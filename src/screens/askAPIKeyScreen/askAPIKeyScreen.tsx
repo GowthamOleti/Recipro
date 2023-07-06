@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import {RoundedRight} from '../../../assets/icons';
+import {SettingsContext} from '../../common/settingsContext';
 import {useAppTheme} from '../../common/useAppTheme';
 import {AskApiScreenProps} from '../../navigation/navigationTypes';
 import {getStyles} from './askAPIKeyScreen.styles';
@@ -16,6 +17,7 @@ import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 const AskAPIKeyScreen = ({route}: AskApiScreenProps) => {
   const {askAPIKey, key, onGetInstructionsPress, onSaveButtonPress, setKey} =
     useAskAPIKeyScreen();
+  const {appSettings} = useContext(SettingsContext);
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
@@ -23,7 +25,7 @@ const AskAPIKeyScreen = ({route}: AskApiScreenProps) => {
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
-        barStyle={theme.isDarkTheme ? 'light-content' : 'dark-content'}
+        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
       <View style={styles.keyContainer}>
         <TextInput

@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
 import {SettingsContext} from '../common/settingsContext';
+import {useAppTheme} from '../common/useAppTheme';
 import {IsOpenAIApiKeyPresent} from '../util/handleApiKey';
 import {fetchAllSettings} from '../util/handleSettings';
 import {Screen} from './navigationTypes';
@@ -9,6 +10,19 @@ export const useNavigator = () => {
   const [initRoute, setInitRoute] = useState(Screen.HOME);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {appSettings, setAppSettings} = useContext(SettingsContext);
+  const {colors, fonts} = useAppTheme();
+
+  const commonScreenOptions = {
+    headerStyle: {
+      backgroundColor: colors.headerBackground,
+    },
+    headerTitleStyle: {
+      fontFamily: fonts.Sans,
+    },
+    headerTintColor: colors.text,
+    headerShadowVisible: false,
+    headerTitleAlign: 'center' as 'center',
+  };
 
   useEffect(() => {
     Promise.all([IsOpenAIApiKeyPresent(), fetchAllSettings()])
@@ -29,6 +43,7 @@ export const useNavigator = () => {
   }, [setInitRoute, setAppSettings]);
 
   return {
+    commonScreenOptions,
     initRoute,
     loading,
   };
