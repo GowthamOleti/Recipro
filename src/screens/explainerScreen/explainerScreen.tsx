@@ -28,27 +28,26 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   const showApiKeyInstructions =
     route.params.type === ExplainerScreenType.API_KEY ? true : false;
 
-  return showApiKeyInstructions ? (
+  return (
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
         barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
-      <View style={styles.instructionsCarouselContainer}>
-        <InstructionsCarousel />
-      </View>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.goBack()}>
-        <Text style={styles.buttonText}>{appLabels.explainer.button}</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
-  ) : (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        backgroundColor={theme.colors.headerBackground}
-        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
-      />
+      {showApiKeyInstructions ? (
+        <>
+          <View style={styles.instructionsCarouselContainer}>
+            <InstructionsCarousel />
+          </View>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => navigation.goBack()}>
+            <Text style={styles.buttonText}>{appLabels.explainer.button}</Text>
+          </TouchableOpacity>
+        </>
+      ) : (
+        <View />
+      )}
     </SafeAreaView>
   );
 };

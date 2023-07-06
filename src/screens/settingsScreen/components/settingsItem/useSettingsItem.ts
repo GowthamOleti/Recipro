@@ -30,7 +30,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
       case AppSetting.SHOW_TWEET_MAIL:
         setAppSettings({...appSettings, showTweetMail: !isEnabled});
         break;
-      case AppSetting.IS_DARK_THEME:
+      case AppSetting.IS_DARK_MODE:
         setAppSettings({...appSettings, isDarkMode: !isEnabled});
         break;
     }

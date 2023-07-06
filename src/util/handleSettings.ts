@@ -37,7 +37,7 @@ export const fetchAllSettings = async () => {
       AppSetting.SHOW_TWEET_MAIL.toString(),
     );
     const isDarkModeItem = await AsyncStorage.getItem(
-      AppSetting.IS_DARK_THEME.toString(),
+      AppSetting.IS_DARK_MODE.toString(),
     );
     const result: SettingsContextType = {
       quickSummarize: quickSummarizeItem === 'true' ? true : false,

@@ -23,7 +23,7 @@ export enum AppSetting {
   // Toggle settings
   QUICK_SUMMARIZE = 'QUICK_SUMMARIZE',
   SHOW_TWEET_MAIL = 'SHOW_TWITTER_MAIL',
-  IS_DARK_THEME = 'IS_DARK_THEME',
+  IS_DARK_MODE = 'IS_DARK_MODE',
   // Non-Toggle settings
   RESET_API_KEY = 'RESET_API_KEY',
   FEEDBACK = 'FEEDBACK',

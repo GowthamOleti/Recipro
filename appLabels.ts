@@ -13,7 +13,7 @@ export const appLabels = {
     saveButton: 'Save API Key',
     errorMessage: 'Invalid API Key',
     getInstructions:
-      "Don't know how to get your Open AI API Key? Tap here for instructions.",
+      "Not sure how to get your OpenAI API Key? Don't worry! Tap here for instructions.",
   },
   explainer: {
     button: 'Go Back',
@@ -63,21 +63,22 @@ export const fetchExplainerScreenErrorDetails: Record<
 export const apiKeyInstructions = [
   {
     title: 'Step 1',
-    body: 'Click on the link below and generate a new API secret key for yourself. Make sure you are logged in to your Open AI account',
+    body: "Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n\nDon't share this key with anyone. If your key is compromised, you can easily delete it and create a new key anytime. We store your key safely in your device's encrypted storage. We can't access your key.",
     link: 'https://platform.openai.com/account/api-keys',
   },
   {
     title: 'Step 2',
-    body: 'Add your credit/debit card details here',
+    body: 'Add your credit/debit card details here to enable your key. Before you worry about this step, read the next slides.',
     link: 'https://platform.openai.com/account/billing/payment-methods',
   },
   {
-    title: 'Note',
-    body: 'It is cheap, very cheap. Upon our testing, if you put 40 requests per day (20 rewrites and 20 summarizing) it costs you 3 paise. Which mean it will cost you just over 9/- per month',
+    title: 'Pricing',
+    body: "The usage cost of the API Key is very cheap. Let's say you're a heavy user of the app and you make 40 requests/day (20 rewrites & 20 summarize requests) it will cost you around 30 paise/day, Rs.9/month and Rs. 108/year. \n\nThese price estimates are for heavy users, if you use it occasionally it will cost way lesser.",
   },
   {
     title: 'Pro Tip',
-    body: 'You can set your usage limit. You can set it to as low as $1 per month. $1 usage is almost 250 requests per month!',
+    body: 'You can also set usage limits using below link. Setting this is a good idea for additional peace of mind. OpenAI will warn you when you hit the soft limit and block subsequent requests if you hit the hard limit. You can set it to as low as $1 per month which gives you around 250 requests.',
+    link: 'https://platform.openai.com/account/billing/limits',
   },
 ];
 
@@ -85,19 +86,19 @@ export const settings = {
   toggleSettings: [
     {
       id: AppSetting.QUICK_SUMMARIZE,
-      title: 'Instant Summarizing',
-      subtext: 'Summarize links quickly',
+      title: 'Auto-Summarize Links',
+      subtext: 'Instantly Summarize Shared Article links',
       hasToggle: true,
     },
     {
       id: AppSetting.SHOW_TWEET_MAIL,
-      title: 'Show Twitter & Mail',
-      subtext: 'Show Twitter & Mail in Result screen',
+      title: 'Show Tweet & Mail Options',
+      subtext: 'Show These Result Sharing Options',
       hasToggle: true,
     },
     {
-      id: AppSetting.IS_DARK_THEME,
-      title: 'Dark Theme',
+      id: AppSetting.IS_DARK_MODE,
+      title: 'Dark Mode',
       hasToggle: true,
     },
   ],
@@ -108,7 +109,7 @@ export const settings = {
     },
     {
       id: AppSetting.HOW_TO_USE,
-      title: 'How to Use',
+      title: 'About GPT Tools',
     },
     {
       id: AppSetting.FEEDBACK,
