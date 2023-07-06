@@ -20,7 +20,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     buttonContainer: {
       borderRadius: 25,
-      backgroundColor: colors.green,
+      backgroundColor: colors.yellow,
       borderWidth: 1,
       borderColor: colors.buttonBorder,
       width: '50%',

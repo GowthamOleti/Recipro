@@ -23,7 +23,10 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
 
   const onErrorButtonPress = () => {
     if (errorType === ResultErrorType.INVALID_KEY) {
-      navigation.navigate(Screen.ASK_API_KEY, {reset: true});
+      navigation.reset({
+        index: 0,
+        routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
+      });
     } else {
       fetchResult();
     }

@@ -45,7 +45,10 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
     switch (item.id) {
       case AppSetting.RESET_API_KEY:
         removeApiKey().finally(() => {
-          navigation.replace(Screen.ASK_API_KEY, {reset: true});
+          navigation.reset({
+            index: 0,
+            routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
+          });
         });
         break;
       case AppSetting.HOW_TO_USE:
