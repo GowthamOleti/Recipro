@@ -5,7 +5,7 @@ import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
 import {InputActionType} from '../../../../common/constants';
 import {InputActionsProps} from './inputActions';
 import {useToastMessage} from '../../../../common/useToastMessage';
-import {isPDFLink} from '../../../../util/helpers';
+import {isLinkSupported} from '../../../../util/helpers';
 
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();
@@ -19,8 +19,8 @@ export const useInputActions = ({input}: InputActionsProps) => {
       showErrorToast(errors.noInput);
     } else if (internetState.isConnected === false) {
       showErrorToast(errors.noInternet);
-    } else if (isPDFLink(input)) {
-      showErrorToast(errors.pdfNotSupported);
+    } else if (!isLinkSupported(input)) {
+      showErrorToast(errors.unsupportedLink);
     } else {
       navigation.navigate(Screen.RESULT, {
         actionType,

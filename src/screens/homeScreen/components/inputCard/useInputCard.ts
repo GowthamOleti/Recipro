@@ -1,6 +1,6 @@
 import {useClipboard} from '@react-native-community/clipboard';
 import {useFetchSharedItem} from '../../../../util/useFetchSharedItem';
-import {isLink, isPDFLink} from '../../../../util/helpers';
+import {isLink, isLinkSupported} from '../../../../util/helpers';
 import {InputActionType} from '../../../../common/constants';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
 import {useContext, useEffect, useState} from 'react';
@@ -22,7 +22,7 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
       if (
         appSettings.quickSummarize &&
         isLink(sharedText) &&
-        !isPDFLink(sharedText)
+        isLinkSupported(sharedText)
       ) {
         navigation.navigate(Screen.RESULT, {
           actionType: InputActionType.Summarize,

@@ -25,6 +25,7 @@ export default function AppNavigator() {
             options={{
               title: appLabels.appName,
               ...commonScreenOptions,
+              animation: 'fade_from_bottom',
             }}
             name={Screen.ASK_API_KEY}
             component={AskAPIKeyScreen}
@@ -34,6 +35,7 @@ export default function AppNavigator() {
               title: appLabels.appName,
               ...commonScreenOptions,
               headerRight: () => SettingsButton(navigation),
+              animation: 'fade_from_bottom',
             })}
             name={Screen.HOME}
             component={HomeScreen}
@@ -44,6 +46,7 @@ export default function AppNavigator() {
               ...commonScreenOptions,
               headerRight: () => SettingsButton(navigation),
               headerShadowVisible: true,
+              animation: 'fade_from_bottom',
             })}
             name={Screen.RESULT}
             component={ResultScreen}
@@ -52,6 +55,7 @@ export default function AppNavigator() {
             options={({route}) => ({
               title: fetchExplainerScreenErrorDetails[route.params.type],
               ...commonScreenOptions,
+              animation: 'fade_from_bottom',
             })}
             name={Screen.EXPLAINER}
             component={ExplainerScreen}
@@ -60,6 +64,7 @@ export default function AppNavigator() {
             options={{
               title: appLabels.settingsScreenTitle,
               ...commonScreenOptions,
+              animation: 'fade_from_bottom',
             }}
             name={Screen.SETTINGS}
             component={SettingsScreen}

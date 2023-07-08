@@ -17,7 +17,7 @@ export const useNavigator = () => {
       backgroundColor: colors.headerBackground,
     },
     headerTitleStyle: {
-      fontFamily: fonts.Sans,
+      fontFamily: fonts.SansBold,
     },
     headerTintColor: colors.text,
     headerShadowVisible: false,

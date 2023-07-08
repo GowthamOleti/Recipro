@@ -34,6 +34,10 @@ export const copyToClipboard = (text: string) => {
   Clipboard.setString(text);
 };
 
+export const onFeedbackPress = () => {
+  Linking.openURL('mailto:teja2495@gmail.com');
+};
+
 export const isLink = (text: string): boolean => {
   const linkRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
   return linkRegex.test(text);
@@ -41,6 +45,8 @@ export const isLink = (text: string): boolean => {
 
 export const screenDimensions = Dimensions.get('screen');
 
-export const isPDFLink = (text: string): boolean => {
-  return text.endsWith('.pdf') || text.endsWith('.PDF') ? true : false;
+export const isLinkSupported = (link: string) => {
+  const pdfRegex = /\.pdf$/i;
+  const youTubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.*$/i; // match YouTube domain
+  return !pdfRegex.test(link) && !youTubeRegex.test(link);
 };

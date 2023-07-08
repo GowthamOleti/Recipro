@@ -27,13 +27,20 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       marginTop: '10%',
     },
     getInstructionsText: {
-      color: colors.common.placeHolderText,
+      color: colors.text,
       fontFamily: fonts.Sans,
       fontSize: 20,
       alignSelf: 'center',
     },
-    rightArrow: {
+    iconContainer: {
+      borderWidth: 1,
+      borderColor: colors.text,
+      alignSelf: 'center',
+      borderRadius: 100,
       marginTop: '5%',
+      backgroundColor: colors.yellow,
+    },
+    rightArrow: {
       alignSelf: 'center',
     },
     saveButtonContainer: {

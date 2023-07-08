@@ -1,11 +1,13 @@
 import {useNavigation} from '@react-navigation/native';
 import {useContext, useEffect, useState} from 'react';
-import {Linking} from 'react-native';
+import {Alert} from 'react-native';
+import {appLabels} from '../../../../../appLabels';
 import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
 import {SettingsContext} from '../../../../common/settingsContext';
 import {Screen} from '../../../../navigation/navigationTypes';
 import {getOpenAIApiKey, removeApiKey} from '../../../../util/handleApiKey';
 import {getSetting, saveSetting} from '../../../../util/handleSettings';
+import {onFeedbackPress} from '../../../../util/helpers';
 import {SettingsItemProps} from './settingsItem';
 
 export const useSettingsItem = ({item}: SettingsItemProps) => {
@@ -26,6 +28,28 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
       });
     }
   }, [item]);
+
+  const resetKey = () => {
+    removeApiKey().finally(() => {
+      navigation.reset({
+        index: 0,
+        routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
+      });
+    });
+  };
+
+  const resetConfirmationAlert = () => {
+    Alert.alert(appLabels.resetKeyAlert.title, appLabels.resetKeyAlert.body, [
+      {
+        text: appLabels.resetKeyAlert.cancelButton,
+        style: 'cancel',
+      },
+      {
+        text: appLabels.resetKeyAlert.okButton,
+        onPress: resetKey,
+      },
+    ]);
+  };
 
   // Handling Toggle Settings
   const toggleSwitch = () => {
@@ -50,12 +74,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   const onSettingsItemPress = () => {
     switch (item.id) {
       case AppSetting.RESET_API_KEY:
-        removeApiKey().finally(() => {
-          navigation.reset({
-            index: 0,
-            routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
-          });
-        });
+        resetConfirmationAlert();
         break;
       case AppSetting.HOW_TO_USE:
         navigation.navigate(Screen.EXPLAINER, {
@@ -63,7 +82,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
         });
         break;
       case AppSetting.FEEDBACK:
-        Linking.openURL('mailto:teja2495@gmail.com');
+        onFeedbackPress();
         break;
     }
   };

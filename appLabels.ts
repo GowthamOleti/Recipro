@@ -6,7 +6,7 @@ import {
 } from './src/common/constants';
 
 export const appLabels = {
-  appName: 'GPT Tools',
+  appName: 'TextCraft AI',
   askAPIKey: {
     title: 'Enter your OpenAI API key',
     resetKeyTitle: 'Enter your new OpenAI API key',
@@ -36,7 +36,7 @@ export const appLabels = {
   errors: {
     noInternet: 'No Internet Connection',
     noInput: 'Please Enter the Input',
-    pdfNotSupported: 'PDFs are not supported',
+    unsupportedLink: 'YouTube & PDF Links are not supported',
     invalidApiKey: 'Invalid API Key',
     twitterNotInstalled: 'Twitter App is Not Installed!',
   },
@@ -45,6 +45,12 @@ export const appLabels = {
   inputActions: {
     summarize: 'Summarize',
     rewrite: 'Rewrite',
+  },
+  resetKeyAlert: {
+    title: 'Are You Sure?',
+    body: 'Please confirm if you want to reset your OpenAI API Key.',
+    cancelButton: 'Cancel',
+    okButton: 'Yes, Reset it',
   },
   settingsScreenTitle: 'Settings',
 };
@@ -89,7 +95,7 @@ export const apiKeyInstructions = [
   },
   {
     title: 'Pricing',
-    body: "The usage cost of the API Key is very cheap. Let's say you're a heavy user of the app and you make 40 requests/day (20 rewrites & 20 summarize requests) it will cost you around 30 paise/day, Rs.9/month and Rs. 108/year. \n\nThese price estimates are for heavy users, if you use it occasionally it will cost way lesser.",
+    body: "The usage cost of the API Key is very cheap. Let's say you're a heavy user of the app and you make 40 requests/day (20 rewrites & 20 summarize requests) it will cost you around $0.004 (~ ₹0.3) per day, $0.12 (~ ₹10) per month and $1.44 (~ ₹120) per year. \n\nThese price estimates are for heavy users, if you use it occasionally it will cost way less.",
   },
   {
     title: 'Pro Tip',
@@ -108,8 +114,8 @@ export const settings = {
     },
     {
       id: AppSetting.SHOW_TWEET_MAIL,
-      title: 'Show Tweet & Mail Options',
-      subtext: 'Show These Result Sharing Options',
+      title: 'Tweet & Mail Sharing Options',
+      subtext: 'Show These Options in Result Screen',
       hasToggle: true,
     },
     // {

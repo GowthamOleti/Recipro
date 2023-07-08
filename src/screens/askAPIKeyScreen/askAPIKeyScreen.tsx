@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {RoundedRight} from '../../../assets/icons';
+import {Right} from '../../../assets/icons';
 import {SettingsContext} from '../../common/settingsContext';
 import {useAppTheme} from '../../common/useAppTheme';
 import {AskApiScreenProps} from '../../navigation/navigationTypes';
@@ -46,12 +46,14 @@ const AskAPIKeyScreen = ({route}: AskApiScreenProps) => {
         <Text style={styles.getInstructionsText}>
           {askAPIKey.getInstructions}
         </Text>
-        <RoundedRight
-          style={styles.rightArrow}
-          height={50}
-          width={50}
-          fill={theme.colors.common.placeHolderText}
-        />
+        <View style={styles.iconContainer}>
+          <Right
+            style={styles.rightArrow}
+            height={40}
+            width={40}
+            fill={theme.colors.text}
+          />
+        </View>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.saveButtonContainer}

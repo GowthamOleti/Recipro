@@ -7,6 +7,7 @@ import {Animations} from '../../../../../assets/animations';
 import {ResultErrorType} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
+import {removeApiKey} from '../../../../util/handleApiKey';
 import {getStyles} from './resultError.styles';
 
 export interface ResultErrorProps {
@@ -23,9 +24,11 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
 
   const onErrorButtonPress = () => {
     if (errorType === ResultErrorType.INVALID_KEY) {
-      navigation.reset({
-        index: 0,
-        routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
+      removeApiKey().finally(() => {
+        navigation.reset({
+          index: 0,
+          routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
+        });
       });
     } else {
       fetchResult();
