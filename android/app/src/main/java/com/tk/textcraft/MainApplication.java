@@ -1,4 +1,4 @@
-package com.gpt_tools;
+package com.tk.textcraft;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

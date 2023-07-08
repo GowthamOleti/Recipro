@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.gpt_tools"
+    namespace "com.tk.textcraft"
     defaultConfig {
-        applicationId "com.gpt_tools"
+        applicationId "com.tk.textcraft"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

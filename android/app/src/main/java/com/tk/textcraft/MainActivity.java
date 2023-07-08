@@ -1,4 +1,4 @@
-package com.gpt_tools;
+package com.tk.textcraft;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "gpt_tools";
+    return "textcraft";
   }
 
   /**

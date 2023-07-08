@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface gpt_toolsTests : XCTestCase
+@interface textcraftTests : XCTestCase
 
 @end
 
-@implementation gpt_toolsTests
+@implementation textcraftTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

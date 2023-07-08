@@ -21,7 +21,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'gpt_tools' do
+target 'textcraft' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -43,7 +43,7 @@ target 'gpt_tools' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'gpt_toolsTests' do
+  target 'textcraftTests' do
     inherit! :complete
     # Pods for testing
   end
