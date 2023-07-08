@@ -34,10 +34,10 @@ export const appLabels = {
     },
   },
   errors: {
-    noInternet: 'No Internet Connection',
-    noInput: 'Please Enter the Input',
-    unsupportedLink: 'Unsupported Link',
-    invalidApiKey: 'Invalid API Key',
+    noInternet: 'No Internet Connection!',
+    noInput: 'Missing Input!',
+    unsupportedLink: 'Unsupported Link!',
+    invalidApiKey: 'Invalid API Key!',
     twitterNotInstalled: 'Twitter App is Not Installed!',
   },
   inputHint:
@@ -114,7 +114,7 @@ export const settings = {
     },
     {
       id: AppSetting.SHOW_TWEET_MAIL,
-      title: 'Tweet & Mail Sharing Options',
+      title: 'Sharing via Tweet & Email',
       subtext: 'Show These Options in Result Screen',
       hasToggle: true,
     },
