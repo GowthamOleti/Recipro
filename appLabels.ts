@@ -6,7 +6,7 @@ import {
 } from './src/common/constants';
 
 export const appLabels = {
-  appName: 'TextCraft AI',
+  appName: 'TextCraft',
   askAPIKey: {
     title: 'Enter your OpenAI API key',
     resetKeyTitle: 'Enter your new OpenAI API key',
@@ -36,7 +36,7 @@ export const appLabels = {
   errors: {
     noInternet: 'No Internet Connection',
     noInput: 'Please Enter the Input',
-    unsupportedLink: 'YouTube & PDF Links are not supported',
+    unsupportedLink: 'Unsupported Link',
     invalidApiKey: 'Invalid API Key',
     twitterNotInstalled: 'Twitter App is Not Installed!',
   },
@@ -50,7 +50,7 @@ export const appLabels = {
     title: 'Are You Sure?',
     body: 'Please confirm if you want to reset your OpenAI API Key.',
     cancelButton: 'Cancel',
-    okButton: 'Yes, Reset it',
+    okButton: 'Yes',
   },
   settingsScreenTitle: 'Settings',
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Pressable, Switch, Text, View} from 'react-native';
+import {appLabels} from '../../../../../appLabels';
+import {AppAlert} from '../../../../common/appAlert';
 import {AppSetting} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {getStyles} from './settingsItem.styles';
@@ -18,10 +20,19 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const {isEnabled, onSettingsItemPress, toggleSwitch, truncatedApiKey} =
-    useSettingsItem({
-      item,
-    });
+  const {title, body, okButton, cancelButton} = appLabels.resetKeyAlert;
+
+  const {
+    isEnabled,
+    onSettingsItemPress,
+    resetKey,
+    showResetAlert,
+    setShowResetAlert,
+    toggleSwitch,
+    truncatedApiKey,
+  } = useSettingsItem({
+    item,
+  });
 
   return (
     <Pressable style={styles.container} onPress={onSettingsItemPress}>
@@ -48,6 +59,15 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
           value={isEnabled}
         />
       )}
+      <AppAlert
+        title={title}
+        body={body}
+        primaryButtonText={okButton}
+        secondaryButtonText={cancelButton}
+        onPrimaryButtonPress={resetKey}
+        alertVisible={showResetAlert}
+        setAlertVisible={setShowResetAlert}
+      />
     </Pressable>
   );
 };

@@ -14,6 +14,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   const {appSettings, setAppSettings} = useContext(SettingsContext);
 
   const [isEnabled, setIsEnabled] = useState(false);
+  const [showResetAlert, setShowResetAlert] = useState(false);
   const [truncatedApiKey, setTruncatedApiKey] = useState<string>();
 
   useEffect(() => {
@@ -74,7 +75,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   const onSettingsItemPress = () => {
     switch (item.id) {
       case AppSetting.RESET_API_KEY:
-        resetConfirmationAlert();
+        setShowResetAlert(true);
         break;
       case AppSetting.HOW_TO_USE:
         navigation.navigate(Screen.EXPLAINER, {
@@ -91,6 +92,9 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
     isEnabled,
     onSettingsItemPress,
     toggleSwitch,
+    resetKey,
+    setShowResetAlert,
+    showResetAlert,
     truncatedApiKey,
   };
 };
