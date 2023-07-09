@@ -61,7 +61,7 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       elevation: 5,
       alignSelf: 'center',
       width: '90%',
-      marginTop: '65%',
+      marginTop: '73%',
       borderWidth: 1,
     },
     title: {
