@@ -95,7 +95,7 @@ export const apiKeyInstructions = [
   },
   {
     title: 'Pricing',
-    body: "The usage cost of the API Key is very cheap. Let's say you're a heavy user of the app and you make 40 requests/day (20 rewrites & 20 summarize requests) it will cost you around $0.004 (~ ₹0.3) per day, $0.12 (~ ₹10) per month and $1.44 (~ ₹120) per year. \n\nThese price estimates are for heavy users, if you use it occasionally it will cost way less.",
+    body: "The usage cost of the API Key is very cheap. Let's say you're a heavy user of the app and you make 40 requests per day (20 rewrites & 20 summarize requests). It will cost you around \n\n$0.004 (~ ₹0.3) per day\n$0.12 (~ ₹10) per month\n$1.44 (~ ₹120) per year\n\nThese price estimates are for heavy users, if you use it occasionally it will cost way less.",
   },
   {
     title: 'Pro Tip',
