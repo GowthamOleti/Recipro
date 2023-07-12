@@ -14,8 +14,15 @@ export const appLabels = {
     next: 'Next',
     errorMessage: 'Invalid API Key',
     instructions:
-      "Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n\nDon't share your secret key with others. You can always generate new keys and delete old ones.\n",
+      'Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n',
     instructionsLink: 'https://platform.openai.com/account/api-keys',
+  },
+  keyError: {
+    title: 'API Key Error',
+    body: 'The key you provided is not working. Please make sure you followed all the instructions.',
+    primaryButton: 'Instructions',
+    secondaryButton: 'Close',
+    okay: 'Okay',
   },
   explainer: {
     about: {

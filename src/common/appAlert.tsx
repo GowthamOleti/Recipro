@@ -9,7 +9,7 @@ export interface AppAlertProps {
   setAlertVisible: (visible: boolean) => void;
   primaryButtonText: string;
   secondaryButtonText: string;
-  onPrimaryButtonPress: () => void;
+  onPrimaryButtonPress?: () => void;
 }
 
 export const AppAlert = ({
@@ -24,6 +24,8 @@ export const AppAlert = ({
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
+  const borderWidth = onPrimaryButtonPress ? 0 : 1;
+
   return (
     <Modal
       animationType="slide"
@@ -36,13 +38,20 @@ export const AppAlert = ({
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.body}>{body}</Text>
         <View style={styles.buttonsContainer}>
+          {onPrimaryButtonPress && (
+            <TouchableOpacity
+              style={styles.button}
+              onPress={onPrimaryButtonPress}>
+              <Text style={styles.buttonText}>{primaryButtonText}</Text>
+            </TouchableOpacity>
+          )}
           <TouchableOpacity
-            style={[styles.button, {backgroundColor: theme.colors.yellow}]}
-            onPress={onPrimaryButtonPress}>
-            <Text style={styles.buttonText}>{primaryButtonText}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
+            style={[
+              styles.button,
+              onPrimaryButtonPress
+                ? {backgroundColor: theme.colors.common.white}
+                : null,
+            ]}
             onPress={() => setAlertVisible(false)}>
             <Text style={styles.buttonText}>{secondaryButtonText}</Text>
           </TouchableOpacity>
@@ -61,7 +70,7 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       elevation: 5,
       alignSelf: 'center',
       width: '90%',
-      marginTop: '73%',
+      marginTop: '70%',
       borderWidth: 1,
     },
     title: {
@@ -86,10 +95,11 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       borderRadius: 35,
       minWidth: '40%',
       marginTop: '5%',
+      backgroundColor: colors.green,
     },
     buttonText: {
       color: colors.common.buttonText,
-      paddingHorizontal: '5%',
+      paddingHorizontal: '8%',
       paddingVertical: '3%',
       alignSelf: 'center',
       fontFamily: fonts.RobotoRegular,

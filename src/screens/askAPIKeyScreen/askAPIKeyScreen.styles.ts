@@ -48,4 +48,8 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontFamily: fonts.RobotoRegular,
       fontSize: 18,
     },
+    loading: {
+      alignSelf: 'center',
+      padding: '7%',
+    },
   });

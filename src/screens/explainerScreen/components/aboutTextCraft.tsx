@@ -8,9 +8,7 @@ export const AboutTextCraft = () => {
   const styles = getStyles(theme);
 
   return (
-    <ScrollView
-      style={styles.aboutContainer}
-      showsVerticalScrollIndicator={false}>
+    <ScrollView contentContainerStyle={styles.contentContainer}>
       <Text style={styles.aboutText}>{appLabels.explainer.about.intro}</Text>
       <Text style={styles.aboutText}>
         <Text style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
@@ -33,8 +31,8 @@ export const AboutTextCraft = () => {
 
 const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
-    aboutContainer: {
-      marginBottom: '30%',
+    contentContainer: {
+      paddingRight: '3%',
     },
     aboutText: {
       fontFamily: fonts.Sans,

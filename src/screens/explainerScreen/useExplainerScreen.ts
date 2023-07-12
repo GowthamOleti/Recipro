@@ -21,6 +21,8 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
   const {appSettings} = useContext(SettingsContext);
 
   const [firstTime, setFirstTime] = useState<boolean>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [keyError, setKeyError] = useState(false);
 
   useEffect(() => {
     isFirstTime().then(firstTime => setFirstTime(firstTime));
@@ -30,6 +32,7 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
     if (screenType === ExplainerScreenType.ABOUT) {
       navigation.navigate(Screen.ASK_API_KEY);
     } else if (screenType === ExplainerScreenType.ADD_PAYMENT) {
+      setIsLoading(true);
       const isWorking = await isKeyWorking(key);
       if (isWorking) {
         await AsyncStorage.setItem(AppSetting.IS_FIRST_TIME, 'true');
@@ -40,8 +43,9 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
           routes: [{name: Screen.HOME}],
         });
       } else {
-        // TODO
+        setKeyError(true);
       }
+      setIsLoading(false);
     }
   };
 
@@ -50,5 +54,8 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
     firstTime,
     theme,
     appSettings,
+    isLoading,
+    keyError,
+    setKeyError,
   };
 };

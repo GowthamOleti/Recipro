@@ -7,7 +7,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       flex: 1,
       paddingVertical: '2%',
       backgroundColor: colors.background,
-      paddingHorizontal: '5%',
+      paddingLeft: '5%',
     },
     instructionsCarouselContainer: {
       borderRadius: 30,
@@ -35,6 +35,10 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontFamily: fonts.RobotoRegular,
       fontSize: 18,
     },
+    loading: {
+      alignSelf: 'center',
+      padding: '7%',
+    },
     aboutContainer: {
       marginBottom: '30%',
     },
@@ -43,5 +47,8 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontSize: 18,
       color: colors.text,
       flexDirection: 'row',
+    },
+    aboutPadding: {
+      paddingRight: '1%',
     },
   });

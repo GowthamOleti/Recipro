@@ -12,7 +12,9 @@ export const useAskAPIKeyScreen = () => {
   const {askAPIKey, toast} = appLabels;
   const [key, setKey] = useState('');
   const [firstTime, setFirstTime] = useState<boolean>();
-  const [showError, setShowError] = useState(false);
+  const [keyError, setKeyError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const {showToast} = useToastMessage();
 
   const navigation = useNavigation<any>();
@@ -22,7 +24,7 @@ export const useAskAPIKeyScreen = () => {
   }, []);
 
   const onButtonPress = async () => {
-    if (key.length !== 51 || !key.startsWith('sk-')) {
+    if (key.trim().length !== 51 || !key.trim().startsWith('sk-')) {
       showToast({message: toast.errors.invalidApiKey, type: 'error'});
     } else {
       if (firstTime) {
@@ -31,13 +33,15 @@ export const useAskAPIKeyScreen = () => {
           key,
         });
       } else {
-        const isWorking = await isKeyWorking(key);
-        if (isWorking) {
+        setIsLoading(true);
+        const keyWorking = await isKeyWorking(key);
+        if (keyWorking) {
           await saveOpenAIApiKey(key);
           navigation.replace(Screen.HOME);
         } else {
-          // TODO: Show popup
+          setKeyError(true);
         }
+        setIsLoading(false);
       }
     }
   };
@@ -48,7 +52,8 @@ export const useAskAPIKeyScreen = () => {
     onButtonPress,
     setKey,
     firstTime,
-    showError,
-    setShowError,
+    keyError,
+    setKeyError,
+    isLoading,
   };
 };
