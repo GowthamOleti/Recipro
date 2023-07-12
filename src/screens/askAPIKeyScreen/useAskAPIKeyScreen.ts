@@ -1,48 +1,51 @@
 import {useNavigation} from '@react-navigation/native';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {appLabels} from '../../../appLabels';
 import {Screen} from '../../navigation/navigationTypes';
 import {ExplainerScreenType} from '../../common/constants';
-import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import {useToastMessage} from '../../common/useToastMessage';
 import {isFirstTime} from '../../util/handleSettings';
+import {isKeyWorking} from '../../util/fetchGPTResult';
+import {saveOpenAIApiKey} from '../../util/handleApiKey';
 
 export const useAskAPIKeyScreen = () => {
   const {askAPIKey, errors} = appLabels;
   const [key, setKey] = useState('');
+  const [firstTime, setFirstTime] = useState<boolean>();
   const {showErrorToast} = useToastMessage();
 
   const navigation = useNavigation<any>();
 
-  const onGetInstructionsPress = () => {
-    navigation.navigate(Screen.EXPLAINER, {type: ExplainerScreenType.API_KEY});
-  };
+  useEffect(() => {
+    isFirstTime().then(value => setFirstTime(value));
+  }, []);
 
-  const onSaveButtonPress = () => {
+  const onButtonPress = async () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
       showErrorToast(errors.invalidApiKey);
     } else {
-      Promise.all([saveOpenAIApiKey(key), isFirstTime()])
-        .then(([_, firstTime]) => {
-          if (firstTime) {
-            navigation.replace(Screen.EXPLAINER, {
-              type: ExplainerScreenType.GENERAL,
-            });
-          } else {
-            navigation.replace(Screen.HOME);
-          }
-        })
-        .catch(error => {
-          console.log(error);
+      if (firstTime) {
+        navigation.push(Screen.EXPLAINER, {
+          type: ExplainerScreenType.ADD_PAYMENT,
+          key,
         });
+      } else {
+        const isWorking = await isKeyWorking(key);
+        if (isWorking) {
+          await saveOpenAIApiKey(key);
+          navigation.replace(Screen.HOME);
+        } else {
+          // TODO: Handle
+        }
+      }
     }
   };
 
   return {
     askAPIKey,
     key,
-    onGetInstructionsPress,
-    onSaveButtonPress,
+    onButtonPress,
     setKey,
+    firstTime,
   };
 };

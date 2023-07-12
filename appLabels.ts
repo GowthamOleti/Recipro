@@ -8,12 +8,14 @@ import {
 export const appLabels = {
   appName: 'TextCraft',
   askAPIKey: {
-    title: 'Enter your OpenAI API key',
+    title: 'Paste your OpenAI API key',
     resetKeyTitle: 'Enter your new OpenAI API key',
-    saveButton: 'Save API Key',
+    saveKey: 'Save API Key',
+    next: 'Next',
     errorMessage: 'Invalid API Key',
-    getInstructions:
-      "Not sure how to get your OpenAI API Key? Don't worry! Tap here for instructions.",
+    instructions:
+      "Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n\nDon't share your secret key with others. You can always generate new keys and delete old ones.\n",
+    instructionsLink: 'https://platform.openai.com/account/api-keys',
   },
   explainer: {
     about: {
@@ -28,9 +30,13 @@ export const appLabels = {
       conclusion:
         "\nThe free version of ChatGPT doesn't offer the option to summarize article links, which is a free feature on our app. Even though you can summarize & rewrite text using ChatGPT, our app aims to simplify the process by minimizing the number of steps required to complete these tasks.\n\nTo keep the app free for everyone, we've provided the option to use your own OpenAI Key. In the future, we plan to introduce more features to the app. But for now, we invite you to use the current features and provide us with your valuable feedback. Thank you!",
     },
+    addPayment: {
+      text: "\nAdding your payment details is necessary to activate your key. You will get charged based on your usage.\n\n• It is very cheap. For example, if you use the app 50 times for rewrite/summarize, it'll roughly cost around $0.004 (~ ₹0.30).\n• When you add your card, a temporary hold of $5 will be placed, it will get automatically refunded.\n• If you are living outside the US, make sure to use a card that supports international transactions.\n• This app does not require ChatGPT Plus subscription.\n\nUpdate your payment details using the below link.\n",
+      link: 'https://platform.openai.com/account/billing/payment-methods',
+    },
     button: {
-      goBack: 'Go Back',
       done: 'Done',
+      next: 'Next',
     },
   },
   errors: {
@@ -53,6 +59,7 @@ export const appLabels = {
     okButton: 'Yes',
   },
   settingsScreenTitle: 'Settings',
+  apiKeyScreenTitle: 'API Key Setup',
 };
 
 export const fetchResultScreenTitle: Record<InputActionType, string> = {
@@ -78,8 +85,9 @@ export const fetchExplainerScreenErrorDetails: Record<
   ExplainerScreenType,
   string
 > = {
-  GENERAL: 'About TextCraft',
-  API_KEY: 'Instructions',
+  ABOUT: 'About TextCraft',
+  KEY_INSTRUCTIONS: 'API Key Setup',
+  ADD_PAYMENT: 'API Key Setup',
 };
 
 export const apiKeyInstructions = [

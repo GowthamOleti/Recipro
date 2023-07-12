@@ -30,11 +30,8 @@ export const getSetting = async (key: AppSetting) => {
 
 export const isFirstTime = async () => {
   try {
-    const value = await AsyncStorage.getItem('IS_FIRST_TIME');
+    const value = await AsyncStorage.getItem(AppSetting.IS_FIRST_TIME);
     const result = value === null ? true : false;
-    if (result) {
-      await AsyncStorage.setItem('IS_FIRST_TIME', 'true');
-    }
     return result;
   } catch (error) {
     console.log(error);

@@ -18,7 +18,6 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       minWidth: '47%',
       borderWidth: 1,
       borderColor: colors.buttonBorder,
-      elevation: 2,
     },
     actionButtonText: {
       color: colors.common.buttonText,

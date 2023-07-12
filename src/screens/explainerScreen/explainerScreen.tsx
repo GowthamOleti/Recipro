@@ -1,33 +1,27 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
-import {
-  ExplainerScreenProps,
-  Screen,
-  StackNavigation,
-} from '../../navigation/navigationTypes';
-import {useAppTheme} from '../../common/useAppTheme';
+import {ExplainerScreenProps} from '../../navigation/navigationTypes';
 import {getStyles} from './explainerScreen.styles';
-import InstructionsCarousel from './components/instructionsCarousel/instructionsCarousel';
 import {ExplainerScreenType} from '../../common/constants';
-import {SettingsContext} from '../../common/settingsContext';
+import InstructionsCarousel from './components/instructionsCarousel/InstructionsCarousel';
+import {AboutTextCraft} from './components/aboutTextCraft';
+import {AddPaymentDetails} from './components/addPaymentDetails';
+import {useExplainerScreen} from './useExplainerScreen';
 
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
-  const theme = useAppTheme();
-  const styles = getStyles(theme);
-  const navigation = useNavigation<StackNavigation>();
-  const {appSettings} = useContext(SettingsContext);
+  const screenType = route?.params?.type ?? ExplainerScreenType.ABOUT;
 
-  const showApiKeyInstructions =
-    route.params.type === ExplainerScreenType.API_KEY ? true : false;
+  const {appSettings, theme, onExplainerButtonPress, firstTime} =
+    useExplainerScreen({screenType, key: route?.params?.key ?? ''});
+
+  const styles = getStyles(theme);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,49 +30,26 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
         barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
       <>
-        {showApiKeyInstructions ? (
+        {screenType === ExplainerScreenType.KEY_INSTRUCTIONS && (
           <View style={styles.instructionsCarouselContainer}>
             <InstructionsCarousel />
           </View>
-        ) : (
-          <ScrollView
-            style={styles.aboutContainer}
-            showsVerticalScrollIndicator={false}>
-            <Text style={styles.aboutText}>
-              {appLabels.explainer.about.intro}
-            </Text>
-            <Text style={styles.aboutText}>
-              <Text
-                style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
-                {appLabels.explainer.about.summarizePrefix}
-              </Text>
-              {appLabels.explainer.about.summarizeDescription}
-            </Text>
-            <Text style={styles.aboutText}>
-              <Text
-                style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
-                {appLabels.explainer.about.rewritePrefix}
-              </Text>
-              {appLabels.explainer.about.rewriteDescription}
-            </Text>
-            <Text style={styles.aboutText}>
-              {appLabels.explainer.about.conclusion}
-            </Text>
-          </ScrollView>
         )}
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => {
-            showApiKeyInstructions
-              ? navigation.goBack()
-              : navigation.navigate(Screen.HOME);
-          }}>
-          <Text style={styles.buttonText}>
-            {showApiKeyInstructions
-              ? appLabels.explainer.button.goBack
-              : appLabels.explainer.button.done}
-          </Text>
-        </TouchableOpacity>
+        {screenType === ExplainerScreenType.ABOUT && <AboutTextCraft />}
+        {screenType === ExplainerScreenType.ADD_PAYMENT && (
+          <AddPaymentDetails />
+        )}
+        {firstTime && (
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={onExplainerButtonPress}>
+            <Text style={styles.buttonText}>
+              {screenType === ExplainerScreenType.ABOUT
+                ? appLabels.explainer.button.next
+                : appLabels.explainer.button.done}
+            </Text>
+          </TouchableOpacity>
+        )}
       </>
     </SafeAreaView>
   );

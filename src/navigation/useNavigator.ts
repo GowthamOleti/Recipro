@@ -2,12 +2,11 @@ import {useContext, useEffect, useState} from 'react';
 import {SettingsContext} from '../common/settingsContext';
 import {useAppTheme} from '../common/useAppTheme';
 import {IsOpenAIApiKeyPresent} from '../util/handleApiKey';
-import {fetchAllSettings} from '../util/handleSettings';
+import {fetchAllSettings, isFirstTime} from '../util/handleSettings';
 import {Screen} from './navigationTypes';
 
 export const useNavigator = () => {
-  const [loading, setLoading] = useState(true);
-  const [initRoute, setInitRoute] = useState(Screen.HOME);
+  const [initRoute, setInitRoute] = useState<Screen>();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {appSettings, setAppSettings} = useContext(SettingsContext);
   const {colors, fonts} = useAppTheme();
@@ -25,6 +24,14 @@ export const useNavigator = () => {
   };
 
   useEffect(() => {
+    isFirstTime().then(firstTime => {
+      if (firstTime) {
+        setInitRoute(Screen.EXPLAINER);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     Promise.all([IsOpenAIApiKeyPresent(), fetchAllSettings()])
       .then(([isOpenAIApiKeyPresent, currentSettings]) => {
         if (!isOpenAIApiKeyPresent) {
@@ -33,18 +40,15 @@ export const useNavigator = () => {
         if (currentSettings) {
           setAppSettings(currentSettings);
         }
+        setInitRoute(Screen.HOME);
       })
       .catch(error => {
         console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }, [setInitRoute, setAppSettings]);
 
   return {
     commonScreenOptions,
     initRoute,
-    loading,
   };
 };

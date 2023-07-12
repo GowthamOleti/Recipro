@@ -1,8 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {useContext, useEffect, useState} from 'react';
-import {Alert} from 'react-native';
-import {appLabels} from '../../../../../appLabels';
-import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
+import {AppSetting} from '../../../../common/constants';
 import {SettingsContext} from '../../../../common/settingsContext';
 import {Screen} from '../../../../navigation/navigationTypes';
 import {getOpenAIApiKey, removeApiKey} from '../../../../util/handleApiKey';
@@ -39,19 +37,6 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
     });
   };
 
-  const resetConfirmationAlert = () => {
-    Alert.alert(appLabels.resetKeyAlert.title, appLabels.resetKeyAlert.body, [
-      {
-        text: appLabels.resetKeyAlert.cancelButton,
-        style: 'cancel',
-      },
-      {
-        text: appLabels.resetKeyAlert.okButton,
-        onPress: resetKey,
-      },
-    ]);
-  };
-
   // Handling Toggle Settings
   const toggleSwitch = () => {
     switch (item.id) {
@@ -78,9 +63,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
         setShowResetAlert(true);
         break;
       case AppSetting.HOW_TO_USE:
-        navigation.navigate(Screen.EXPLAINER, {
-          type: ExplainerScreenType.GENERAL,
-        });
+        navigation.navigate(Screen.EXPLAINER);
         break;
       case AppSetting.FEEDBACK:
         onFeedbackPress();

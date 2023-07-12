@@ -9,8 +9,9 @@ export enum ResultErrorType {
 }
 
 export enum ExplainerScreenType {
-  API_KEY = 'API_KEY',
-  GENERAL = 'GENERAL',
+  KEY_INSTRUCTIONS = 'KEY_INSTRUCTIONS',
+  ADD_PAYMENT = 'ADD_PAYMENT',
+  ABOUT = 'ABOUT',
 }
 
 export const fetchPromptPrefix: Record<InputActionType, string> = {
@@ -20,12 +21,14 @@ export const fetchPromptPrefix: Record<InputActionType, string> = {
 };
 
 export enum AppSetting {
-  // Toggle settings
+  // Toggle Settings
   QUICK_SUMMARIZE = 'QUICK_SUMMARIZE',
   SHOW_TWEET_MAIL = 'SHOW_TWITTER_MAIL',
   IS_DARK_MODE = 'IS_DARK_MODE',
-  // Non-Toggle settings
+  // Non-Toggle Settings
   RESET_API_KEY = 'RESET_API_KEY',
   FEEDBACK = 'FEEDBACK',
   HOW_TO_USE = 'HOW_TO_USE',
+  // Non-Visible Settings
+  IS_FIRST_TIME = 'IS_FIRST_TIME',
 }

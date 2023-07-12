@@ -4,12 +4,13 @@ import {getOpenAIApiKey} from './handleApiKey';
 interface Props {
   input: string;
   actionType: InputActionType;
+  key?: string;
 }
 
-export const fetchGPTResult = async ({input, actionType}: Props) => {
+export const fetchGPTResult = async ({input, actionType, key}: Props) => {
   const {Configuration, OpenAIApi} = require('openai');
 
-  const apiKey = await getOpenAIApiKey();
+  const apiKey = key ?? (await getOpenAIApiKey());
 
   const configuration = new Configuration({
     apiKey,
@@ -29,4 +30,13 @@ export const fetchGPTResult = async ({input, actionType}: Props) => {
     console.log(e);
     return String(e).includes('401') ? '401' : '';
   }
+};
+
+export const isKeyWorking = async (key: string) => {
+  const result = await fetchGPTResult({
+    input: '',
+    actionType: InputActionType.Rewrite,
+    key,
+  });
+  return result === '' || result.includes('401') ? false : true;
 };

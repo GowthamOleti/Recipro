@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {
+  Linking,
   SafeAreaView,
   StatusBar,
   Text,
@@ -7,15 +8,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Right} from '../../../assets/icons';
 import {SettingsContext} from '../../common/settingsContext';
 import {useAppTheme} from '../../common/useAppTheme';
-import {AskApiScreenProps} from '../../navigation/navigationTypes';
 import {getStyles} from './askAPIKeyScreen.styles';
 import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 
-const AskAPIKeyScreen = ({route}: AskApiScreenProps) => {
-  const {askAPIKey, key, onGetInstructionsPress, onSaveButtonPress, setKey} =
+const AskAPIKeyScreen = () => {
+  const {askAPIKey, key, onButtonPress, firstTime, setKey} =
     useAskAPIKeyScreen();
   const {appSettings} = useContext(SettingsContext);
   const theme = useAppTheme();
@@ -31,34 +30,30 @@ const AskAPIKeyScreen = ({route}: AskApiScreenProps) => {
         <TextInput
           style={styles.key}
           value={key}
-          placeholder={
-            route?.params?.reset ? askAPIKey.resetKeyTitle : askAPIKey.title
-          }
+          placeholder={firstTime ? askAPIKey.title : askAPIKey.resetKeyTitle}
           placeholderTextColor={theme.colors.common.placeHolderText}
           onChangeText={text => setKey(text)}
           autoFocus
           multiline
         />
       </View>
-      <TouchableOpacity
-        onPress={onGetInstructionsPress}
-        style={styles.getInstructionsContainer}>
-        <Text style={styles.getInstructionsText}>
-          {askAPIKey.getInstructions}
+      <View style={styles.ApiKeyInstructions}>
+        <Text style={styles.ApiKeyInstructionsText}>
+          {askAPIKey.instructions}
         </Text>
-        <View style={styles.iconContainer}>
-          <Right
-            style={styles.rightArrow}
-            height={40}
-            width={40}
-            fill={theme.colors.text}
-          />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.saveButtonContainer}
-        onPress={onSaveButtonPress}>
-        <Text style={styles.saveButtonText}>{askAPIKey.saveButton}</Text>
+        <Text
+          onPress={() => Linking.openURL(askAPIKey.instructionsLink)}
+          style={[
+            styles.ApiKeyInstructionsText,
+            {color: theme.colors.common.link},
+          ]}>
+          {askAPIKey.instructionsLink}
+        </Text>
+      </View>
+      <TouchableOpacity style={styles.buttonContainer} onPress={onButtonPress}>
+        <Text style={styles.buttonText}>
+          {firstTime ? askAPIKey.next : askAPIKey.saveKey}
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

@@ -17,11 +17,10 @@ export type NavStackParams = {
     actionType: InputActionType;
     input: string;
   };
-  [Screen.ASK_API_KEY]: {
-    reset?: boolean;
-  };
+  [Screen.ASK_API_KEY]: undefined;
   [Screen.EXPLAINER]: {
-    type: ExplainerScreenType;
+    type?: ExplainerScreenType;
+    key?: string;
   };
   [Screen.SETTINGS]: undefined;
 };

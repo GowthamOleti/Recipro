@@ -13,23 +13,15 @@ import ExplainerScreen from '../screens/explainerScreen/explainerScreen';
 import {useNavigator} from './useNavigator';
 import SettingsScreen from '../screens/settingsScreen/settingsScreen';
 import SettingsButton from './components/settingsButton';
+import {ExplainerScreenType} from '../common/constants';
 
 export default function AppNavigator() {
-  const {commonScreenOptions, loading, initRoute} = useNavigator();
+  const {commonScreenOptions, initRoute} = useNavigator();
 
   return (
     <NavigationContainer>
-      {!loading && (
+      {initRoute && (
         <Stack.Navigator initialRouteName={initRoute}>
-          <Stack.Screen
-            options={{
-              title: appLabels.appName,
-              ...commonScreenOptions,
-              animation: 'fade_from_bottom',
-            }}
-            name={Screen.ASK_API_KEY}
-            component={AskAPIKeyScreen}
-          />
           <Stack.Screen
             options={({navigation}) => ({
               title: appLabels.appName,
@@ -39,6 +31,15 @@ export default function AppNavigator() {
             })}
             name={Screen.HOME}
             component={HomeScreen}
+          />
+          <Stack.Screen
+            options={{
+              title: appLabels.apiKeyScreenTitle,
+              ...commonScreenOptions,
+              animation: 'slide_from_right',
+            }}
+            name={Screen.ASK_API_KEY}
+            component={AskAPIKeyScreen}
           />
           <Stack.Screen
             options={({navigation, route}) => ({
@@ -53,9 +54,12 @@ export default function AppNavigator() {
           />
           <Stack.Screen
             options={({route}) => ({
-              title: fetchExplainerScreenErrorDetails[route.params.type],
+              title:
+                fetchExplainerScreenErrorDetails[
+                  route?.params?.type ?? ExplainerScreenType.ABOUT
+                ],
               ...commonScreenOptions,
-              animation: 'fade_from_bottom',
+              animation: 'slide_from_right',
             })}
             name={Screen.EXPLAINER}
             component={ExplainerScreen}

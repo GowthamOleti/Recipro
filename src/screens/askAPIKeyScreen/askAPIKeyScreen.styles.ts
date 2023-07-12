@@ -6,7 +6,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     container: {
       flex: 1,
       justifyContent: 'flex-start',
-      paddingTop: '5%',
+      paddingTop: '2%',
       backgroundColor: colors.background,
       paddingHorizontal: '5%',
     },
@@ -21,39 +21,27 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontSize: 18,
       paddingHorizontal: '5%',
     },
-    getInstructionsContainer: {
+    ApiKeyInstructions: {
       alignSelf: 'center',
       maxWidth: '90%',
-      marginTop: '10%',
+      marginTop: '8%',
     },
-    getInstructionsText: {
+    ApiKeyInstructionsText: {
       color: colors.text,
       fontFamily: fonts.Sans,
       fontSize: 20,
-      alignSelf: 'center',
     },
-    iconContainer: {
-      borderWidth: 1,
-      borderColor: colors.text,
-      alignSelf: 'center',
-      borderRadius: 100,
-      marginTop: '5%',
-      backgroundColor: colors.yellow,
-    },
-    rightArrow: {
-      alignSelf: 'center',
-    },
-    saveButtonContainer: {
+    buttonContainer: {
       borderRadius: 25,
       backgroundColor: colors.green,
       borderWidth: 1,
       borderColor: colors.buttonBorder,
       width: '50%',
-      bottom: '10%',
+      bottom: '5%',
       position: 'absolute',
       alignSelf: 'center',
     },
-    saveButtonText: {
+    buttonText: {
       color: colors.common.buttonText,
       padding: '5%',
       alignSelf: 'center',
