@@ -14,10 +14,11 @@ export interface InputCardProps {
 }
 
 export const InputCard = ({inputText, setInputText}: InputCardProps) => {
-  const {clipboardText, showPasteButton, setShowPasteButton} = useInputCard({
-    inputText,
-    setInputText,
-  });
+  const {clipboardText, showPasteButton, setShowPasteButton, showToast} =
+    useInputCard({
+      inputText,
+      setInputText,
+    });
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
@@ -45,6 +46,7 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
               height={26}
               width={26}
               onPress={() => {
+                showToast({message: appLabels.toast.info.paste, type: 'info'});
                 setInputText(clipboardText);
                 setShowPasteButton(false);
               }}

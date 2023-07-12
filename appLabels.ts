@@ -39,12 +39,18 @@ export const appLabels = {
       next: 'Next',
     },
   },
-  errors: {
-    noInternet: 'No Internet Connection!',
-    noInput: 'Missing Input!',
-    unsupportedLink: 'Unsupported Link!',
-    invalidApiKey: 'Invalid API Key!',
-    twitterNotInstalled: 'Twitter App is Not Installed!',
+  toast: {
+    errors: {
+      noInternet: 'No Internet Connection!',
+      noInput: 'Missing Input!',
+      unsupportedLink: 'Unsupported Link!',
+      invalidApiKey: 'Invalid API Key!',
+      twitterNotInstalled: 'Twitter App is Not Installed!',
+    },
+    info: {
+      paste: 'Pasted from Clipboard',
+      copy: 'Copied to Clipboard',
+    },
   },
   inputHint:
     'You can either share any text or link to this app or you can simply type it here...',

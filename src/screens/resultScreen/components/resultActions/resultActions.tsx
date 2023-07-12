@@ -9,6 +9,8 @@ import {getStyles} from './resultActions.styles';
 import {Copy, Email, Share, Twitter} from '../../../../../assets/icons';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {useResultActions} from './useResultActions';
+import {useToastMessage} from '../../../../common/useToastMessage';
+import {appLabels} from '../../../../../appLabels';
 
 interface Props {
   output: string;
@@ -16,6 +18,7 @@ interface Props {
 
 export const ResultActions = ({output}: Props) => {
   const {appSettings, onTweetPress} = useResultActions();
+  const {showToast} = useToastMessage();
   const theme = useAppTheme();
   const styles = getStyles(theme);
   return (
@@ -31,7 +34,10 @@ export const ResultActions = ({output}: Props) => {
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => copyToClipboard(output)}
+        onPress={() => {
+          showToast({message: appLabels.toast.info.copy, type: 'info'});
+          copyToClipboard(output);
+        }}
         style={styles.shareCopyContainer}>
         <Copy
           style={styles.shareCopy}

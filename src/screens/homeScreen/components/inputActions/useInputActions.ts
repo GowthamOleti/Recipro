@@ -10,17 +10,17 @@ import {isLinkSupported} from '../../../../util/helpers';
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();
   const navigation = useNavigation<StackNavigation>();
-  const {showErrorToast} = useToastMessage();
+  const {showToast} = useToastMessage();
 
-  const {errors} = appLabels;
+  const {toast} = appLabels;
 
   const onActionButtonPress = async (actionType: InputActionType) => {
-    if (input.length === 0) {
-      showErrorToast(errors.noInput);
+    if (input.trim().length === 0) {
+      showToast({message: toast.errors.noInput, type: 'error'});
     } else if (internetState.isConnected === false) {
-      showErrorToast(errors.noInternet);
+      showToast({message: toast.errors.noInternet, type: 'error'});
     } else if (!isLinkSupported(input)) {
-      showErrorToast(errors.unsupportedLink);
+      showToast({message: toast.errors.unsupportedLink, type: 'error'});
     } else {
       navigation.navigate(Screen.RESULT, {
         actionType,

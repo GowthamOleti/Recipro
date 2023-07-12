@@ -1,16 +1,24 @@
 import {useAppTheme} from './useAppTheme';
 import {useToast} from 'react-native-toast-notifications';
 
+interface ToastProps {
+  message: string;
+  type: 'info' | 'error';
+}
+
 export const useToastMessage = () => {
   const toast = useToast();
   const theme = useAppTheme();
 
-  const showErrorToast = (message: string) => {
+  const showToast = ({message, type}: ToastProps) => {
     toast.show(message, {
       type: 'danger',
-      dangerColor: theme.colors.common.errorToast,
+      dangerColor:
+        type === 'error'
+          ? theme.colors.common.errorToast
+          : theme.colors.common.infoToast,
       placement: 'bottom',
-      duration: 3000,
+      duration: type === 'error' ? 3000 : 2000,
       animationType: 'slide-in',
       style: {
         borderRadius: 15,
@@ -27,6 +35,6 @@ export const useToastMessage = () => {
   };
 
   return {
-    showErrorToast,
+    showToast,
   };
 };

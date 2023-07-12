@@ -1,9 +1,8 @@
 import {useNavigation} from '@react-navigation/native';
-import Lottie from 'lottie-react-native';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {fetchResultScreenErrorDetails} from '../../../../../appLabels';
-import {Animations} from '../../../../../assets/animations';
+import {ErrorIcon} from '../../../../../assets/icons';
 import {ResultErrorType} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
@@ -37,11 +36,11 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
 
   return (
     <View style={styles.container}>
-      <Lottie
+      <ErrorIcon
         style={styles.errorAnimation}
-        source={Animations.Error}
-        autoPlay
-        loop={false}
+        height={100}
+        width={100}
+        fill={theme.colors.resultSvg}
       />
       <Text style={styles.errorText}>{errorDetails.errorTitle}</Text>
       <TouchableOpacity

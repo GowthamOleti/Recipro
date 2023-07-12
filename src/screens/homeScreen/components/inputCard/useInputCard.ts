@@ -7,6 +7,7 @@ import {useContext, useEffect, useState} from 'react';
 import {InputCardProps} from './inputCard';
 import {useNavigation} from '@react-navigation/native';
 import {SettingsContext} from '../../../../common/settingsContext';
+import {useToastMessage} from '../../../../common/useToastMessage';
 
 export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
   const [showPasteButton, setShowPasteButton] = useState(false);
@@ -14,6 +15,7 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
 
   const [clipboardText] = useClipboard();
   const sharedText = useFetchSharedItem();
+  const {showToast} = useToastMessage();
 
   const navigation = useNavigation<StackNavigation>();
 
@@ -45,5 +47,6 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
     clipboardText,
     showPasteButton,
     setShowPasteButton,
+    showToast,
   };
 };

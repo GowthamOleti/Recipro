@@ -34,7 +34,7 @@ export const fetchGPTResult = async ({input, actionType, key}: Props) => {
 
 export const isKeyWorking = async (key: string) => {
   const result = await fetchGPTResult({
-    input: '',
+    input: 'Rewrite - Test',
     actionType: InputActionType.Rewrite,
     key,
   });

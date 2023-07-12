@@ -33,7 +33,10 @@ export const useAppTheme = () => {
       tweetBackground: '#03A9F41A',
       tweetBorder: '#03A9F4',
       errorToast: '#CD4848',
+      infoToast: '#0288D1',
       link: '#1976D2',
+      white: 'white',
+      black: 'black',
     },
   };
   const fonts = {
@@ -74,6 +77,8 @@ export interface ThemeProps {
       tweetBorder: string;
       errorToast: string;
       link: string;
+      white: string;
+      black: string;
     };
   };
   fonts: {

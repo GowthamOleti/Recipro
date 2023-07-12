@@ -7,13 +7,16 @@ import {shareAsTweet} from '../../../../util/helpers';
 
 export const useResultActions = () => {
   const {appSettings} = useContext(SettingsContext);
-  const {showErrorToast} = useToastMessage();
+  const {showToast} = useToastMessage();
 
   const onTweetPress = (output: string) => {
     Linking.canOpenURL(`twitter://post?text=${encodeURIComponent('')}`).then(
       twitterInstalled => {
         if (!twitterInstalled) {
-          showErrorToast(appLabels.errors.twitterNotInstalled);
+          showToast({
+            message: appLabels.toast.errors.twitterNotInstalled,
+            type: 'error',
+          });
         } else {
           shareAsTweet(output);
         }

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Clipboard from '@react-native-community/clipboard';
 import {useNavigation} from '@react-navigation/native';
 import {useContext, useEffect, useState} from 'react';
 import {AppSetting, ExplainerScreenType} from '../../common/constants';
@@ -33,11 +34,13 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
       if (isWorking) {
         await AsyncStorage.setItem(AppSetting.IS_FIRST_TIME, 'true');
         await saveOpenAIApiKey(key);
+        Clipboard.setString('');
         navigation.reset({
           index: 0,
           routes: [{name: Screen.HOME}],
         });
       } else {
+        // TODO
       }
     }
   };

@@ -10,8 +10,8 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       alignSelf: 'center',
     },
     errorAnimation: {
-      transform: [{scaleX: 1}, {scaleY: 1}],
-      marginBottom: '55%',
+      marginBottom: '5%',
+      alignSelf: 'center',
     },
     errorText: {
       color: 'black',

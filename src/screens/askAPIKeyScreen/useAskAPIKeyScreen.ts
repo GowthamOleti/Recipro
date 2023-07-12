@@ -9,10 +9,11 @@ import {isKeyWorking} from '../../util/fetchGPTResult';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
 
 export const useAskAPIKeyScreen = () => {
-  const {askAPIKey, errors} = appLabels;
+  const {askAPIKey, toast} = appLabels;
   const [key, setKey] = useState('');
   const [firstTime, setFirstTime] = useState<boolean>();
-  const {showErrorToast} = useToastMessage();
+  const [showError, setShowError] = useState(false);
+  const {showToast} = useToastMessage();
 
   const navigation = useNavigation<any>();
 
@@ -22,7 +23,7 @@ export const useAskAPIKeyScreen = () => {
 
   const onButtonPress = async () => {
     if (key.length !== 51 || !key.startsWith('sk-')) {
-      showErrorToast(errors.invalidApiKey);
+      showToast({message: toast.errors.invalidApiKey, type: 'error'});
     } else {
       if (firstTime) {
         navigation.push(Screen.EXPLAINER, {
@@ -35,7 +36,7 @@ export const useAskAPIKeyScreen = () => {
           await saveOpenAIApiKey(key);
           navigation.replace(Screen.HOME);
         } else {
-          // TODO: Handle
+          // TODO: Show popup
         }
       }
     }
@@ -47,5 +48,7 @@ export const useAskAPIKeyScreen = () => {
     onButtonPress,
     setKey,
     firstTime,
+    showError,
+    setShowError,
   };
 };
