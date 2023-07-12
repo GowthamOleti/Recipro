@@ -152,6 +152,10 @@ export const settings = {
       subtext: 'Current key ends with "{key}"',
     },
     {
+      id: AppSetting.KEY_INSTRUCTIONS,
+      title: 'API Key Setup Instructions',
+    },
+    {
       id: AppSetting.HOW_TO_USE,
       title: 'About TextCraft',
     },

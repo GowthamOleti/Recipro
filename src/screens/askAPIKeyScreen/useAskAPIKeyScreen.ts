@@ -7,6 +7,7 @@ import {useToastMessage} from '../../common/useToastMessage';
 import {isFirstTime} from '../../util/handleSettings';
 import {isKeyWorking} from '../../util/fetchGPTResult';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
+import Clipboard from '@react-native-community/clipboard';
 
 export const useAskAPIKeyScreen = () => {
   const {askAPIKey, toast} = appLabels;
@@ -37,6 +38,7 @@ export const useAskAPIKeyScreen = () => {
         const keyWorking = await isKeyWorking(key);
         if (keyWorking) {
           await saveOpenAIApiKey(key);
+          Clipboard.setString('');
           navigation.replace(Screen.HOME);
         } else {
           setKeyError(true);

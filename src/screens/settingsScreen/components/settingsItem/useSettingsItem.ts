@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {useContext, useEffect, useState} from 'react';
-import {AppSetting} from '../../../../common/constants';
+import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
 import {SettingsContext} from '../../../../common/settingsContext';
 import {Screen} from '../../../../navigation/navigationTypes';
 import {getOpenAIApiKey, removeApiKey} from '../../../../util/handleApiKey';
@@ -61,6 +61,11 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
     switch (item.id) {
       case AppSetting.RESET_API_KEY:
         setShowResetAlert(true);
+        break;
+      case AppSetting.KEY_INSTRUCTIONS:
+        navigation.navigate(Screen.EXPLAINER, {
+          type: ExplainerScreenType.KEY_INSTRUCTIONS,
+        });
         break;
       case AppSetting.HOW_TO_USE:
         navigation.navigate(Screen.EXPLAINER);

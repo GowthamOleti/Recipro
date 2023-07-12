@@ -27,6 +27,7 @@ export enum AppSetting {
   IS_DARK_MODE = 'IS_DARK_MODE',
   // Non-Toggle Settings
   RESET_API_KEY = 'RESET_API_KEY',
+  KEY_INSTRUCTIONS = 'KEY_INSTRUCTIONS',
   FEEDBACK = 'FEEDBACK',
   HOW_TO_USE = 'HOW_TO_USE',
   // Non-Visible Settings
