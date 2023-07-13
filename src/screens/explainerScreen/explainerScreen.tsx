@@ -11,11 +11,11 @@ import {appLabels} from '../../../appLabels';
 import {ExplainerScreenProps} from '../../navigation/navigationTypes';
 import {getStyles} from './explainerScreen.styles';
 import {ExplainerScreenType} from '../../common/constants';
-import InstructionsCarousel from './components/instructionsCarousel/InstructionsCarousel';
 import {AboutTextCraft} from './components/aboutTextCraft';
-import {AddPaymentDetails} from './components/addPaymentDetails';
 import {useExplainerScreen} from './useExplainerScreen';
 import {AppAlert} from '../../common/appAlert';
+import {ApiKeyInstructions} from './components/apiKeyInstructions';
+import Animated, {FadeInDown} from 'react-native-reanimated';
 
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   const screenType = route?.params?.type ?? ExplainerScreenType.ABOUT;
@@ -32,31 +32,24 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
 
   const styles = getStyles(theme);
 
-  const aboutMarginBottom = {marginBottom: firstTime ? '30%' : '5%'};
-  const containerPaddingRight = {
-    paddingRight: screenType === ExplainerScreenType.ABOUT ? '1%' : '5%',
-  };
+  const marginBottom = {marginBottom: firstTime ? '30%' : '5%'};
 
   return (
-    <SafeAreaView style={[styles.container, containerPaddingRight]}>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
         barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
-      <>
-        {screenType === ExplainerScreenType.KEY_INSTRUCTIONS && (
-          <View style={styles.instructionsCarouselContainer}>
-            <InstructionsCarousel />
-          </View>
-        )}
-        {screenType === ExplainerScreenType.ABOUT && (
-          <View style={aboutMarginBottom}>
+      <Animated.View entering={FadeInDown.duration(500)}>
+        <View style={marginBottom}>
+          {screenType === ExplainerScreenType.ABOUT ? (
             <AboutTextCraft />
-          </View>
-        )}
-        {screenType === ExplainerScreenType.ADD_PAYMENT && (
-          <AddPaymentDetails />
-        )}
+          ) : (
+            <ApiKeyInstructions
+              isPaymentOnly={screenType === ExplainerScreenType.ADD_PAYMENT}
+            />
+          )}
+        </View>
         {firstTime && (
           <TouchableOpacity
             style={styles.buttonContainer}
@@ -75,7 +68,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
             )}
           </TouchableOpacity>
         )}
-      </>
+      </Animated.View>
       <AppAlert
         title={appLabels.keyError.title}
         body={appLabels.keyError.body}

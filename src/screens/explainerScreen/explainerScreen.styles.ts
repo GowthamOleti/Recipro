@@ -8,15 +8,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       paddingVertical: '2%',
       backgroundColor: colors.background,
       paddingLeft: '5%',
-    },
-    instructionsCarouselContainer: {
-      borderRadius: 30,
-      padding: '3%',
-      height: '80%',
-      backgroundColor: colors.textBackground,
-      justifyContent: 'center',
-      elevation: 5,
-      alignSelf: 'center',
+      paddingRight: '1%',
     },
     buttonContainer: {
       borderRadius: 25,
@@ -38,17 +30,5 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     loading: {
       alignSelf: 'center',
       padding: '7%',
-    },
-    aboutContainer: {
-      marginBottom: '30%',
-    },
-    aboutText: {
-      fontFamily: fonts.Sans,
-      fontSize: 18,
-      color: colors.text,
-      flexDirection: 'row',
-    },
-    aboutPadding: {
-      paddingRight: '1%',
     },
   });

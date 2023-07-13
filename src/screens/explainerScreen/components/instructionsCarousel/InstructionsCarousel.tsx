@@ -1,9 +1,9 @@
 import {FlatList, StyleSheet, View} from 'react-native';
 import React, {useRef} from 'react';
-import CarouselPage from '../carouselPage';
 import {useInstructionsCarousel} from './useInstructionsCarousel';
 import {Left, Right} from '../../../../../assets/icons';
-import Pagination from '../pagination';
+import CarouselPage from './carouselPage';
+import Pagination from './pagination';
 
 const InstructionsCarousel = () => {
   const {

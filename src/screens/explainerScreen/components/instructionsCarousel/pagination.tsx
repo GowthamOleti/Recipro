@@ -1,7 +1,7 @@
 import {StyleSheet, Animated, View} from 'react-native';
 import React from 'react';
-import {screenDimensions} from '../../../util/helpers';
-import {useAppTheme} from '../../../common/useAppTheme';
+import {screenDimensions} from '../../../../util/helpers';
+import {useAppTheme} from '../../../../common/useAppTheme';
 
 interface PaginationProps {
   data: {
