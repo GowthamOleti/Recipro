@@ -6,6 +6,7 @@ import {InputActionType} from '../../../../common/constants';
 import {InputActionsProps} from './inputActions';
 import {useToastMessage} from '../../../../common/useToastMessage';
 import {isLinkSupported} from '../../../../util/helpers';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();
@@ -15,6 +16,10 @@ export const useInputActions = ({input}: InputActionsProps) => {
   const {toast} = appLabels;
 
   const onActionButtonPress = async (actionType: InputActionType) => {
+    ReactNativeHapticFeedback.trigger('soft', {
+      enableVibrateFallback: true,
+      ignoreAndroidSystemSettings: false,
+    });
     if (input.trim().length === 0) {
       showToast({message: toast.errors.noInput, type: 'error'});
     } else if (internetState.isConnected === false) {
