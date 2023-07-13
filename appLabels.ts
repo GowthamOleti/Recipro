@@ -30,20 +30,26 @@ export const appLabels = {
         "TextCraft simplifies reading and writing tasks by using OpenAI's GPT algorithms. The app currently offers two main features - Summarize and Rewrite.",
       summarizePrefix: '\nSummarize: ',
       summarizeDescription:
-        'This is a great feature for those who are looking to summarize article links or any lengthy text. TextCraft can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly without any button taps.',
+        'This feature is particularly useful to summarize lengthy texts or article links. TextCraft can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly.',
       rewritePrefix: '\nRewrite: ',
       rewriteDescription:
-        'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. Additionally, you can also set required tone (professional / casual) or choose to just fix grammar.',
+        'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. Additionally, you can also set required tone (professional / casual) or choose to just fix grammar by long-pressing the Rewrite button.',
+      dataCollection:
+        "\nTo keep the app free for everyone, we've provided the option to use your own OpenAI API Key. We do not send any of your data to our servers. For more information, read our ",
+      privacyPolicy: 'Privacy Policy',
+      privacyPolicyLink:
+        'https://medium.com/@teja2495/textcraft-privacy-policy-931a8e8a56a2',
       conclusion:
-        "\nEven though you can summarize & rewrite text using ChatGPT, our app aims to simplify the process by minimizing the number of steps required to complete these tasks. To keep the app free for everyone, we've provided the option to use your own OpenAI Key.\n\nFeel free to share your feedback using the option in settings. Thank you for downloading TextCraft! ❤️",
+        '\n\nFeel free to share your feedback using the option in settings. Thank you for using TextCraft! ❤️',
     },
     apiKeyInstructions: {
       step: '\nStep 2: ',
-      text: "Add your payment details to activate your key. You will get charged based on your usage.\n\nIt is very cheap. It'll roughly cost around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). Even if you are a heavy user of the app, it won't cost more than $0.12 (₹10) per month. For casual users, it'll cost much lesser than that.\n\nIf you are living outside the US, make sure to use a card that supports international transactions. Update your payment details using the below link.\n",
+      text: 'Add your payment details in the link below to activate your key. You will get charged based on your usage. If you are living outside the US, use a card that supports international transactions.\n',
+      pricing: '\nPricing: ',
+      pricingBody:
+        "It's pretty cheap. It roughly costs around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). The cost per month for even the most heavy users will not exceed $0.12 (₹10), while casual users can expect an even lower cost. You can also set usage limits for your key using the link below.\n",
       link: 'https://platform.openai.com/account/billing/payment-methods',
-      additionalText:
-        '\nTIP: You can also set usage limits for your key. Setting this is a good idea for additional peace of mind. OpenAI will warn you when you hit the soft limit and block subsequent requests if you hit the hard limit. You can set it to as low as $1 per month. Use below link to set it up.\n',
-      additionalLink: 'https://platform.openai.com/account/billing/limits',
+      usageLimitLink: 'https://platform.openai.com/account/billing/limits',
     },
     button: {
       done: 'Done',

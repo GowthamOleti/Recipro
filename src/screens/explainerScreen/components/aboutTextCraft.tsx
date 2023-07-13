@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text} from 'react-native';
+import {Linking, ScrollView, StyleSheet, Text} from 'react-native';
 import {appLabels} from '../../../../appLabels';
 import {ThemeProps, useAppTheme} from '../../../common/useAppTheme';
 
@@ -23,7 +23,19 @@ export const AboutTextCraft = () => {
         {appLabels.explainer.about.rewriteDescription}
       </Text>
       <Text style={styles.aboutText}>
-        {appLabels.explainer.about.conclusion}
+        <Text style={styles.aboutText}>
+          {appLabels.explainer.about.dataCollection}
+        </Text>
+        <Text
+          style={[styles.aboutText, {color: theme.colors.common.link}]}
+          onPress={() =>
+            Linking.openURL(appLabels.explainer.about.privacyPolicyLink)
+          }>
+          {appLabels.explainer.about.privacyPolicy}
+        </Text>
+        <Text style={styles.aboutText}>
+          {appLabels.explainer.about.conclusion}
+        </Text>
       </Text>
     </ScrollView>
   );

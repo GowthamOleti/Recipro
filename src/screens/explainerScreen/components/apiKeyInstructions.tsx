@@ -46,22 +46,19 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
         }>
         {appLabels.explainer.apiKeyInstructions.link}
       </Text>
-      {!isPaymentOnly && (
-        <>
-          <Text style={styles.text}>
-            {appLabels.explainer.apiKeyInstructions.additionalText}
-          </Text>
-          <Text
-            style={[styles.text, {color: theme.colors.common.link}]}
-            onPress={() =>
-              Linking.openURL(
-                appLabels.explainer.apiKeyInstructions.additionalLink,
-              )
-            }>
-            {appLabels.explainer.apiKeyInstructions.additionalLink}
-          </Text>
-        </>
-      )}
+      <Text style={styles.text}>
+        <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
+          {appLabels.explainer.apiKeyInstructions.pricing}
+        </Text>
+        {appLabels.explainer.apiKeyInstructions.pricingBody}
+      </Text>
+      <Text
+        style={[styles.text, {color: theme.colors.common.link}]}
+        onPress={() =>
+          Linking.openURL(appLabels.explainer.apiKeyInstructions.usageLimitLink)
+        }>
+        {appLabels.explainer.apiKeyInstructions.usageLimitLink}
+      </Text>
     </ScrollView>
   );
 };
