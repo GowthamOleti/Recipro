@@ -18,7 +18,12 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
       contentContainerStyle={[styles.contentContainer, {marginTop: marginTop}]}>
       {!isPaymentOnly && (
         <>
-          <Text style={styles.text}>{appLabels.askAPIKey.instructions}</Text>
+          <Text style={styles.text}>
+            <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
+              {appLabels.askAPIKey.step}
+            </Text>
+            {appLabels.askAPIKey.instructions}
+          </Text>
           <Text
             onPress={() =>
               Linking.openURL(appLabels.askAPIKey.instructionsLink)
@@ -28,23 +33,32 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
           </Text>
         </>
       )}
-      <Text style={styles.text}>{appLabels.explainer.addPayment.text}</Text>
+      <Text style={styles.text}>
+        <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
+          {appLabels.explainer.apiKeyInstructions.step}
+        </Text>
+        {appLabels.explainer.apiKeyInstructions.text}
+      </Text>
       <Text
         style={[styles.text, {color: theme.colors.common.link}]}
-        onPress={() => Linking.openURL(appLabels.explainer.addPayment.link)}>
-        {appLabels.explainer.addPayment.link}
+        onPress={() =>
+          Linking.openURL(appLabels.explainer.apiKeyInstructions.link)
+        }>
+        {appLabels.explainer.apiKeyInstructions.link}
       </Text>
       {!isPaymentOnly && (
         <>
           <Text style={styles.text}>
-            {appLabels.explainer.addPayment.additionalText}
+            {appLabels.explainer.apiKeyInstructions.additionalText}
           </Text>
           <Text
             style={[styles.text, {color: theme.colors.common.link}]}
             onPress={() =>
-              Linking.openURL(appLabels.explainer.addPayment.additionalLink)
+              Linking.openURL(
+                appLabels.explainer.apiKeyInstructions.additionalLink,
+              )
             }>
-            {appLabels.explainer.addPayment.additionalLink}
+            {appLabels.explainer.apiKeyInstructions.additionalLink}
           </Text>
         </>
       )}
@@ -56,6 +70,7 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     contentContainer: {
       paddingRight: '4%',
+      paddingBottom: '10%',
       marginBottom: '50%',
     },
     text: {

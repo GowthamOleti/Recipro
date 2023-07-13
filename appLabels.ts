@@ -1,6 +1,5 @@
 import {
   AppSetting,
-  ExplainerScreenType,
   InputActionType,
   ResultErrorType,
 } from './src/common/constants';
@@ -13,6 +12,7 @@ export const appLabels = {
     saveKey: 'Save API Key',
     next: 'Next',
     errorMessage: 'Invalid API Key',
+    step: 'Step 1: ',
     instructions:
       'Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n',
     instructionsLink: 'https://platform.openai.com/account/api-keys',
@@ -37,8 +37,9 @@ export const appLabels = {
       conclusion:
         "\nEven though you can summarize & rewrite text using ChatGPT, our app aims to simplify the process by minimizing the number of steps required to complete these tasks. To keep the app free for everyone, we've provided the option to use your own OpenAI Key.\n\nFeel free to share your feedback using the option in settings. Thank you for downloading TextCraft! ❤️",
     },
-    addPayment: {
-      text: "\nIMPORTANT: Adding your payment details is necessary to activate your key. You will get charged based on your usage.\n\nIt is very cheap. It'll roughly cost around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). Even if you are a heavy user of the app, it won't cost more than $0.12 (₹10) per month. For casual users, it'll cost much lesser than that.\n\nIf you are living outside the US, make sure to use a card that supports international transactions. Update your payment details using the below link.\n",
+    apiKeyInstructions: {
+      step: '\nStep 2: ',
+      text: "Add your payment details to activate your key. You will get charged based on your usage.\n\nIt is very cheap. It'll roughly cost around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). Even if you are a heavy user of the app, it won't cost more than $0.12 (₹10) per month. For casual users, it'll cost much lesser than that.\n\nIf you are living outside the US, make sure to use a card that supports international transactions. Update your payment details using the below link.\n",
       link: 'https://platform.openai.com/account/billing/payment-methods',
       additionalText:
         '\nTIP: You can also set usage limits for your key. Setting this is a good idea for additional peace of mind. OpenAI will warn you when you hit the soft limit and block subsequent requests if you hit the hard limit. You can set it to as low as $1 per month. Use below link to set it up.\n',
@@ -76,6 +77,8 @@ export const appLabels = {
   },
   settingsScreenTitle: 'Settings',
   apiKeyScreenTitle: 'API Key Setup',
+  aboutScreenTitle: 'About TextCraft',
+  apiKeyInstructionsScreenTitle: 'API Key Instructions',
 };
 
 export const fetchResultScreenTitle: Record<InputActionType, string> = {
@@ -96,37 +99,6 @@ export const fetchResultScreenErrorDetails: Record<
     buttonText: 'Reset API Key',
   },
 };
-
-export const fetchExplainerScreenErrorDetails: Record<
-  ExplainerScreenType,
-  string
-> = {
-  ABOUT: 'About TextCraft',
-  KEY_INSTRUCTIONS: 'API Key Instructions',
-  ADD_PAYMENT: 'API Key Setup',
-};
-
-export const apiKeyInstructions = [
-  {
-    title: 'Step 1',
-    body: "Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n\nDon't share this key with anyone. You can always delete your key and create a new one anytime. We store your key safely in your device's encrypted storage. We can't access your key.",
-    link: 'https://platform.openai.com/account/api-keys',
-  },
-  {
-    title: 'Step 2',
-    body: 'Add your credit/debit card details here to enable your key. You will be charged based on your usage. More details on the pricing in the next slide.',
-    link: 'https://platform.openai.com/account/billing/payment-methods',
-  },
-  {
-    title: 'Pricing',
-    body: "The usage cost of the API key is very cheap. For every 50 requests (25 rewrites & 25 summarize requests), It will cost you around $0.004 (~ ₹0.3). If you make 50 requests per day, it'll cost around', \n\n$0.12 (~ ₹10) per month\n$1.44 (~ ₹120) per year\n\nThese price estimates are for heavy users, if you use it occasionally it will cost way less.",
-  },
-  {
-    title: 'Pro Tip',
-    body: 'You can also set usage limits using below link. Setting this is a good idea for additional peace of mind. OpenAI will warn you when you hit the soft limit and block subsequent requests if you hit the hard limit. You can set it to as low as $1 per month.',
-    link: 'https://platform.openai.com/account/billing/limits',
-  },
-];
 
 export const settings = {
   toggleSettings: [

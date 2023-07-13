@@ -1,11 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import HomeScreen from '../screens/homeScreen/homescreen';
-import {
-  appLabels,
-  fetchExplainerScreenErrorDetails,
-  fetchResultScreenTitle,
-} from '../../appLabels';
+import {appLabels, fetchResultScreenTitle} from '../../appLabels';
 import {Screen, Stack} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';
 import AskAPIKeyScreen from '../screens/askAPIKeyScreen/askAPIKeyScreen';
@@ -55,9 +51,10 @@ export default function AppNavigator() {
           <Stack.Screen
             options={({route}) => ({
               title:
-                fetchExplainerScreenErrorDetails[
-                  route?.params?.type ?? ExplainerScreenType.ABOUT
-                ],
+                route?.params?.type === ExplainerScreenType.ADD_PAYMENT ||
+                route?.params?.type === ExplainerScreenType.KEY_INSTRUCTIONS
+                  ? appLabels.apiKeyInstructionsScreenTitle
+                  : appLabels.aboutScreenTitle,
               ...commonScreenOptions,
               animation: 'slide_from_right',
             })}

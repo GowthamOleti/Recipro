@@ -56,6 +56,15 @@ const AskAPIKeyScreen = () => {
       </View>
       <View style={styles.ApiKeyInstructions}>
         <Text style={styles.ApiKeyInstructionsText}>
+          {firstTime && (
+            <Text
+              style={[
+                styles.ApiKeyInstructionsText,
+                {fontFamily: theme.fonts.SansBold},
+              ]}>
+              {appLabels.askAPIKey.step}
+            </Text>
+          )}
           {askAPIKey.instructions}
         </Text>
         <Text
