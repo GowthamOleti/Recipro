@@ -33,6 +33,7 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     contentContainer: {
       paddingRight: '3%',
+      paddingBottom: '8%',
     },
     aboutText: {
       fontFamily: fonts.Sans,

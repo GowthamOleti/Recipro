@@ -30,16 +30,19 @@ export const appLabels = {
         "TextCraft simplifies reading and writing tasks by using OpenAI's GPT algorithms. The app currently offers two main features - Summarize and Rewrite.",
       summarizePrefix: '\nSummarize: ',
       summarizeDescription:
-        'One of the most practical applications of Large Language Models is content summarization, which can be used in everyday scenarios. By simply inputting any text or article link into the app, it can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly. No button taps needed.',
+        'This is a great feature for those who are looking to summarize article links or any lengthy text. TextCraft can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly without any button taps.',
       rewritePrefix: '\nRewrite: ',
       rewriteDescription:
-        "This app is also great for writing. If you're not confident about your English skills or how you've framed your message for work or social media, you can ask the app to rewrite it for you. It will give you a well-written output while preserving the meaning, tone, and essence of the original message. Additionally, you can use this app to organize your thoughts by jotting down rough ideas and having the app organize them into clear paragraphs by rewriting.",
+        'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. Additionally, you can also set required tone (professional / casual) or choose to just fix grammar.',
       conclusion:
-        "\nThe free version of ChatGPT doesn't offer the option to summarize article links, which is a free feature on our app. Even though you can summarize & rewrite text using ChatGPT, our app aims to simplify the process by minimizing the number of steps required to complete these tasks.\n\nTo keep the app free for everyone, we've provided the option to use your own OpenAI Key. In the future, we plan to introduce more features to the app. But for now, we invite you to use the current features and provide us with your valuable feedback. Thank you!",
+        "\nEven though you can summarize & rewrite text using ChatGPT, our app aims to simplify the process by minimizing the number of steps required to complete these tasks. To keep the app free for everyone, we've provided the option to use your own OpenAI Key.\n\nFeel free to share your feedback using the option in settings. Thank you for downloading TextCraft! ❤️",
     },
     addPayment: {
-      text: "\nAdding your payment details is necessary to activate your key. You will get charged based on your usage.\n\n• It is very cheap. For example, if you use the app 50 times for rewrite/summarize, it'll roughly cost around $0.004 (~ ₹0.30).\n• When you add your card, a temporary hold of $5 will be placed, it will get automatically refunded.\n• If you are living outside the US, make sure to use a card that supports international transactions.\n• This app does not require ChatGPT Plus subscription.\n\nUpdate your payment details using the below link.\n",
+      text: "\nIMPORTANT: Adding your payment details is necessary to activate your key. You will get charged based on your usage.\n\nIt is very cheap. It'll roughly cost around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). Even if you are a heavy user of the app, it won't cost more than $0.12 (₹10) per month. For casual users, it'll cost much lesser than that.\n\nIf you are living outside the US, make sure to use a card that supports international transactions. Update your payment details using the below link.\n",
       link: 'https://platform.openai.com/account/billing/payment-methods',
+      additionalText:
+        '\nTIP: You can also set usage limits for your key. Setting this is a good idea for additional peace of mind. OpenAI will warn you when you hit the soft limit and block subsequent requests if you hit the hard limit. You can set it to as low as $1 per month. Use below link to set it up.\n',
+      additionalLink: 'https://platform.openai.com/account/billing/limits',
     },
     button: {
       done: 'Done',
@@ -99,28 +102,28 @@ export const fetchExplainerScreenErrorDetails: Record<
   string
 > = {
   ABOUT: 'About TextCraft',
-  KEY_INSTRUCTIONS: 'API Key Setup',
+  KEY_INSTRUCTIONS: 'API Key Instructions',
   ADD_PAYMENT: 'API Key Setup',
 };
 
 export const apiKeyInstructions = [
   {
     title: 'Step 1',
-    body: "Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n\nDon't share this key with anyone. If your key is compromised, you can easily delete it and create a new key anytime. We store your key safely in your device's encrypted storage. We can't access your key.",
+    body: "Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n\nDon't share this key with anyone. You can always delete your key and create a new one anytime. We store your key safely in your device's encrypted storage. We can't access your key.",
     link: 'https://platform.openai.com/account/api-keys',
   },
   {
     title: 'Step 2',
-    body: 'Add your credit/debit card details here to enable your key. Before you worry about this step, read the next slides.',
+    body: 'Add your credit/debit card details here to enable your key. You will be charged based on your usage. More details on the pricing in the next slide.',
     link: 'https://platform.openai.com/account/billing/payment-methods',
   },
   {
     title: 'Pricing',
-    body: "The usage cost of the API Key is very cheap. Let's say you're a heavy user of the app and you make 40 requests per day (20 rewrites & 20 summarize requests). It will cost you around \n\n$0.004 (~ ₹0.3) per day\n$0.12 (~ ₹10) per month\n$1.44 (~ ₹120) per year\n\nThese price estimates are for heavy users, if you use it occasionally it will cost way less.",
+    body: "The usage cost of the API key is very cheap. For every 50 requests (25 rewrites & 25 summarize requests), It will cost you around $0.004 (~ ₹0.3). If you make 50 requests per day, it'll cost around', \n\n$0.12 (~ ₹10) per month\n$1.44 (~ ₹120) per year\n\nThese price estimates are for heavy users, if you use it occasionally it will cost way less.",
   },
   {
     title: 'Pro Tip',
-    body: 'You can also set usage limits using below link. Setting this is a good idea for additional peace of mind. OpenAI will warn you when you hit the soft limit and block subsequent requests if you hit the hard limit. You can set it to as low as $1 per month which gives you around 250 requests.',
+    body: 'You can also set usage limits using below link. Setting this is a good idea for additional peace of mind. OpenAI will warn you when you hit the soft limit and block subsequent requests if you hit the hard limit. You can set it to as low as $1 per month.',
     link: 'https://platform.openai.com/account/billing/limits',
   },
 ];
@@ -148,7 +151,7 @@ export const settings = {
   more: [
     {
       id: AppSetting.RESET_API_KEY,
-      title: 'Reset OpenAI API Key',
+      title: 'Reset API Key',
       subtext: 'Current key ends with "{key}"',
     },
     {

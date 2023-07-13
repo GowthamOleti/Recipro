@@ -68,7 +68,7 @@ export default function AppNavigator() {
             options={{
               title: appLabels.settingsScreenTitle,
               ...commonScreenOptions,
-              animation: 'fade_from_bottom',
+              animation: 'slide_from_right',
             }}
             name={Screen.SETTINGS}
             component={SettingsScreen}
