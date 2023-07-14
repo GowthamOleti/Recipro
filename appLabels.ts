@@ -19,7 +19,7 @@ export const appLabels = {
   },
   keyError: {
     title: 'API Key Error',
-    body: 'The key you provided is not working. Please make sure you followed all the instructions.',
+    body: 'The key you provided is not working. Please make sure that you have followed all the instructions correctly.',
     primaryButton: 'Instructions',
     secondaryButton: 'Close',
     okay: 'Okay',

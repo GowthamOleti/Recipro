@@ -28,7 +28,13 @@ export const fetchGPTResult = async ({input, actionType, key}: Props) => {
     return String(response.data.choices[0].message.content).trim();
   } catch (e) {
     console.log(e);
-    return String(e).includes('401') ? '401' : '';
+    if (String(e).includes('401')) {
+      return 'ERR401';
+    } else if (String(e).includes('429')) {
+      return 'ERR429';
+    } else {
+      return '';
+    }
   }
 };
 
@@ -38,5 +44,7 @@ export const isKeyWorking = async (key: string) => {
     actionType: InputActionType.Rewrite,
     key,
   });
-  return result === '' || result.includes('401') ? false : true;
+  return result === '' || result === 'ERR401' || result === 'ERR429'
+    ? false
+    : true;
 };

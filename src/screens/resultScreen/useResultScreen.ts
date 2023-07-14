@@ -15,9 +15,9 @@ export const useResultScreen = ({input, actionType}: Props) => {
 
     fetchGPTResult({input, actionType}).then(output => {
       setIsLoading(false);
-      if (output === '401') {
+      if (output === 'ERR401') {
         setErrorType(ResultErrorType.INVALID_KEY);
-      } else if (output === '429') {
+      } else if (output === 'ERR429') {
         setErrorType(ResultErrorType.PAYMENT_DETAILS_UNAVAILABLE);
       } else if (output === '') {
         setErrorType(ResultErrorType.GENERIC);
