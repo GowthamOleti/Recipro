@@ -38,7 +38,7 @@ export const appLabels = {
         "\nTo keep the app free for everyone, we've provided the option to use your own OpenAI API Key. We do not send any of your data to our servers. For more information, read our ",
       privacyPolicy: 'Privacy Policy',
       privacyPolicyLink:
-        'https://medium.com/@teja2495/textcraft-privacy-policy-931a8e8a56a2',
+        'https://medium.com/@textcraft.app/textcraft-privacy-policy-b1aa01d20c00',
       conclusion:
         '\n\nFeel free to share your feedback using the option in settings. Thank you for using TextCraft! ❤️',
     },

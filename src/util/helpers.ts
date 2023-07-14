@@ -35,7 +35,7 @@ export const copyToClipboard = (text: string) => {
 };
 
 export const onFeedbackPress = () => {
-  Linking.openURL('mailto:teja2495@gmail.com');
+  Linking.openURL('mailto:textcraft.app@gmail.com');
 };
 
 export const isLink = (text: string): boolean => {
