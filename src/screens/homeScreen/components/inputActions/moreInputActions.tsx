@@ -34,7 +34,7 @@ export const MoreInputActions = ({
 
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       focusable={true}
       transparent={true}
       visible={showMoreActions}
@@ -46,6 +46,7 @@ export const MoreInputActions = ({
         onPress={() => setShowMoreActions(false)}>
         <View style={styles.contentContainer}>
           <TouchableOpacity
+            onPressOut={() => setShowMoreActions(false)}
             onPress={() =>
               navigation.navigate(Screen.RESULT, {
                 actionType: InputActionType.RewriteCasual,
@@ -56,6 +57,7 @@ export const MoreInputActions = ({
             <View style={styles.divider} />
           </TouchableOpacity>
           <TouchableOpacity
+            onPressOut={() => setShowMoreActions(false)}
             onPress={() =>
               navigation.navigate(Screen.RESULT, {
                 actionType: InputActionType.RewriteProfessional,
@@ -66,6 +68,7 @@ export const MoreInputActions = ({
             <View style={styles.divider} />
           </TouchableOpacity>
           <TouchableOpacity
+            onPressOut={() => setShowMoreActions(false)}
             onPress={() =>
               navigation.navigate(Screen.RESULT, {
                 actionType: InputActionType.FixGrammar,
@@ -86,24 +89,20 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      backgroundColor: 'rgba(0,0,0,0.5)',
     },
     contentContainer: {
       backgroundColor: colors.yellow,
-      borderTopLeftRadius: 25,
-      borderBottomLeftRadius: 25,
-      borderTopRightRadius: 25,
+      borderRadius: 30,
       elevation: 5,
-      alignSelf: 'flex-end',
-      width: '60%',
-      marginTop: '110%',
-      marginRight: '5%',
-      borderWidth: 1,
+      alignSelf: 'center',
+      width: '90%',
     },
     text: {
       marginVertical: '5%',
       textAlign: 'center',
-      color: colors.text,
-      fontSize: 18,
+      color: colors.yellowText,
+      fontSize: 17,
       fontFamily: fonts.SansMedium,
     },
     divider: {

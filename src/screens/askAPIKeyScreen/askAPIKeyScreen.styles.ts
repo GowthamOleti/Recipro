@@ -34,15 +34,13 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     buttonContainer: {
       borderRadius: 25,
       backgroundColor: colors.green,
-      borderWidth: 1,
-      borderColor: colors.buttonBorder,
       width: '50%',
       bottom: '5%',
       position: 'absolute',
       alignSelf: 'center',
     },
     buttonText: {
-      color: colors.common.buttonText,
+      color: colors.greenText,
       padding: '5%',
       alignSelf: 'center',
       fontFamily: fonts.SansMedium,

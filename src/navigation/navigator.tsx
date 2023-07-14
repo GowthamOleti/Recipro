@@ -23,7 +23,7 @@ export default function AppNavigator() {
               title: appLabels.appName,
               ...commonScreenOptions,
               headerRight: () => SettingsButton(navigation),
-              animation: 'fade_from_bottom',
+              animation: 'slide_from_right',
             })}
             name={Screen.HOME}
             component={HomeScreen}
@@ -43,7 +43,7 @@ export default function AppNavigator() {
               ...commonScreenOptions,
               headerRight: () => SettingsButton(navigation),
               headerShadowVisible: true,
-              animation: 'fade_from_bottom',
+              animation: 'slide_from_right',
             })}
             name={Screen.RESULT}
             component={ResultScreen}

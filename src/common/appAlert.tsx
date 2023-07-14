@@ -26,7 +26,7 @@ export const AppAlert = ({
 
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       transparent={true}
       visible={alertVisible}
       onRequestClose={() => {
@@ -69,7 +69,6 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       alignSelf: 'center',
       width: '90%',
       marginTop: '70%',
-      borderWidth: 1,
     },
     title: {
       marginBottom: '5%',
@@ -96,7 +95,7 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       backgroundColor: colors.green,
     },
     buttonText: {
-      color: colors.common.buttonText,
+      color: colors.greenText,
       paddingHorizontal: '8%',
       paddingVertical: '3%',
       alignSelf: 'center',

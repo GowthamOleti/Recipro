@@ -19,13 +19,14 @@ export const useAppTheme = () => {
     shadow: isDarkMode ? 'black' : 'black',
     green: isDarkMode ? '#D1EDBF' : '#D1EDBF',
     text: isDarkMode ? 'white' : 'black',
+    greenText: isDarkMode ? '' : '#1C5621',
+    yellowText: isDarkMode ? '' : '#6F4F01',
     textBackground: isDarkMode ? 'black' : 'white',
     paginationInFocus: isDarkMode ? '' : '#787171',
     paginationNotInFocus: isDarkMode ? '' : '#CCCCCC',
     toggleTrack: isDarkMode ? '' : '#767577',
     toggleThumb: isDarkMode ? '' : '#f4f3f4',
     common: {
-      buttonText: 'black',
       emailBackground: '#FB1C1C1A',
       emailBorder: '#D41B1B',
       homeSvg: '#7986cb',
@@ -61,13 +62,14 @@ export interface ThemeProps {
     shadow: string;
     green: string;
     text: string;
+    greenText: string;
+    yellowText: string;
     textBackground: string;
     paginationInFocus: string;
     paginationNotInFocus: string;
     toggleTrack: string;
     toggleThumb: string;
     common: {
-      buttonText: string;
       emailBackground: string;
       emailBorder: string;
       homeSvg: string;

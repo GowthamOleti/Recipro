@@ -28,13 +28,19 @@ export const InputActions = ({input}: InputActionsProps) => {
         <TouchableOpacity
           style={[styles.actionButtonContainer, styles.summaryButtonColor]}
           onPress={() => onActionButtonPress(InputActionType.Summarize)}>
-          <Text style={styles.actionButtonText}>{inputActions.summarize}</Text>
+          <Text
+            style={[styles.actionButtonText, styles.summaryButtonTextColor]}>
+            {inputActions.summarize}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionButtonContainer, styles.rewriteButtonColor]}
           onPress={() => onActionButtonPress(InputActionType.Rewrite)}
           onLongPress={onActionButtonLongPress}>
-          <Text style={styles.actionButtonText}>{inputActions.rewrite}</Text>
+          <Text
+            style={[styles.actionButtonText, styles.rewriteButtonTextColor]}>
+            {inputActions.rewrite}
+          </Text>
         </TouchableOpacity>
       </View>
       <MoreInputActions

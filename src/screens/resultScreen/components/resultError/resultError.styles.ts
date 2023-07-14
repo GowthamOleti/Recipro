@@ -24,12 +24,10 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       borderRadius: 25,
       backgroundColor: colors.green,
       marginTop: '5%',
-      borderWidth: 1,
-      borderColor: colors.buttonBorder,
       alignSelf: 'center',
     },
     errorButtonText: {
-      color: colors.common.buttonText,
+      color: colors.greenText,
       paddingVertical: '2%',
       paddingHorizontal: '7%',
       alignSelf: 'center',

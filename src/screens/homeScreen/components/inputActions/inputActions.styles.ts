@@ -16,11 +16,8 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       borderRadius: 35,
       alignSelf: 'flex-start',
       minWidth: '47%',
-      borderWidth: 1,
-      borderColor: colors.buttonBorder,
     },
     actionButtonText: {
-      color: colors.common.buttonText,
       paddingHorizontal: '5%',
       paddingVertical: '3%',
       alignSelf: 'center',
@@ -32,5 +29,11 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     rewriteButtonColor: {
       backgroundColor: colors.yellow,
+    },
+    summaryButtonTextColor: {
+      color: colors.greenText,
+    },
+    rewriteButtonTextColor: {
+      color: colors.yellowText,
     },
   });
