@@ -24,7 +24,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       color: colors.common.buttonText,
       padding: '5%',
       alignSelf: 'center',
-      fontFamily: fonts.RobotoRegular,
+      fontFamily: fonts.SansMedium,
       fontSize: 18,
     },
     loading: {

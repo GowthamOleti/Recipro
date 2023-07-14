@@ -40,10 +40,9 @@ export const useAppTheme = () => {
     },
   };
   const fonts = {
-    RobotoMono: 'Roboto-Mono',
-    Sans: 'Product-Sans',
+    Sans: 'Product-Sans-Regular',
+    SansMedium: 'Product-Sans-Medium',
     SansBold: 'Product-Sans-Bold',
-    RobotoRegular: 'Roboto-Regular',
   };
   return {colors, fonts};
 };
@@ -82,9 +81,8 @@ export interface ThemeProps {
     };
   };
   fonts: {
-    RobotoMono: string;
     Sans: string;
     SansBold: string;
-    RobotoRegular: string;
+    SansMedium: string;
   };
 }

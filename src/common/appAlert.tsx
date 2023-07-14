@@ -102,7 +102,7 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       paddingHorizontal: '8%',
       paddingVertical: '3%',
       alignSelf: 'center',
-      fontFamily: fonts.RobotoRegular,
+      fontFamily: fonts.SansMedium,
       fontSize: 18,
     },
   });

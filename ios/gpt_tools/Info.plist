@@ -53,9 +53,9 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Product-Sans.ttf</string>
-		<string>Roboto-Regular.ttf</string>
 		<string>Product-Sans-Bold.ttf</string>
+		<string>Product-Sans-Medium.ttf</string>
+		<string>Product-Sans-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

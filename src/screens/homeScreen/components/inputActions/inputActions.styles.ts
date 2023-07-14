@@ -24,7 +24,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       paddingHorizontal: '5%',
       paddingVertical: '3%',
       alignSelf: 'center',
-      fontFamily: fonts.RobotoRegular,
+      fontFamily: fonts.SansMedium,
       fontSize: 19,
     },
     summaryButtonColor: {

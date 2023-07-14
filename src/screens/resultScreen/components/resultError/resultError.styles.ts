@@ -33,7 +33,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       paddingVertical: '2%',
       paddingHorizontal: '5%',
       alignSelf: 'center',
-      fontFamily: fonts.RobotoRegular,
+      fontFamily: fonts.SansMedium,
       fontSize: 16,
     },
   });
