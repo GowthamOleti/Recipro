@@ -75,6 +75,14 @@ export const appLabels = {
     summarize: 'Summarize',
     rewrite: 'Rewrite',
   },
+  moreInputActions: {
+    rewrite: {
+      fixGrammar: 'Fix Grammar',
+      professional: 'Professional Tone',
+      casual: 'Casual Tone',
+    },
+    summarize: {},
+  },
   resetKeyAlert: {
     title: 'Are You Sure?',
     body: 'Please confirm if you want to reset your OpenAI API Key.',
@@ -90,6 +98,9 @@ export const appLabels = {
 export const fetchResultScreenTitle: Record<InputActionType, string> = {
   SUMMARIZE: 'Summary',
   REWRITE: 'Rewritten Text',
+  REWRITE_PROFESSIONAL: 'Rewritten Text',
+  REWRITE_CASUAL: 'Rewritten Text',
+  FIX_GRAMMAR: 'Rewritten Text',
 };
 
 export const fetchResultScreenErrorDetails: Record<

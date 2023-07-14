@@ -11,11 +11,8 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const marginTop = isPaymentOnly ? '-8%' : '0%';
-
   return (
-    <ScrollView
-      contentContainerStyle={[styles.contentContainer, {marginTop: marginTop}]}>
+    <ScrollView contentContainerStyle={styles.contentContainer}>
       {!isPaymentOnly && (
         <>
           <Text style={styles.text}>

@@ -4,6 +4,7 @@ import {appLabels} from '../../../../../appLabels';
 import {InputActionType} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {getStyles} from './inputActions.styles';
+import {MoreInputActions} from './moreInputActions';
 import {useInputActions} from './useInputActions';
 
 export interface InputActionsProps {
@@ -11,7 +12,12 @@ export interface InputActionsProps {
 }
 
 export const InputActions = ({input}: InputActionsProps) => {
-  const {onActionButtonPress} = useInputActions({input});
+  const {
+    onActionButtonPress,
+    showMoreOptions,
+    setShowMoreOptions,
+    onActionButtonLongPress,
+  } = useInputActions({input});
   const {inputActions} = appLabels;
   const theme = useAppTheme();
   const styles = getStyles(theme);
@@ -26,10 +32,17 @@ export const InputActions = ({input}: InputActionsProps) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionButtonContainer, styles.rewriteButtonColor]}
-          onPress={() => onActionButtonPress(InputActionType.Rewrite)}>
+          onPress={() => onActionButtonPress(InputActionType.Rewrite)}
+          onLongPress={onActionButtonLongPress}>
           <Text style={styles.actionButtonText}>{inputActions.rewrite}</Text>
         </TouchableOpacity>
       </View>
+      <MoreInputActions
+        input={input}
+        showMoreActions={showMoreOptions}
+        setShowMoreActions={setShowMoreOptions}
+        actionType={InputActionType.Rewrite}
+      />
     </View>
   );
 };

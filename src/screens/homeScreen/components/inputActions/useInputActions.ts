@@ -7,11 +7,14 @@ import {InputActionsProps} from './inputActions';
 import {useToastMessage} from '../../../../common/useToastMessage';
 import {isLinkSupported} from '../../../../util/helpers';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import {useState} from 'react';
 
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();
   const navigation = useNavigation<StackNavigation>();
   const {showToast} = useToastMessage();
+
+  const [showMoreOptions, setShowMoreOptions] = useState(false);
 
   const {toast} = appLabels;
 
@@ -33,7 +36,27 @@ export const useInputActions = ({input}: InputActionsProps) => {
       });
     }
   };
+
+  const onActionButtonLongPress = () => {
+    ReactNativeHapticFeedback.trigger('soft', {
+      enableVibrateFallback: true,
+      ignoreAndroidSystemSettings: false,
+    });
+    if (input.trim().length === 0) {
+      showToast({message: toast.errors.noInput, type: 'error'});
+    } else if (internetState.isConnected === false) {
+      showToast({message: toast.errors.noInternet, type: 'error'});
+    } else if (!isLinkSupported(input)) {
+      showToast({message: toast.errors.unsupportedLink, type: 'error'});
+    } else {
+      setShowMoreOptions(true);
+    }
+  };
+
   return {
     onActionButtonPress,
+    onActionButtonLongPress,
+    showMoreOptions,
+    setShowMoreOptions,
   };
 };

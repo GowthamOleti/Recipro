@@ -1,6 +1,9 @@
 export enum InputActionType {
   Summarize = 'SUMMARIZE',
   Rewrite = 'REWRITE',
+  RewriteProfessional = 'REWRITE_PROFESSIONAL',
+  RewriteCasual = 'REWRITE_CASUAL',
+  FixGrammar = 'FIX_GRAMMAR',
 }
 
 export enum ResultErrorType {
@@ -19,6 +22,9 @@ export const fetchPromptPrefix: Record<InputActionType, string> = {
   SUMMARIZE:
     'Summarize the text concisely while covering all key points and main ideas. Use relevant details and examples, avoid repetition, and ensure the length is appropriate for the complexity while conveying all important information. - ',
   REWRITE: 'Rewrite - ',
+  REWRITE_PROFESSIONAL: 'Rewrite in casual tone - ',
+  REWRITE_CASUAL: 'Rewrite in casual tone - ',
+  FIX_GRAMMAR: 'Fix Grammar - ',
 };
 
 export enum AppSetting {

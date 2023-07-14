@@ -24,8 +24,6 @@ export const AppAlert = ({
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const borderWidth = onPrimaryButtonPress ? 0 : 1;
-
   return (
     <Modal
       animationType="slide"
