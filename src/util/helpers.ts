@@ -1,4 +1,4 @@
-import {Dimensions, Linking, Share} from 'react-native';
+import {Linking, Platform, Share} from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 
 export const shareResult = async (text: string) => {
@@ -35,15 +35,17 @@ export const copyToClipboard = (text: string) => {
 };
 
 export const onFeedbackPress = () => {
-  Linking.openURL('mailto:textcraft.app@gmail.com');
+  const appPackage = require('../../package.json');
+  const recipient = 'textcraft.app@gmail.com';
+  const subject = 'TextCraft App Feedback';
+  const body = `OS: ${Platform.OS} ${Platform.Version}\nApp Version: ${appPackage.version}\nDevice Name:`;
+  Linking.openURL(`mailto:${recipient}?subject=${subject}&body=${body}`);
 };
 
 export const isLink = (text: string): boolean => {
   const linkRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
   return linkRegex.test(text);
 };
-
-export const screenDimensions = Dimensions.get('screen');
 
 export const isLinkSupported = (link: string) => {
   const pdfRegex = /\.pdf$/i;
