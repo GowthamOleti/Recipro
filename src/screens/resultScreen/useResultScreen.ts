@@ -17,6 +17,8 @@ export const useResultScreen = ({input, actionType}: Props) => {
       setIsLoading(false);
       if (output === '401') {
         setErrorType(ResultErrorType.INVALID_KEY);
+      } else if (output === '429') {
+        setErrorType(ResultErrorType.PAYMENT_DETAILS_UNAVAILABLE);
       } else if (output === '') {
         setErrorType(ResultErrorType.GENERIC);
       } else {

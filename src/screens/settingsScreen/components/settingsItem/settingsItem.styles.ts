@@ -10,8 +10,8 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     title: {
       color: colors.text,
-      fontSize: 18,
-      fontFamily: fonts.Sans,
+      fontSize: 17,
+      fontFamily: fonts.SansMedium,
     },
     subtext: {
       color: colors.common.placeHolderText,

@@ -3,9 +3,12 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {fetchResultScreenErrorDetails} from '../../../../../appLabels';
 import {ErrorIcon} from '../../../../../assets/icons';
-import {ResultErrorType} from '../../../../common/constants';
+import {
+  ExplainerScreenType,
+  ResultErrorType,
+} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
-import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
+import {Screen} from '../../../../navigation/navigationTypes';
 import {removeApiKey} from '../../../../util/handleApiKey';
 import {getStyles} from './resultError.styles';
 
@@ -19,7 +22,7 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
   const styles = getStyles(theme);
 
   const errorDetails = fetchResultScreenErrorDetails[errorType];
-  const navigation = useNavigation<StackNavigation>();
+  const navigation = useNavigation<any>();
 
   const onErrorButtonPress = () => {
     if (errorType === ResultErrorType.INVALID_KEY) {
@@ -28,6 +31,10 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
           index: 0,
           routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
         });
+      });
+    } else if (errorType === ResultErrorType.PAYMENT_DETAILS_UNAVAILABLE) {
+      navigation.navigate(Screen.EXPLAINER, {
+        type: ExplainerScreenType.ADD_PAYMENT,
       });
     } else {
       fetchResult();

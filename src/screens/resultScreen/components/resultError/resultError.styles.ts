@@ -16,9 +16,9 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     errorText: {
       color: 'black',
       fontFamily: fonts.Sans,
-      fontSize: 18,
+      fontSize: 19,
       textAlign: 'center',
-      maxWidth: '70%',
+      maxWidth: '75%',
     },
     errorButtonContainer: {
       borderRadius: 25,
@@ -31,9 +31,9 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     errorButtonText: {
       color: colors.common.buttonText,
       paddingVertical: '2%',
-      paddingHorizontal: '5%',
+      paddingHorizontal: '7%',
       alignSelf: 'center',
       fontFamily: fonts.SansMedium,
-      fontSize: 16,
+      fontSize: 18,
     },
   });

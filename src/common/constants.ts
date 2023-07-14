@@ -5,6 +5,7 @@ export enum InputActionType {
 
 export enum ResultErrorType {
   INVALID_KEY = 'INVALID_KEY',
+  PAYMENT_DETAILS_UNAVAILABLE = 'PAYMENT_DETAILS_UNAVAILABLE',
   GENERIC = 'GENERIC',
 }
 

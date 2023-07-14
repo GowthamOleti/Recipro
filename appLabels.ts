@@ -104,6 +104,11 @@ export const fetchResultScreenErrorDetails: Record<
     errorTitle: 'Oops! Something is wrong with your API Key...',
     buttonText: 'Reset API Key',
   },
+  PAYMENT_DETAILS_UNAVAILABLE: {
+    errorTitle:
+      'Oops! Looks like your API Key is not activated. Did you setup your payment details?',
+    buttonText: 'Instructions',
+  },
 };
 
 export const settings = {
