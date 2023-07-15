@@ -33,26 +33,28 @@ export const AppAlert = ({
         setAlertVisible(!alertVisible);
       }}>
       <View style={styles.container}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.body}>{body}</Text>
-        <View style={styles.buttonsContainer}>
-          {onPrimaryButtonPress && (
+        <View style={styles.contentContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.body}>{body}</Text>
+          <View style={styles.buttonsContainer}>
+            {onPrimaryButtonPress && (
+              <TouchableOpacity
+                style={styles.button}
+                onPress={onPrimaryButtonPress}>
+                <Text style={styles.buttonText}>{primaryButtonText}</Text>
+              </TouchableOpacity>
+            )}
             <TouchableOpacity
-              style={styles.button}
-              onPress={onPrimaryButtonPress}>
-              <Text style={styles.buttonText}>{primaryButtonText}</Text>
+              style={[
+                styles.button,
+                onPrimaryButtonPress
+                  ? {backgroundColor: theme.colors.common.white}
+                  : null,
+              ]}
+              onPress={() => setAlertVisible(false)}>
+              <Text style={styles.buttonText}>{secondaryButtonText}</Text>
             </TouchableOpacity>
-          )}
-          <TouchableOpacity
-            style={[
-              styles.button,
-              onPrimaryButtonPress
-                ? {backgroundColor: theme.colors.common.white}
-                : null,
-            ]}
-            onPress={() => setAlertVisible(false)}>
-            <Text style={styles.buttonText}>{secondaryButtonText}</Text>
-          </TouchableOpacity>
+          </View>
         </View>
       </View>
     </Modal>
@@ -62,6 +64,10 @@ export const AppAlert = ({
 const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+    },
+    contentContainer: {
       backgroundColor: colors.textBackground,
       borderRadius: 25,
       padding: '7%',
