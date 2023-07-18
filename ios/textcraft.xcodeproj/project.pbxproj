@@ -12,11 +12,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		29232DE55F2243919B761C31 /* Product-Sans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA9D04FA95454328870243B5 /* Product-Sans-Medium.ttf */; };
+		47A521562CAA441CA7274954 /* Product-Sans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 360FA5F79C5643C1B571CC81 /* Product-Sans-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-textcraft-textcraftTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-textcraft-textcraftTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		1345AC1F286E43FAA3333A92 /* Product-Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CB52221A932430C9E3ED5CA /* Product-Sans.ttf */; };
-		8BEE080437814F9194B6E213 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D63A6E477FE42239D9021B2 /* Roboto-Regular.ttf */; };
-		251C22952846430F9318F43F /* Product-Sans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8BE954E6A484183A7847F15 /* Product-Sans-Bold.ttf */; };
+		DC65539D40D84300A2041555 /* Product-Sans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51E235EBF971400CB5E7C6AC /* Product-Sans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,31 +25,31 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = "textcraft";
+			remoteInfo = textcraft;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* textcraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "textcraftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* textcraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = textcraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* textcraftTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "textcraftTests.m"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* textcraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "textcraft.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "textcraft/AppDelegate.h"; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "textcraft/AppDelegate.mm"; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "textcraft/Images.xcassets"; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "textcraft/Info.plist"; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "textcraft/main.m"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* textcraftTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = textcraftTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* textcraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textcraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = textcraft/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = textcraft/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = textcraft/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = textcraft/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = textcraft/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-textcraft-textcraftTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textcraft-textcraftTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		360FA5F79C5643C1B571CC81 /* Product-Sans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Product-Sans-Regular.ttf"; path = "../assets/fonts/Product-Sans-Regular.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-textcraft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft.debug.xcconfig"; path = "Target Support Files/Pods-textcraft/Pods-textcraft.debug.xcconfig"; sourceTree = "<group>"; };
+		51E235EBF971400CB5E7C6AC /* Product-Sans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Product-Sans-Bold.ttf"; path = "../assets/fonts/Product-Sans-Bold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-textcraft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft.release.xcconfig"; path = "Target Support Files/Pods-textcraft/Pods-textcraft.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-textcraft-textcraftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft-textcraftTests.debug.xcconfig"; path = "Target Support Files/Pods-textcraft-textcraftTests/Pods-textcraft-textcraftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-textcraft.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textcraft.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "textcraft/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = textcraft/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-textcraft-textcraftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft-textcraftTests.release.xcconfig"; path = "Target Support Files/Pods-textcraft-textcraftTests/Pods-textcraft-textcraftTests.release.xcconfig"; sourceTree = "<group>"; };
+		CA9D04FA95454328870243B5 /* Product-Sans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Product-Sans-Medium.ttf"; path = "../assets/fonts/Product-Sans-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		1CB52221A932430C9E3ED5CA /* Product-Sans.ttf */ = {isa = PBXFileReference; name = "Product-Sans.ttf"; path = "../assets/fonts/Product-Sans.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2D63A6E477FE42239D9021B2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B8BE954E6A484183A7847F15 /* Product-Sans-Bold.ttf */ = {isa = PBXFileReference; name = "Product-Sans-Bold.ttf"; path = "../assets/fonts/Product-Sans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 				00E356F21AD99517003FC87E /* textcraftTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = "textcraftTests";
+			path = textcraftTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -99,7 +99,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = "textcraft";
+			name = textcraft;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -128,7 +128,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
-				FEC3B925DC964F1B8CE4C92D /* Resources */,
+				9F768B5FB75A432A9EE4CEED /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -144,6 +144,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9F768B5FB75A432A9EE4CEED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				51E235EBF971400CB5E7C6AC /* Product-Sans-Bold.ttf */,
+				CA9D04FA95454328870243B5 /* Product-Sans-Medium.ttf */,
+				360FA5F79C5643C1B571CC81 /* Product-Sans-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,17 +165,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		FEC3B925DC964F1B8CE4C92D /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				1CB52221A932430C9E3ED5CA /* Product-Sans.ttf */,
-				2D63A6E477FE42239D9021B2 /* Roboto-Regular.ttf */,
-				B8BE954E6A484183A7847F15 /* Product-Sans-Bold.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -185,8 +185,8 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = "textcraftTests";
-			productname = "textcraftTests";
+			name = textcraftTests;
+			productName = textcraftTests;
 			productReference = 00E356EE1AD99517003FC87E /* textcraftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -207,8 +207,8 @@
 			);
 			dependencies = (
 			);
-			name = "textcraft";
-			productName = "textcraft";
+			name = textcraft;
+			productName = textcraft;
 			productReference = 13B07F961A680F5B00A75B9A /* textcraft.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -262,9 +262,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				1345AC1F286E43FAA3333A92 /* Product-Sans.ttf in Resources */,
-				8BEE080437814F9194B6E213 /* Roboto-Regular.ttf in Resources */,
-				251C22952846430F9318F43F /* Product-Sans-Bold.ttf in Resources */,
+				DC65539D40D84300A2041555 /* Product-Sans-Bold.ttf in Resources */,
+				29232DE55F2243919B761C31 /* Product-Sans-Medium.ttf in Resources */,
+				47A521562CAA441CA7274954 /* Product-Sans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +458,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "textcraftTests/Info.plist";
+				INFOPLIST_FILE = textcraftTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,7 +470,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tk.textcraft";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/textcraft.app/textcraft";
 			};
@@ -482,7 +482,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = "textcraftTests/Info.plist";
+				INFOPLIST_FILE = textcraftTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -494,7 +494,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tk.textcraft";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/textcraft.app/textcraft";
 			};
@@ -508,8 +508,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "textcraft/Info.plist";
-             INFOPLIST_KEY_CFBundleDisplayName = "textcraft";
+				INFOPLIST_FILE = textcraft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,8 +519,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tk.textcraft";
-				PRODUCT_NAME = "textcraft";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = textcraft;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -535,8 +534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = "textcraft/Info.plist";
-             INFOPLIST_KEY_CFBundleDisplayName = "textcraft";
+				INFOPLIST_FILE = textcraft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,8 +545,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tk.textcraft";
-				PRODUCT_NAME = "textcraft";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = textcraft;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -615,6 +613,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -679,6 +678,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
