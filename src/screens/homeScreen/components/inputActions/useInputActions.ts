@@ -8,7 +8,6 @@ import {useToastMessage} from '../../../../common/useToastMessage';
 import {isLinkSupported} from '../../../../util/helpers';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useState} from 'react';
-import analytics from '@react-native-firebase/analytics';
 
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();
@@ -20,7 +19,6 @@ export const useInputActions = ({input}: InputActionsProps) => {
   const {toast} = appLabels;
 
   const onActionButtonPress = async (actionType: InputActionType) => {
-    analytics().logEvent('action_button_press');
     ReactNativeHapticFeedback.trigger('soft', {
       enableVibrateFallback: true,
       ignoreAndroidSystemSettings: false,
