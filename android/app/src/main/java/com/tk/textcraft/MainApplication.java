@@ -1,4 +1,4 @@
-package com.textcraft;
+package com.tk.textcraft;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
