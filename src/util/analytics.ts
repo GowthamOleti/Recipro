@@ -1,11 +1,11 @@
 import analytics from '@react-native-firebase/analytics';
 
-export const trackEvent = (eventName: string) => {
+export const trackAction = (eventName: string) => {
   console.log(`Analytics Action: ${eventName}`);
   analytics().logEvent(eventName);
 };
 
-export const trackScreen = (screen: string) => {
+export const trackState = (screen: string) => {
   console.log(`Analytics State: ${screen}`);
   analytics().logScreenView({screen_name: screen});
 };

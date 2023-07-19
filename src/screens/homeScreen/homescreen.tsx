@@ -5,7 +5,7 @@ import {getStyles} from './homescreen.styles';
 import {InputCard} from './components/inputCard/inputCard';
 import {useAppTheme} from '../../common/useAppTheme';
 import {SettingsContext} from '../../common/settingsContext';
-import {analyticsTags, trackScreen} from '../../util/analytics';
+import {analyticsTags, trackState} from '../../util/analytics';
 
 const HomeScreen = () => {
   const theme = useAppTheme();
@@ -14,7 +14,7 @@ const HomeScreen = () => {
 
   const [inputText, setInputText] = useState('');
 
-  trackScreen(analyticsTags.screens.HOME);
+  trackState(analyticsTags.screens.HOME);
 
   return (
     <SafeAreaView style={styles.container}>
