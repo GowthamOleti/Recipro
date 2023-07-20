@@ -4,6 +4,7 @@ import {settings} from '../../../appLabels';
 import {SettingsItem} from './components/settingsItem/settingsItem';
 import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './settingsScreen.styles';
+import {appVersion} from '../../common/constants';
 
 const SettingsScreen = () => {
   const theme = useAppTheme();
@@ -31,7 +32,7 @@ const SettingsScreen = () => {
           </>
         ))}
       </View>
-      <Text style={styles.version}>{'Version 1.0'}</Text>
+      <Text style={styles.version}>{`Version ${appVersion}`}</Text>
     </ScrollView>
   );
 };

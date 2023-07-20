@@ -1,5 +1,6 @@
 import {Linking, Platform, Share} from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
+import {appVersion} from '../common/constants';
 
 export const shareResult = async (text: string) => {
   try {
@@ -35,10 +36,9 @@ export const copyToClipboard = (text: string) => {
 };
 
 export const onFeedbackPress = () => {
-  const appPackage = require('../../package.json');
   const recipient = 'textcraft.app@gmail.com';
   const subject = 'TextCraft App Feedback';
-  const body = `OS: ${Platform.OS} ${Platform.Version}\nApp Version: ${appPackage.version}\nDevice Name:`;
+  const body = `OS: ${Platform.OS} ${Platform.Version}\nApp Version: ${appVersion}\nDevice Name:`;
   Linking.openURL(`mailto:${recipient}?subject=${subject}&body=${body}`);
 };
 

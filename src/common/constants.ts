@@ -10,6 +10,8 @@ export enum InputActionType {
   SummarizeInPoints = 'SUMMARIZE_IN_POINTS',
 }
 
+export const appVersion = require('../../package.json').version;
+
 export enum MoreOptionsType {
   Read = 'READ',
   Write = 'WRITE',
