@@ -8,19 +8,21 @@ import {
   TouchableOpacity,
   Pressable,
 } from 'react-native';
-import {appLabels} from '../../../../../appLabels';
-import {InputActionType} from '../../../../common/constants';
+import {moreActions} from '../../../../../appLabels';
+import {MoreOptionsType} from '../../../../common/constants';
 import {ThemeProps, useAppTheme} from '../../../../common/useAppTheme';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 export interface AdditionalOptionsProps {
   input: string;
   showMoreActions: boolean;
   setShowMoreActions: (value: boolean) => void;
-  actionType: InputActionType;
+  type: MoreOptionsType;
 }
 
 export const MoreInputActions = ({
+  type,
   input,
   showMoreActions,
   setShowMoreActions,
@@ -28,14 +30,14 @@ export const MoreInputActions = ({
   const theme = useAppTheme();
   const styles = getStyles(theme);
 
-  const rewriteOptions = appLabels.moreInputActions.rewrite;
-
   const navigation = useNavigation<StackNavigation>();
+
+  const options =
+    type === MoreOptionsType.Read ? moreActions.read : moreActions.write;
 
   return (
     <Modal
       animationType="fade"
-      focusable={true}
       transparent={true}
       visible={showMoreActions}
       onRequestClose={() => {
@@ -45,38 +47,39 @@ export const MoreInputActions = ({
         style={styles.container}
         onPress={() => setShowMoreActions(false)}>
         <View style={styles.contentContainer}>
-          <TouchableOpacity
-            onPressOut={() => setShowMoreActions(false)}
-            onPress={() =>
-              navigation.navigate(Screen.RESULT, {
-                actionType: InputActionType.RewriteCasual,
-                input,
-              })
-            }>
-            <Text style={styles.text}>{rewriteOptions.casual}</Text>
-            <View style={styles.divider} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPressOut={() => setShowMoreActions(false)}
-            onPress={() =>
-              navigation.navigate(Screen.RESULT, {
-                actionType: InputActionType.RewriteProfessional,
-                input,
-              })
-            }>
-            <Text style={styles.text}>{rewriteOptions.professional}</Text>
-            <View style={styles.divider} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPressOut={() => setShowMoreActions(false)}
-            onPress={() =>
-              navigation.navigate(Screen.RESULT, {
-                actionType: InputActionType.FixGrammar,
-                input,
-              })
-            }>
-            <Text style={styles.text}>{rewriteOptions.fixGrammar}</Text>
-          </TouchableOpacity>
+          {options.map(item => (
+            <TouchableOpacity
+              style={[
+                styles.buttonContainer,
+                type === MoreOptionsType.Read
+                  ? styles.readButtonColor
+                  : styles.writeButtonColor,
+              ]}
+              onPressOut={() => setShowMoreActions(false)}
+              onPress={() => {
+                ReactNativeHapticFeedback.trigger('soft', {
+                  enableVibrateFallback: true,
+                  ignoreAndroidSystemSettings: false,
+                });
+                navigation.navigate(Screen.RESULT, {
+                  actionType: item.id,
+                  input,
+                });
+              }}>
+              <Text
+                style={[
+                  styles.text,
+                  {
+                    color:
+                      type === MoreOptionsType.Read
+                        ? theme.colors.greenText
+                        : theme.colors.yellowText,
+                  },
+                ]}>
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
       </Pressable>
     </Modal>
@@ -92,21 +95,27 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       backgroundColor: 'rgba(0,0,0,0.5)',
     },
     contentContainer: {
-      backgroundColor: colors.yellow,
+      backgroundColor: colors.textBackground,
       borderRadius: 30,
-      elevation: 5,
       alignSelf: 'center',
       width: '90%',
+      paddingVertical: '10%',
+    },
+    buttonContainer: {
+      borderRadius: 25,
+      marginVertical: '3%',
+      marginHorizontal: '15%',
     },
     text: {
       marginVertical: '5%',
       textAlign: 'center',
-      color: colors.yellowText,
       fontSize: 17,
       fontFamily: fonts.SansMedium,
     },
-    divider: {
-      borderBottomColor: colors.common.placeHolderText,
-      borderBottomWidth: StyleSheet.hairlineWidth,
+    readButtonColor: {
+      backgroundColor: colors.green,
+    },
+    writeButtonColor: {
+      backgroundColor: colors.yellow,
     },
   });

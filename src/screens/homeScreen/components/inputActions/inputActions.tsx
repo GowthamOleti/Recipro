@@ -17,6 +17,7 @@ export const InputActions = ({input}: InputActionsProps) => {
     showMoreOptions,
     setShowMoreOptions,
     onActionButtonLongPress,
+    moreOptionsType,
   } = useInputActions({input});
   const {inputActions} = appLabels;
   const theme = useAppTheme();
@@ -27,7 +28,10 @@ export const InputActions = ({input}: InputActionsProps) => {
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
           style={[styles.actionButtonContainer, styles.summaryButtonColor]}
-          onPress={() => onActionButtonPress(InputActionType.Summarize)}>
+          onPress={() => onActionButtonPress(InputActionType.Summarize)}
+          onLongPress={() =>
+            onActionButtonLongPress(InputActionType.Summarize)
+          }>
           <Text
             style={[styles.actionButtonText, styles.summaryButtonTextColor]}>
             {inputActions.summarize}
@@ -36,19 +40,21 @@ export const InputActions = ({input}: InputActionsProps) => {
         <TouchableOpacity
           style={[styles.actionButtonContainer, styles.rewriteButtonColor]}
           onPress={() => onActionButtonPress(InputActionType.Rewrite)}
-          onLongPress={onActionButtonLongPress}>
+          onLongPress={() => onActionButtonLongPress(InputActionType.Rewrite)}>
           <Text
             style={[styles.actionButtonText, styles.rewriteButtonTextColor]}>
             {inputActions.rewrite}
           </Text>
         </TouchableOpacity>
       </View>
-      <MoreInputActions
-        input={input}
-        showMoreActions={showMoreOptions}
-        setShowMoreActions={setShowMoreOptions}
-        actionType={InputActionType.Rewrite}
-      />
+      {moreOptionsType && (
+        <MoreInputActions
+          input={input}
+          showMoreActions={showMoreOptions}
+          setShowMoreActions={setShowMoreOptions}
+          type={moreOptionsType}
+        />
+      )}
     </View>
   );
 };

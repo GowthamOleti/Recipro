@@ -4,6 +4,15 @@ export enum InputActionType {
   RewriteProfessional = 'REWRITE_PROFESSIONAL',
   RewriteCasual = 'REWRITE_CASUAL',
   FixGrammar = 'FIX_GRAMMAR',
+  Expand = 'EXPAND',
+  Explain = 'EXPLAIN',
+  ExplainLikeFive = 'EXPLAIN_LIKE_FIVE',
+  SummarizeInPoints = 'SUMMARIZE_IN_POINTS',
+}
+
+export enum MoreOptionsType {
+  Read = 'READ',
+  Write = 'WRITE',
 }
 
 export enum ResultErrorType {
@@ -25,6 +34,11 @@ export const fetchPromptPrefix: Record<InputActionType, string> = {
   REWRITE_PROFESSIONAL: 'Rewrite in professional tone - ',
   REWRITE_CASUAL: 'Rewrite in casual tone - ',
   FIX_GRAMMAR: 'Fix Grammar - ',
+  EXPAND: 'Expand - ',
+  EXPLAIN: 'Explain - ',
+  EXPLAIN_LIKE_FIVE: "Explain Like I'm 5 - ",
+  SUMMARIZE_IN_POINTS:
+    'Summarize the text in points concisely while covering all key points and main ideas. Use relevant details and examples, avoid repetition, and ensure the length is appropriate for the complexity while conveying all important information. - ',
 };
 
 export enum AppSetting {

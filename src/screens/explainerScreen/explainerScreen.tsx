@@ -32,8 +32,6 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
 
   const styles = getStyles(theme);
 
-  const marginBottom = {marginBottom: firstTime ? '30%' : '5%'};
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -41,7 +39,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
         barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
       />
       <Animated.View entering={FadeInDown.duration(500)}>
-        <View style={marginBottom}>
+        <View style={{marginBottom: firstTime ? '30%' : '5%'}}>
           {screenType === ExplainerScreenType.ABOUT ? (
             <AboutTextCraft />
           ) : (

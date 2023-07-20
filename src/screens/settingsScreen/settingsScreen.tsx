@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import {settings} from '../../../appLabels';
 import {SettingsItem} from './components/settingsItem/settingsItem';
 import {useAppTheme} from '../../common/useAppTheme';
@@ -31,6 +31,7 @@ const SettingsScreen = () => {
           </>
         ))}
       </View>
+      <Text style={styles.version}>{'Version 1.0'}</Text>
     </ScrollView>
   );
 };

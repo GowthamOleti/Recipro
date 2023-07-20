@@ -61,6 +61,7 @@ export const appLabels = {
       noInternet: 'No Internet Connection!',
       noInput: 'Missing Input!',
       unsupportedLink: 'Unsupported Link!',
+      rewriteLink: 'Rewrite does not work with links!',
       invalidApiKey: 'Invalid API Key!',
       twitterNotInstalled: 'Twitter App is Not Installed!',
     },
@@ -101,6 +102,10 @@ export const fetchResultScreenTitle: Record<InputActionType, string> = {
   REWRITE_PROFESSIONAL: 'Rewritten Text',
   REWRITE_CASUAL: 'Rewritten Text',
   FIX_GRAMMAR: 'Rewritten Text',
+  EXPAND: 'Expanded Text',
+  EXPLAIN: 'Explanation',
+  EXPLAIN_LIKE_FIVE: 'Explanation',
+  SUMMARIZE_IN_POINTS: 'Summary',
 };
 
 export const fetchResultScreenErrorDetails: Record<
@@ -120,6 +125,41 @@ export const fetchResultScreenErrorDetails: Record<
       'Oops! Looks like your API Key is not activated. Did you setup your payment details?',
     buttonText: 'Instructions',
   },
+};
+
+export const moreActions = {
+  write: [
+    {
+      id: InputActionType.Expand,
+      title: 'Expand',
+    },
+    {
+      id: InputActionType.RewriteCasual,
+      title: 'Casual Tone',
+    },
+    {
+      id: InputActionType.RewriteProfessional,
+      title: 'Professional Tone',
+    },
+    {
+      id: InputActionType.FixGrammar,
+      title: 'Fix Grammar',
+    },
+  ],
+  read: [
+    {
+      id: InputActionType.Explain,
+      title: 'Explain',
+    },
+    {
+      id: InputActionType.ExplainLikeFive,
+      title: "Explain Like I'm 5",
+    },
+    {
+      id: InputActionType.SummarizeInPoints,
+      title: 'Summarize in Points',
+    },
+  ],
 };
 
 export const settings = {

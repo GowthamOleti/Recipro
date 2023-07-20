@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {ThemeProps} from '../../common/useAppTheme';
 
-export const getStyles = ({colors}: ThemeProps) =>
+export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -20,5 +20,12 @@ export const getStyles = ({colors}: ThemeProps) =>
     divider: {
       borderBottomColor: colors.common.placeHolderText,
       borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    version: {
+      fontFamily: fonts.Sans,
+      fontSize: 17,
+      alignSelf: 'center',
+      color: colors.text,
+      marginTop: '20%',
     },
   });
