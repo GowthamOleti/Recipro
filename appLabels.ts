@@ -30,7 +30,7 @@ export const appLabels = {
         "TextCraft simplifies reading and writing tasks by using OpenAI's GPT algorithms. The app currently offers two main features - Summarize and Rewrite.",
       summarizePrefix: '\nSummarize: ',
       summarizeDescription:
-        'This feature is particularly useful to summarize lengthy texts or article links. TextCraft can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly.',
+        'This feature is particularly useful to summarize lengthy texts or article links. TextCraft can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly. You can also long-press on summarize for more options like Explain etc.',
       rewritePrefix: '\nRewrite: ',
       rewriteDescription:
         'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. Additionally, you can also set required tone (professional / casual) or choose to just fix grammar by long-pressing the Rewrite button.',
@@ -61,7 +61,7 @@ export const appLabels = {
       noInternet: 'No Internet Connection!',
       noInput: 'Missing Input!',
       unsupportedLink: 'Unsupported Link!',
-      rewriteLink: 'Rewrite does not work with links!',
+      rewriteLink: 'Rewrite does not support links!',
       invalidApiKey: 'Invalid API Key!',
       twitterNotInstalled: 'Twitter App is Not Installed!',
     },
@@ -102,6 +102,7 @@ export const fetchResultScreenTitle: Record<InputActionType, string> = {
   REWRITE_PROFESSIONAL: 'Rewritten Text',
   REWRITE_CASUAL: 'Rewritten Text',
   FIX_GRAMMAR: 'Rewritten Text',
+  SHORTEN: 'Rewritten Text',
   EXPAND: 'Expanded Text',
   EXPLAIN: 'Explanation',
   EXPLAIN_LIKE_FIVE: 'Explanation',
@@ -132,6 +133,10 @@ export const moreActions = {
     {
       id: InputActionType.Expand,
       title: 'Expand',
+    },
+    {
+      id: InputActionType.Shorten,
+      title: 'Make it Shorter',
     },
     {
       id: InputActionType.RewriteCasual,

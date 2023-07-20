@@ -18,13 +18,13 @@ export const useToastMessage = () => {
           ? theme.colors.common.errorToast
           : theme.colors.common.infoToast,
       placement: 'bottom',
-      duration: type === 'error' ? 3000 : 2000,
-      animationType: 'slide-in',
+      duration: type === 'error' ? 2000 : 1000,
+      animationType: 'zoom-in',
       style: {
         borderRadius: 15,
-        marginBottom: '30%',
+        marginBottom: '26%',
         width: '90%',
-        height: '32%',
+        height: '35%',
       },
       textStyle: {
         fontFamily: theme.fonts.Sans,

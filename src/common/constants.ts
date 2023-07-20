@@ -8,6 +8,7 @@ export enum InputActionType {
   Explain = 'EXPLAIN',
   ExplainLikeFive = 'EXPLAIN_LIKE_FIVE',
   SummarizeInPoints = 'SUMMARIZE_IN_POINTS',
+  Shorten = 'SHORTEN',
 }
 
 export const appVersion = require('../../package.json').version;
@@ -37,7 +38,10 @@ export const fetchPromptPrefix: Record<InputActionType, string> = {
   REWRITE_CASUAL: 'Rewrite in casual tone - ',
   FIX_GRAMMAR: 'Fix Grammar - ',
   EXPAND: 'Expand - ',
-  EXPLAIN: 'Explain - ',
+  SHORTEN:
+    'Make this text shorter but it should preserve all the meaning and tone - ',
+  EXPLAIN:
+    'Please provide a detailed explanation of the text provided, including any relevant background information or context that may help clarify the meaning. Also ensure your response is specific, concise, and avoids the use of any complex terminology or jargon. - ',
   EXPLAIN_LIKE_FIVE: "Explain Like I'm 5 - ",
   SUMMARIZE_IN_POINTS:
     'Summarize the text in points concisely while covering all key points and main ideas. Use relevant details and examples, avoid repetition, and ensure the length is appropriate for the complexity while conveying all important information. - ',

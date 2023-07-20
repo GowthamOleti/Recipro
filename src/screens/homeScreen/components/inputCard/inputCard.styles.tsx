@@ -17,7 +17,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     inputText: {
       textAlignVertical: 'top',
       fontSize: 19,
-      maxHeight: '90%',
+      height: '88%',
       fontFamily: fonts.Sans,
       color: colors.text,
     },

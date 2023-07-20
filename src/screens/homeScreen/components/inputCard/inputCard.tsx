@@ -6,7 +6,7 @@ import {Clear, Paste} from '../../../../../assets/icons';
 import {useInputCard} from './useInputCard';
 import {getStyles} from './inputCard.styles';
 import {useAppTheme} from '../../../../common/useAppTheme';
-import Animated, {ZoomIn} from 'react-native-reanimated';
+import Animated, {FadeInDown, ZoomIn} from 'react-native-reanimated';
 
 export interface InputCardProps {
   inputText: string;
@@ -24,21 +24,21 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
 
   return (
     <View style={styles.container}>
-      <TextInput
-        multiline
-        autoFocus
-        placeholder={appLabels.inputHint}
-        placeholderTextColor={theme.colors.common.placeHolderText}
-        style={styles.inputText}
-        onChangeText={text => setInputText(text)}
-        value={inputText}
-      />
+      <Animated.View entering={FadeInDown.duration(500)}>
+        <TextInput
+          multiline
+          autoFocus
+          placeholder={appLabels.inputHint}
+          placeholderTextColor={theme.colors.common.placeHolderText}
+          style={styles.inputText}
+          onChangeText={text => setInputText(text)}
+          value={inputText}
+        />
+      </Animated.View>
       {inputText.length === 0 && <HomeIllustration />}
       <View style={styles.clearAndPaste}>
         {inputText.length > 0 && (
-          <Animated.View entering={ZoomIn.duration(500)}>
-            <Clear height={25} width={25} onPress={() => setInputText('')} />
-          </Animated.View>
+          <Clear height={25} width={25} onPress={() => setInputText('')} />
         )}
         {showPasteButton && (
           <Animated.View entering={ZoomIn.duration(500)}>
