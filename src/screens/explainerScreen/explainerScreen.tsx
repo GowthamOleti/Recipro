@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   ActivityIndicator,
   SafeAreaView,
@@ -16,6 +16,7 @@ import {useExplainerScreen} from './useExplainerScreen';
 import {AppAlert} from '../../common/appAlert';
 import {ApiKeyInstructions} from './components/apiKeyInstructions';
 import Animated, {FadeInDown} from 'react-native-reanimated';
+import {fetchExplainerScreenTag, trackState} from '../../util/analytics';
 
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   const screenType = route?.params?.type ?? ExplainerScreenType.ABOUT;
@@ -29,6 +30,10 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
     keyError,
     setKeyError,
   } = useExplainerScreen({screenType, key: route?.params?.key ?? ''});
+
+  useEffect(() => {
+    trackState(fetchExplainerScreenTag[screenType]);
+  }, [screenType]);
 
   const styles = getStyles(theme);
 

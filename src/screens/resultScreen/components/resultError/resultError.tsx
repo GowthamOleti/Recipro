@@ -9,6 +9,11 @@ import {
 } from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {Screen} from '../../../../navigation/navigationTypes';
+import {
+  analyticsTags,
+  fetchResultErrorTag,
+  trackAction,
+} from '../../../../util/analytics';
 import {removeApiKey} from '../../../../util/handleApiKey';
 import {getStyles} from './resultError.styles';
 
@@ -24,8 +29,12 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
   const errorDetails = fetchResultScreenErrorDetails[errorType];
   const navigation = useNavigation<any>();
 
+  trackAction(analyticsTags.resultScreen.resultFailure);
+  trackAction(fetchResultErrorTag[errorType]);
+
   const onErrorButtonPress = () => {
     if (errorType === ResultErrorType.INVALID_KEY) {
+      trackAction(analyticsTags.resultScreen.errorButtons.reset);
       removeApiKey().finally(() => {
         navigation.reset({
           index: 0,
@@ -33,10 +42,12 @@ export const ResultError = ({errorType, fetchResult}: ResultErrorProps) => {
         });
       });
     } else if (errorType === ResultErrorType.PAYMENT_DETAILS_UNAVAILABLE) {
+      trackAction(analyticsTags.resultScreen.errorButtons.instructions);
       navigation.navigate(Screen.EXPLAINER, {
         type: ExplainerScreenType.ADD_PAYMENT,
       });
     } else {
+      trackAction(analyticsTags.resultScreen.errorButtons.retry);
       fetchResult();
     }
   };

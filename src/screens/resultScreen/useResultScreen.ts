@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 import {ResultErrorType} from '../../common/constants';
+import {analyticsTags, trackAction, trackState} from '../../util/analytics';
 import {fetchGPTResult} from '../../util/fetchGPTResult';
 import {Props} from './resultScreen';
 
@@ -7,6 +8,10 @@ export const useResultScreen = ({input, actionType}: Props) => {
   const [outputText, setOutputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errorType, setErrorType] = useState<ResultErrorType>();
+
+  useEffect(() => {
+    trackState(analyticsTags.screens.RESULT);
+  }, []);
 
   const fetchResult = useCallback(() => {
     setErrorType(undefined);
@@ -22,6 +27,7 @@ export const useResultScreen = ({input, actionType}: Props) => {
       } else if (output === '') {
         setErrorType(ResultErrorType.GENERIC);
       } else {
+        trackAction(analyticsTags.resultScreen.resultSuccess);
         setOutputText(output);
       }
     });

@@ -1,16 +1,18 @@
 import {Linking, Platform, Share} from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 import {appVersion} from '../common/constants';
+import {analyticsTags, trackAction} from './analytics';
 
 export const isAndroid = Platform.OS === 'android';
 
 export const shareResult = async (text: string) => {
+  trackAction(analyticsTags.resultScreen.actions.share);
   try {
     const result = await Share.share({
       message: text,
     });
     if (result.action === Share.sharedAction) {
-      console.log('Text shared successfully');
+      console.log(result.action);
     } else if (result.action === Share.dismissedAction) {
       console.log('Sharing dismissed');
     }
@@ -20,10 +22,12 @@ export const shareResult = async (text: string) => {
 };
 
 export const shareAsTweet = (text: string) => {
+  trackAction(analyticsTags.resultScreen.actions.tweet);
   Linking.openURL(`twitter://post?text=${encodeURIComponent(text)}`);
 };
 
 export const shareAsEmail = (text: string) => {
+  trackAction(analyticsTags.resultScreen.actions.email);
   const mailtoUrl = `mailto:?subject=${encodeURIComponent(
     '',
   )}&body=${encodeURIComponent(text)}`;
@@ -34,6 +38,7 @@ export const shareAsEmail = (text: string) => {
 };
 
 export const copyToClipboard = (text: string) => {
+  trackAction(analyticsTags.resultScreen.actions.copy);
   Clipboard.setString(text);
 };
 

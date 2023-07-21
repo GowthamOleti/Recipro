@@ -8,6 +8,8 @@ import {InputCardProps} from './inputCard';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {SettingsContext} from '../../../../common/settingsContext';
 import {useToastMessage} from '../../../../common/useToastMessage';
+import {AppState} from 'react-native';
+import {analyticsTags, trackAction} from '../../../../util/analytics';
 
 export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
   const [showPasteButton, setShowPasteButton] = useState(false);
@@ -20,9 +22,19 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
   const navigation = useNavigation<StackNavigation>();
   const isFocused = useIsFocused();
 
+  const getClipboardText = () => {
+    Clipboard.getString().then(value => setClipboardText(value));
+  };
+
+  AppState.addEventListener('change', nextAppState => {
+    if (nextAppState === 'active') {
+      getClipboardText();
+    }
+  });
+
   useEffect(() => {
     if (isFocused) {
-      Clipboard.getString().then(value => setClipboardText(value));
+      getClipboardText();
     }
   }, [isFocused]);
 
@@ -33,11 +45,13 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
         isLink(sharedText) &&
         isLinkSupported(sharedText)
       ) {
+        trackAction(analyticsTags.homescreen.autoSummarizing);
         navigation.navigate(Screen.RESULT, {
           actionType: InputActionType.Summarize,
           input: sharedText,
         });
       }
+      trackAction(analyticsTags.homescreen.sharedText);
       setInputText(sharedText);
     }
   }, [appSettings.quickSummarize, navigation, setInputText, sharedText]);

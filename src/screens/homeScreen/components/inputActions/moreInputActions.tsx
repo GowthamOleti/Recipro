@@ -13,6 +13,7 @@ import {MoreOptionsType} from '../../../../common/constants';
 import {ThemeProps, useAppTheme} from '../../../../common/useAppTheme';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import {fetchInputActionTag, trackAction} from '../../../../util/analytics';
 
 export interface AdditionalOptionsProps {
   input: string;
@@ -57,6 +58,7 @@ export const MoreInputActions = ({
               ]}
               onPressOut={() => setShowMoreActions(false)}
               onPress={() => {
+                trackAction(fetchInputActionTag[item.id]);
                 ReactNativeHapticFeedback.trigger('soft', {
                   enableVibrateFallback: true,
                   ignoreAndroidSystemSettings: false,

@@ -8,6 +8,7 @@ import {isFirstTime} from '../../util/handleSettings';
 import {isKeyWorking} from '../../util/fetchGPTResult';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import Clipboard from '@react-native-community/clipboard';
+import {analyticsTags, trackState} from '../../util/analytics';
 
 export const useAskAPIKeyScreen = () => {
   const {askAPIKey, toast} = appLabels;
@@ -21,6 +22,7 @@ export const useAskAPIKeyScreen = () => {
   const navigation = useNavigation<any>();
 
   useEffect(() => {
+    trackState(analyticsTags.screens.ASK_API_KEY);
     isFirstTime().then(value => setFirstTime(value));
   }, []);
 

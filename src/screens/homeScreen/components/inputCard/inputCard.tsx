@@ -7,6 +7,7 @@ import {useInputCard} from './useInputCard';
 import {getStyles} from './inputCard.styles';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import Animated, {FadeInDown, ZoomIn} from 'react-native-reanimated';
+import {analyticsTags, trackAction} from '../../../../util/analytics';
 
 export interface InputCardProps {
   inputText: string;
@@ -38,7 +39,14 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
       {inputText.length === 0 && <HomeIllustration />}
       <View style={styles.clearAndPaste}>
         {inputText.length > 0 && (
-          <Clear height={25} width={25} onPress={() => setInputText('')} />
+          <Clear
+            height={25}
+            width={25}
+            onPress={() => {
+              trackAction(analyticsTags.homescreen.clear);
+              setInputText('');
+            }}
+          />
         )}
         {showPasteButton && (
           <Animated.View entering={ZoomIn.duration(500)}>
@@ -46,6 +54,7 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
               height={26}
               width={26}
               onPress={() => {
+                trackAction(analyticsTags.homescreen.paste);
                 showToast({message: appLabels.toast.info.paste, type: 'info'});
                 setInputText(clipboardText);
                 setShowPasteButton(false);

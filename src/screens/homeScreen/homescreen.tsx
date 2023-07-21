@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {InputActions} from './components/inputActions/inputActions';
 import {getStyles} from './homescreen.styles';
@@ -14,7 +14,9 @@ const HomeScreen = () => {
 
   const [inputText, setInputText] = useState('');
 
-  trackState(analyticsTags.screens.HOME);
+  useEffect(() => {
+    trackState(analyticsTags.screens.HOME);
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
