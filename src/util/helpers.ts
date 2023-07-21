@@ -12,9 +12,9 @@ export const shareResult = async (text: string) => {
       message: text,
     });
     if (result.action === Share.sharedAction) {
-      console.log(result.action);
+      trackAction(analyticsTags.resultScreen.actions.shared);
     } else if (result.action === Share.dismissedAction) {
-      console.log('Sharing dismissed');
+      trackAction(analyticsTags.resultScreen.actions.shareDismissed);
     }
   } catch (error) {
     console.error('Error sharing text:', error);

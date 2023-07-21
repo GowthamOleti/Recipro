@@ -2,6 +2,7 @@ import React from 'react';
 import {Linking, ScrollView, StyleSheet, Text} from 'react-native';
 import {appLabels} from '../../../../appLabels';
 import {ThemeProps, useAppTheme} from '../../../common/useAppTheme';
+import {analyticsTags, trackAction} from '../../../util/analytics';
 
 interface Props {
   isPaymentOnly?: boolean;
@@ -22,9 +23,10 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
             {appLabels.askAPIKey.instructions}
           </Text>
           <Text
-            onPress={() =>
-              Linking.openURL(appLabels.askAPIKey.instructionsLink)
-            }
+            onPress={() => {
+              trackAction(analyticsTags.apiKeyInstructions.generateKeyLink);
+              Linking.openURL(appLabels.askAPIKey.instructionsLink);
+            }}
             style={[styles.text, {color: theme.colors.common.link}]}>
             {appLabels.askAPIKey.instructionsLink}
           </Text>
@@ -38,9 +40,10 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
       </Text>
       <Text
         style={[styles.text, {color: theme.colors.common.link}]}
-        onPress={() =>
-          Linking.openURL(appLabels.explainer.apiKeyInstructions.link)
-        }>
+        onPress={() => {
+          trackAction(analyticsTags.apiKeyInstructions.addPaymentLink);
+          Linking.openURL(appLabels.explainer.apiKeyInstructions.link);
+        }}>
         {appLabels.explainer.apiKeyInstructions.link}
       </Text>
       <Text style={styles.text}>
@@ -51,9 +54,12 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
       </Text>
       <Text
         style={[styles.text, {color: theme.colors.common.link}]}
-        onPress={() =>
-          Linking.openURL(appLabels.explainer.apiKeyInstructions.usageLimitLink)
-        }>
+        onPress={() => {
+          trackAction(analyticsTags.apiKeyInstructions.usageLimitLink);
+          Linking.openURL(
+            appLabels.explainer.apiKeyInstructions.usageLimitLink,
+          );
+        }}>
         {appLabels.explainer.apiKeyInstructions.usageLimitLink}
       </Text>
     </ScrollView>

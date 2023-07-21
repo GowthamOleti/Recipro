@@ -2,6 +2,7 @@ import React from 'react';
 import {Linking, ScrollView, StyleSheet, Text} from 'react-native';
 import {appLabels} from '../../../../appLabels';
 import {ThemeProps, useAppTheme} from '../../../common/useAppTheme';
+import {analyticsTags, trackAction} from '../../../util/analytics';
 
 export const AboutTextCraft = () => {
   const theme = useAppTheme();
@@ -28,9 +29,10 @@ export const AboutTextCraft = () => {
         </Text>
         <Text
           style={[styles.aboutText, {color: theme.colors.common.link}]}
-          onPress={() =>
-            Linking.openURL(appLabels.explainer.about.privacyPolicyLink)
-          }>
+          onPress={() => {
+            trackAction(analyticsTags.privacyPolicy);
+            Linking.openURL(appLabels.explainer.about.privacyPolicyLink);
+          }}>
           {appLabels.explainer.about.privacyPolicy}
         </Text>
         <Text style={styles.aboutText}>

@@ -16,6 +16,11 @@ export const trackState = (screen: string) => {
 };
 
 export const analyticsTags = {
+  screens: {
+    HOME: 'homescreen',
+    RESULT: 'result_screen',
+    ASK_API_KEY: 'ask_key_screen',
+  },
   init: {
     initScreen: 'init_screen_{initScreenName}',
     firstTime: 'init_first_time',
@@ -38,6 +43,8 @@ export const analyticsTags = {
     resultFailure: 'result_screen_result_failure',
     actions: {
       share: 'result_screen_share_btn',
+      shared: 'result_screen_result_shared',
+      shareDismissed: 'result_screen_share_dismissed',
       copy: 'result_screen_copy_btn',
       tweet: 'result_screen_tweet_btn',
       email: 'result_screen_email_btn',
@@ -48,8 +55,17 @@ export const analyticsTags = {
       instructions: 'result_screen_error_instructions_btn',
     },
   },
-  // Add these analytics
+  errorToast: {
+    emptyInput: 'homescreen_error_toast_no_input',
+    noInternet: 'homescreen_error_toast_no_internet',
+    unsupportedLink: 'homescreen_error_toast_unsupported_link',
+    rewriteLink: 'homescreen_error_toast_cannot_rewrite_link',
+    twitterNotInstalled: 'result_screen_error_toast_twitter_not_installed',
+    invalidKey: 'ask_api_key_screen_error_toast_invalid_key',
+  },
+  privacyPolicy: 'about_screen_privacy_policy_link',
   settingsScreen: {
+    // TODO
     autoSummarizeEnable: 'settings_auto_summarize_enable',
     autoSummarizeDisable: 'settings_auto_summarize_disable',
     showTweetMail: 'settings_tweet_mail_show',
@@ -63,15 +79,8 @@ export const analyticsTags = {
     aboutTextCraft: 'settings_about',
     feedback: 'settings_feedback',
   },
-  errorToast: {
-    emptyInput: 'homescreen_error_toast_no_input',
-    noInternet: 'homescreen_error_toast_no_internet',
-    unsupportedLink: 'homescreen_error_toast_unsupported_link',
-    rewriteLink: 'homescreen_error_toast_cannot_rewrite_link',
-    twitterNotInstalled: 'result_screen_error_toast_twitter_not_installed',
-    invalidKey: 'ask_api_key_screen_error_toast_invalid_key',
-  },
   onboarding: {
+    // TODO
     aboutScreenRead: 'onboarding_about_read',
     aboutScreenNotRead: 'onboarding_about_not_read',
     aboutScreenNext: 'onboarding_about_next_btn',
@@ -93,6 +102,7 @@ export const analyticsTags = {
     apiKeyTestSuccess: 'ask_key_screen_key_test_success',
     apiKeyTestFailure: 'ask_key_screen_key_test_failure',
     apiKeyErrorPopup: {
+      // TODO
       error: 'ask_key_screen_generic_key_error',
       paymentError: 'ask_key_screen_key_activation_error',
       invalidKeyError: 'ask_key_screen_invalid_key_error',
@@ -107,6 +117,7 @@ export const analyticsTags = {
     usageLimitLink: 'key_instructions_screen_usage_limit_link',
   },
   headerActions: {
+    // TODO
     resultBack: 'result_screen_back_btn',
     settingsBack: 'settings_screen_back_btn',
     aboutScreenBack: 'about_screen_back_btn',
@@ -116,17 +127,11 @@ export const analyticsTags = {
     settingsButtonHome: 'homescreen_settings_btn',
     settingsButtonResult: 'result_screen_settings_btn',
   },
-  privacyPolicy: 'about_screen_privacy_policy_link',
-  screens: {
-    HOME: 'homescreen',
-    RESULT: 'result_screen',
-    ASK_API_KEY: 'ask_key_screen',
-  },
 };
 
 export const fetchInputActionTag: Record<InputActionType, string> = {
   SUMMARIZE: 'homescreen_summarize_btn',
-  REWRITE: 'homescreen_action_rewrite',
+  REWRITE: 'homescreen_rewrite_btn',
   REWRITE_PROFESSIONAL: 'homescreen_professional_tone_btn',
   REWRITE_CASUAL: 'homescreen_casual_tone_btn',
   FIX_GRAMMAR: 'homescreen_fix_grammar_btn',
