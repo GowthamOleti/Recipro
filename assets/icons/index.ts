@@ -5,6 +5,5 @@ export {default as Paste} from './paste.svg';
 export {default as Share} from './share.svg';
 export {default as Twitter} from './twitter.svg';
 export {default as SettingsIcon} from './settings.svg';
-export {default as Right} from './right-arrow.svg';
-export {default as Left} from './left-arrow.svg';
 export {default as ErrorIcon} from './error.svg';
+export {default as Logo} from './logo.svg';

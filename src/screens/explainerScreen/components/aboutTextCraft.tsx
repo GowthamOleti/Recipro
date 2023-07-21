@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Linking, ScrollView, StyleSheet, Text} from 'react-native';
 import {appLabels} from '../../../../appLabels';
+import {Logo} from '../../../../assets/icons';
 import {ThemeProps, useAppTheme} from '../../../common/useAppTheme';
 import {analyticsTags, trackAction} from '../../../util/analytics';
 import {isFirstTime} from '../../../util/handleSettings';
@@ -17,7 +18,9 @@ export const AboutTextCraft = () => {
     }
   }, [read]);
 
-  const handleScroll = async event => {
+  const handleScroll = async (event: {
+    nativeEvent: {contentOffset: any; contentSize: any; layoutMeasurement: any};
+  }) => {
     const {contentOffset, contentSize, layoutMeasurement} = event.nativeEvent;
     const isScrolledToEnd =
       contentOffset.y >= contentSize.height - layoutMeasurement.height;
@@ -30,6 +33,12 @@ export const AboutTextCraft = () => {
     <ScrollView
       contentContainerStyle={styles.contentContainer}
       onScroll={handleScroll}>
+      <Logo
+        style={styles.logo}
+        height={60}
+        width={60}
+        fill={theme.colors.resultSvg}
+      />
       <Text style={styles.aboutText}>{appLabels.explainer.about.intro}</Text>
       <Text style={styles.aboutText}>
         <Text style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
@@ -74,5 +83,9 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
       fontSize: 18,
       color: colors.text,
       flexDirection: 'row',
+    },
+    logo: {
+      alignSelf: 'center',
+      marginBottom: '5%',
     },
   });
