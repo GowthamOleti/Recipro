@@ -15,7 +15,7 @@ const HomeScreen = () => {
   const [inputText, setInputText] = useState('');
 
   useEffect(() => {
-    trackState(analyticsTags.screens.HOME);
+    trackState(analyticsTags.screens.Home);
   }, []);
 
   return (

@@ -6,15 +6,14 @@ import {analyticsTags, trackAction} from './analytics';
 export const isAndroid = Platform.OS === 'android';
 
 export const shareResult = async (text: string) => {
-  trackAction(analyticsTags.resultScreen.actions.share);
   try {
     const result = await Share.share({
       message: text,
     });
     if (result.action === Share.sharedAction) {
-      trackAction(analyticsTags.resultScreen.actions.shared);
+      trackAction(analyticsTags.shared);
     } else if (result.action === Share.dismissedAction) {
-      trackAction(analyticsTags.resultScreen.actions.shareDismissed);
+      trackAction(analyticsTags.shareDismissed);
     }
   } catch (error) {
     console.error('Error sharing text:', error);
@@ -22,12 +21,10 @@ export const shareResult = async (text: string) => {
 };
 
 export const shareAsTweet = (text: string) => {
-  trackAction(analyticsTags.resultScreen.actions.tweet);
   Linking.openURL(`twitter://post?text=${encodeURIComponent(text)}`);
 };
 
 export const shareAsEmail = (text: string) => {
-  trackAction(analyticsTags.resultScreen.actions.email);
   const mailtoUrl = `mailto:?subject=${encodeURIComponent(
     '',
   )}&body=${encodeURIComponent(text)}`;
@@ -38,7 +35,6 @@ export const shareAsEmail = (text: string) => {
 };
 
 export const copyToClipboard = (text: string) => {
-  trackAction(analyticsTags.resultScreen.actions.copy);
   Clipboard.setString(text);
 };
 

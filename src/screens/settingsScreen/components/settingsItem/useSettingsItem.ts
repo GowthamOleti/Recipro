@@ -3,6 +3,7 @@ import {useContext, useEffect, useState} from 'react';
 import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
 import {SettingsContext} from '../../../../common/settingsContext';
 import {Screen} from '../../../../navigation/navigationTypes';
+import {analyticsTags, trackAction} from '../../../../util/analytics';
 import {getOpenAIApiKey, removeApiKey} from '../../../../util/handleApiKey';
 import {getSetting, saveSetting} from '../../../../util/handleSettings';
 import {onFeedbackPress} from '../../../../util/helpers';
@@ -29,6 +30,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   }, [item]);
 
   const resetKey = () => {
+    trackAction(analyticsTags.settingsScreen.resetKeyModalYes);
     removeApiKey().finally(() => {
       navigation.reset({
         index: 0,
@@ -41,12 +43,27 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   const toggleSwitch = () => {
     switch (item.id) {
       case AppSetting.QUICK_SUMMARIZE:
+        trackAction(
+          !isEnabled
+            ? analyticsTags.settingsScreen.autoSummarizeEnable
+            : analyticsTags.settingsScreen.autoSummarizeDisable,
+        );
         setAppSettings({...appSettings, quickSummarize: !isEnabled});
         break;
       case AppSetting.SHOW_TWEET_MAIL:
+        trackAction(
+          !isEnabled
+            ? analyticsTags.settingsScreen.showTweetMail
+            : analyticsTags.settingsScreen.hideTweetMail,
+        );
         setAppSettings({...appSettings, showTweetMail: !isEnabled});
         break;
       case AppSetting.IS_DARK_MODE:
+        trackAction(
+          !isEnabled
+            ? analyticsTags.settingsScreen.darkModeEnable
+            : analyticsTags.settingsScreen.darkModeDisable,
+        );
         setAppSettings({...appSettings, isDarkMode: !isEnabled});
         break;
     }
@@ -60,17 +77,21 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   const onSettingsItemPress = () => {
     switch (item.id) {
       case AppSetting.RESET_API_KEY:
+        trackAction(analyticsTags.settingsScreen.resetKey);
         setShowResetAlert(true);
         break;
       case AppSetting.KEY_INSTRUCTIONS:
+        trackAction(analyticsTags.settingsScreen.keySetupInstructions);
         navigation.navigate(Screen.EXPLAINER, {
           type: ExplainerScreenType.KEY_INSTRUCTIONS,
         });
         break;
       case AppSetting.HOW_TO_USE:
+        trackAction(analyticsTags.settingsScreen.aboutTextCraft);
         navigation.navigate(Screen.EXPLAINER);
         break;
       case AppSetting.FEEDBACK:
+        trackAction(analyticsTags.settingsScreen.feedback);
         onFeedbackPress();
         break;
     }

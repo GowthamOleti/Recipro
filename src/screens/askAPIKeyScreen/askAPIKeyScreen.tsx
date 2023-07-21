@@ -11,11 +11,12 @@ import {
   View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
-import {AppAlert} from '../../common/appAlert';
+import {AppAlert, AppAlertType} from '../../common/appAlert';
 import {ExplainerScreenType} from '../../common/constants';
 import {SettingsContext} from '../../common/settingsContext';
 import {useAppTheme} from '../../common/useAppTheme';
 import {Screen, StackNavigation} from '../../navigation/navigationTypes';
+import {analyticsTags, trackAction} from '../../util/analytics';
 import {getStyles} from './askAPIKeyScreen.styles';
 import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
 
@@ -68,12 +69,19 @@ const AskAPIKeyScreen = () => {
           {askAPIKey.instructions}
         </Text>
         <Text
-          onPress={() => Linking.openURL(askAPIKey.instructionsLink)}
+          onPress={() => {
+            trackAction(
+              firstTime
+                ? analyticsTags.onboarding.apiKeyLink
+                : analyticsTags.askApiKeyScreen.apiKeyLink,
+            );
+            Linking.openURL(askAPIKey.generateKeyLink);
+          }}
           style={[
             styles.ApiKeyInstructionsText,
             {color: theme.colors.common.link},
           ]}>
-          {askAPIKey.instructionsLink}
+          {askAPIKey.generateKeyLink}
         </Text>
       </View>
       <TouchableOpacity
@@ -91,11 +99,13 @@ const AskAPIKeyScreen = () => {
         )}
       </TouchableOpacity>
       <AppAlert
+        type={AppAlertType.KeyError}
         title={appLabels.keyError.title}
         body={appLabels.keyError.body}
         primaryButtonText={appLabels.keyError.primaryButton}
         secondaryButtonText={appLabels.keyError.secondaryButton}
         onPrimaryButtonPress={() => {
+          trackAction(analyticsTags.askApiKeyScreen.apiKeyErrorInstructionsBtn);
           setKeyError(false);
           navigation.navigate(Screen.EXPLAINER, {
             type: ExplainerScreenType.KEY_INSTRUCTIONS,

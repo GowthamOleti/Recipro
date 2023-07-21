@@ -22,7 +22,7 @@ export default function AppNavigator() {
             options={({navigation}) => ({
               title: appLabels.appName,
               ...commonScreenOptions,
-              headerRight: () => SettingsButton(navigation),
+              headerRight: () => SettingsButton(navigation, Screen.HOME),
               animation: 'slide_from_right',
             })}
             name={Screen.HOME}
@@ -41,7 +41,7 @@ export default function AppNavigator() {
             options={({navigation, route}) => ({
               title: fetchResultScreenTitle[route.params.actionType],
               ...commonScreenOptions,
-              headerRight: () => SettingsButton(navigation),
+              headerRight: () => SettingsButton(navigation, Screen.RESULT),
               headerShadowVisible: true,
               animation: 'slide_from_right',
             })}

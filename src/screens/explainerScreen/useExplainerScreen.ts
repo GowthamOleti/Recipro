@@ -6,6 +6,7 @@ import {AppSetting, ExplainerScreenType} from '../../common/constants';
 import {SettingsContext} from '../../common/settingsContext';
 import {useAppTheme} from '../../common/useAppTheme';
 import {Screen} from '../../navigation/navigationTypes';
+import {analyticsTags, trackAction} from '../../util/analytics';
 import {isKeyWorking} from '../../util/fetchGPTResult';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import {isFirstTime} from '../../util/handleSettings';
@@ -30,11 +31,14 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
 
   const onExplainerButtonPress = async () => {
     if (screenType === ExplainerScreenType.ABOUT) {
+      trackAction(analyticsTags.onboarding.aboutScreenNext);
       navigation.navigate(Screen.ASK_API_KEY);
     } else if (screenType === ExplainerScreenType.ADD_PAYMENT) {
+      trackAction(analyticsTags.onboarding.done);
       setIsLoading(true);
       const isWorking = await isKeyWorking(key);
       if (isWorking) {
+        trackAction(analyticsTags.onboarding.apiKeyTestSuccess);
         await AsyncStorage.setItem(AppSetting.IS_FIRST_TIME, 'true');
         await saveOpenAIApiKey(key);
         Clipboard.setString('');
@@ -43,6 +47,7 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
           routes: [{name: Screen.HOME}],
         });
       } else {
+        trackAction(analyticsTags.onboarding.apiKeyTestFailure);
         setKeyError(true);
       }
       setIsLoading(false);

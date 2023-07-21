@@ -25,10 +25,10 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
           <Text
             onPress={() => {
               trackAction(analyticsTags.apiKeyInstructions.generateKeyLink);
-              Linking.openURL(appLabels.askAPIKey.instructionsLink);
+              Linking.openURL(appLabels.askAPIKey.generateKeyLink);
             }}
             style={[styles.text, {color: theme.colors.common.link}]}>
-            {appLabels.askAPIKey.instructionsLink}
+            {appLabels.askAPIKey.generateKeyLink}
           </Text>
         </>
       )}
@@ -41,10 +41,16 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
       <Text
         style={[styles.text, {color: theme.colors.common.link}]}
         onPress={() => {
-          trackAction(analyticsTags.apiKeyInstructions.addPaymentLink);
-          Linking.openURL(appLabels.explainer.apiKeyInstructions.link);
+          trackAction(
+            isPaymentOnly
+              ? analyticsTags.onboarding.addPaymentLink
+              : analyticsTags.apiKeyInstructions.addPaymentLink,
+          );
+          Linking.openURL(
+            appLabels.explainer.apiKeyInstructions.addPaymentLink,
+          );
         }}>
-        {appLabels.explainer.apiKeyInstructions.link}
+        {appLabels.explainer.apiKeyInstructions.addPaymentLink}
       </Text>
       <Text style={styles.text}>
         <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
@@ -55,7 +61,11 @@ export const ApiKeyInstructions = ({isPaymentOnly}: Props) => {
       <Text
         style={[styles.text, {color: theme.colors.common.link}]}
         onPress={() => {
-          trackAction(analyticsTags.apiKeyInstructions.usageLimitLink);
+          trackAction(
+            isPaymentOnly
+              ? analyticsTags.onboarding.usageLimitLink
+              : analyticsTags.apiKeyInstructions.usageLimitLink,
+          );
           Linking.openURL(
             appLabels.explainer.apiKeyInstructions.usageLimitLink,
           );

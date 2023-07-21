@@ -1,8 +1,16 @@
 import React from 'react';
 import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {fetchAlertSecondaryBtnTag, trackAction} from '../util/analytics';
 import {ThemeProps, useAppTheme} from './useAppTheme';
 
+export enum AppAlertType {
+  KeyError = 'KEY_ERROR',
+  ResetConfirmation = 'RESET_CONFIRMATION',
+  OnboardingKeyError = 'ONBOARDING_KEY_ERROR',
+}
+
 export interface AppAlertProps {
+  type: AppAlertType;
   title: string;
   body: string;
   alertVisible: boolean;
@@ -13,6 +21,7 @@ export interface AppAlertProps {
 }
 
 export const AppAlert = ({
+  type,
   title,
   body,
   alertVisible,
@@ -51,7 +60,10 @@ export const AppAlert = ({
                   ? {backgroundColor: theme.colors.common.white}
                   : null,
               ]}
-              onPress={() => setAlertVisible(false)}>
+              onPress={() => {
+                trackAction(fetchAlertSecondaryBtnTag[type]);
+                setAlertVisible(false);
+              }}>
               <Text style={styles.buttonText}>{secondaryButtonText}</Text>
             </TouchableOpacity>
           </View>

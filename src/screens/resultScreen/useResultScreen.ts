@@ -10,7 +10,7 @@ export const useResultScreen = ({input, actionType}: Props) => {
   const [errorType, setErrorType] = useState<ResultErrorType>();
 
   useEffect(() => {
-    trackState(analyticsTags.screens.RESULT);
+    trackState(analyticsTags.screens.Result);
   }, []);
 
   const fetchResult = useCallback(() => {

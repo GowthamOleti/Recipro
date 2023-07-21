@@ -11,6 +11,7 @@ import {useAppTheme} from '../../../../common/useAppTheme';
 import {useResultActions} from './useResultActions';
 import {useToastMessage} from '../../../../common/useToastMessage';
 import {appLabels} from '../../../../../appLabels';
+import {analyticsTags, trackAction} from '../../../../util/analytics';
 
 interface Props {
   output: string;
@@ -25,7 +26,10 @@ export const ResultActions = ({output}: Props) => {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.shareCopyContainer}
-        onPress={() => shareResult(output)}>
+        onPress={() => {
+          trackAction(analyticsTags.resultScreen.actions.share);
+          shareResult(output);
+        }}>
         <Share
           style={styles.shareCopy}
           height={20}
@@ -35,6 +39,7 @@ export const ResultActions = ({output}: Props) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
+          trackAction(analyticsTags.resultScreen.actions.copy);
           showToast({message: appLabels.toast.info.copy, type: 'info'});
           copyToClipboard(output);
         }}
@@ -55,7 +60,10 @@ export const ResultActions = ({output}: Props) => {
       )}
       {appSettings.showTweetMail && (
         <TouchableOpacity
-          onPress={() => shareAsEmail(output)}
+          onPress={() => {
+            trackAction(analyticsTags.resultScreen.actions.email);
+            shareAsEmail(output);
+          }}
           style={styles.emailContainer}>
           <Email style={styles.tweetEmail} height={25} width={25} />
         </TouchableOpacity>

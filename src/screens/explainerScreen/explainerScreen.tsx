@@ -13,7 +13,7 @@ import {getStyles} from './explainerScreen.styles';
 import {ExplainerScreenType} from '../../common/constants';
 import {AboutTextCraft} from './components/aboutTextCraft';
 import {useExplainerScreen} from './useExplainerScreen';
-import {AppAlert} from '../../common/appAlert';
+import {AppAlert, AppAlertType} from '../../common/appAlert';
 import {ApiKeyInstructions} from './components/apiKeyInstructions';
 import Animated, {FadeInDown} from 'react-native-reanimated';
 import {fetchExplainerScreenTag, trackState} from '../../util/analytics';
@@ -73,6 +73,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
         )}
       </Animated.View>
       <AppAlert
+        type={AppAlertType.OnboardingKeyError}
         title={appLabels.keyError.title}
         body={appLabels.keyError.body}
         primaryButtonText={appLabels.keyError.primaryButton}

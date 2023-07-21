@@ -22,7 +22,7 @@ export const useAskAPIKeyScreen = () => {
   const navigation = useNavigation<any>();
 
   useEffect(() => {
-    trackState(analyticsTags.screens.ASK_API_KEY);
+    trackState(analyticsTags.screens.AskApiKey);
     isFirstTime().then(value => setFirstTime(value));
   }, []);
 
@@ -32,6 +32,7 @@ export const useAskAPIKeyScreen = () => {
       showToast({message: toast.errors.invalidApiKey, type: 'error'});
     } else {
       if (firstTime) {
+        trackAction(analyticsTags.onboarding.apiKeyNext);
         navigation.push(Screen.EXPLAINER, {
           type: ExplainerScreenType.ADD_PAYMENT,
           key,

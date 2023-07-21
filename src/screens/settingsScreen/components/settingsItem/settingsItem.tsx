@@ -1,7 +1,7 @@
 import React from 'react';
 import {Pressable, Switch, Text, View} from 'react-native';
 import {appLabels} from '../../../../../appLabels';
-import {AppAlert} from '../../../../common/appAlert';
+import {AppAlert, AppAlertType} from '../../../../common/appAlert';
 import {AppSetting} from '../../../../common/constants';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {getStyles} from './settingsItem.styles';
@@ -60,6 +60,7 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
         />
       )}
       <AppAlert
+        type={AppAlertType.ResetConfirmation}
         title={title}
         body={body}
         primaryButtonText={okButton}

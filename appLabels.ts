@@ -15,7 +15,7 @@ export const appLabels = {
     step: 'Step 1: ',
     instructions:
       'Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n',
-    instructionsLink: 'https://platform.openai.com/account/api-keys',
+    generateKeyLink: 'https://platform.openai.com/account/api-keys',
   },
   keyError: {
     title: 'API Key Error',
@@ -48,7 +48,8 @@ export const appLabels = {
       pricing: '\nPricing: ',
       pricingBody:
         "It's pretty cheap. It roughly costs around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). The cost per month for even the most heavy users will not exceed $0.12 (₹10), while casual users can expect an even lower cost. You can also set usage limits for your key using the link below.\n",
-      link: 'https://platform.openai.com/account/billing/payment-methods',
+      addPaymentLink:
+        'https://platform.openai.com/account/billing/payment-methods',
       usageLimitLink: 'https://platform.openai.com/account/billing/limits',
     },
     button: {
