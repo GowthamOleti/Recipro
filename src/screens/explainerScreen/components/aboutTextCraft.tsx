@@ -86,6 +86,6 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     logo: {
       alignSelf: 'center',
-      marginBottom: '5%',
+      marginBottom: '6%',
     },
   });
