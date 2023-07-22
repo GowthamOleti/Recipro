@@ -33,6 +33,6 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       marginBottom: '30%',
     },
     marginBottom5: {
-      marginBottom: '30%',
+      marginBottom: '6%',
     },
   });

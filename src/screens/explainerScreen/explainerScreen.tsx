@@ -17,8 +17,8 @@ import {ApiKeyInstructions} from './components/apiKeyInstructions/apiKeyInstruct
 import Animated, {FadeInDown} from 'react-native-reanimated';
 
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
-  const {type, key} = route?.params;
-  const screenType = type ?? ExplainerScreenType.About;
+  const screenType = route?.params?.type ?? ExplainerScreenType.About;
+  const key = route?.params?.key;
 
   const {
     firstTime,
