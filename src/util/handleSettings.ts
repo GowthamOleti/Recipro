@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AppSetting} from '../common/constants';
 import {SettingsContextType} from '../common/settingsContext';
+import {logError} from './helpers';
 
 interface AsyncStorageProps {
   key: string;
@@ -11,7 +12,7 @@ export const saveSetting = async ({key, value}: AsyncStorageProps) => {
   try {
     await AsyncStorage.setItem(key, value ? 'true' : 'false');
   } catch (error) {
-    console.log(error);
+    logError(error);
   }
 };
 
@@ -23,7 +24,7 @@ export const getSetting = async (key: AppSetting) => {
     }
     return result === 'true' ? true : false;
   } catch (error) {
-    console.log(error);
+    logError(error);
     return false;
   }
 };
@@ -34,7 +35,7 @@ export const isFirstTime = async () => {
     const result = value === null ? true : false;
     return result;
   } catch (error) {
-    console.log(error);
+    logError(error);
     return false;
   }
 };
@@ -57,6 +58,6 @@ export const fetchAllSettings = async () => {
     };
     return result;
   } catch (error) {
-    console.log(error);
+    logError(error);
   }
 };

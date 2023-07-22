@@ -1,5 +1,6 @@
 import {fetchPrompt, InputActionType} from '../common/constants';
 import {getOpenAIApiKey} from './handleApiKey';
+import {logError} from './helpers';
 
 interface Props {
   input: string;
@@ -28,11 +29,11 @@ export const fetchGPTResult = async ({input, actionType, key}: Props) => {
 
     console.log('API Response: ', JSON.stringify(response.data));
     return String(response.data.choices[0].message.content).trim();
-  } catch (e) {
-    console.log(e);
-    if (String(e).includes('401')) {
+  } catch (error) {
+    logError(error);
+    if (String(error).includes('401')) {
       return 'ERR401';
-    } else if (String(e).includes('429')) {
+    } else if (String(error).includes('429')) {
       return 'ERR429';
     } else {
       return '';

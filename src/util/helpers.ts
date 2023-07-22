@@ -2,6 +2,7 @@ import {Linking, Platform, Share} from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 import {appVersion} from '../common/constants';
 import {analyticsTags, trackAction} from './analytics';
+import crashlytics from '@react-native-firebase/crashlytics';
 
 export const isAndroid = Platform.OS === 'android';
 
@@ -56,4 +57,9 @@ export const isLinkSupported = (link: string) => {
   const pdfRegex = /\.pdf$/i;
   const youTubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.*$/i;
   return !pdfRegex.test(link) && !youTubeRegex.test(link);
+};
+
+export const logError = (error: any) => {
+  console.log(error);
+  crashlytics().recordError(error);
 };

@@ -4,6 +4,7 @@ import {useAppTheme} from '../common/useAppTheme';
 import {analyticsTags, trackAction} from '../util/analytics';
 import {IsOpenAIApiKeyPresent} from '../util/handleApiKey';
 import {fetchAllSettings, isFirstTime} from '../util/handleSettings';
+import {logError} from '../util/helpers';
 import {Screen} from './navigationTypes';
 
 export const useNavigator = () => {
@@ -69,7 +70,7 @@ export const useNavigator = () => {
         );
       })
       .catch(error => {
-        console.log(error);
+        logError(error);
       });
   }, [setInitRoute, setAppSettings]);
 
