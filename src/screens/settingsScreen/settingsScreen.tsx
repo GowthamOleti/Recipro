@@ -11,22 +11,22 @@ const SettingsScreen = () => {
     <ScrollView style={styles.container}>
       <View style={styles.firstSection}>
         {settings.toggleSettings.map((item, index) => (
-          <>
+          <View key={item.id}>
             <SettingsItem settingsItem={item} />
             {index !== settings.toggleSettings.length - 1 && (
               <View style={styles.divider} />
             )}
-          </>
+          </View>
         ))}
       </View>
       <View style={styles.secondSection}>
         {settings.more.map((item, index) => (
-          <>
+          <View key={item.id}>
             <SettingsItem settingsItem={item} />
             {index !== settings.more.length - 1 && (
               <View style={styles.divider} />
             )}
-          </>
+          </View>
         ))}
       </View>
       <Text style={styles.version}>

@@ -10,6 +10,7 @@ export const useSettingsScreen = () => {
   useEffect(() => {
     trackState(analyticsTags.screens.Settings);
   }, []);
+
   return {
     styles,
   };

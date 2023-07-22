@@ -27,6 +27,7 @@ export const MoreInputActions = (props: MoreOptionsProps) => {
         <View style={styles.contentContainer}>
           {options.map(item => (
             <TouchableOpacity
+              key={item.id}
               style={[
                 styles.buttonContainer,
                 props.type === MoreOptionsType.Read
