@@ -1,37 +1,33 @@
 import React from 'react';
 import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {fetchAlertData} from '../../appLabels';
 import {fetchAlertSecondaryBtnTag, trackAction} from '../util/analytics';
 import {ThemeProps, useAppTheme} from './useAppTheme';
 
 export enum AppAlertType {
   KeyError = 'KEY_ERROR',
-  ResetConfirmation = 'RESET_CONFIRMATION',
   OnboardingKeyError = 'ONBOARDING_KEY_ERROR',
+  ResetConfirmation = 'RESET_CONFIRMATION',
 }
 
 export interface AppAlertProps {
-  type: AppAlertType;
-  title: string;
-  body: string;
   alertVisible: boolean;
-  setAlertVisible: (visible: boolean) => void;
-  primaryButtonText: string;
-  secondaryButtonText: string;
   onPrimaryButtonPress?: () => void;
+  setAlertVisible: (visible: boolean) => void;
+  type: AppAlertType;
 }
 
 export const AppAlert = ({
-  type,
-  title,
-  body,
   alertVisible,
-  primaryButtonText,
-  secondaryButtonText,
-  setAlertVisible,
   onPrimaryButtonPress,
+  setAlertVisible,
+  type,
 }: AppAlertProps) => {
   const theme = useAppTheme();
   const styles = getStyles(theme);
+
+  const {title, body, primaryButtonText, secondaryButtonText} =
+    fetchAlertData[type];
 
   return (
     <Modal
@@ -39,7 +35,7 @@ export const AppAlert = ({
       transparent={true}
       visible={alertVisible}
       onRequestClose={() => {
-        setAlertVisible(!alertVisible);
+        setAlertVisible(false);
       }}>
       <View style={styles.container}>
         <View style={styles.contentContainer}>
@@ -57,7 +53,7 @@ export const AppAlert = ({
               style={[
                 styles.button,
                 onPrimaryButtonPress
-                  ? {backgroundColor: theme.colors.common.white}
+                  ? {backgroundColor: theme.colors.textBackground}
                   : null,
               ]}
               onPress={() => {
@@ -77,7 +73,7 @@ const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'rgba(0,0,0,0.5)',
+      backgroundColor: colors.common.modalBackground,
     },
     contentContainer: {
       backgroundColor: colors.textBackground,

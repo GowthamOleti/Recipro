@@ -22,17 +22,18 @@ export const useNavigator = () => {
     headerTintColor: colors.text,
     headerShadowVisible: false,
     headerTitleAlign: 'center' as 'center',
+    animation: 'slide_from_right' as 'slide_from_right',
   };
 
   useEffect(() => {
     isFirstTime().then(firstTime => {
       if (firstTime) {
         trackAction(analyticsTags.init.firstTime);
-        setInitRoute(Screen.EXPLAINER);
+        setInitRoute(Screen.Explainer);
         trackAction(
           analyticsTags.init.initScreen.replace(
             '{initScreenName}',
-            Screen.EXPLAINER.toLowerCase(),
+            Screen.Explainer.toLowerCase(),
           ),
         );
       } else {
@@ -46,11 +47,11 @@ export const useNavigator = () => {
       .then(([isOpenAIApiKeyPresent, currentSettings]) => {
         if (!isOpenAIApiKeyPresent) {
           trackAction(analyticsTags.init.keyNotPresent);
-          setInitRoute(Screen.ASK_API_KEY);
+          setInitRoute(Screen.AskApiKey);
           trackAction(
             analyticsTags.init.initScreen.replace(
               '{initScreenName}',
-              Screen.ASK_API_KEY.toLowerCase(),
+              Screen.AskApiKey.toLowerCase(),
             ),
           );
         } else {
@@ -59,11 +60,11 @@ export const useNavigator = () => {
         if (currentSettings) {
           setAppSettings(currentSettings);
         }
-        setInitRoute(Screen.HOME);
+        setInitRoute(Screen.Home);
         trackAction(
           analyticsTags.init.initScreen.replace(
             '{initScreenName}',
-            Screen.HOME.toLowerCase(),
+            Screen.Home.toLowerCase(),
           ),
         );
       })

@@ -29,4 +29,10 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       alignSelf: 'center',
       padding: '7%',
     },
+    marginBottom30: {
+      marginBottom: '30%',
+    },
+    marginBottom5: {
+      marginBottom: '30%',
+    },
   });

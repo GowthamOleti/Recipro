@@ -1,14 +1,11 @@
 import React from 'react';
 import {Pressable, Switch, Text, View} from 'react-native';
-import {appLabels} from '../../../../../appLabels';
-import {AppAlert, AppAlertType} from '../../../../common/appAlert';
-import {AppSetting} from '../../../../common/constants';
-import {useAppTheme} from '../../../../common/useAppTheme';
-import {getStyles} from './settingsItem.styles';
+import {AppAlert, AppAlertType} from '../../../common/appAlert';
+import {AppSetting} from '../../../common/constants';
 import {useSettingsItem} from './useSettingsItem';
 
 export interface SettingsItemProps {
-  item: {
+  settingsItem: {
     id: AppSetting;
     title: string;
     subtext?: string;
@@ -16,37 +13,34 @@ export interface SettingsItemProps {
   };
 }
 
-export const SettingsItem = ({item}: SettingsItemProps) => {
-  const theme = useAppTheme();
-  const styles = getStyles(theme);
-
-  const {title, body, okButton, cancelButton} = appLabels.resetKeyAlert;
-
+export const SettingsItem = ({settingsItem}: SettingsItemProps) => {
   const {
     isEnabled,
     onSettingsItemPress,
     resetKey,
-    showResetAlert,
     setShowResetAlert,
+    showResetAlert,
+    styles,
+    theme,
     toggleSwitch,
     truncatedApiKey,
   } = useSettingsItem({
-    item,
+    settingsItem,
   });
 
   return (
     <Pressable style={styles.container} onPress={onSettingsItemPress}>
       <View>
-        <Text style={styles.title}>{item.title}</Text>
-        {item.subtext && (
+        <Text style={styles.title}>{settingsItem.title}</Text>
+        {settingsItem.subtext && (
           <Text style={styles.subtext}>
             {truncatedApiKey
-              ? item.subtext.replace('{key}', truncatedApiKey)
-              : item.subtext}
+              ? settingsItem.subtext.replace('{key}', truncatedApiKey)
+              : settingsItem.subtext}
           </Text>
         )}
       </View>
-      {item.hasToggle && (
+      {settingsItem.hasToggle && (
         <Switch
           trackColor={{
             false: theme.colors.toggleTrack,
@@ -61,10 +55,6 @@ export const SettingsItem = ({item}: SettingsItemProps) => {
       )}
       <AppAlert
         type={AppAlertType.ResetConfirmation}
-        title={title}
-        body={body}
-        primaryButtonText={okButton}
-        secondaryButtonText={cancelButton}
         onPrimaryButtonPress={resetKey}
         alertVisible={showResetAlert}
         setAlertVisible={setShowResetAlert}

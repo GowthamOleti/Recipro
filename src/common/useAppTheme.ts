@@ -7,37 +7,41 @@ export const useAppTheme = () => {
   const isDarkMode = appSettings.isDarkMode;
 
   const colors = {
+    background: isDarkMode ? '#212121' : '#FAF4F2',
     border: isDarkMode ? 'white' : 'black',
     buttonBorder: isDarkMode ? '' : 'black',
+    green: isDarkMode ? '#D1EDBF' : '#D1EDBF',
+    greenText: isDarkMode ? '' : '#1C5621',
     headerBackground: isDarkMode ? '#212121' : '#FAF4F2',
-    background: isDarkMode ? '#212121' : '#FAF4F2',
+    paginationInFocus: isDarkMode ? '' : '#787171',
+    paginationNotInFocus: isDarkMode ? '' : '#CCCCCC',
     resultBackground: isDarkMode ? '#212121' : 'white',
     resultButtonBorder: isDarkMode ? '#BDBDBD' : 'black',
     resultFooter: isDarkMode ? '#212121' : '#FAF4F2',
     resultSvg: isDarkMode ? '#BDBDBD' : '#666666',
-    yellow: isDarkMode ? '#FFE7AB' : '#FFE7AB',
     shadow: isDarkMode ? 'black' : 'black',
-    green: isDarkMode ? '#D1EDBF' : '#D1EDBF',
+    statusBarContent: isDarkMode
+      ? ('light-content' as 'light-content')
+      : ('dark-content' as 'dark-content'),
     text: isDarkMode ? 'white' : 'black',
-    greenText: isDarkMode ? '' : '#1C5621',
-    yellowText: isDarkMode ? '' : '#6F4F01',
     textBackground: isDarkMode ? 'black' : 'white',
-    paginationInFocus: isDarkMode ? '' : '#787171',
-    paginationNotInFocus: isDarkMode ? '' : '#CCCCCC',
-    toggleTrack: isDarkMode ? '' : '#767577',
     toggleThumb: isDarkMode ? '' : '#f4f3f4',
+    toggleTrack: isDarkMode ? '' : '#767577',
+    yellow: isDarkMode ? '#FFE7AB' : '#FFE7AB',
+    yellowText: isDarkMode ? '' : '#6F4F01',
     common: {
+      black: 'black',
       emailBackground: '#FB1C1C1A',
       emailBorder: '#D41B1B',
+      errorToast: '#CD4848',
       homeSvg: '#7986cb',
+      infoToast: '#0288D1',
+      link: '#1976D2',
+      modalBackground: 'rgba(0,0,0,0.5)',
       placeHolderText: '#757575',
       tweetBackground: '#03A9F41A',
       tweetBorder: '#03A9F4',
-      errorToast: '#CD4848',
-      infoToast: '#0288D1',
-      link: '#1976D2',
       white: 'white',
-      black: 'black',
     },
   };
   const fonts = {
@@ -50,36 +54,38 @@ export const useAppTheme = () => {
 
 export interface ThemeProps {
   colors: {
+    background: string;
     border: string;
     buttonBorder: string;
+    green: string;
+    greenText: string;
     headerBackground: string;
-    background: string;
+    paginationInFocus: string;
+    paginationNotInFocus: string;
     resultBackground: string;
     resultButtonBorder: string;
     resultFooter: string;
     resultSvg: string;
-    yellow: string;
     shadow: string;
-    green: string;
+    statusBarContent: any;
     text: string;
-    greenText: string;
-    yellowText: string;
     textBackground: string;
-    paginationInFocus: string;
-    paginationNotInFocus: string;
-    toggleTrack: string;
     toggleThumb: string;
+    toggleTrack: string;
+    yellow: string;
+    yellowText: string;
     common: {
+      black: string;
       emailBackground: string;
       emailBorder: string;
+      errorToast: string;
       homeSvg: string;
+      link: string;
+      modalBackground: string;
       placeHolderText: string;
       tweetBackground: string;
       tweetBorder: string;
-      errorToast: string;
-      link: string;
       white: string;
-      black: string;
     };
   };
   fonts: {

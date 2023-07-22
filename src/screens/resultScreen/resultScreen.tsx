@@ -1,40 +1,44 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {SafeAreaView, StatusBar, Text, View} from 'react-native';
+import LottieAnimatedView from 'lottie-react-native';
 
-import {Loading} from './components/loading';
 import {ResultActions} from './components/resultActions/resultActions';
 import {ResultError} from './components/resultError/resultError';
 import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../common/constants';
-import {useAppTheme} from '../../common/useAppTheme';
-import {getStyles} from './resultScreen.styles';
 import {useResultScreen} from './useResultScreen';
 import Animated, {FadeIn} from 'react-native-reanimated';
-import {SettingsContext} from '../../common/settingsContext';
+import {Animations} from '../../../assets/animations';
 
-export interface Props {
+export interface ResultProps {
   input: string;
   actionType: InputActionType;
 }
 
 const ResultScreen = ({route}: ResultScreenProps) => {
   const {actionType, input} = route.params;
-  const {isLoading, fetchResult, errorType, outputText} = useResultScreen({
-    input,
-    actionType,
-  });
-  const {appSettings} = useContext(SettingsContext);
-
-  const theme = useAppTheme();
-  const styles = getStyles(theme);
+  const {isLoading, fetchResult, errorType, outputText, styles, theme} =
+    useResultScreen({
+      input,
+      actionType,
+    });
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
-        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={theme.colors.statusBarContent}
       />
-      {isLoading && <Loading />}
+      {isLoading && (
+        <View style={styles.loading}>
+          <LottieAnimatedView
+            style={{transform: [{scaleX: 0.8}, {scaleY: 0.8}]}}
+            source={Animations.Loading}
+            autoPlay
+            loop
+          />
+        </View>
+      )}
       {outputText.length > 0 && (
         <View>
           <Animated.ScrollView

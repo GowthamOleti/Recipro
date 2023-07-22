@@ -1,10 +1,15 @@
 import {useCallback, useEffect, useState} from 'react';
 import {ResultErrorType} from '../../common/constants';
+import {useAppTheme} from '../../common/useAppTheme';
 import {analyticsTags, trackAction, trackState} from '../../util/analytics';
 import {fetchGPTResult} from '../../util/fetchGPTResult';
-import {Props} from './resultScreen';
+import {ResultProps} from './resultScreen';
+import {getStyles} from './resultScreen.styles';
 
-export const useResultScreen = ({input, actionType}: Props) => {
+export const useResultScreen = ({input, actionType}: ResultProps) => {
+  const theme = useAppTheme();
+  const styles = getStyles(theme);
+
   const [outputText, setOutputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errorType, setErrorType] = useState<ResultErrorType>();
@@ -21,11 +26,11 @@ export const useResultScreen = ({input, actionType}: Props) => {
     fetchGPTResult({input, actionType}).then(output => {
       setIsLoading(false);
       if (output === 'ERR401') {
-        setErrorType(ResultErrorType.INVALID_KEY);
+        setErrorType(ResultErrorType.InvalidKey);
       } else if (output === 'ERR429') {
-        setErrorType(ResultErrorType.PAYMENT_DETAILS_UNAVAILABLE);
+        setErrorType(ResultErrorType.KeyNotActivated);
       } else if (output === '') {
-        setErrorType(ResultErrorType.GENERIC);
+        setErrorType(ResultErrorType.Generic);
       } else {
         trackAction(analyticsTags.resultScreen.resultSuccess);
         setOutputText(output);
@@ -44,5 +49,7 @@ export const useResultScreen = ({input, actionType}: Props) => {
     fetchResult,
     isLoading,
     outputText,
+    styles,
+    theme,
   };
 };

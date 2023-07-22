@@ -18,7 +18,7 @@ export const saveSetting = async ({key, value}: AsyncStorageProps) => {
 export const getSetting = async (key: AppSetting) => {
   try {
     const result = await AsyncStorage.getItem(key.toString());
-    if (key === AppSetting.SHOW_TWEET_MAIL && result === null) {
+    if (key === AppSetting.ShowTweetEmail && result === null) {
       return true;
     }
     return result === 'true' ? true : false;
@@ -30,7 +30,7 @@ export const getSetting = async (key: AppSetting) => {
 
 export const isFirstTime = async () => {
   try {
-    const value = await AsyncStorage.getItem(AppSetting.IS_FIRST_TIME);
+    const value = await AsyncStorage.getItem(AppSetting.IsFirstTime);
     const result = value === null ? true : false;
     return result;
   } catch (error) {
@@ -42,17 +42,17 @@ export const isFirstTime = async () => {
 export const fetchAllSettings = async () => {
   try {
     const quickSummarizeItem = await AsyncStorage.getItem(
-      AppSetting.QUICK_SUMMARIZE.toString(),
+      AppSetting.QuickSummarize.toString(),
     );
-    const showTweetMailItem = await AsyncStorage.getItem(
-      AppSetting.SHOW_TWEET_MAIL.toString(),
+    const showTweetEmailItem = await AsyncStorage.getItem(
+      AppSetting.ShowTweetEmail.toString(),
     );
     const isDarkModeItem = await AsyncStorage.getItem(
-      AppSetting.IS_DARK_MODE.toString(),
+      AppSetting.IsDarkMode.toString(),
     );
     const result: SettingsContextType = {
       quickSummarize: quickSummarizeItem === 'true' ? true : false,
-      showTweetMail: showTweetMailItem === 'false' ? false : true,
+      showTweetEmail: showTweetEmailItem === 'false' ? false : true,
       isDarkMode: isDarkModeItem === 'true' ? true : false,
     };
     return result;

@@ -54,6 +54,6 @@ export const isLink = (text: string): boolean => {
 
 export const isLinkSupported = (link: string) => {
   const pdfRegex = /\.pdf$/i;
-  const youTubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.*$/i; // match YouTube domain
+  const youTubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.*$/i;
   return !pdfRegex.test(link) && !youTubeRegex.test(link);
 };

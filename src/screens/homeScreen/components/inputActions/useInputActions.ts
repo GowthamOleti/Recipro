@@ -13,31 +13,36 @@ import {
   fetchInputActionTag,
   trackAction,
 } from '../../../../util/analytics';
+import {useAppTheme} from '../../../../common/useAppTheme';
+import {getStyles} from './inputActions.styles';
 
 export const useInputActions = ({input}: InputActionsProps) => {
   const internetState: NetInfoState = useNetInfo();
   const navigation = useNavigation<StackNavigation>();
   const {showToast} = useToastMessage();
+  const theme = useAppTheme();
+  const styles = getStyles(theme);
 
   const [showMoreOptions, setShowMoreOptions] = useState(false);
   const [moreOptionsType, setMoreOptionsType] = useState<MoreOptionsType>();
 
-  const {toast} = appLabels;
-
   const isValidInput = useCallback(
-    ({input, actionType}: {input: string; actionType: InputActionType}) => {
+    (actionType: InputActionType) => {
       if (input.trim().length === 0) {
         trackAction(analyticsTags.errorToast.emptyInput);
-        showToast({message: toast.errors.noInput, type: 'error'});
+        showToast({message: appLabels.toast.errors.noInput, type: 'error'});
       } else if (internetState.isConnected === false) {
         trackAction(analyticsTags.errorToast.noInternet);
-        showToast({message: toast.errors.noInternet, type: 'error'});
+        showToast({message: appLabels.toast.errors.noInternet, type: 'error'});
       } else if (actionType === InputActionType.Rewrite && isLink(input)) {
         trackAction(analyticsTags.errorToast.rewriteLink);
-        showToast({message: toast.errors.rewriteLink, type: 'error'});
+        showToast({message: appLabels.toast.errors.rewriteLink, type: 'error'});
       } else if (!isLinkSupported(input)) {
         trackAction(analyticsTags.errorToast.unsupportedLink);
-        showToast({message: toast.errors.unsupportedLink, type: 'error'});
+        showToast({
+          message: appLabels.toast.errors.unsupportedLink,
+          type: 'error',
+        });
       } else {
         trackAction(analyticsTags.homescreen.validInput);
         return true;
@@ -45,7 +50,7 @@ export const useInputActions = ({input}: InputActionsProps) => {
       trackAction(analyticsTags.homescreen.invalidInput);
       return false;
     },
-    [internetState.isConnected, showToast, toast.errors],
+    [input, internetState.isConnected, showToast],
   );
 
   const onActionButtonPress = async (actionType: InputActionType) => {
@@ -54,8 +59,8 @@ export const useInputActions = ({input}: InputActionsProps) => {
       enableVibrateFallback: true,
       ignoreAndroidSystemSettings: false,
     });
-    if (isValidInput({input, actionType})) {
-      navigation.navigate(Screen.RESULT, {
+    if (isValidInput(actionType)) {
+      navigation.navigate(Screen.Result, {
         actionType,
         input,
       });
@@ -72,7 +77,7 @@ export const useInputActions = ({input}: InputActionsProps) => {
       enableVibrateFallback: true,
       ignoreAndroidSystemSettings: false,
     });
-    if (isValidInput({input, actionType})) {
+    if (isValidInput(actionType)) {
       setShowMoreOptions(true);
       setMoreOptionsType(
         actionType === InputActionType.Summarize
@@ -83,10 +88,11 @@ export const useInputActions = ({input}: InputActionsProps) => {
   };
 
   return {
-    onActionButtonPress,
-    onActionButtonLongPress,
-    showMoreOptions,
-    setShowMoreOptions,
     moreOptionsType,
+    onActionButtonLongPress,
+    onActionButtonPress,
+    setShowMoreOptions,
+    showMoreOptions,
+    styles,
   };
 };

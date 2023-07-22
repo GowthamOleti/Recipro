@@ -26,4 +26,9 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       borderTopLeftRadius: 25,
       borderTopRightRadius: 25,
     },
+    loading: {
+      flex: 1,
+      justifyContent: 'center',
+      marginBottom: '10%',
+    },
   });

@@ -1,3 +1,4 @@
+import {AppAlertType} from './src/common/appAlert';
 import {
   AppSetting,
   InputActionType,
@@ -16,13 +17,6 @@ export const appLabels = {
     instructions:
       'Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n',
     generateKeyLink: 'https://platform.openai.com/account/api-keys',
-  },
-  keyError: {
-    title: 'API Key Error',
-    body: 'The key you provided is not working. Please make sure that you have followed all the instructions correctly.',
-    primaryButton: 'Instructions',
-    secondaryButton: 'Close',
-    okay: 'Okay',
   },
   explainer: {
     about: {
@@ -62,7 +56,7 @@ export const appLabels = {
       noInternet: 'No Internet Connection!',
       noInput: 'Missing Input!',
       unsupportedLink: 'Unsupported Link!',
-      rewriteLink: 'Rewrite does not support links!',
+      rewriteLink: 'Rewrite Does Not Support Links!',
       invalidApiKey: 'Invalid API Key!',
       twitterNotInstalled: 'Twitter App is Not Installed!',
     },
@@ -77,20 +71,7 @@ export const appLabels = {
     summarize: 'Summarize',
     rewrite: 'Rewrite',
   },
-  moreInputActions: {
-    rewrite: {
-      fixGrammar: 'Fix Grammar',
-      professional: 'Professional Tone',
-      casual: 'Casual Tone',
-    },
-    summarize: {},
-  },
-  resetKeyAlert: {
-    title: 'Are You Sure?',
-    body: 'Please confirm if you want to reset your OpenAI API Key.',
-    cancelButton: 'Cancel',
-    okButton: 'Yes',
-  },
+  appVersion: 'Version {version}',
   settingsScreenTitle: 'Settings',
   apiKeyScreenTitle: 'API Key Setup',
   aboutScreenTitle: 'About TextCraft',
@@ -126,6 +107,34 @@ export const fetchResultScreenErrorDetails: Record<
     errorTitle:
       'Oops! Looks like your API Key is not activated. Did you setup your payment details?',
     buttonText: 'Instructions',
+  },
+};
+
+export const fetchAlertData: Record<
+  AppAlertType,
+  {
+    title: string;
+    body: string;
+    primaryButtonText?: string;
+    secondaryButtonText: string;
+  }
+> = {
+  ONBOARDING_KEY_ERROR: {
+    title: 'API Key Error',
+    body: 'The key you provided is not working. Please make sure that you have followed all the instructions correctly.',
+    secondaryButtonText: 'Okay',
+  },
+  KEY_ERROR: {
+    title: 'API Key Error',
+    body: 'The key you provided is not working. Please make sure that you have followed all the instructions correctly.',
+    primaryButtonText: 'Instructions',
+    secondaryButtonText: 'Close',
+  },
+  RESET_CONFIRMATION: {
+    title: 'Are You Sure?',
+    body: 'Please confirm if you want to reset your OpenAI API Key.',
+    primaryButtonText: 'Yes',
+    secondaryButtonText: 'Cancel',
   },
 };
 
@@ -171,13 +180,13 @@ export const moreActions = {
 export const settings = {
   toggleSettings: [
     {
-      id: AppSetting.QUICK_SUMMARIZE,
+      id: AppSetting.QuickSummarize,
       title: 'Auto-Summarize Links',
       subtext: 'Quickly Summarize Shared Article links',
       hasToggle: true,
     },
     {
-      id: AppSetting.SHOW_TWEET_MAIL,
+      id: AppSetting.ShowTweetEmail,
       title: 'Sharing via Tweet & Email',
       subtext: 'Show These Options in Result Screen',
       hasToggle: true,
@@ -190,20 +199,20 @@ export const settings = {
   ],
   more: [
     {
-      id: AppSetting.RESET_API_KEY,
+      id: AppSetting.ResetKey,
       title: 'Reset API Key',
       subtext: 'Current key ends with "{key}"',
     },
     {
-      id: AppSetting.KEY_INSTRUCTIONS,
+      id: AppSetting.KeyInstructions,
       title: 'API Key Setup Instructions',
     },
     {
-      id: AppSetting.HOW_TO_USE,
+      id: AppSetting.About,
       title: 'About TextCraft',
     },
     {
-      id: AppSetting.FEEDBACK,
+      id: AppSetting.Feedback,
       title: 'Feedback',
     },
   ],

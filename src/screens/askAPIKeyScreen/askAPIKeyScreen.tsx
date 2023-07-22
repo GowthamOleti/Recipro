@@ -1,8 +1,6 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
-  Linking,
   SafeAreaView,
   StatusBar,
   Text,
@@ -12,36 +10,29 @@ import {
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
 import {AppAlert, AppAlertType} from '../../common/appAlert';
-import {ExplainerScreenType} from '../../common/constants';
-import {SettingsContext} from '../../common/settingsContext';
-import {useAppTheme} from '../../common/useAppTheme';
-import {Screen, StackNavigation} from '../../navigation/navigationTypes';
-import {analyticsTags, trackAction} from '../../util/analytics';
-import {getStyles} from './askAPIKeyScreen.styles';
-import {useAskAPIKeyScreen} from './useAskAPIKeyScreen';
+import {useAskApiKeyScreen} from './useAskApiKeyScreen';
 
-const AskAPIKeyScreen = () => {
+const AskApiKeyScreen = () => {
   const {
     askAPIKey,
-    key,
-    onButtonPress,
     firstTime,
+    isLoading,
+    key,
+    keyError,
+    onAlertPrimaryButtonPress,
+    onApiKeyLinkPress,
+    onButtonPress,
     setKey,
     setKeyError,
-    isLoading,
-    keyError,
-  } = useAskAPIKeyScreen();
-  const {appSettings} = useContext(SettingsContext);
-  const theme = useAppTheme();
-  const styles = getStyles(theme);
-
-  const navigation = useNavigation<StackNavigation>();
+    styles,
+    theme,
+  } = useAskApiKeyScreen();
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
-        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={theme.colors.statusBarContent}
       />
       <View style={styles.keyContainer}>
         <TextInput
@@ -55,12 +46,12 @@ const AskAPIKeyScreen = () => {
           multiline
         />
       </View>
-      <View style={styles.ApiKeyInstructions}>
-        <Text style={styles.ApiKeyInstructionsText}>
+      <View style={styles.apiKeyInstructions}>
+        <Text style={styles.apiKeyInstructionsText}>
           {firstTime && (
             <Text
               style={[
-                styles.ApiKeyInstructionsText,
+                styles.apiKeyInstructionsText,
                 {fontFamily: theme.fonts.SansBold},
               ]}>
               {appLabels.askAPIKey.step}
@@ -69,16 +60,9 @@ const AskAPIKeyScreen = () => {
           {askAPIKey.instructions}
         </Text>
         <Text
-          onPress={() => {
-            trackAction(
-              firstTime
-                ? analyticsTags.onboarding.apiKeyLink
-                : analyticsTags.askApiKeyScreen.apiKeyLink,
-            );
-            Linking.openURL(askAPIKey.generateKeyLink);
-          }}
+          onPress={onApiKeyLinkPress}
           style={[
-            styles.ApiKeyInstructionsText,
+            styles.apiKeyInstructionsText,
             {color: theme.colors.common.link},
           ]}>
           {askAPIKey.generateKeyLink}
@@ -100,17 +84,7 @@ const AskAPIKeyScreen = () => {
       </TouchableOpacity>
       <AppAlert
         type={AppAlertType.KeyError}
-        title={appLabels.keyError.title}
-        body={appLabels.keyError.body}
-        primaryButtonText={appLabels.keyError.primaryButton}
-        secondaryButtonText={appLabels.keyError.secondaryButton}
-        onPrimaryButtonPress={() => {
-          trackAction(analyticsTags.askApiKeyScreen.apiKeyErrorInstructionsBtn);
-          setKeyError(false);
-          navigation.navigate(Screen.EXPLAINER, {
-            type: ExplainerScreenType.KEY_INSTRUCTIONS,
-          });
-        }}
+        onPrimaryButtonPress={onAlertPrimaryButtonPress}
         alertVisible={keyError}
         setAlertVisible={setKeyError}
       />
@@ -118,4 +92,4 @@ const AskAPIKeyScreen = () => {
   );
 };
 
-export default AskAPIKeyScreen;
+export default AskApiKeyScreen;

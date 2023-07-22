@@ -21,12 +21,12 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontSize: 18,
       paddingHorizontal: '5%',
     },
-    ApiKeyInstructions: {
+    apiKeyInstructions: {
       alignSelf: 'center',
       maxWidth: '90%',
       marginTop: '8%',
     },
-    ApiKeyInstructionsText: {
+    apiKeyInstructionsText: {
       color: colors.text,
       fontFamily: fonts.Sans,
       fontSize: 20,

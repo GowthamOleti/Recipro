@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {SettingsIcon} from '../../../assets/icons';
-import {analyticsTags, trackAction} from '../../util/analytics';
-import {Screen} from '../navigationTypes';
+import {SettingsIcon} from '../../assets/icons';
+import {analyticsTags, trackAction} from '../util/analytics';
+import {Screen} from '../navigation/navigationTypes';
 
 const SettingsButton = (navigation: any, screen: Screen) => {
   return (
@@ -12,11 +12,11 @@ const SettingsButton = (navigation: any, screen: Screen) => {
       style={styles.container}
       onPress={() => {
         trackAction(
-          screen === Screen.HOME
+          screen === Screen.Home
             ? analyticsTags.headerActions.settingsButtonHome
             : analyticsTags.headerActions.settingsButtonResult,
         );
-        navigation.navigate(Screen.SETTINGS);
+        navigation.navigate(Screen.Settings);
       }}
       title="Settings"
     />

@@ -26,4 +26,8 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       paddingRight: '2%',
       paddingBottom: '2%',
     },
+    illustration: {
+      transform: [{scaleX: 0.9}, {scaleY: 0.9}],
+      marginTop: '9%',
+    },
   });

@@ -1,48 +1,53 @@
 import {useNavigation} from '@react-navigation/native';
 import {useContext, useEffect, useState} from 'react';
-import {AppSetting, ExplainerScreenType} from '../../../../common/constants';
-import {SettingsContext} from '../../../../common/settingsContext';
-import {Screen} from '../../../../navigation/navigationTypes';
-import {analyticsTags, trackAction} from '../../../../util/analytics';
-import {getOpenAIApiKey, removeApiKey} from '../../../../util/handleApiKey';
-import {getSetting, saveSetting} from '../../../../util/handleSettings';
-import {onFeedbackPress} from '../../../../util/helpers';
+import {AppSetting, ExplainerScreenType} from '../../../common/constants';
+import {SettingsContext} from '../../../common/settingsContext';
+import {useAppTheme} from '../../../common/useAppTheme';
+import {Screen} from '../../../navigation/navigationTypes';
+import {analyticsTags, trackAction} from '../../../util/analytics';
+import {getOpenAIApiKey, removeApiKey} from '../../../util/handleApiKey';
+import {getSetting, saveSetting} from '../../../util/handleSettings';
+import {onFeedbackPress} from '../../../util/helpers';
 import {SettingsItemProps} from './settingsItem';
+import {getStyles} from './settingsItem.styles';
 
-export const useSettingsItem = ({item}: SettingsItemProps) => {
+export const useSettingsItem = ({settingsItem}: SettingsItemProps) => {
   const {appSettings, setAppSettings} = useContext(SettingsContext);
+
+  const theme = useAppTheme();
+  const styles = getStyles(theme);
 
   const [isEnabled, setIsEnabled] = useState(false);
   const [showResetAlert, setShowResetAlert] = useState(false);
   const [truncatedApiKey, setTruncatedApiKey] = useState<string>();
 
   useEffect(() => {
-    if (item.hasToggle) {
-      getSetting(item.id).then(result => {
+    if (settingsItem.hasToggle) {
+      getSetting(settingsItem.id).then(result => {
         setIsEnabled(result);
       });
     }
-    if (item.id === AppSetting.RESET_API_KEY) {
+    if (settingsItem.id === AppSetting.ResetKey) {
       getOpenAIApiKey().then(key => {
         setTruncatedApiKey(key?.slice(-4));
       });
     }
-  }, [item]);
+  }, [settingsItem]);
 
   const resetKey = () => {
     trackAction(analyticsTags.settingsScreen.resetKeyModalYes);
     removeApiKey().finally(() => {
       navigation.reset({
         index: 0,
-        routes: [{name: Screen.ASK_API_KEY, params: {reset: true}}],
+        routes: [{name: Screen.AskApiKey, params: {reset: true}}],
       });
     });
   };
 
   // Handling Toggle Settings
   const toggleSwitch = () => {
-    switch (item.id) {
-      case AppSetting.QUICK_SUMMARIZE:
+    switch (settingsItem.id) {
+      case AppSetting.QuickSummarize:
         trackAction(
           !isEnabled
             ? analyticsTags.settingsScreen.autoSummarizeEnable
@@ -50,15 +55,15 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
         );
         setAppSettings({...appSettings, quickSummarize: !isEnabled});
         break;
-      case AppSetting.SHOW_TWEET_MAIL:
+      case AppSetting.ShowTweetEmail:
         trackAction(
           !isEnabled
-            ? analyticsTags.settingsScreen.showTweetMail
+            ? analyticsTags.settingsScreen.showTweetEmail
             : analyticsTags.settingsScreen.hideTweetMail,
         );
-        setAppSettings({...appSettings, showTweetMail: !isEnabled});
+        setAppSettings({...appSettings, showTweetEmail: !isEnabled});
         break;
-      case AppSetting.IS_DARK_MODE:
+      case AppSetting.IsDarkMode:
         trackAction(
           !isEnabled
             ? analyticsTags.settingsScreen.darkModeEnable
@@ -67,7 +72,7 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
         setAppSettings({...appSettings, isDarkMode: !isEnabled});
         break;
     }
-    saveSetting({key: item.id, value: !isEnabled});
+    saveSetting({key: settingsItem.id, value: !isEnabled});
     setIsEnabled(!isEnabled);
   };
 
@@ -75,22 +80,22 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
 
   // Handling Non-Toggle Settings
   const onSettingsItemPress = () => {
-    switch (item.id) {
-      case AppSetting.RESET_API_KEY:
+    switch (settingsItem.id) {
+      case AppSetting.ResetKey:
         trackAction(analyticsTags.settingsScreen.resetKey);
         setShowResetAlert(true);
         break;
-      case AppSetting.KEY_INSTRUCTIONS:
+      case AppSetting.KeyInstructions:
         trackAction(analyticsTags.settingsScreen.keySetupInstructions);
-        navigation.navigate(Screen.EXPLAINER, {
-          type: ExplainerScreenType.KEY_INSTRUCTIONS,
+        navigation.navigate(Screen.Explainer, {
+          type: ExplainerScreenType.KeyInstructions,
         });
         break;
-      case AppSetting.HOW_TO_USE:
+      case AppSetting.About:
         trackAction(analyticsTags.settingsScreen.aboutTextCraft);
-        navigation.navigate(Screen.EXPLAINER);
+        navigation.navigate(Screen.Explainer);
         break;
-      case AppSetting.FEEDBACK:
+      case AppSetting.Feedback:
         trackAction(analyticsTags.settingsScreen.feedback);
         onFeedbackPress();
         break;
@@ -100,10 +105,12 @@ export const useSettingsItem = ({item}: SettingsItemProps) => {
   return {
     isEnabled,
     onSettingsItemPress,
-    toggleSwitch,
     resetKey,
     setShowResetAlert,
     showResetAlert,
+    styles,
+    theme,
+    toggleSwitch,
     truncatedApiKey,
   };
 };

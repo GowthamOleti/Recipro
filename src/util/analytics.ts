@@ -18,9 +18,9 @@ export const trackState = (screen: string) => {
 
 export const analyticsTags = {
   screens: {
+    AskApiKey: 'ask_key_screen',
     Home: 'home_screen',
     Result: 'result_screen',
-    AskApiKey: 'ask_key_screen',
     Settings: 'settings_screen',
   },
   init: {
@@ -29,6 +29,17 @@ export const analyticsTags = {
     notFirstTime: 'init_not_first_time',
     keyPresent: 'init_key_present',
     keyNotPresent: 'init_key_not_present',
+  },
+  onboarding: {
+    aboutScreenRead: 'onboarding_about_read_completely',
+    aboutScreenNext: 'onboarding_about_next_btn',
+    apiKeyLink: 'onboarding_ask_key_screen_link',
+    apiKeyNext: 'onboarding_ask_key_screen_next_btn',
+    addPaymentLink: 'onboarding_add_payment_screen_link',
+    usageLimitLink: 'onboarding_add_payment_screen_usage_link',
+    done: 'onboarding_add_payment_screen_done_btn',
+    apiKeyTestSuccess: 'onboarding_key_test_success',
+    apiKeyTestFailure: 'onboarding_key_test_failure',
   },
   homescreen: {
     sharedText: 'homescreen_shared_input',
@@ -66,7 +77,7 @@ export const analyticsTags = {
   settingsScreen: {
     autoSummarizeEnable: 'settings_auto_summarize_enabled',
     autoSummarizeDisable: 'settings_auto_summarize_disabled',
-    showTweetMail: 'settings_tweet_mail_enabled',
+    showTweetEmail: 'settings_tweet_mail_enabled',
     hideTweetMail: 'settings_tweet_mail_disabled',
     darkModeEnable: 'settings_dark_mode_enabled',
     darkModeDisable: 'settings_dark_mode_disabled',
@@ -75,17 +86,6 @@ export const analyticsTags = {
     keySetupInstructions: 'settings_key_setup_instructions',
     aboutTextCraft: 'settings_about',
     feedback: 'settings_feedback',
-  },
-  onboarding: {
-    aboutScreenRead: 'onboarding_about_read_completely',
-    aboutScreenNext: 'onboarding_about_next_btn',
-    apiKeyLink: 'onboarding_ask_key_screen_link',
-    apiKeyNext: 'onboarding_ask_key_screen_next_btn',
-    addPaymentLink: 'onboarding_add_payment_screen_link',
-    usageLimitLink: 'onboarding_add_payment_screen_usage_link',
-    done: 'onboarding_add_payment_screen_done_btn',
-    apiKeyTestSuccess: 'onboarding_key_test_success',
-    apiKeyTestFailure: 'onboarding_key_test_failure',
   },
   askApiKeyScreen: {
     apiKeyTestSuccess: 'ask_key_screen_key_test_success',
@@ -109,32 +109,32 @@ export const analyticsTags = {
 };
 
 export const fetchInputActionTag: Record<InputActionType, string> = {
-  SUMMARIZE: 'homescreen_summarize_btn',
-  REWRITE: 'homescreen_rewrite_btn',
-  REWRITE_PROFESSIONAL: 'homescreen_professional_tone_btn',
-  REWRITE_CASUAL: 'homescreen_casual_tone_btn',
-  FIX_GRAMMAR: 'homescreen_fix_grammar_btn',
-  SHORTEN: 'homescreen_shorten_btn',
   EXPAND: 'homescreen_expand_btn',
-  EXPLAIN: 'homescreen_explain_btn',
   EXPLAIN_LIKE_FIVE: 'homescreen_explain_like_five_btn',
+  EXPLAIN: 'homescreen_explain_btn',
+  FIX_GRAMMAR: 'homescreen_fix_grammar_btn',
+  REWRITE_CASUAL: 'homescreen_casual_tone_btn',
+  REWRITE_PROFESSIONAL: 'homescreen_professional_tone_btn',
+  REWRITE: 'homescreen_rewrite_btn',
+  SHORTEN: 'homescreen_shorten_btn',
   SUMMARIZE_IN_POINTS: 'homescreen_summarize_in_points_btn',
+  SUMMARIZE: 'homescreen_summarize_btn',
 };
 
 export const fetchResultErrorTag: Record<ResultErrorType, string> = {
   GENERIC: 'result_screen_error_generic',
-  PAYMENT_DETAILS_UNAVAILABLE: 'result_screen_error_key_not_activated',
   INVALID_KEY: 'result_screen_error_invalid_key',
+  PAYMENT_DETAILS_UNAVAILABLE: 'result_screen_error_key_not_activated',
 };
 
 export const fetchExplainerScreenTag: Record<ExplainerScreenType, string> = {
-  KEY_INSTRUCTIONS: 'key_instructions_screen',
-  ADD_PAYMENT: 'add_payment_screen',
   ABOUT: 'about_screen',
+  ADD_PAYMENT: 'add_payment_screen',
+  KEY_INSTRUCTIONS: 'key_instructions_screen',
 };
 
 export const fetchAlertSecondaryBtnTag: Record<AppAlertType, string> = {
-  ONBOARDING_KEY_ERROR: 'onboarding_error_modal_okay_btn',
   KEY_ERROR: 'ask_key_screen_error_modal_okay_btn',
+  ONBOARDING_KEY_ERROR: 'onboarding_error_modal_okay_btn',
   RESET_CONFIRMATION: 'settings_reset_key_modal_cancel_btn',
 };

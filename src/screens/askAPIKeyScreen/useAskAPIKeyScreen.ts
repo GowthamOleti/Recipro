@@ -9,15 +9,20 @@ import {isKeyWorking} from '../../util/fetchGPTResult';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import Clipboard from '@react-native-community/clipboard';
 import {analyticsTags, trackAction, trackState} from '../../util/analytics';
+import {useAppTheme} from '../../common/useAppTheme';
+import {getStyles} from './askApiKeyScreen.styles';
+import {Linking} from 'react-native';
 
-export const useAskAPIKeyScreen = () => {
+export const useAskApiKeyScreen = () => {
   const {askAPIKey, toast} = appLabels;
+  const {showToast} = useToastMessage();
+  const theme = useAppTheme();
+  const styles = getStyles(theme);
+
   const [key, setKey] = useState('');
   const [firstTime, setFirstTime] = useState<boolean>();
   const [keyError, setKeyError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  const {showToast} = useToastMessage();
 
   const navigation = useNavigation<any>();
 
@@ -33,8 +38,8 @@ export const useAskAPIKeyScreen = () => {
     } else {
       if (firstTime) {
         trackAction(analyticsTags.onboarding.apiKeyNext);
-        navigation.push(Screen.EXPLAINER, {
-          type: ExplainerScreenType.ADD_PAYMENT,
+        navigation.push(Screen.Explainer, {
+          type: ExplainerScreenType.AddPayment,
           key,
         });
       } else {
@@ -45,7 +50,7 @@ export const useAskAPIKeyScreen = () => {
           trackAction(analyticsTags.askApiKeyScreen.apiKeyTestSuccess);
           await saveOpenAIApiKey(key);
           Clipboard.setString('');
-          navigation.replace(Screen.HOME);
+          navigation.replace(Screen.Home);
         } else {
           trackAction(analyticsTags.askApiKeyScreen.apiKeyTestFailure);
           setKeyError(true);
@@ -55,14 +60,35 @@ export const useAskAPIKeyScreen = () => {
     }
   };
 
+  const onApiKeyLinkPress = () => {
+    trackAction(
+      firstTime
+        ? analyticsTags.onboarding.apiKeyLink
+        : analyticsTags.askApiKeyScreen.apiKeyLink,
+    );
+    Linking.openURL(askAPIKey.generateKeyLink);
+  };
+
+  const onAlertPrimaryButtonPress = () => {
+    trackAction(analyticsTags.askApiKeyScreen.apiKeyErrorInstructionsBtn);
+    setKeyError(false);
+    navigation.navigate(Screen.Explainer, {
+      type: ExplainerScreenType.KeyInstructions,
+    });
+  };
+
   return {
     askAPIKey,
+    firstTime,
+    isLoading,
     key,
+    keyError,
+    onAlertPrimaryButtonPress,
+    onApiKeyLinkPress,
     onButtonPress,
     setKey,
-    firstTime,
-    keyError,
     setKeyError,
-    isLoading,
+    styles,
+    theme,
   };
 };

@@ -1,4 +1,4 @@
-import {fetchPromptPrefix, InputActionType} from '../common/constants';
+import {fetchPrompt, InputActionType} from '../common/constants';
 import {getOpenAIApiKey} from './handleApiKey';
 
 interface Props {
@@ -16,14 +16,14 @@ export const fetchGPTResult = async ({input, actionType, key}: Props) => {
     apiKey,
   });
   const openAI = new OpenAIApi(configuration);
-  const promptPrefix = fetchPromptPrefix[actionType];
-  const prompt = `${promptPrefix}${input}`;
-  console.log('API Input: ', prompt);
+  const promptPrefix = fetchPrompt[actionType];
+  const inputWithPrompt = `${promptPrefix}${input}`;
+  console.log('API Input: ', inputWithPrompt);
 
   try {
     const response = await openAI.createChatCompletion({
       model: 'gpt-3.5-turbo',
-      messages: [{role: 'user', content: prompt}],
+      messages: [{role: 'user', content: inputWithPrompt}],
     });
 
     console.log('API Response: ', JSON.stringify(response.data));

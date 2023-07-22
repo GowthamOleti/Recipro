@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
   SafeAreaView,
@@ -9,47 +9,40 @@ import {
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
 import {ExplainerScreenProps} from '../../navigation/navigationTypes';
-import {getStyles} from './explainerScreen.styles';
 import {ExplainerScreenType} from '../../common/constants';
-import {AboutTextCraft} from './components/aboutTextCraft';
+import {About} from './components/about/about';
 import {useExplainerScreen} from './useExplainerScreen';
 import {AppAlert, AppAlertType} from '../../common/appAlert';
-import {ApiKeyInstructions} from './components/apiKeyInstructions';
+import {ApiKeyInstructions} from './components/apiKeyInstructions/apiKeyInstructions';
 import Animated, {FadeInDown} from 'react-native-reanimated';
-import {fetchExplainerScreenTag, trackState} from '../../util/analytics';
 
 const ExplainerScreen = ({route}: ExplainerScreenProps) => {
-  const screenType = route?.params?.type ?? ExplainerScreenType.ABOUT;
+  const {type, key} = route?.params;
+  const screenType = type ?? ExplainerScreenType.About;
 
   const {
-    appSettings,
-    theme,
-    onExplainerButtonPress,
     firstTime,
     isLoading,
     keyError,
+    onExplainerButtonPress,
     setKeyError,
-  } = useExplainerScreen({screenType, key: route?.params?.key ?? ''});
-
-  useEffect(() => {
-    trackState(fetchExplainerScreenTag[screenType]);
-  }, [screenType]);
-
-  const styles = getStyles(theme);
+    styles,
+    theme,
+  } = useExplainerScreen({screenType, key: key ?? ''});
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
-        barStyle={appSettings.isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={theme.colors.statusBarContent}
       />
       <Animated.View entering={FadeInDown.duration(500)}>
-        <View style={{marginBottom: firstTime ? '30%' : '5%'}}>
-          {screenType === ExplainerScreenType.ABOUT ? (
-            <AboutTextCraft />
+        <View style={firstTime ? styles.marginBottom30 : styles.marginBottom5}>
+          {screenType === ExplainerScreenType.About ? (
+            <About />
           ) : (
             <ApiKeyInstructions
-              isPaymentOnly={screenType === ExplainerScreenType.ADD_PAYMENT}
+              isPaymentOnly={screenType === ExplainerScreenType.AddPayment}
             />
           )}
         </View>
@@ -64,7 +57,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
               />
             ) : (
               <Text style={styles.buttonText}>
-                {screenType === ExplainerScreenType.ABOUT
+                {screenType === ExplainerScreenType.About
                   ? appLabels.explainer.button.next
                   : appLabels.explainer.button.done}
               </Text>
@@ -74,10 +67,6 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
       </Animated.View>
       <AppAlert
         type={AppAlertType.OnboardingKeyError}
-        title={appLabels.keyError.title}
-        body={appLabels.keyError.body}
-        primaryButtonText={appLabels.keyError.primaryButton}
-        secondaryButtonText={appLabels.keyError.okay}
         alertVisible={keyError}
         setAlertVisible={setKeyError}
       />

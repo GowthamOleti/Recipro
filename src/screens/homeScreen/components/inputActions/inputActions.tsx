@@ -2,9 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {appLabels} from '../../../../../appLabels';
 import {InputActionType} from '../../../../common/constants';
-import {useAppTheme} from '../../../../common/useAppTheme';
-import {getStyles} from './inputActions.styles';
-import {MoreInputActions} from './moreInputActions';
+import {MoreInputActions} from '../moreInputActions/moreInputActions';
 import {useInputActions} from './useInputActions';
 
 export interface InputActionsProps {
@@ -13,15 +11,13 @@ export interface InputActionsProps {
 
 export const InputActions = ({input}: InputActionsProps) => {
   const {
-    onActionButtonPress,
-    showMoreOptions,
-    setShowMoreOptions,
-    onActionButtonLongPress,
     moreOptionsType,
+    onActionButtonLongPress,
+    onActionButtonPress,
+    setShowMoreOptions,
+    showMoreOptions,
+    styles,
   } = useInputActions({input});
-  const {inputActions} = appLabels;
-  const theme = useAppTheme();
-  const styles = getStyles(theme);
 
   return (
     <View style={styles.container}>
@@ -34,7 +30,7 @@ export const InputActions = ({input}: InputActionsProps) => {
           }>
           <Text
             style={[styles.actionButtonText, styles.summaryButtonTextColor]}>
-            {inputActions.summarize}
+            {appLabels.inputActions.summarize}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -43,7 +39,7 @@ export const InputActions = ({input}: InputActionsProps) => {
           onLongPress={() => onActionButtonLongPress(InputActionType.Rewrite)}>
           <Text
             style={[styles.actionButtonText, styles.rewriteButtonTextColor]}>
-            {inputActions.rewrite}
+            {appLabels.inputActions.rewrite}
           </Text>
         </TouchableOpacity>
       </View>

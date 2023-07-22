@@ -4,42 +4,42 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {ExplainerScreenType, InputActionType} from '../common/constants';
 
 export enum Screen {
-  HOME = 'HOME',
-  RESULT = 'RESULT',
-  ASK_API_KEY = 'ASK_API_KEY',
-  EXPLAINER = 'EXPLAINER',
-  SETTINGS = 'SETTINGS',
+  AskApiKey = 'ASK_API_KEY',
+  Explainer = 'EXPLAINER',
+  Home = 'HOME',
+  Result = 'RESULT',
+  Settings = 'SETTINGS',
 }
 
 export type NavStackParams = {
-  [Screen.HOME]: undefined;
-  [Screen.RESULT]: {
+  [Screen.Home]: undefined;
+  [Screen.Result]: {
     actionType: InputActionType;
     input: string;
   };
-  [Screen.ASK_API_KEY]: undefined;
-  [Screen.EXPLAINER]: {
+  [Screen.AskApiKey]: undefined;
+  [Screen.Explainer]: {
     type?: ExplainerScreenType;
     key?: string;
   };
-  [Screen.SETTINGS]: undefined;
+  [Screen.Settings]: undefined;
 };
 
 export const Stack = createNativeStackNavigator<NavStackParams>();
 
 export type StackNavigation = NavigationProp<NavStackParams>;
 
-export type HomeScreenProps = StackScreenProps<NavStackParams, Screen.HOME>;
-export type ResultScreenProps = StackScreenProps<NavStackParams, Screen.RESULT>;
+export type HomeScreenProps = StackScreenProps<NavStackParams, Screen.Home>;
+export type ResultScreenProps = StackScreenProps<NavStackParams, Screen.Result>;
 export type AskApiScreenProps = StackScreenProps<
   NavStackParams,
-  Screen.ASK_API_KEY
+  Screen.AskApiKey
 >;
 export type ExplainerScreenProps = StackScreenProps<
   NavStackParams,
-  Screen.EXPLAINER
+  Screen.Explainer
 >;
 export type SettingsScreenProps = StackScreenProps<
   NavStackParams,
-  Screen.SETTINGS
+  Screen.Settings
 >;

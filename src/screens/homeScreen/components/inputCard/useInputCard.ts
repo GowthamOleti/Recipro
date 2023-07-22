@@ -10,17 +10,21 @@ import {SettingsContext} from '../../../../common/settingsContext';
 import {useToastMessage} from '../../../../common/useToastMessage';
 import {AppState} from 'react-native';
 import {analyticsTags, trackAction} from '../../../../util/analytics';
+import {useAppTheme} from '../../../../common/useAppTheme';
+import {getStyles} from './inputCard.styles';
+import {appLabels} from '../../../../../appLabels';
 
 export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
-  const [showPasteButton, setShowPasteButton] = useState(false);
-  const [clipboardText, setClipboardText] = useState('');
   const {appSettings} = useContext(SettingsContext);
-
-  const sharedText = useFetchSharedItem();
-  const {showToast} = useToastMessage();
-
   const navigation = useNavigation<StackNavigation>();
   const isFocused = useIsFocused();
+  const sharedText = useFetchSharedItem();
+  const {showToast} = useToastMessage();
+  const theme = useAppTheme();
+  const styles = getStyles(theme);
+
+  const [showPasteButton, setShowPasteButton] = useState(false);
+  const [clipboardText, setClipboardText] = useState('');
 
   const getClipboardText = () => {
     Clipboard.getString().then(value => setClipboardText(value));
@@ -46,7 +50,7 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
         isLinkSupported(sharedText)
       ) {
         trackAction(analyticsTags.homescreen.autoSummarizing);
-        navigation.navigate(Screen.RESULT, {
+        navigation.navigate(Screen.Result, {
           actionType: InputActionType.Summarize,
           input: sharedText,
         });
@@ -64,10 +68,23 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
     }
   }, [clipboardText, inputText.length]);
 
+  const onPasteButtonPress = () => {
+    trackAction(analyticsTags.homescreen.paste);
+    showToast({message: appLabels.toast.info.paste, type: 'info'});
+    setInputText(clipboardText);
+    setShowPasteButton(false);
+  };
+
+  const onClearButtonPress = () => {
+    trackAction(analyticsTags.homescreen.clear);
+    setInputText('');
+  };
+
   return {
-    clipboardText,
+    onClearButtonPress,
+    onPasteButtonPress,
     showPasteButton,
-    setShowPasteButton,
-    showToast,
+    styles,
+    theme,
   };
 };

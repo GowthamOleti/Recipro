@@ -1,26 +1,18 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {ScrollView, Text, View} from 'react-native';
-import {settings} from '../../../appLabels';
-import {SettingsItem} from './components/settingsItem/settingsItem';
-import {useAppTheme} from '../../common/useAppTheme';
-import {getStyles} from './settingsScreen.styles';
+import {appLabels, settings} from '../../../appLabels';
+import {SettingsItem} from './settingsItem/settingsItem';
 import {appVersion} from '../../common/constants';
-import {analyticsTags, trackState} from '../../util/analytics';
+import {useSettingsScreen} from './useSettingsScreen';
 
 const SettingsScreen = () => {
-  const theme = useAppTheme();
-  const styles = getStyles(theme);
-
-  useEffect(() => {
-    trackState(analyticsTags.screens.Settings);
-  }, []);
-
+  const {styles} = useSettingsScreen();
   return (
     <ScrollView style={styles.container}>
       <View style={styles.firstSection}>
         {settings.toggleSettings.map((item, index) => (
           <>
-            <SettingsItem item={item} />
+            <SettingsItem settingsItem={item} />
             {index !== settings.toggleSettings.length - 1 && (
               <View style={styles.divider} />
             )}
@@ -30,14 +22,16 @@ const SettingsScreen = () => {
       <View style={styles.secondSection}>
         {settings.more.map((item, index) => (
           <>
-            <SettingsItem item={item} />
+            <SettingsItem settingsItem={item} />
             {index !== settings.more.length - 1 && (
               <View style={styles.divider} />
             )}
           </>
         ))}
       </View>
-      <Text style={styles.version}>{`Version ${appVersion}`}</Text>
+      <Text style={styles.version}>
+        {appLabels.appVersion.replace('{version}', appVersion)}
+      </Text>
     </ScrollView>
   );
 };

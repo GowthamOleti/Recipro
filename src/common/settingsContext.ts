@@ -2,13 +2,13 @@ import {createContext} from 'react';
 
 export interface SettingsContextType {
   quickSummarize: boolean;
-  showTweetMail: boolean;
+  showTweetEmail: boolean;
   isDarkMode: boolean;
 }
 
 export const defaultSettings = {
   quickSummarize: false,
-  showTweetMail: true,
+  showTweetEmail: true,
   isDarkMode: false,
 };
 
