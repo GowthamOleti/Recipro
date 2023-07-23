@@ -31,30 +31,34 @@ export const useNavigator = () => {
   };
 
   useEffect(() => {
-    isFirstTime().then(firstTime => {
-      if (firstTime) {
-        trackAction(analyticsTags.init.firstTime);
-        setInitRoute(Screen.Explainer);
-      } else {
-        trackAction(analyticsTags.init.notFirstTime);
-        Promise.all([IsOpenAIApiKeyPresent(), fetchAllSettings()])
-          .then(([isOpenAIApiKeyPresent, currentSettings]) => {
-            if (currentSettings) {
-              setAppSettings(currentSettings);
-            }
-            if (!isOpenAIApiKeyPresent) {
-              trackAction(analyticsTags.init.keyNotPresent);
-              setInitRoute(Screen.AskApiKey);
-            } else {
-              trackAction(analyticsTags.init.keyPresent);
-              setInitRoute(Screen.Home);
-            }
-          })
-          .catch(error => {
-            logError(error);
-          });
-      }
-    });
+    isFirstTime()
+      .then(firstTime => {
+        if (firstTime) {
+          trackAction(analyticsTags.init.firstTime);
+          setInitRoute(Screen.Explainer);
+        } else {
+          trackAction(analyticsTags.init.notFirstTime);
+          Promise.all([IsOpenAIApiKeyPresent(), fetchAllSettings()])
+            .then(([isOpenAIApiKeyPresent, currentSettings]) => {
+              if (currentSettings) {
+                setAppSettings(currentSettings);
+              }
+              if (!isOpenAIApiKeyPresent) {
+                trackAction(analyticsTags.init.keyNotPresent);
+                setInitRoute(Screen.AskApiKey);
+              } else {
+                trackAction(analyticsTags.init.keyPresent);
+                setInitRoute(Screen.Home);
+              }
+            })
+            .catch(error => {
+              logError(error);
+            });
+        }
+      })
+      .catch(error => {
+        logError(error);
+      });
   }, [setAppSettings]);
 
   useEffect(() => {

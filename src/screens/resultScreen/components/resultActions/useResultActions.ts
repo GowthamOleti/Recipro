@@ -7,6 +7,7 @@ import {useToastMessage} from '../../../../common/useToastMessage';
 import {analyticsTags, trackAction} from '../../../../util/analytics';
 import {
   copyToClipboard,
+  logError,
   shareAsEmail,
   shareAsTweet,
   shareResult,
@@ -23,8 +24,8 @@ export const useResultActions = ({output}: ResultActionsProps) => {
 
   const onTweetPress = () => {
     trackAction(analyticsTags.resultScreen.actions.tweet);
-    Linking.canOpenURL(`twitter://post?text=${encodeURIComponent('')}`).then(
-      twitterInstalled => {
+    Linking.canOpenURL(`twitter://post?text=${encodeURIComponent('')}`)
+      .then(twitterInstalled => {
         if (!twitterInstalled) {
           trackAction(analyticsTags.errorToast.twitterNotInstalled);
           showToast({
@@ -34,8 +35,10 @@ export const useResultActions = ({output}: ResultActionsProps) => {
         } else {
           shareAsTweet(output);
         }
-      },
-    );
+      })
+      .catch(error => {
+        logError(error);
+      });
   };
 
   const onSharePress = () => {

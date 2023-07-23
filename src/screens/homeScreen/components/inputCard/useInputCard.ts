@@ -1,6 +1,6 @@
 import Clipboard from '@react-native-community/clipboard';
 import {useFetchSharedItem} from '../../../../util/useFetchSharedItem';
-import {isLink, isLinkSupported} from '../../../../util/helpers';
+import {isLink, isLinkSupported, logError} from '../../../../util/helpers';
 import {InputActionType} from '../../../../common/constants';
 import {Screen, StackNavigation} from '../../../../navigation/navigationTypes';
 import {useContext, useEffect, useState} from 'react';
@@ -27,7 +27,11 @@ export const useInputCard = ({inputText, setInputText}: InputCardProps) => {
   const [clipboardText, setClipboardText] = useState('');
 
   const getClipboardText = () => {
-    Clipboard.getString().then(value => setClipboardText(value));
+    Clipboard.getString()
+      .then(value => setClipboardText(value))
+      .catch(error => {
+        logError(error);
+      });
   };
 
   AppState.addEventListener('change', nextAppState => {

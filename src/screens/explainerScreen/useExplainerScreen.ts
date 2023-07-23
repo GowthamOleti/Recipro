@@ -14,6 +14,7 @@ import {
 import {isKeyWorking} from '../../util/fetchGPTResult';
 import {saveOpenAIApiKey} from '../../util/handleApiKey';
 import {isFirstTime} from '../../util/handleSettings';
+import {logError} from '../../util/helpers';
 import {getStyles} from './explainerScreen.styles';
 
 interface Props {
@@ -36,7 +37,11 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
   }, [screenType]);
 
   useEffect(() => {
-    isFirstTime().then(result => setFirstTime(result));
+    isFirstTime()
+      .then(result => setFirstTime(result))
+      .catch(error => {
+        logError(error);
+      });
   }, []);
 
   const onExplainerButtonPress = async () => {
@@ -49,8 +54,12 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
       const isWorking = await isKeyWorking(key);
       if (isWorking) {
         trackAction(analyticsTags.onboarding.apiKeyTestSuccess);
-        await AsyncStorage.setItem(AppSetting.IsFirstTime, 'true');
-        await saveOpenAIApiKey(key);
+        try {
+          await AsyncStorage.setItem(AppSetting.IsFirstTime, 'true');
+          await saveOpenAIApiKey(key);
+        } catch (error) {
+          logError(error);
+        }
         Clipboard.setString('');
         navigation.reset({
           index: 0,

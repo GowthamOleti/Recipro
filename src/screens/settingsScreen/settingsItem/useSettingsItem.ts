@@ -7,7 +7,7 @@ import {Screen} from '../../../navigation/navigationTypes';
 import {analyticsTags, trackAction} from '../../../util/analytics';
 import {getOpenAIApiKey, removeApiKey} from '../../../util/handleApiKey';
 import {getSetting, saveSetting} from '../../../util/handleSettings';
-import {onFeedbackPress} from '../../../util/helpers';
+import {logError, onFeedbackPress} from '../../../util/helpers';
 import {SettingsItemProps} from './settingsItem';
 import {getStyles} from './settingsItem.styles';
 
@@ -23,14 +23,22 @@ export const useSettingsItem = ({settingsItem}: SettingsItemProps) => {
 
   useEffect(() => {
     if (settingsItem.hasToggle) {
-      getSetting(settingsItem.id).then(result => {
-        setIsEnabled(result);
-      });
+      getSetting(settingsItem.id)
+        .then(result => {
+          setIsEnabled(result);
+        })
+        .catch(error => {
+          logError(error);
+        });
     }
     if (settingsItem.id === AppSetting.ResetKey) {
-      getOpenAIApiKey().then(key => {
-        setTruncatedApiKey(key?.slice(-4));
-      });
+      getOpenAIApiKey()
+        .then(key => {
+          setTruncatedApiKey(key?.slice(-4));
+        })
+        .catch(error => {
+          logError(error);
+        });
     }
   }, [settingsItem]);
 

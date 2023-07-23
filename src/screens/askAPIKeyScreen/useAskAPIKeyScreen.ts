@@ -12,6 +12,7 @@ import {analyticsTags, trackAction, trackState} from '../../util/analytics';
 import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './askApiKeyScreen.styles';
 import {Linking} from 'react-native';
+import {logError} from '../../util/helpers';
 
 export const useAskApiKeyScreen = () => {
   const {askAPIKey, toast} = appLabels;
@@ -28,7 +29,11 @@ export const useAskApiKeyScreen = () => {
 
   useEffect(() => {
     trackState(analyticsTags.screens.askApiKey);
-    isFirstTime().then(value => setFirstTime(value));
+    isFirstTime()
+      .then(value => setFirstTime(value))
+      .catch(error => {
+        logError(error);
+      });
   }, []);
 
   const onButtonPress = async () => {
