@@ -57,14 +57,14 @@ export const useExplainerScreen = ({key, screenType}: Props) => {
         try {
           await AsyncStorage.setItem(AppSetting.IsFirstTime, 'true');
           await saveOpenAIApiKey(key);
+          Clipboard.setString('');
+          navigation.reset({
+            index: 0,
+            routes: [{name: Screen.Home}],
+          });
         } catch (error) {
           logError(error);
         }
-        Clipboard.setString('');
-        navigation.reset({
-          index: 0,
-          routes: [{name: Screen.Home}],
-        });
       } else {
         trackAction(analyticsTags.onboarding.apiKeyTestFailure);
         setKeyError(true);
