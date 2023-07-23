@@ -15,7 +15,7 @@ export const useResultScreen = ({input, actionType}: ResultProps) => {
   const [errorType, setErrorType] = useState<ResultErrorType>();
 
   useEffect(() => {
-    trackState(analyticsTags.screens.Result);
+    trackState(analyticsTags.screens.result);
   }, []);
 
   const fetchResult = useCallback(() => {

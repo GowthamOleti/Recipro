@@ -8,7 +8,7 @@ export const useSettingsScreen = () => {
   const styles = getStyles(theme);
 
   useEffect(() => {
-    trackState(analyticsTags.screens.Settings);
+    trackState(analyticsTags.screens.settings);
   }, []);
 
   return {

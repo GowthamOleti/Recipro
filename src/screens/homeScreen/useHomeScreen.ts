@@ -10,7 +10,7 @@ export const useHomeScreen = () => {
   const [inputText, setInputText] = useState('');
 
   useEffect(() => {
-    trackState(analyticsTags.screens.Home);
+    trackState(analyticsTags.screens.home);
   }, []);
 
   return {inputText, setInputText, styles, theme};

@@ -1,23 +1,17 @@
 import {Linking, Platform, Share} from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 import {appVersion} from '../common/constants';
-import {analyticsTags, trackAction} from './analytics';
 import crashlytics from '@react-native-firebase/crashlytics';
 
 export const isAndroid = Platform.OS === 'android';
 
 export const shareResult = async (text: string) => {
   try {
-    const result = await Share.share({
+    await Share.share({
       message: text,
     });
-    if (result.action === Share.sharedAction) {
-      trackAction(analyticsTags.shared);
-    } else if (result.action === Share.dismissedAction) {
-      trackAction(analyticsTags.shareDismissed);
-    }
   } catch (error) {
-    console.error('Error sharing text:', error);
+    logError(error);
   }
 };
 
@@ -30,9 +24,7 @@ export const shareAsEmail = (text: string) => {
     '',
   )}&body=${encodeURIComponent(text)}`;
 
-  Linking.openURL(mailtoUrl).catch(err =>
-    console.error('An error occurred', err),
-  );
+  Linking.openURL(mailtoUrl).catch(error => logError(error));
 };
 
 export const copyToClipboard = (text: string) => {
@@ -60,6 +52,6 @@ export const isLinkSupported = (link: string) => {
 };
 
 export const logError = (error: any) => {
-  console.log(error);
+  console.error(error);
   crashlytics().recordError(error);
 };

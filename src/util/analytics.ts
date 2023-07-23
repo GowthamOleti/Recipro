@@ -5,6 +5,7 @@ import {
   InputActionType,
   ResultErrorType,
 } from '../common/constants';
+import {Screen} from '../navigation/navigationTypes';
 
 export const trackAction = (eventName: string) => {
   console.log(`analytics_action: ${eventName}`);
@@ -18,13 +19,12 @@ export const trackState = (screen: string) => {
 
 export const analyticsTags = {
   screens: {
-    AskApiKey: 'ask_key_screen',
-    Home: 'home_screen',
-    Result: 'result_screen',
-    Settings: 'settings_screen',
+    askApiKey: 'ask_key_screen',
+    home: 'homescreen',
+    result: 'result_screen',
+    settings: 'settings_screen',
   },
   init: {
-    initScreen: 'init_screen_{initScreenName}',
     firstTime: 'init_first_time',
     notFirstTime: 'init_not_first_time',
     keyPresent: 'init_key_present',
@@ -44,7 +44,7 @@ export const analyticsTags = {
   homescreen: {
     sharedText: 'homescreen_shared_input',
     autoSummarizing: 'homescreen_auto_summarizing',
-    paste: 'homescreen_pasted_from_clipboard_btn',
+    paste: 'homescreen_paste_from_clipboard_btn',
     clear: 'homescreen_clear_input_btn',
     validInput: 'homescreen_valid_input',
     invalidInput: 'homescreen_invalid_input',
@@ -71,7 +71,7 @@ export const analyticsTags = {
     noInternet: 'homescreen_error_toast_no_internet',
     unsupportedLink: 'homescreen_error_toast_unsupported_link',
     rewriteLink: 'homescreen_error_toast_rewrite_link',
-    twitterNotInstalled: 'result_screen_error_toast__cannot_tweet',
+    twitterNotInstalled: 'result_screen_error_toast_cannot_tweet',
     invalidKey: 'ask_key_screen_error_toast_invalid_key',
   },
   settingsScreen: {
@@ -104,8 +104,14 @@ export const analyticsTags = {
     settingsButtonResult: 'result_screen_settings_btn',
   },
   privacyPolicy: 'about_screen_privacy_policy_link',
-  shared: 'result_shared',
-  shareDismissed: 'result_share_dismissed',
+};
+
+export const fetchInitScreenTag: Record<Screen, string> = {
+  HOME: 'init_screen_home',
+  ASK_API_KEY: 'init_screen_ask_key',
+  EXPLAINER: 'init_screen_about',
+  RESULT: '',
+  SETTINGS: '',
 };
 
 export const fetchInputActionTag: Record<InputActionType, string> = {
@@ -134,7 +140,7 @@ export const fetchExplainerScreenTag: Record<ExplainerScreenType, string> = {
 };
 
 export const fetchAlertSecondaryBtnTag: Record<AppAlertType, string> = {
-  KEY_ERROR: 'ask_key_screen_error_modal_okay_btn',
+  KEY_ERROR: 'ask_key_screen_error_modal_close_btn',
   ONBOARDING_KEY_ERROR: 'onboarding_error_modal_okay_btn',
   RESET_CONFIRMATION: 'settings_reset_key_modal_cancel_btn',
 };

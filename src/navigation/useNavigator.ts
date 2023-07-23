@@ -1,7 +1,11 @@
 import {useContext, useEffect, useState} from 'react';
 import {SettingsContext} from '../common/settingsContext';
 import {useAppTheme} from '../common/useAppTheme';
-import {analyticsTags, trackAction} from '../util/analytics';
+import {
+  analyticsTags,
+  fetchInitScreenTag,
+  trackAction,
+} from '../util/analytics';
 import {IsOpenAIApiKeyPresent} from '../util/handleApiKey';
 import {fetchAllSettings, isFirstTime} from '../util/handleSettings';
 import {logError} from '../util/helpers';
@@ -31,48 +35,33 @@ export const useNavigator = () => {
       if (firstTime) {
         trackAction(analyticsTags.init.firstTime);
         setInitRoute(Screen.Explainer);
-        trackAction(
-          analyticsTags.init.initScreen.replace(
-            '{initScreenName}',
-            Screen.Explainer.toLowerCase(),
-          ),
-        );
       } else {
         trackAction(analyticsTags.init.notFirstTime);
+        Promise.all([IsOpenAIApiKeyPresent(), fetchAllSettings()])
+          .then(([isOpenAIApiKeyPresent, currentSettings]) => {
+            if (currentSettings) {
+              setAppSettings(currentSettings);
+            }
+            if (!isOpenAIApiKeyPresent) {
+              trackAction(analyticsTags.init.keyNotPresent);
+              setInitRoute(Screen.AskApiKey);
+            } else {
+              trackAction(analyticsTags.init.keyPresent);
+              setInitRoute(Screen.Home);
+            }
+          })
+          .catch(error => {
+            logError(error);
+          });
       }
     });
-  }, []);
+  }, [setAppSettings]);
 
   useEffect(() => {
-    Promise.all([IsOpenAIApiKeyPresent(), fetchAllSettings()])
-      .then(([isOpenAIApiKeyPresent, currentSettings]) => {
-        if (!isOpenAIApiKeyPresent) {
-          trackAction(analyticsTags.init.keyNotPresent);
-          setInitRoute(Screen.AskApiKey);
-          trackAction(
-            analyticsTags.init.initScreen.replace(
-              '{initScreenName}',
-              Screen.AskApiKey.toLowerCase(),
-            ),
-          );
-        } else {
-          trackAction(analyticsTags.init.keyPresent);
-        }
-        if (currentSettings) {
-          setAppSettings(currentSettings);
-        }
-        setInitRoute(Screen.Home);
-        trackAction(
-          analyticsTags.init.initScreen.replace(
-            '{initScreenName}',
-            Screen.Home.toLowerCase(),
-          ),
-        );
-      })
-      .catch(error => {
-        logError(error);
-      });
-  }, [setInitRoute, setAppSettings]);
+    if (initRoute) {
+      trackAction(fetchInitScreenTag[initRoute]);
+    }
+  }, [initRoute]);
 
   return {
     commonScreenOptions,

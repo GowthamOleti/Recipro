@@ -27,7 +27,7 @@ export const useAskApiKeyScreen = () => {
   const navigation = useNavigation<any>();
 
   useEffect(() => {
-    trackState(analyticsTags.screens.AskApiKey);
+    trackState(analyticsTags.screens.askApiKey);
     isFirstTime().then(value => setFirstTime(value));
   }, []);
 

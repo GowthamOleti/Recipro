@@ -44,10 +44,8 @@ export const useInputActions = ({input}: InputActionsProps) => {
           type: 'error',
         });
       } else {
-        trackAction(analyticsTags.homescreen.validInput);
         return true;
       }
-      trackAction(analyticsTags.homescreen.invalidInput);
       return false;
     },
     [input, internetState.isConnected, showToast],
@@ -60,6 +58,7 @@ export const useInputActions = ({input}: InputActionsProps) => {
       ignoreAndroidSystemSettings: false,
     });
     if (isValidInput(actionType)) {
+      trackAction(analyticsTags.homescreen.validInput);
       navigation.navigate(Screen.Result, {
         actionType,
         input,
