@@ -25,6 +25,15 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+pod 'Firebase/Analytics'
+pod 'FirebaseSessions', :modular_headers => true
+pod 'FirebaseCore', :modular_headers => true
+pod 'FirebaseCoreExtension', :modular_headers => true
+pod 'FirebaseInstallations', :modular_headers => true
+pod 'GoogleDataTransport', :modular_headers => true
+pod 'nanopb', :modular_headers => true
+pod 'GoogleUtilities', :modular_headers => true
+
 target 'textcraft' do
   config = use_native_modules!
 

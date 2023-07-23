@@ -6,15 +6,24 @@ import {
   ResultErrorType,
 } from '../common/constants';
 import {Screen} from '../navigation/navigationTypes';
+import {logError} from './helpers';
 
 export const trackAction = (eventName: string) => {
   console.log(`analytics_action: ${eventName}`);
-  analytics().logEvent(eventName);
+  analytics()
+    .logEvent(eventName)
+    .catch(error => {
+      logError(error);
+    });
 };
 
 export const trackState = (screen: string) => {
   console.log(`analytics_state: ${screen}`);
-  analytics().logScreenView({screen_name: screen});
+  analytics()
+    .logScreenView({screen_name: screen})
+    .catch(error => {
+      logError(error);
+    });
 };
 
 export const analyticsTags = {
