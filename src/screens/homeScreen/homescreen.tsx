@@ -1,11 +1,19 @@
-import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import {ThemeProps, useAppTheme} from '../../common/useAppTheme';
+import {analyticsTags, trackState} from '../../util/analytics';
 import {InputActions} from './components/inputActions/inputActions';
 import {InputCard} from './components/inputCard/inputCard';
-import {useHomeScreen} from './useHomeScreen';
 
 const HomeScreen = () => {
-  const {inputText, setInputText, styles, theme} = useHomeScreen();
+  const theme = useAppTheme();
+  const styles = getStyles(theme);
+
+  const [inputText, setInputText] = useState('');
+
+  useEffect(() => {
+    trackState(analyticsTags.screens.home);
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -20,3 +28,12 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+
+export const getStyles = ({colors}: ThemeProps) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background,
+      paddingHorizontal: '5%',
+    },
+  });

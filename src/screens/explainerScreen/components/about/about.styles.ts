@@ -7,7 +7,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       paddingRight: '3%',
       paddingBottom: '8%',
     },
-    aboutText: {
+    text: {
       fontFamily: fonts.Sans,
       fontSize: 18,
       color: colors.text,

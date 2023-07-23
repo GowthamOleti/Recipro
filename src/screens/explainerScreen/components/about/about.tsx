@@ -17,31 +17,29 @@ export const About = () => {
         width={60}
         fill={theme.colors.resultSvg}
       />
-      <Text style={styles.aboutText}>{appLabels.explainer.about.intro}</Text>
-      <Text style={styles.aboutText}>
-        <Text style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
+      <Text style={styles.text}>{appLabels.explainer.about.intro}</Text>
+      <Text style={styles.text}>
+        <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
           {appLabels.explainer.about.summarizePrefix}
         </Text>
         {appLabels.explainer.about.summarizeDescription}
       </Text>
-      <Text style={styles.aboutText}>
-        <Text style={[styles.aboutText, {fontFamily: theme.fonts.SansBold}]}>
+      <Text style={styles.text}>
+        <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
           {appLabels.explainer.about.rewritePrefix}
         </Text>
         {appLabels.explainer.about.rewriteDescription}
       </Text>
-      <Text style={styles.aboutText}>
-        <Text style={styles.aboutText}>
+      <Text style={styles.text}>
+        <Text style={styles.text}>
           {appLabels.explainer.about.dataCollection}
         </Text>
         <Text
-          style={[styles.aboutText, {color: theme.colors.common.link}]}
+          style={[styles.text, {color: theme.colors.common.link}]}
           onPress={onPrivacyPolicyLinkPress}>
           {appLabels.explainer.about.privacyPolicy}
         </Text>
-        <Text style={styles.aboutText}>
-          {appLabels.explainer.about.conclusion}
-        </Text>
+        <Text style={styles.text}>{appLabels.explainer.about.conclusion}</Text>
       </Text>
     </ScrollView>
   );
