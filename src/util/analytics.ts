@@ -55,10 +55,10 @@ export const analyticsTags = {
     resultSuccess: 'result_screen_result_success',
     resultFailure: 'result_screen_result_failure',
     actions: {
-      share: 'result_screen_share_btn',
-      copy: 'result_screen_copy_btn',
-      tweet: 'result_screen_tweet_btn',
-      email: 'result_screen_email_btn',
+      share: 'result_screen_action_share_btn',
+      copy: 'result_screen_action_copy_btn',
+      tweet: 'result_screen_action_tweet_btn',
+      email: 'result_screen_action_email_btn',
     },
     errorButtons: {
       retry: 'result_screen_error_retry_btn',
@@ -115,16 +115,16 @@ export const fetchInitScreenTag: Record<Screen, string> = {
 };
 
 export const fetchInputActionTag: Record<InputActionType, string> = {
-  EXPAND: 'homescreen_expand_btn',
-  EXPLAIN_LIKE_FIVE: 'homescreen_explain_like_five_btn',
-  EXPLAIN: 'homescreen_explain_btn',
-  FIX_GRAMMAR: 'homescreen_fix_grammar_btn',
-  REWRITE_CASUAL: 'homescreen_casual_tone_btn',
-  REWRITE_PROFESSIONAL: 'homescreen_professional_tone_btn',
-  REWRITE: 'homescreen_rewrite_btn',
-  SHORTEN: 'homescreen_shorten_btn',
-  SUMMARIZE_IN_POINTS: 'homescreen_summarize_in_points_btn',
-  SUMMARIZE: 'homescreen_summarize_btn',
+  EXPAND: 'homescreen_action_expand_btn',
+  EXPLAIN_LIKE_FIVE: 'homescreen_action_explain_like_five_btn',
+  EXPLAIN: 'homescreen_action_explain_btn',
+  FIX_GRAMMAR: 'homescreen_action_fix_grammar_btn',
+  REWRITE_CASUAL: 'homescreen_action_casual_tone_btn',
+  REWRITE_PROFESSIONAL: 'homescreen_action_professional_tone_btn',
+  REWRITE: 'homescreen_action_rewrite_btn',
+  SHORTEN: 'homescreen_action_shorten_btn',
+  SUMMARIZE_IN_POINTS: 'homescreen_action_summarize_in_points_btn',
+  SUMMARIZE: 'homescreen_action_summarize_btn',
 };
 
 export const fetchResultErrorTag: Record<ResultErrorType, string> = {
