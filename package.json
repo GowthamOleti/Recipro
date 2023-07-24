@@ -7,7 +7,8 @@
     "ios": "react-native run-ios --simulator='iPhone 14'",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "postversion": "node iosVersion.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.2",
