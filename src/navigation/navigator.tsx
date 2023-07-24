@@ -1,15 +1,15 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from '../screens/homeScreen/homeScreen';
 import {appLabels, fetchResultScreenTitle} from '../../appLabels';
 import {Screen, Stack} from './navigationTypes';
 import ResultScreen from '../screens/resultScreen/resultScreen';
-import AskApiKeyScreen from '../screens/askApiKeyScreen/askApiKeyScreen';
 import ExplainerScreen from '../screens/explainerScreen/explainerScreen';
 import {useNavigator} from './useNavigator';
 import SettingsScreen from '../screens/settingsScreen/settingsScreen';
 import SettingsButton from '../common/settingsButton';
 import {ExplainerScreenType} from '../common/constants';
+import HomeScreen from '../screens/homeScreen/homeScreen';
+import AskApiKeyScreen from '../screens/askApiKeyScreen/askApiKeyScreen';
 
 export default function AppNavigator() {
   const {commonScreenOptions, initRoute} = useNavigator();
