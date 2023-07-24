@@ -28,6 +28,7 @@ export const useNavigator = () => {
     headerShadowVisible: false,
     headerTitleAlign: 'center' as 'center',
     animation: 'slide_from_right' as 'slide_from_right',
+    headerBackTitleVisible: false,
   };
 
   useEffect(() => {

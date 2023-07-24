@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, Text} from 'react-native';
 import {appLabels} from '../../../../../appLabels';
-import {Logo} from '../../../../../assets/icons';
+import {Logo} from '../../../../assets/icons';
 import {useAbout} from './useAbout';
 
 export const About = () => {

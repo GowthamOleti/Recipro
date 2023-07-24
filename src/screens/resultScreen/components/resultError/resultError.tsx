@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {ErrorIcon} from '../../../../../assets/icons';
+import {ErrorIcon} from '../../../../assets/icons';
 import {ResultErrorType} from '../../../../common/constants';
 import {useResultError} from './useResultError';
 

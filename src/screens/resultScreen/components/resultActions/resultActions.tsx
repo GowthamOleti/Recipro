@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
-import {Copy, Email, Share, Twitter} from '../../../../../assets/icons';
+import {Copy, Email, Share, Twitter} from '../../../../assets/icons';
 import {useResultActions} from './useResultActions';
 
 export interface ResultActionsProps {

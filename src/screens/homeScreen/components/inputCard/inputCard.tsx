@@ -1,11 +1,11 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
 import {appLabels} from '../../../../../appLabels';
-import {Clear, Paste} from '../../../../../assets/icons';
+import {Clear, Paste} from '../../../../assets/icons';
 import {useInputCard} from './useInputCard';
 import Animated, {FadeInDown, ZoomIn} from 'react-native-reanimated';
 import AnimatedLottieView from 'lottie-react-native';
-import {Animations} from '../../../../../assets/animations';
+import {Animations} from '../../../../assets/animations';
 
 export interface InputCardProps {
   inputText: string;

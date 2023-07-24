@@ -24,10 +24,10 @@ export const appLabels = {
         "TextCraft simplifies reading and writing tasks by using OpenAI's GPT algorithms. The app currently offers two main features - Summarize and Rewrite.",
       summarizePrefix: '\nSummarize: ',
       summarizeDescription:
-        'This feature is particularly useful to summarize lengthy texts or article links. TextCraft can generate a concise and easy-to-understand summary. By enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly. You can also long-press on summarize for more options like Explain etc.',
+        'This feature is useful to summarize lengthy texts or article links. TextCraft can generate a concise and easy-to-understand summary. Long-pressing on summarize will show more options. Also, by enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly.',
       rewritePrefix: '\nRewrite: ',
       rewriteDescription:
-        'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. Additionally, you can also set required tone (professional / casual) or choose to just fix grammar by long-pressing the Rewrite button.',
+        'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. By long-pressing on Rewrite you can access additional options like setting tone, fix grammar, expand and shorten any text.',
       dataCollection:
         "\nTo keep the app free for everyone, we've provided the option to use your own OpenAI API Key. We do not send any of your data to our servers. For more information, read our ",
       privacyPolicy: 'Privacy Policy',

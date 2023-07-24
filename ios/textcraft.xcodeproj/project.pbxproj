@@ -13,11 +13,11 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1DB008F02A6DA91B00A88348 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DB008EF2A6DA91B00A88348 /* GoogleService-Info.plist */; };
-		29232DE55F2243919B761C31 /* Product-Sans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA9D04FA95454328870243B5 /* Product-Sans-Medium.ttf */; };
-		47A521562CAA441CA7274954 /* Product-Sans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 360FA5F79C5643C1B571CC81 /* Product-Sans-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-textcraft-textcraftTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-textcraft-textcraftTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		DC65539D40D84300A2041555 /* Product-Sans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51E235EBF971400CB5E7C6AC /* Product-Sans-Bold.ttf */; };
+		DD1240FF04BA4B58B368C1A4 /* Product-Sans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57715C05913A4F779DB8F9DA /* Product-Sans-Bold.ttf */; };
+		CC620816E32A4AFCADC4FA67 /* Product-Sans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FAB85177B8044D2B789057F /* Product-Sans-Medium.ttf */; };
+		DDC2516A7FB24836B23292ED /* Product-Sans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F29C32A9D0FA433B83E03B59 /* Product-Sans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,16 +42,16 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = textcraft/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-textcraft-textcraftTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textcraft-textcraftTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB008EF2A6DA91B00A88348 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		360FA5F79C5643C1B571CC81 /* Product-Sans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Product-Sans-Regular.ttf"; path = "../assets/fonts/Product-Sans-Regular.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-textcraft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft.debug.xcconfig"; path = "Target Support Files/Pods-textcraft/Pods-textcraft.debug.xcconfig"; sourceTree = "<group>"; };
-		51E235EBF971400CB5E7C6AC /* Product-Sans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Product-Sans-Bold.ttf"; path = "../assets/fonts/Product-Sans-Bold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-textcraft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft.release.xcconfig"; path = "Target Support Files/Pods-textcraft/Pods-textcraft.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-textcraft-textcraftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft-textcraftTests.debug.xcconfig"; path = "Target Support Files/Pods-textcraft-textcraftTests/Pods-textcraft-textcraftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-textcraft.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textcraft.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = textcraft/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-textcraft-textcraftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textcraft-textcraftTests.release.xcconfig"; path = "Target Support Files/Pods-textcraft-textcraftTests/Pods-textcraft-textcraftTests.release.xcconfig"; sourceTree = "<group>"; };
-		CA9D04FA95454328870243B5 /* Product-Sans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Product-Sans-Medium.ttf"; path = "../assets/fonts/Product-Sans-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		57715C05913A4F779DB8F9DA /* Product-Sans-Bold.ttf */ = {isa = PBXFileReference; name = "Product-Sans-Bold.ttf"; path = "../src/assets/fonts/Product-Sans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6FAB85177B8044D2B789057F /* Product-Sans-Medium.ttf */ = {isa = PBXFileReference; name = "Product-Sans-Medium.ttf"; path = "../src/assets/fonts/Product-Sans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F29C32A9D0FA433B83E03B59 /* Product-Sans-Regular.ttf */ = {isa = PBXFileReference; name = "Product-Sans-Regular.ttf"; path = "../src/assets/fonts/Product-Sans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,9 +150,9 @@
 		9F768B5FB75A432A9EE4CEED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				51E235EBF971400CB5E7C6AC /* Product-Sans-Bold.ttf */,
-				CA9D04FA95454328870243B5 /* Product-Sans-Medium.ttf */,
-				360FA5F79C5643C1B571CC81 /* Product-Sans-Regular.ttf */,
+				57715C05913A4F779DB8F9DA /* Product-Sans-Bold.ttf */,
+				6FAB85177B8044D2B789057F /* Product-Sans-Medium.ttf */,
+				F29C32A9D0FA433B83E03B59 /* Product-Sans-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -266,10 +266,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				DC65539D40D84300A2041555 /* Product-Sans-Bold.ttf in Resources */,
-				29232DE55F2243919B761C31 /* Product-Sans-Medium.ttf in Resources */,
-				47A521562CAA441CA7274954 /* Product-Sans-Regular.ttf in Resources */,
 				1DB008F02A6DA91B00A88348 /* GoogleService-Info.plist in Resources */,
+				DD1240FF04BA4B58B368C1A4 /* Product-Sans-Bold.ttf in Resources */,
+				CC620816E32A4AFCADC4FA67 /* Product-Sans-Medium.ttf in Resources */,
+				DDC2516A7FB24836B23292ED /* Product-Sans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

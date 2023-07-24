@@ -2,15 +2,15 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "assets/fonts/Product-Sans-Bold.ttf",
+      "path": "src/assets/fonts/Product-Sans-Bold.ttf",
       "sha1": "e07e7ff0ec27cb309c74e5a8df2fb9ad16288f72"
     },
     {
-      "path": "assets/fonts/Product-Sans-Medium.ttf",
+      "path": "src/assets/fonts/Product-Sans-Medium.ttf",
       "sha1": "e5cc6be80c7f342d2b946f82098fb64d2baa7249"
     },
     {
-      "path": "assets/fonts/Product-Sans-Regular.ttf",
+      "path": "src/assets/fonts/Product-Sans-Regular.ttf",
       "sha1": "49bdf6c2dc3ca0c772da5bc3d10ff5da23badee3"
     }
   ]

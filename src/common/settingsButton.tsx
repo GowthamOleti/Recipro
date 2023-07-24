@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {SettingsIcon} from '../../assets/icons';
+import {SettingsIcon} from '../assets/icons';
 import {analyticsTags, trackAction} from '../util/analytics';
 import {Screen} from '../navigation/navigationTypes';
 

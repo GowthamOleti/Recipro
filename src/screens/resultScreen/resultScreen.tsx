@@ -8,7 +8,7 @@ import {ResultScreenProps} from '../../navigation/navigationTypes';
 import {InputActionType} from '../../common/constants';
 import {useResultScreen} from './useResultScreen';
 import Animated, {FadeIn} from 'react-native-reanimated';
-import {Animations} from '../../../assets/animations';
+import {Animations} from '../../assets/animations';
 
 export interface ResultProps {
   input: string;
