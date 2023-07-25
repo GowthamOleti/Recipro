@@ -42,13 +42,6 @@ export const AppAlert = ({
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.body}>{body}</Text>
           <View style={styles.buttonsContainer}>
-            {onPrimaryButtonPress && (
-              <TouchableOpacity
-                style={styles.button}
-                onPress={onPrimaryButtonPress}>
-                <Text style={styles.buttonText}>{primaryButtonText}</Text>
-              </TouchableOpacity>
-            )}
             <TouchableOpacity
               style={[
                 styles.button,
@@ -62,6 +55,13 @@ export const AppAlert = ({
               }}>
               <Text style={styles.buttonText}>{secondaryButtonText}</Text>
             </TouchableOpacity>
+            {onPrimaryButtonPress && (
+              <TouchableOpacity
+                style={styles.button}
+                onPress={onPrimaryButtonPress}>
+                <Text style={styles.buttonText}>{primaryButtonText}</Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </View>

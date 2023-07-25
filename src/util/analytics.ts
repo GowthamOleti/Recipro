@@ -132,7 +132,7 @@ export const fetchInputActionTag: Record<InputActionType, string> = {
   REWRITE_PROFESSIONAL: 'homescreen_action_professional_tone_btn',
   REWRITE: 'homescreen_action_rewrite_btn',
   SHORTEN: 'homescreen_action_shorten_btn',
-  SUMMARIZE_IN_POINTS: 'homescreen_action_summarize_in_points_btn',
+  SUMMARIZE_IN_POINTS: 'homescreen_action_summarize_points_btn',
   SUMMARIZE: 'homescreen_action_summarize_btn',
 };
 
