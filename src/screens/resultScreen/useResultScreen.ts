@@ -12,7 +12,7 @@ export const useResultScreen = ({input, actionType}: ResultProps) => {
   const styles = getStyles(theme);
 
   const [outputText, setOutputText] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [errorType, setErrorType] = useState<ResultErrorType>();
 
   useEffect(() => {

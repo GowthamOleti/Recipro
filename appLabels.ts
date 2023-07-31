@@ -8,20 +8,20 @@ import {
 export const appLabels = {
   appName: 'TextCraft',
   askAPIKey: {
-    title: 'Paste your OpenAI API key',
-    resetKeyTitle: 'Enter your new OpenAI API key',
+    title: 'Paste your API key',
+    resetKeyTitle: 'Enter your new API key',
     saveKey: 'Save API Key',
     next: 'Next',
     errorMessage: 'Invalid API Key',
     step: 'Step 1: ',
     instructions:
-      'Click on the link below and login to your Open AI account. Then create and copy the new secret key.\n',
+      'Click on the link below and login to your OpenAI™ account. Then create and copy the new secret key.\n',
     generateKeyLink: 'https://platform.openai.com/account/api-keys',
   },
   explainer: {
     about: {
       intro:
-        "TextCraft simplifies reading and writing tasks by using OpenAI's GPT algorithms. The app currently offers two main features - Summarize and Rewrite.",
+        'TextCraft simplifies reading and writing tasks by using AI. The app currently offers two main features - Summarize and Rewrite.',
       summarizePrefix: '\nSummarize: ',
       summarizeDescription:
         'This feature is useful to summarize lengthy texts or article links. TextCraft can generate a concise and easy-to-understand summary. Long-pressing on summarize will show more options. Also, by enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly.',
@@ -29,7 +29,7 @@ export const appLabels = {
       rewriteDescription:
         'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. By long-pressing on Rewrite you can access additional options like setting tone, fix grammar, expand and shorten any text.',
       dataCollection:
-        "\nTo keep the app free for everyone, we've provided the option to use your own OpenAI API Key. We do not send any of your data to our servers. For more information, read our ",
+        "\nTo keep the app free for everyone, we've provided the option to use your own API Key. We do not send any of your data to our servers. For more information, read our ",
       privacyPolicy: 'Privacy Policy',
       privacyPolicyLink:
         'https://medium.com/@textcraft.app/textcraft-privacy-policy-b1aa01d20c00',
@@ -132,7 +132,7 @@ export const fetchAlertData: Record<
   },
   RESET_CONFIRMATION: {
     title: 'Are You Sure?',
-    body: 'Please confirm if you want to reset your OpenAI API Key.',
+    body: 'Please confirm if you want to reset your API Key.',
     primaryButtonText: 'Yes',
     secondaryButtonText: 'Cancel',
   },
