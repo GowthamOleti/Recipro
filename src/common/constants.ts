@@ -31,7 +31,7 @@ export enum ExplainerScreenType {
 }
 
 export const fetchPrompt: Record<InputActionType, string> = {
-  EXPAND: 'Expand - ',
+  EXPAND: 'Expand this text into one paragraph - ',
   EXPLAIN_LIKE_TEN: "Explain Like I'm 10 - ",
   EXPLAIN:
     'Please provide a detailed explanation of the text provided, including any relevant background information or context that may help clarify the meaning. Also ensure your response is specific, concise, and avoids the use of any complex terminology or jargon. - ',

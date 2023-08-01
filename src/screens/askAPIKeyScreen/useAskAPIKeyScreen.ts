@@ -33,13 +33,12 @@ export const useAskApiKeyScreen = () => {
       .then(value => {
         if (value.startsWith('sk-')) {
           setKey(value);
-          showToast({message: appLabels.toast.info.paste, type: 'info'});
         }
       })
       .catch(error => {
         logError(error);
       });
-  }, [showToast]);
+  }, []);
 
   AppState.addEventListener('change', nextAppState => {
     if (nextAppState === 'active') {
