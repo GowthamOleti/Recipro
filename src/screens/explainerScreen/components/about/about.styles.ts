@@ -14,7 +14,10 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       flexDirection: 'row',
     },
     logo: {
+      width: 60,
+      height: 60,
       alignSelf: 'center',
-      marginBottom: '6%',
+      borderRadius: 10,
+      marginBottom: '7%',
     },
   });

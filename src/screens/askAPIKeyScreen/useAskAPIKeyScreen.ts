@@ -11,7 +11,7 @@ import Clipboard from '@react-native-community/clipboard';
 import {analyticsTags, trackAction, trackState} from '../../util/analytics';
 import {useAppTheme} from '../../common/useAppTheme';
 import {getStyles} from './askApiKeyScreen.styles';
-import {Linking} from 'react-native';
+import {AppState, Linking} from 'react-native';
 import {logError} from '../../util/helpers';
 
 export const useAskApiKeyScreen = () => {
@@ -26,6 +26,20 @@ export const useAskApiKeyScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const navigation = useNavigation<any>();
+
+  AppState.addEventListener('change', nextAppState => {
+    if (nextAppState === 'active') {
+      Clipboard.getString()
+        .then(value => {
+          if (value.startsWith('sk-')) {
+            setKey(value);
+          }
+        })
+        .catch(error => {
+          logError(error);
+        });
+    }
+  });
 
   useEffect(() => {
     trackState(analyticsTags.screens.askApiKey);

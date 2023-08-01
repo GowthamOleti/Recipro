@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {Image, ScrollView, Text} from 'react-native';
 import {appLabels} from '../../../../../appLabels';
 import {Logo} from '../../../../assets/icons';
 import {useAbout} from './useAbout';
@@ -11,12 +11,7 @@ export const About = () => {
     <ScrollView
       contentContainerStyle={styles.contentContainer}
       onScroll={handleScroll}>
-      <Logo
-        style={styles.logo}
-        height={60}
-        width={60}
-        fill={theme.colors.resultSvg}
-      />
+      <Image source={Logo} style={styles.logo} />
       <Text style={styles.text}>{appLabels.explainer.about.intro}</Text>
       <Text style={styles.text}>
         <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>

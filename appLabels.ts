@@ -29,7 +29,7 @@ export const appLabels = {
       rewriteDescription:
         'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. By long-pressing on Rewrite you can access additional options like setting the tone, fixing grammar, expanding and shortening any text.',
       dataCollection:
-        "\nNote: To keep the app free for everyone, we've provided the option to use your own API Key. We store this key locally in your device's encrypted storage. Apart from analytics, we do not collect any other data. We use analytics to analyze user behavior and improve the user experience. For information regarding how we handle your data, read our ",
+        "\nNote: To keep the app free for everyone, we've provided the option to use your own API Key. We store this key locally in your device's encrypted storage. Apart from analytics, we do not collect any other data. We use analytics to improve the user experience. For information regarding how we handle your data, read our ",
       privacyPolicy: 'Privacy Policy',
       privacyPolicyLink:
         'https://medium.com/@textcraft.app/textcraft-privacy-policy-b1aa01d20c00',

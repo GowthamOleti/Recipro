@@ -6,4 +6,5 @@ export {default as Share} from './share.svg';
 export {default as Twitter} from './twitter.svg';
 export {default as SettingsIcon} from './settings.svg';
 export {default as ErrorIcon} from './error.svg';
-export {default as Logo} from './logo.svg';
+
+export const Logo = require('./logo.png');
