@@ -3,7 +3,11 @@ import {useContext, useEffect} from 'react';
 import {SettingsContext} from '../../common/settingsContext';
 import {useAppTheme} from '../../common/useAppTheme';
 import {Screen} from '../../navigation/navigationTypes';
-import {analyticsTags, trackAction} from '../../util/analytics';
+import {
+  analyticsTags,
+  fetchInitScreenTag,
+  trackAction,
+} from '../../util/analytics';
 import {IsOpenAIApiKeyPresent} from '../../util/handleApiKey';
 import {fetchAllSettings, isFirstTime} from '../../util/handleSettings';
 import {logError} from '../../util/helpers';
@@ -23,6 +27,7 @@ export const useSplashScreen = () => {
       .then(firstTime => {
         if (firstTime) {
           trackAction(analyticsTags.init.firstTime);
+          trackAction(fetchInitScreenTag[Screen.Explainer]);
           navigation.replace(Screen.Explainer);
         } else {
           trackAction(analyticsTags.init.notFirstTime);
@@ -33,9 +38,11 @@ export const useSplashScreen = () => {
               }
               if (!isOpenAIApiKeyPresent) {
                 trackAction(analyticsTags.init.keyNotPresent);
+                trackAction(fetchInitScreenTag[Screen.AskApiKey]);
                 navigation.replace(Screen.AskApiKey);
               } else {
                 trackAction(analyticsTags.init.keyPresent);
+                trackAction(fetchInitScreenTag[Screen.Home]);
                 navigation.replace(Screen.Home);
               }
             })
