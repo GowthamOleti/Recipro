@@ -126,7 +126,7 @@ export const fetchInitScreenTag: Record<Screen, string> = {
 
 export const fetchInputActionTag: Record<InputActionType, string> = {
   EXPAND: 'homescreen_action_expand_btn',
-  EXPLAIN_LIKE_FIVE: 'homescreen_action_explain_like_five_btn',
+  EXPLAIN_LIKE_TEN: 'homescreen_action_explain_like_ten_btn',
   EXPLAIN: 'homescreen_action_explain_btn',
   FIX_GRAMMAR: 'homescreen_action_fix_grammar_btn',
   REWRITE_CASUAL: 'homescreen_action_casual_tone_btn',

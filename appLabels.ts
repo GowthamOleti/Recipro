@@ -87,7 +87,7 @@ export const fetchResultScreenTitle: Record<InputActionType, string> = {
   SHORTEN: 'Rewritten Text',
   EXPAND: 'Expanded Text',
   EXPLAIN: 'Explanation',
-  EXPLAIN_LIKE_FIVE: 'Explanation',
+  EXPLAIN_LIKE_TEN: 'Explanation',
   SUMMARIZE_IN_POINTS: 'Summary',
 };
 
@@ -167,8 +167,8 @@ export const moreActions = {
       title: 'Explain',
     },
     {
-      id: InputActionType.ExplainLikeFive,
-      title: "Explain Like I'm 5",
+      id: InputActionType.ExplainLikeTen,
+      title: "Explain Like I'm 10",
     },
     {
       id: InputActionType.SummarizeInPoints,

@@ -1,7 +1,7 @@
 export enum InputActionType {
   Expand = 'EXPAND',
   Explain = 'EXPLAIN',
-  ExplainLikeFive = 'EXPLAIN_LIKE_FIVE',
+  ExplainLikeTen = 'EXPLAIN_LIKE_TEN',
   FixGrammar = 'FIX_GRAMMAR',
   Rewrite = 'REWRITE',
   RewriteCasual = 'REWRITE_CASUAL',
@@ -32,7 +32,7 @@ export enum ExplainerScreenType {
 
 export const fetchPrompt: Record<InputActionType, string> = {
   EXPAND: 'Expand - ',
-  EXPLAIN_LIKE_FIVE: "Explain Like I'm 5 - ",
+  EXPLAIN_LIKE_TEN: "Explain Like I'm 10 - ",
   EXPLAIN:
     'Please provide a detailed explanation of the text provided, including any relevant background information or context that may help clarify the meaning. Also ensure your response is specific, concise, and avoids the use of any complex terminology or jargon. - ',
   FIX_GRAMMAR: 'Fix Grammar - ',
