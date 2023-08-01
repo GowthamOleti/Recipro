@@ -9,9 +9,11 @@ export enum Screen {
   Home = 'HOME',
   Result = 'RESULT',
   Settings = 'SETTINGS',
+  Splash = 'SPLASH',
 }
 
 export type NavStackParams = {
+  [Screen.Splash]: undefined;
   [Screen.Home]: undefined;
   [Screen.Result]: {
     actionType: InputActionType;
@@ -29,6 +31,7 @@ export const Stack = createNativeStackNavigator<NavStackParams>();
 
 export type StackNavigation = NavigationProp<NavStackParams>;
 
+export type SplashScreenProps = StackScreenProps<NavStackParams, Screen.Splash>;
 export type HomeScreenProps = StackScreenProps<NavStackParams, Screen.Home>;
 export type ResultScreenProps = StackScreenProps<NavStackParams, Screen.Result>;
 export type AskApiScreenProps = StackScreenProps<

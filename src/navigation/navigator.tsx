@@ -10,63 +10,70 @@ import SettingsButton from '../common/settingsButton';
 import {ExplainerScreenType} from '../common/constants';
 import HomeScreen from '../screens/homeScreen/homeScreen';
 import AskApiKeyScreen from '../screens/askApiKeyScreen/askApiKeyScreen';
+import SplashScreen from '../screens/splashScreen/splashScreen';
 
 export default function AppNavigator() {
-  const {commonScreenOptions, initRoute} = useNavigator();
+  const {commonScreenOptions} = useNavigator();
 
   return (
     <NavigationContainer>
-      {initRoute && (
-        <Stack.Navigator initialRouteName={initRoute}>
-          <Stack.Screen
-            options={({navigation}) => ({
-              title: appLabels.appName,
-              headerRight: () => SettingsButton(navigation, Screen.Home),
-              ...commonScreenOptions,
-            })}
-            name={Screen.Home}
-            component={HomeScreen}
-          />
-          <Stack.Screen
-            options={{
-              title: appLabels.apiKeyScreenTitle,
-              ...commonScreenOptions,
-            }}
-            name={Screen.AskApiKey}
-            component={AskApiKeyScreen}
-          />
-          <Stack.Screen
-            options={({navigation, route}) => ({
-              title: fetchResultScreenTitle[route.params.actionType],
-              headerRight: () => SettingsButton(navigation, Screen.Result),
-              ...commonScreenOptions,
-              headerShadowVisible: true,
-            })}
-            name={Screen.Result}
-            component={ResultScreen}
-          />
-          <Stack.Screen
-            options={({route}) => ({
-              title:
-                route?.params?.type === ExplainerScreenType.AddPayment ||
-                route?.params?.type === ExplainerScreenType.KeyInstructions
-                  ? appLabels.apiKeyInstructionsScreenTitle
-                  : appLabels.aboutScreenTitle,
-              ...commonScreenOptions,
-            })}
-            name={Screen.Explainer}
-            component={ExplainerScreen}
-          />
-          <Stack.Screen
-            options={{
-              title: appLabels.settingsScreenTitle,
-              ...commonScreenOptions,
-            }}
-            name={Screen.Settings}
-            component={SettingsScreen}
-          />
-        </Stack.Navigator>
-      )}
+      <Stack.Navigator initialRouteName={Screen.Splash}>
+        <Stack.Screen
+          options={() => ({
+            title: '',
+            ...commonScreenOptions,
+          })}
+          name={Screen.Splash}
+          component={SplashScreen}
+        />
+        <Stack.Screen
+          options={({navigation}) => ({
+            title: appLabels.appName,
+            headerRight: () => SettingsButton(navigation, Screen.Home),
+            ...commonScreenOptions,
+          })}
+          name={Screen.Home}
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          options={{
+            title: appLabels.apiKeyScreenTitle,
+            ...commonScreenOptions,
+          }}
+          name={Screen.AskApiKey}
+          component={AskApiKeyScreen}
+        />
+        <Stack.Screen
+          options={({navigation, route}) => ({
+            title: fetchResultScreenTitle[route.params.actionType],
+            headerRight: () => SettingsButton(navigation, Screen.Result),
+            ...commonScreenOptions,
+            headerShadowVisible: true,
+          })}
+          name={Screen.Result}
+          component={ResultScreen}
+        />
+        <Stack.Screen
+          options={({route}) => ({
+            title:
+              route?.params?.type === ExplainerScreenType.AddPayment ||
+              route?.params?.type === ExplainerScreenType.KeyInstructions
+                ? appLabels.apiKeyInstructionsScreenTitle
+                : appLabels.aboutScreenTitle,
+            ...commonScreenOptions,
+          })}
+          name={Screen.Explainer}
+          component={ExplainerScreen}
+        />
+        <Stack.Screen
+          options={{
+            title: appLabels.settingsScreenTitle,
+            ...commonScreenOptions,
+          }}
+          name={Screen.Settings}
+          component={SettingsScreen}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

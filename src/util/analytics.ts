@@ -121,6 +121,7 @@ export const fetchInitScreenTag: Record<Screen, string> = {
   EXPLAINER: 'init_screen_about',
   RESULT: '',
   SETTINGS: '',
+  SPLASH: '',
 };
 
 export const fetchInputActionTag: Record<InputActionType, string> = {
