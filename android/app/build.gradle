@@ -91,7 +91,7 @@ android {
         applicationId "com.tk.textcraft"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode userVer
         versionName userVer
     }
     signingConfigs {
