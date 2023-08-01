@@ -26,7 +26,6 @@ export const useResultScreen = ({input, actionType}: ResultProps) => {
 
     fetchGPTResult({input, actionType})
       .then(output => {
-        setIsLoading(false);
         if (output === 'ERR401') {
           setErrorType(ResultErrorType.InvalidKey);
         } else if (output === 'ERR429') {
@@ -40,6 +39,9 @@ export const useResultScreen = ({input, actionType}: ResultProps) => {
       })
       .catch(error => {
         logError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [actionType, input]);
 
