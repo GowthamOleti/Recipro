@@ -106,13 +106,15 @@ export const analyticsTags = {
   apiKeyInstructions: {
     generateKeyLink: 'key_instructions_screen_create_key_link',
     addPaymentLink: 'key_instructions_screen_payment_link',
-    usageLimitLink: 'key_instructions_screen_usage_link',
+    usageLimitLink: 'key_instructions_screen_usage_limit_link',
+    checkUsageLink: 'key_instructions_screen_check_usage_link',
   },
   headerActions: {
     settingsButtonHome: 'homescreen_settings_btn',
     settingsButtonResult: 'result_screen_settings_btn',
   },
   privacyPolicy: 'about_screen_privacy_policy_link',
+  feedback: 'about_screen_feedback_link',
 };
 
 export const fetchInitScreenTag: Record<Screen, string> = {

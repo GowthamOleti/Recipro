@@ -5,7 +5,14 @@ import {Logo} from '../../../../assets/icons';
 import {useAbout} from './useAbout';
 
 export const About = () => {
-  const {theme, styles, onPrivacyPolicyLinkPress, handleScroll} = useAbout();
+  const {
+    firstTime,
+    theme,
+    styles,
+    onFeedbackLinkPress,
+    onPrivacyPolicyLinkPress,
+    handleScroll,
+  } = useAbout();
 
   return (
     <ScrollView
@@ -34,7 +41,23 @@ export const About = () => {
           onPress={onPrivacyPolicyLinkPress}>
           {appLabels.explainer.about.privacyPolicy}
         </Text>
-        <Text style={styles.text}>{appLabels.explainer.about.conclusion}</Text>
+        {firstTime ? (
+          <Text style={styles.text}>
+            {appLabels.explainer.about.conclusionNewUser}
+          </Text>
+        ) : (
+          <Text style={styles.text}>
+            {appLabels.explainer.about.conclusion1}
+            <Text
+              style={[styles.text, {color: theme.colors.common.link}]}
+              onPress={onFeedbackLinkPress}>
+              {appLabels.explainer.about.feedbackLink}
+            </Text>
+            <Text style={styles.text}>
+              {appLabels.explainer.about.conclusion2}
+            </Text>
+          </Text>
+        )}
       </Text>
     </ScrollView>
   );

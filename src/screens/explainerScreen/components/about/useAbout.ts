@@ -4,6 +4,7 @@ import {appLabels} from '../../../../../appLabels';
 import {useAppTheme} from '../../../../common/useAppTheme';
 import {analyticsTags, trackAction} from '../../../../util/analytics';
 import {isFirstTime} from '../../../../util/handleSettings';
+import {logError, onFeedbackPress} from '../../../../util/helpers';
 import {getStyles} from './about.styles';
 
 export const useAbout = () => {
@@ -11,6 +12,15 @@ export const useAbout = () => {
   const styles = getStyles(theme);
 
   const [read, setRead] = useState(false);
+  const [firstTime, setFirstTime] = useState(false);
+
+  useEffect(() => {
+    isFirstTime()
+      .then(value => setFirstTime(value))
+      .catch(error => {
+        logError(error);
+      });
+  }, []);
 
   useEffect(() => {
     if (read) {
@@ -34,10 +44,17 @@ export const useAbout = () => {
     Linking.openURL(appLabels.explainer.about.privacyPolicyLink);
   };
 
+  const onFeedbackLinkPress = () => {
+    trackAction(analyticsTags.feedback);
+    onFeedbackPress();
+  };
+
   return {
-    theme,
-    styles,
-    onPrivacyPolicyLinkPress,
+    firstTime,
     handleScroll,
+    onFeedbackLinkPress,
+    onPrivacyPolicyLinkPress,
+    styles,
+    theme,
   };
 };

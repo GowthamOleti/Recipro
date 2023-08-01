@@ -33,17 +33,23 @@ export const appLabels = {
       privacyPolicy: 'Privacy Policy',
       privacyPolicyLink:
         'https://medium.com/@textcraft.app/textcraft-privacy-policy-b1aa01d20c00',
-      conclusion:
-        '\n\nFeel free to share your feedback using the option in settings. Thank you for using TextCraft! ❤️',
+      conclusionNewUser: '\n\nThank you for downloading TextCraft! ❤️',
+      feedbackLink: 'feedback',
+      conclusion1: '\n\nFeel free to share your ',
+      conclusion2: '. Thank you for using TextCraft! ❤️',
     },
     apiKeyInstructions: {
       step: '\nStep 2: ',
       text: 'Add your payment details in the link below to activate your key. You will get charged based on your usage. If you are living outside the US, use a card that supports international transactions.\n',
       pricing: '\nPricing: ',
       pricingBody:
-        "It's pretty cheap. It roughly costs around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). The cost per month for even the most heavy users will not exceed $0.12 (₹10), while casual users can expect an even lower cost. You can also set usage limits for your key using the link below.\n",
+        "It's pretty cheap. It roughly costs around $0.004 (~ ₹0.30) for every 50 requests (Summarize/Rewrite). The cost per month for even the most heavy users will not exceed $0.12 (₹10), while casual users can expect an even lower cost. You can also set usage limits for your key using the link below.\n\n",
       addPaymentLink:
         'https://platform.openai.com/account/billing/payment-methods',
+      additionalLinks: '\nAdditional Links:',
+      checkUsage: '\n\nCheck your API Key usage & cost details',
+      checkUsageLink: 'https://platform.openai.com/account/usage',
+      usageLimit: '\n\nSet usage limits for your API Key\n\n',
       usageLimitLink: 'https://platform.openai.com/account/billing/limits',
     },
     button: {
@@ -205,7 +211,7 @@ export const settings = {
     },
     {
       id: AppSetting.KeyInstructions,
-      title: 'API Key Setup Instructions',
+      title: 'API Key Instructions',
     },
     {
       id: AppSetting.About,

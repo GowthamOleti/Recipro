@@ -13,6 +13,7 @@ export const ApiKeyInstructions = ({
   const {
     theme,
     styles,
+    onCheckUsageLinkPress,
     onGenerateKeyLinkPress,
     onAddPaymentLinkPress,
     onUsageLimitLinkPress,
@@ -46,17 +47,33 @@ export const ApiKeyInstructions = ({
         onPress={onAddPaymentLinkPress}>
         {appLabels.explainer.apiKeyInstructions.addPaymentLink}
       </Text>
-      <Text style={styles.text}>
-        <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
-          {appLabels.explainer.apiKeyInstructions.pricing}
+      {isPaymentOnly ? (
+        <Text style={styles.text}>
+          <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
+            {appLabels.explainer.apiKeyInstructions.pricing}
+          </Text>
+          {appLabels.explainer.apiKeyInstructions.pricingBody}
+          <Text
+            style={[styles.text, {color: theme.colors.common.link}]}
+            onPress={onUsageLimitLinkPress}>
+            {appLabels.explainer.apiKeyInstructions.usageLimitLink}
+          </Text>
         </Text>
-        {appLabels.explainer.apiKeyInstructions.pricingBody}
-      </Text>
-      <Text
-        style={[styles.text, {color: theme.colors.common.link}]}
-        onPress={onUsageLimitLinkPress}>
-        {appLabels.explainer.apiKeyInstructions.usageLimitLink}
-      </Text>
+      ) : (
+        <Text style={[styles.text, {fontFamily: theme.fonts.SansBold}]}>
+          {appLabels.explainer.apiKeyInstructions.additionalLinks}
+          <Text
+            style={[styles.text, {color: theme.colors.common.link}]}
+            onPress={onCheckUsageLinkPress}>
+            {appLabels.explainer.apiKeyInstructions.checkUsage}
+          </Text>
+          <Text
+            style={[styles.text, {color: theme.colors.common.link}]}
+            onPress={onUsageLimitLinkPress}>
+            {appLabels.explainer.apiKeyInstructions.usageLimit}
+          </Text>
+        </Text>
+      )}
     </ScrollView>
   );
 };

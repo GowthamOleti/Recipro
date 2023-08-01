@@ -33,9 +33,16 @@ export const useApiKeyInstructions = ({
     );
     Linking.openURL(appLabels.explainer.apiKeyInstructions.usageLimitLink);
   };
+
+  const onCheckUsageLinkPress = () => {
+    trackAction(analyticsTags.apiKeyInstructions.checkUsageLink);
+    Linking.openURL(appLabels.explainer.apiKeyInstructions.checkUsageLink);
+  };
+
   return {
     theme,
     styles,
+    onCheckUsageLinkPress,
     onGenerateKeyLinkPress,
     onAddPaymentLinkPress,
     onUsageLimitLinkPress,
