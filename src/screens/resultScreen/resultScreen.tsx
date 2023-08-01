@@ -1,5 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, Text, View} from 'react-native';
+import {
+  RefreshControl,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  View,
+} from 'react-native';
 import LottieAnimatedView from 'lottie-react-native';
 
 import {ResultActions} from './components/resultActions/resultActions';
@@ -43,7 +49,10 @@ const ResultScreen = ({route}: ResultScreenProps) => {
         <View>
           <Animated.ScrollView
             style={styles.resultContainer}
-            entering={FadeIn.duration(1000)}>
+            entering={FadeIn.duration(1000)}
+            refreshControl={
+              <RefreshControl refreshing={isLoading} onRefresh={fetchResult} />
+            }>
             <Text style={styles.resultText} selectable>
               {outputText}
             </Text>
