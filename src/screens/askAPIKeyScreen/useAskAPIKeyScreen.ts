@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
-import {useEffect, useState} from 'react';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
+import {useCallback, useEffect, useState} from 'react';
 import {appLabels} from '../../../appLabels';
 import {Screen} from '../../navigation/navigationTypes';
 import {ExplainerScreenType} from '../../common/constants';
@@ -26,20 +26,32 @@ export const useAskApiKeyScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const navigation = useNavigation<any>();
+  const isFocused = useIsFocused();
+
+  const getClipboardText = useCallback(() => {
+    Clipboard.getString()
+      .then(value => {
+        if (value.startsWith('sk-')) {
+          setKey(value);
+          showToast({message: appLabels.toast.info.paste, type: 'info'});
+        }
+      })
+      .catch(error => {
+        logError(error);
+      });
+  }, [showToast]);
 
   AppState.addEventListener('change', nextAppState => {
     if (nextAppState === 'active') {
-      Clipboard.getString()
-        .then(value => {
-          if (value.startsWith('sk-')) {
-            setKey(value);
-          }
-        })
-        .catch(error => {
-          logError(error);
-        });
+      getClipboardText();
     }
   });
+
+  useEffect(() => {
+    if (isFocused) {
+      getClipboardText();
+    }
+  }, [getClipboardText, isFocused]);
 
   useEffect(() => {
     trackState(analyticsTags.screens.askApiKey);
