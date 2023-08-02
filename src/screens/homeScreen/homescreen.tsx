@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import {View, StatusBar, StyleSheet} from 'react-native';
 import {ThemeProps, useAppTheme} from '../../common/useAppTheme';
 import {analyticsTags, trackState} from '../../util/analytics';
 import {InputActions} from './components/inputActions/inputActions';
@@ -16,14 +16,14 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
         barStyle={theme.colors.statusBarContent}
       />
       <InputCard inputText={inputText} setInputText={setInputText} />
       <InputActions input={inputText} />
-    </SafeAreaView>
+    </View>
   );
 };
 

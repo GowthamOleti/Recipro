@@ -1,12 +1,11 @@
 import React from 'react';
 import {
   ActivityIndicator,
-  SafeAreaView,
+  View,
   StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
 import {AppAlert, AppAlertType} from '../../common/appAlert';
@@ -29,7 +28,7 @@ const AskApiKeyScreen = () => {
   } = useAskApiKeyScreen();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
         barStyle={theme.colors.statusBarContent}
@@ -88,7 +87,7 @@ const AskApiKeyScreen = () => {
         alertVisible={keyError}
         setAlertVisible={setKeyError}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

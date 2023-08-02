@@ -47,9 +47,9 @@ export const appLabels = {
       addPaymentLink:
         'https://platform.openai.com/account/billing/payment-methods',
       additionalLinks: '\nAdditional Links:',
-      checkUsage: '\n\nCheck your API Key usage & cost details',
+      checkUsage: '\n\nCheck your API Key usage & cost',
       checkUsageLink: 'https://platform.openai.com/account/usage',
-      usageLimit: '\n\nSet usage limits for your API Key\n\n',
+      usageLimit: '\n\nSet usage limits\n\n',
       usageLimitLink: 'https://platform.openai.com/account/billing/limits',
     },
     button: {

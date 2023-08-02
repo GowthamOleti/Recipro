@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  RefreshControl,
-  SafeAreaView,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
+import {RefreshControl, View, StatusBar, Text} from 'react-native';
 import LottieAnimatedView from 'lottie-react-native';
 
 import {ResultActions} from './components/resultActions/resultActions';
@@ -30,7 +24,7 @@ const ResultScreen = ({route}: ResultScreenProps) => {
     });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
         barStyle={theme.colors.statusBarContent}
@@ -65,7 +59,7 @@ const ResultScreen = ({route}: ResultScreenProps) => {
       {errorType && (
         <ResultError errorType={errorType} fetchResult={fetchResult} />
       )}
-    </SafeAreaView>
+    </View>
   );
 };
 

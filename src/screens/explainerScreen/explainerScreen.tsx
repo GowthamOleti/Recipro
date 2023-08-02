@@ -1,11 +1,10 @@
 import React from 'react';
 import {
   ActivityIndicator,
-  SafeAreaView,
+  View,
   StatusBar,
   Text,
   TouchableOpacity,
-  View,
 } from 'react-native';
 import {appLabels} from '../../../appLabels';
 import {ExplainerScreenProps} from '../../navigation/navigationTypes';
@@ -31,7 +30,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
   } = useExplainerScreen({screenType, key: key ?? ''});
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar
         backgroundColor={theme.colors.headerBackground}
         barStyle={theme.colors.statusBarContent}
@@ -70,7 +69,7 @@ const ExplainerScreen = ({route}: ExplainerScreenProps) => {
         alertVisible={keyError}
         setAlertVisible={setKeyError}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
