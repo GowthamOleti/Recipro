@@ -20,6 +20,8 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontFamily: fonts.Sans,
       fontSize: 18,
       paddingHorizontal: '5%',
+      paddingTop: '4%',
+      paddingBottom: '4%',
     },
     apiKeyInstructions: {
       alignSelf: 'center',
