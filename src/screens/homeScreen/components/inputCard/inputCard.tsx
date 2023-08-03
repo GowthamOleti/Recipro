@@ -31,7 +31,7 @@ export const InputCard = ({inputText, setInputText}: InputCardProps) => {
           multiline
           autoFocus
           placeholder={appLabels.inputHint}
-          placeholderTextColor={theme.colors.common.placeHolderText}
+          placeholderTextColor={theme.colors.placeHolderText}
           style={styles.inputText}
           onChangeText={text => setInputText(text)}
           value={inputText}

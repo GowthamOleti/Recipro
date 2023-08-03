@@ -43,11 +43,13 @@ export const SettingsItem = ({settingsItem}: SettingsItemProps) => {
       {settingsItem.hasToggle && (
         <Switch
           trackColor={{
-            false: theme.colors.toggleTrack,
-            true: theme.colors.green,
+            false: theme.colors.toggleTrackOff,
+            true: theme.colors.isDarkMode
+              ? theme.colors.greenText
+              : theme.colors.green,
           }}
           thumbColor={
-            isEnabled ? theme.colors.yellow : theme.colors.toggleThumb
+            isEnabled ? theme.colors.yellow : theme.colors.common.toggleThumbOff
           }
           onValueChange={toggleSwitch}
           value={isEnabled}

@@ -18,7 +18,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       borderRadius: 30,
     },
     divider: {
-      borderBottomColor: colors.common.placeHolderText,
+      borderBottomColor: colors.placeHolderText,
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
     version: {

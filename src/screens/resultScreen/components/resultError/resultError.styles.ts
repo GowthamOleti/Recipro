@@ -14,7 +14,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       alignSelf: 'center',
     },
     errorText: {
-      color: 'black',
+      color: colors.text,
       fontFamily: fonts.Sans,
       fontSize: 19,
       textAlign: 'center',

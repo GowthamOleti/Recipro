@@ -12,7 +12,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     keyContainer: {
       borderRadius: 30,
-      backgroundColor: colors.resultBackground,
+      backgroundColor: colors.textBackground,
       elevation: 5,
     },
     key: {

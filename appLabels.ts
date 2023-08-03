@@ -197,11 +197,11 @@ export const settings = {
       subtext: 'Show These Options in Result Screen',
       hasToggle: true,
     },
-    // {
-    //   id: AppSetting.IS_DARK_MODE,
-    //   title: 'Dark Mode',
-    //   hasToggle: true,
-    // },
+    {
+      id: AppSetting.IsDarkMode,
+      title: 'Dark Mode',
+      hasToggle: true,
+    },
   ],
   more: [
     {

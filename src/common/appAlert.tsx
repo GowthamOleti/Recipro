@@ -53,7 +53,15 @@ export const AppAlert = ({
                 trackAction(fetchAlertSecondaryBtnTag[type]);
                 setAlertVisible(false);
               }}>
-              <Text style={styles.buttonText}>{secondaryButtonText}</Text>
+              <Text
+                style={[
+                  styles.buttonText,
+                  onPrimaryButtonPress && theme.colors.isDarkMode
+                    ? {color: theme.colors.green}
+                    : null,
+                ]}>
+                {secondaryButtonText}
+              </Text>
             </TouchableOpacity>
             {onPrimaryButtonPress && (
               <TouchableOpacity

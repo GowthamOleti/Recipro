@@ -14,7 +14,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       fontFamily: fonts.SansMedium,
     },
     subtext: {
-      color: colors.common.placeHolderText,
+      color: colors.placeHolderText,
       fontSize: 13,
       fontFamily: fonts.Sans,
       marginTop: '2%',

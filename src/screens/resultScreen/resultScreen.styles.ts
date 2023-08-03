@@ -8,7 +8,7 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
       backgroundColor: colors.resultBackground,
     },
     resultContainer: {
-      backgroundColor: colors.textBackground,
+      backgroundColor: colors.resultBackground,
       height: '85%',
     },
     resultText: {

@@ -7,15 +7,15 @@ export const useAppTheme = () => {
   const isDarkMode = appSettings.isDarkMode;
 
   const colors = {
-    background: isDarkMode ? '#212121' : '#FAF4F2',
+    isDarkMode,
+    background: isDarkMode ? 'black' : '#FAF4F2',
     border: isDarkMode ? 'white' : 'black',
     buttonBorder: isDarkMode ? '' : 'black',
-    green: isDarkMode ? '#D1EDBF' : '#D1EDBF',
-    greenText: isDarkMode ? '' : '#1C5621',
-    headerBackground: isDarkMode ? '#212121' : '#FAF4F2',
-    paginationInFocus: isDarkMode ? '' : '#787171',
-    paginationNotInFocus: isDarkMode ? '' : '#CCCCCC',
-    resultBackground: isDarkMode ? '#212121' : 'white',
+    green: isDarkMode ? '#75b24e' : '#D1EDBF',
+    greenText: isDarkMode ? '#133917' : '#1C5621',
+    headerBackground: isDarkMode ? 'black' : '#FAF4F2',
+    placeHolderText: isDarkMode ? '#939393' : '#757575',
+    resultBackground: isDarkMode ? 'black' : 'white',
     resultButtonBorder: isDarkMode ? '#BDBDBD' : 'black',
     resultFooter: isDarkMode ? '#212121' : '#FAF4F2',
     resultSvg: isDarkMode ? '#BDBDBD' : '#666666',
@@ -24,11 +24,11 @@ export const useAppTheme = () => {
       ? ('light-content' as 'light-content')
       : ('dark-content' as 'dark-content'),
     text: isDarkMode ? 'white' : 'black',
-    textBackground: isDarkMode ? 'black' : 'white',
-    toggleThumb: isDarkMode ? '' : '#f4f3f4',
-    toggleTrack: isDarkMode ? '' : '#767577',
-    yellow: isDarkMode ? '#FFE7AB' : '#FFE7AB',
-    yellowText: isDarkMode ? '' : '#6F4F01',
+    textBackground: isDarkMode ? '#212121' : 'white',
+    toggleTrackOff: isDarkMode ? 'black' : '#767577',
+    toggleTrackOn: isDarkMode ? '#133917' : '#D1EDBF',
+    yellow: isDarkMode ? '#CAAD2A' : '#FFE7AB',
+    yellowText: isDarkMode ? '#523C00' : '#6F4F01',
     common: {
       black: 'black',
       emailBackground: '#FB1C1C1A',
@@ -38,7 +38,7 @@ export const useAppTheme = () => {
       infoToast: '#0288D1',
       link: '#1976D2',
       modalBackground: 'rgba(0,0,0,0.5)',
-      placeHolderText: '#757575',
+      toggleThumbOff: '#f4f3f4',
       tweetBackground: '#03A9F41A',
       tweetBorder: '#03A9F4',
       white: 'white',
@@ -54,14 +54,14 @@ export const useAppTheme = () => {
 
 export interface ThemeProps {
   colors: {
+    isDarkMode: boolean;
     background: string;
     border: string;
     buttonBorder: string;
     green: string;
     greenText: string;
     headerBackground: string;
-    paginationInFocus: string;
-    paginationNotInFocus: string;
+    placeHolderText: string;
     resultBackground: string;
     resultButtonBorder: string;
     resultFooter: string;
@@ -70,8 +70,7 @@ export interface ThemeProps {
     statusBarContent: any;
     text: string;
     textBackground: string;
-    toggleThumb: string;
-    toggleTrack: string;
+    toggleTrackOn: string;
     yellow: string;
     yellowText: string;
     common: {
@@ -82,7 +81,7 @@ export interface ThemeProps {
       homeSvg: string;
       link: string;
       modalBackground: string;
-      placeHolderText: string;
+      toggleThumbOff: string;
       tweetBackground: string;
       tweetBorder: string;
       white: string;
