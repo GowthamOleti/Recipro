@@ -11,6 +11,7 @@ export const useAppTheme = () => {
     background: isDarkMode ? 'black' : '#FAF4F2',
     border: isDarkMode ? 'white' : 'black',
     buttonBorder: isDarkMode ? '' : 'black',
+    divider: isDarkMode ? 'black' : '#757575',
     green: isDarkMode ? '#75b24e' : '#D1EDBF',
     greenText: isDarkMode ? '#133917' : '#1C5621',
     headerBackground: isDarkMode ? 'black' : '#FAF4F2',
@@ -58,6 +59,7 @@ export interface ThemeProps {
     background: string;
     border: string;
     buttonBorder: string;
+    divider: string;
     green: string;
     greenText: string;
     headerBackground: string;
