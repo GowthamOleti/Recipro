@@ -6,7 +6,7 @@ import {
 } from './src/common/constants';
 
 export const appLabels = {
-  appName: 'TextCraft',
+  appName: 'ReciPro AI',
   askAPIKey: {
     title: 'Paste your API key',
     resetKeyTitle: 'Enter your new API key',
@@ -21,22 +21,22 @@ export const appLabels = {
   explainer: {
     about: {
       intro:
-        'TextCraft simplifies the way you read and write by utilizing Al technology. The app currently offers two main features - Summarize and Rewrite.',
-      summarizePrefix: '\nSummarize: ',
-      summarizeDescription:
-        'This feature is useful to summarize lengthy texts or article links. TextCraft can generate a concise and easy-to-understand summary. Long-pressing on summarize will show more options. Also, by enabling the "Auto-Summarize Links" option in settings, you can summarize shared article links instantly.',
-      rewritePrefix: '\nRewrite: ',
-      rewriteDescription:
-        'TextCraft can also help with writing English content for work or social media. Just give any rough text as input and it will give you a well-written output while preserving the meaning, tone, and essence of the original text. By long-pressing on Rewrite you can access additional options like setting the tone, fixing grammar, expanding and shortening any text.',
+        'ReciPro helps you to restructure your recipes, and helps you to understand it better. Remember, A good recipe is not just enough to make a dish taste good :) ',
+      // summarizePrefix: '\nBeginner: ',
+      // summarizeDescription:
+      //   'This feature is useful for explaining lengthy recipes. ReciPro can generate a detailed and easy-to-understand version of the recipe, which will be very helpful if your a beginner! ',
+      // rewritePrefix: '\nPro: ',
+      // rewriteDescription:
+      //   'ReciPro can also help with cooking skill. Hey Pro cooks out there, instead of reading the whole recipe, get a short and crisp summarised version!',
       dataCollection:
         "\nNote: To keep the app free for everyone, we've provided the option to use your own API Key. We store this key locally in your device's encrypted storage. Apart from analytics, we do not collect any other data. We use analytics to improve the user experience. For information regarding how we handle your data, read our ",
-      privacyPolicy: 'Privacy Policy',
-      privacyPolicyLink:
-        'https://medium.com/@textcraft.app/textcraft-privacy-policy-b1aa01d20c00',
-      conclusionNewUser: '\n\nThank you for downloading TextCraft! ❤️',
+      // privacyPolicy: 'Privacy Policy',
+      // privacyPolicyLink:
+      //   'https://medium.com/@textcraft.app/textcraft-privacy-policy-b1aa01d20c00',
+      conclusionNewUser: '\n\nThank you for downloading ReciPro! ❤️',
       feedbackLink: 'feedback',
-      conclusion1: '\n\nFeel free to share your ',
-      conclusion2: '. Thank you for using TextCraft! ❤️',
+      conclusion1: '\n\nFeel free to share your feedback ',
+      conclusion2: '. Thank you for using ReciPro! ❤️',
     },
     apiKeyInstructions: {
       step: '\nStep 2: ',
@@ -54,13 +54,13 @@ export const appLabels = {
     },
     button: {
       done: 'Done',
-      next: 'Next',
+      next: "Let's Cook!",
     },
   },
   toast: {
     errors: {
       noInternet: 'No Internet Connection!',
-      noInput: 'Missing Input!',
+      noInput: 'Missing Input. Kindly paste a link above!',
       unsupportedLink: 'Unsupported Link!',
       rewriteLink: 'Rewrite Does Not Support Links!',
       invalidApiKey: 'Invalid API Key!',
@@ -71,30 +71,35 @@ export const appLabels = {
       copy: 'Copied to Clipboard',
     },
   },
-  inputHint:
-    'You can either share any text or link to this app or you can simply type it here...',
+  inputHint: 'Enter the name of food item to get the recipe 👨🏽‍🍳',
   inputActions: {
-    summarize: 'Summarize',
-    rewrite: 'Rewrite',
+    Summarize: '🍴Help me cook! 🍜',
+    // rewrite: 'Rewrite',
   },
   appVersion: 'Version {version}',
-  settingsScreenTitle: 'Settings',
+  settingsScreenTitle: 'Preferences',
   apiKeyScreenTitle: 'API Key Setup',
-  aboutScreenTitle: 'About TextCraft',
+  aboutScreenTitle: 'About ReciPro',
   apiKeyInstructionsScreenTitle: 'API Key Instructions',
 };
 
 export const fetchResultScreenTitle: Record<InputActionType, string> = {
   SUMMARIZE: 'Summary',
-  REWRITE: 'Rewritten Text',
-  REWRITE_PROFESSIONAL: 'Rewritten Text',
-  REWRITE_CASUAL: 'Rewritten Text',
-  FIX_GRAMMAR: 'Rewritten Text',
-  SHORTEN: 'Rewritten Text',
-  EXPAND: 'Expanded Text',
-  EXPLAIN: 'Explanation',
-  EXPLAIN_LIKE_TEN: 'Explanation',
-  SUMMARIZE_IN_POINTS: 'Summary',
+  // REWRITE: 'Rewritten Text',
+  // REWRITE_PROFESSIONAL: 'Rewritten Text',
+  // REWRITE_CASUAL: 'Rewritten Text',
+  // FIX_GRAMMAR: 'Rewritten Text',
+  // SHORTEN: 'Rewritten Text',
+  // EXPAND: 'Expanded Text',
+  EXPLAIN: 'Beginner',
+  EXPLAIN_LIKE_TEN: 'Intermediate',
+  SUMMARIZE_IN_POINTS: 'Pro',
+  [InputActionType.Expand]: '',
+  [InputActionType.FixGrammar]: '',
+  [InputActionType.Rewrite]: '',
+  [InputActionType.RewriteCasual]: '',
+  [InputActionType.RewriteProfessional]: '',
+  [InputActionType.Shorten]: '',
 };
 
 export const fetchResultScreenErrorDetails: Record<
@@ -145,40 +150,40 @@ export const fetchAlertData: Record<
 };
 
 export const moreActions = {
-  write: [
-    {
-      id: InputActionType.Expand,
-      title: 'Expand',
-    },
-    {
-      id: InputActionType.Shorten,
-      title: 'Make it Shorter',
-    },
-    {
-      id: InputActionType.RewriteCasual,
-      title: 'Casual Tone',
-    },
-    {
-      id: InputActionType.RewriteProfessional,
-      title: 'Professional Tone',
-    },
-    {
-      id: InputActionType.FixGrammar,
-      title: 'Fix Grammar',
-    },
-  ],
+  // write: [
+  //   {
+  //     id: InputActionType.Expand,
+  //     title: 'Expand',
+  //   },
+  //   {
+  //     id: InputActionType.Shorten,
+  //     title: 'Make it Shorter',
+  //   },
+  //   {
+  //     id: InputActionType.RewriteCasual,
+  //     title: 'Casual Tone',
+  //   },
+  //   {
+  //     id: InputActionType.RewriteProfessional,
+  //     title: 'Professional Tone',
+  //   },
+  //   {
+  //     id: InputActionType.FixGrammar,
+  //     title: 'Fix Grammar',
+  //   },
+  // ],
   read: [
     {
       id: InputActionType.Explain,
-      title: 'Explain',
+      title: '🍴 Beginner Cook 👶🏽',
     },
     {
       id: InputActionType.ExplainLikeTen,
-      title: "Explain Like I'm 10",
+      title: '🍴 Intermediate Cook 🧑🏻',
     },
     {
       id: InputActionType.SummarizeInPoints,
-      title: 'Summarize in Points',
+      title: '🍴 Pro Cook 👨🏻',
     },
   ],
 };
@@ -188,7 +193,7 @@ export const settings = {
     {
       id: AppSetting.QuickSummarize,
       title: 'Auto-Summarize Links',
-      subtext: 'Quickly Summarize Shared Article links',
+      subtext: 'Quickly Summarize Shared Recipe links',
       hasToggle: true,
     },
     {
@@ -199,7 +204,8 @@ export const settings = {
     },
     {
       id: AppSetting.IsDarkMode,
-      title: 'Dark Mode',
+      title: 'Dark Mode (Beta)',
+      subtext: 'For Better Reading Experience.',
       hasToggle: true,
     },
   ],
@@ -212,10 +218,11 @@ export const settings = {
     {
       id: AppSetting.KeyInstructions,
       title: 'API Key Instructions',
+      subtext: 'Understand how to get API Key',
     },
     {
       id: AppSetting.About,
-      title: 'About TextCraft',
+      title: 'About ReciPro AI',
     },
     {
       id: AppSetting.Feedback,

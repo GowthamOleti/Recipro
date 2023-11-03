@@ -4,11 +4,11 @@ import {ThemeProps} from '../../../../common/useAppTheme';
 export const getStyles = ({colors, fonts}: ThemeProps) =>
   StyleSheet.create({
     container: {
-      borderRadius: 30,
+      borderRadius: 25,
       padding: '3%',
-      maxHeight: '70%',
+      maxHeight: '76%',
       minHeight: '65%',
-      marginTop: '3%',
+      marginTop: '5%',
       backgroundColor: colors.textBackground,
       justifyContent: 'space-between',
       shadowColor: colors.shadow,
@@ -28,6 +28,6 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     illustration: {
       transform: [{scaleX: 0.9}, {scaleY: 0.9}],
-      marginTop: '9%',
+      marginTop: '3%',
     },
   });

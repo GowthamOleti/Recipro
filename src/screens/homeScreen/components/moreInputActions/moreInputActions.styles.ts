@@ -11,13 +11,13 @@ export const getStyles = ({colors, fonts}: ThemeProps) =>
     },
     contentContainer: {
       backgroundColor: colors.textBackground,
-      borderRadius: 30,
+      borderRadius: 50,
       alignSelf: 'center',
       width: '90%',
       paddingVertical: '10%',
     },
     buttonContainer: {
-      borderRadius: 25,
+      borderRadius: 40,
       marginVertical: '3%',
       marginHorizontal: '15%',
     },

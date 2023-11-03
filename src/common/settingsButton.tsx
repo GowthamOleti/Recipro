@@ -18,7 +18,7 @@ const SettingsButton = (navigation: any, screen: Screen) => {
         );
         navigation.navigate(Screen.Settings);
       }}
-      title="Settings"
+      title="Preferences"
     />
   );
 };

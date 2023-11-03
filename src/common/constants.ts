@@ -1,14 +1,20 @@
 export enum InputActionType {
-  Expand = 'EXPAND',
+  // Expand = 'EXPAND',
   Explain = 'EXPLAIN',
   ExplainLikeTen = 'EXPLAIN_LIKE_TEN',
-  FixGrammar = 'FIX_GRAMMAR',
-  Rewrite = 'REWRITE',
-  RewriteCasual = 'REWRITE_CASUAL',
-  RewriteProfessional = 'REWRITE_PROFESSIONAL',
-  Shorten = 'SHORTEN',
+  // FixGrammar = 'FIX_GRAMMAR',
+  // Rewrite = 'REWRITE',
+  // RewriteCasual = 'REWRITE_CASUAL',
+  // RewriteProfessional = 'REWRITE_PROFESSIONAL',
+  // Shorten = 'SHORTEN',
   Summarize = 'SUMMARIZE',
   SummarizeInPoints = 'SUMMARIZE_IN_POINTS',
+  Expand = 'Expand',
+  FixGrammar = 'FixGrammar',
+  // Rewrite = 'Rewrite',
+  // RewriteProfessional = 'RewriteProfessional',
+  // RewriteCasual = 'RewriteCasual',
+  Shorten = 'Shorten',
 }
 
 export const appVersion = require('../../package.json').version;
@@ -31,20 +37,26 @@ export enum ExplainerScreenType {
 }
 
 export const fetchPrompt: Record<InputActionType, string> = {
-  EXPAND: 'Expand this text into one paragraph - ',
-  EXPLAIN_LIKE_TEN: "Explain Like I'm 10 - ",
+  // EXPAND: 'Expand this text into one paragraph - ',
+  EXPLAIN_LIKE_TEN: 'provide a summarized version of the text, crisp - ',
   EXPLAIN:
-    'Please provide a detailed explanation of the text provided, including any relevant background information or context that may help clarify the meaning. Also ensure your response is specific, concise, and avoids the use of any complex terminology or jargon. - ',
-  FIX_GRAMMAR: 'Fix Grammar - ',
-  REWRITE_CASUAL: 'Rewrite in casual tone - ',
-  REWRITE_PROFESSIONAL: 'Rewrite in professional tone - ',
-  REWRITE: 'Rewrite - ',
-  SHORTEN:
-    'Make this text shorter but it should preserve all the meaning and tone - ',
+    "Based on the traditional origin of the dish [USER_INPUT]. Then provide an extremely detailed recipe for [USER_INPUT]. If the dish isn't recognized or provided, please respond with 'Please provide a valid food item'. Additionally, suggest relevant YouTube videos, channels, and websites for further learning.- ",
+  // FIX_GRAMMAR: 'Fix Grammar - ',
+  // REWRITE_CASUAL: 'Rewrite in casual tone - ',
+  // REWRITE_PROFESSIONAL: 'Rewrite in professional tone - ',
+  // REWRITE: 'Rewrite - ',
+  // SHORTEN:
+  //   'Make this text shorter but it should preserve all the meaning and tone - ',
   SUMMARIZE_IN_POINTS:
-    'Summarize the text in points concisely while covering all key points and main ideas. Use relevant details and examples, avoid repetition, and ensure the length is appropriate for the complexity while conveying all important information. - ',
+    'Given that I am assisting an intermediate cook, please provide a moderately detailed recipe for [USER_INPUT]. If there is no provided dish, please respond with "Please provide a valid food item".- ',
   SUMMARIZE:
-    'Summarize the text concisely while covering all key points and main ideas. Use relevant details and examples, avoid repetition, and ensure the length is appropriate for the complexity while conveying all important information. - ',
+    'Given that I am assisting a pro cook, provide a concise yet comprehensive recipe for [USER_INPUT]. If there is no provided dish, please respond with "Please provide a valid food item".- ',
+  [InputActionType.Expand]: '',
+  [InputActionType.FixGrammar]: '',
+  // [InputActionType.Rewrite]: '',
+  // [InputActionType.RewriteCasual]: '',
+  // [InputActionType.RewriteProfessional]: '',
+  [InputActionType.Shorten]: '',
 };
 
 export enum AppSetting {

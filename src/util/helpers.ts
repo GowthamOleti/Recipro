@@ -32,8 +32,8 @@ export const copyToClipboard = (text: string) => {
 };
 
 export const onFeedbackPress = () => {
-  const recipient = 'textcraft.app@gmail.com';
-  const subject = 'TextCraft App Feedback';
+  const recipient = 'oletigowtham8803@gmail.com';
+  const subject = 'ReciPro AI App Feedback';
   const body = `OS: ${Platform.OS}${isAndroid ? ' API Level' : ''} ${
     Platform.Version
   }\nApp Version: ${appVersion}\nDevice Name:`;
